@@ -10,17 +10,27 @@
 
 ---
 
-## [1.2.2] — 2026-11-03
+## [1.3.0] — 2026-11-03
+
+### Added
+- **Post-Task Verification Skill (`skills/12-code-quality-and-maintenance/post-task-verification/SKILL.md`)**:
+  - Authored canonical 15-section domain skill enforcing 15-dimensional post-implementation audits (prompt review, diff sweep, completeness, test results, security impact, regression avoidance, and revalidation loops).
+  - Scaffolded dual-path root symlink `skills/post-task-verification`.
+  - Expanded total skill library count to **371 unique skills**.
+- **12-Stage Canonical Engineering Lifecycle ([`WORKFLOW.md`](./WORKFLOW.md))**:
+  - Expanded lifecycle to 12 stages with mandatory line-level diff sweeps, requirement completeness audits, defect classification, and evidence-backed completion.
+- **Architectural Decision Record ADR-011 ([`DECISIONS.md`](./DECISIONS.md))**:
+  - Ratified ADR-011 superseding ADR-005: replaced arbitrary two-skill maximums with Dynamic Context-Aware Skill Loading, scoped release gates proportionally to change risk, and codified task completion invariants.
 
 ### Changed
-- **Strict Relative Link Portability Across All Documents & Skills**:
-  - Eliminated all machine-specific absolute paths (`file:///home/hexx/...` and `/home/hexx/...`) across all 82 files in the repository.
-  - Converted 1,150+ internal file links across core governance files (`AGENTS.md`, `RULES.md`, `CONTEXT.md`, `WORKFLOW.md`, `SKILLS.md`, `TASKS.md`, `DECISIONS.md`, `MEMORY.md`, `README.md`, `CHANGELOG.md`), 370 skills, templates, and documentation to exact POSIX relative paths.
-  - Resolved `AGENTS.md:L134` (`./TASKS.md`) and `skills/ui-ux-pro-max/SKILL.md:L21` (`./references/quick-reference.md`).
-- **Portability Invariant Codified**:
-  - Added Invariant 6 (Repository Portability & Relative Links Invariant) and anti-pattern entry to [`RULES.md`](./RULES.md).
-- **Architectural Decision Record ADR-010 ([`DECISIONS.md`](./DECISIONS.md))**:
-  - Ratified ADR-010: Strict Relative Paths and Repository Portability Invariant.
+- **Framework Contradiction Resolution**:
+  - Removed arbitrary fixed two-skill limits across `AGENTS.md`, `RULES.md`, and `SKILLS.md`.
+  - Defined clear Authority Boundary Triad in [`RULES.md`](./RULES.md): Platform Safety Constraints vs. Mandatory Framework Invariants vs. User Project Decisions.
+  - Scoped Release Gates and Security Verification proportionally to risk in `RULES.md` and `WORKFLOW.md`.
+  - Enforced Evidence-Based Task Completion Invariant: tasks cannot be marked `Completed` without empirical evidence, and unresolved blockers must be reported honestly.
+- **Master Registry Synchronization ([`SKILLS.md`](./SKILLS.md))**:
+  - Completely synchronized `SKILLS.md` to catalog all 371 skills (71 domain core skills in Section 2 tables + 300 specialized engineering skills in Section 3 catalog).
+  - Verified 393 relative internal links with 0 broken links.
 
 ---
 
@@ -28,8 +38,8 @@
 
 ### Changed
 - **Strict Relative Link Portability Across All Documents & Skills**:
-  - Eliminated all machine-specific absolute paths (`file:///home/<user>/...` and `/home/<user>/...`) across all 82 files in the repository.
-  - Converted 1,150+ internal file links across core governance files (`AGENTS.md`, `RULES.md`, `CONTEXT.md`, `WORKFLOW.md`, `SKILLS.md`, `TASKS.md`, `DECISIONS.md`, `MEMORY.md`, `README.md`, `CHANGELOG.md`), 370 skills, templates, and documentation to exact POSIX relative paths.
+  - Eliminated all machine-specific absolute paths across all 82 files in the repository.
+  - Converted 1,150+ internal file links across core governance files, 370 skills, templates, and documentation to exact POSIX relative paths.
   - Resolved `AGENTS.md:L134` (`./TASKS.md`) and `skills/ui-ux-pro-max/SKILL.md:L21` (`./references/quick-reference.md`).
 - **Portability Invariant Codified**:
   - Added Invariant 6 (Repository Portability & Relative Links Invariant) and anti-pattern entry to [`RULES.md`](./RULES.md).

@@ -5,7 +5,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Format: Markdown](https://img.shields.io/badge/Format-Markdown--Only-emerald.svg)](#)
 [![Zero Dependency](https://img.shields.io/badge/Dependencies-Zero-brightgreen.svg)](#)
-[![Skills Library](https://img.shields.io/badge/Skills-370%20Across%2016%20Domains-indigo.svg)](SKILLS.md)
+[![Skills Library](https://img.shields.io/badge/Skills-371%20Across%2016%20Domains-indigo.svg)](SKILLS.md)
 [![Testing: TDD](https://img.shields.io/badge/Methodology-Mandatory%20TDD-red.svg)](skills/09-quality-assurance-and-testing/test-driven-development/SKILL.md)
 [![Security: DevSecOps](https://img.shields.io/badge/Security-Tripartite%20%26%20Pen--Testing-blueviolet.svg)](skills/02-security-engineering/penetration-testing/SKILL.md)
 [![Compatibility](https://img.shields.io/badge/Compatibility-Claude%20%7C%20Cursor%20%7C%20Antigravity%20%7C%20Codex%20%7C%20Windsurf%20%7C%20Copilot-purple.svg)](docs_agent/COMPATIBILITY.md)
@@ -24,7 +24,7 @@ UMSF introduces **no executable runtimes, no background daemons, no databases, a
 | Problem in Agentic Development | Traditional Approach | UMSF Solution |
 |---|---|---|
 | **Context Drift Across Sessions** | Context lost when chat closes | Structured handoffs in `docs_agent/SESSION_LOG.md` & `TASKS.md` |
-| **Token Sizing / Context Bloat** | Ingesting all rules into prompt | 370 modular on-demand skills with **Two-Skill Limit** (`SKILLS.md`) |
+| **Token Sizing / Context Bloat** | Ingesting all rules into prompt | 371 modular on-demand skills with dynamic context-aware loading (`SKILLS.md`) |
 | **Developer Self-Approval Bias** | Dev agent approves its own code | **Tripartite Agent Architecture**: Independent QA & Security review |
 | **Post-Hoc / Fake Tests** | Tests written after code to match bugs | **Mandatory TDD Red-Green-Refactor**: Failing tests written first |
 | **Superficial Security Scans** | Passive checks or zero security review | **Authorized Penetration Testing** & 10-stage vulnerability lifecycle |
@@ -43,10 +43,10 @@ flowchart TD
     subgraph S1["1. Universal Instruction System"]
         AG[AGENTS.md\nEntry Point & Tripartite Roles]
         RL[RULES.md\nPrecedence Level 2 & TDD/Sec Rules]
-        WF[WORKFLOW.md\n9-Stage Lifecycle & 4 Release Gates]
+        WF[WORKFLOW.md\n12-Stage Lifecycle & Post-Task Verification]
     end
 
-    subgraph S2["2. Reusable Skills System (370 Skills Across 16 Domains)"]
+    subgraph S2["2. Reusable Skills System (371 Skills Across 16 Domains)"]
         SKR[SKILLS.md\nCentral Registry & Index]
         DOMS["16 Canonical Domain Directories\n(skills/01-... to skills/16-...)"]
         REF[Pure Markdown\nCatalogs & Guides]
@@ -85,9 +85,9 @@ flowchart TD
 ```
 
 1. **Universal Instruction System** ([`AGENTS.md`](./AGENTS.md), [`RULES.md`](./RULES.md), [`WORKFLOW.md`](./WORKFLOW.md)): Governs entry points, precedence ranking, safety invariants, TDD Red-Green-Refactor, Tripartite roles, and 4-tier release gates.
-2. **Reusable Skills System** ([`SKILLS.md`](./SKILLS.md), [`skills/`](./skills/)): 370 on-demand domain capability packages structured into 16 canonical numbered domain directories under `skills/` (with dual-path backward compatibility via root symlinks).
+2. **Reusable Skills System** ([`SKILLS.md`](./SKILLS.md), [`skills/`](./skills/)): 371 on-demand domain capability packages structured into 16 canonical numbered domain directories under `skills/` (with dual-path backward compatibility via root symlinks).
 3. **Project Context System** ([`CONTEXT.md`](./CONTEXT.md)): The verified single source of truth describing active stack, modules, and limitations.
-4. **Persistent Knowledge and Memory System** ([`MEMORY.md`](./MEMORY.md), [`DECISIONS.md`](./DECISIONS.md)): Preserves architectural lessons, pitfalls, conventions, and immutable ADRs (ADR-001 through ADR-008).
+4. **Persistent Knowledge and Memory System** ([`MEMORY.md`](./MEMORY.md), [`DECISIONS.md`](./DECISIONS.md)): Preserves architectural lessons, pitfalls, conventions, and immutable ADRs (ADR-001 through ADR-010).
 5. **Development Continuity System** ([`TASKS.md`](./TASKS.md), [`CHANGELOG.md`](./CHANGELOG.md), [`templates/`](./templates/), [`docs_agent/`](./docs_agent/)): Operational 5-state task tracker, 18 project templates, and multi-agent session handoffs.
 
 ---
@@ -113,9 +113,9 @@ UMSF directly integrates the design intelligence of the **UI/UX Pro Max** framew
 
 ---
 
-## 4. Reusable Skills Library (370 Active Skills Across 16 Domains)
+## 4. Reusable Skills Library (371 Active Skills Across 16 Domains)
 
-The framework features an expanded, SDLC-comprehensive library of **370 modular skills** structured across **16 Canonical Engineering Domains** under `skills/` (with dual-path backward compatibility via root symlinks):
+The framework features an expanded, SDLC-comprehensive library of **371 modular skills** structured across **16 Canonical Engineering Domains** under `skills/` (with dual-path backward compatibility via root symlinks):
 
 ### The 16 Canonical Engineering Domains
 
@@ -132,7 +132,7 @@ The framework features an expanded, SDLC-comprehensive library of **370 modular 
 | **09. QA & Testing** | [`skills/09-quality-assurance-and-testing/`](./skills/09-quality-assurance-and-testing/) | **16 Testing Skills**: Mandatory TDD, Unit, Integration, E2E, Regression |
 | **10. DevOps** | [`skills/10-devops-and-infrastructure/`](./skills/10-devops-and-infrastructure/) | CI/CD pipelines, Docker, Kubernetes, cloud platforms |
 | **11. Reliability** | [`skills/11-reliability-and-operations/`](./skills/11-reliability-and-operations/) | SRE metrics, SLI/SLO, alerting, incident response |
-| **12. Code Quality** | [`skills/12-code-quality-and-maintenance/`](./skills/12-code-quality-and-maintenance/) | 5-dimension code review, refactoring, technical debt |
+| **12. Code Quality** | [`skills/12-code-quality-and-maintenance/`](./skills/12-code-quality-and-maintenance/) | 5-dimension code review, **post-task-verification**, refactoring |
 | **13. Performance** | [`skills/13-performance-engineering/`](./skills/13-performance-engineering/) | Profiling, latency budgets, load & stress testing |
 | **14. Project Mgmt** | [`skills/14-project-and-team-management/`](./skills/14-project-and-team-management/) | Agile ceremonies, sprint planning, task DAG breakdown |
 | **15. Documentation**| [`skills/15-documentation-and-technical-communication/`](./skills/15-documentation-and-technical-communication/) | Technical writing, architectural docs, API references |

@@ -1,7 +1,7 @@
 # WORKFLOW.md — Standard Development Lifecycle
 # Universal Markdown Skills Framework (UMSF)
 
-> Version: 1.0.0  
+> Version: 1.3.0  
 > Scope: Universal / All Agents & Contributors  
 > Authority: Operational Lifecycle Standard (Precedence Level 5)  
 
@@ -9,165 +9,176 @@
 
 ## 1. Overview & Principles
 
-This document defines the canonical 9-stage engineering lifecycle governing all tasks executed under the Universal Markdown Skills Framework. Every feature, bug fix, refactoring effort, or architectural modification must advance through these structured gates.
+This document defines the canonical **12-stage engineering lifecycle** governing all tasks executed under the Universal Markdown Skills Framework. Every feature, bug fix, refactoring effort, or architectural modification must advance through these structured gates.
 
 ```mermaid
 flowchart TD
-    W1[1. Initialization & Context Intake] --> W2[2. Requirement Analysis & Acceptance Scoping]
-    W2 --> W3[3. Planning & Task Breakdown]
-    W3 --> W4[4. Architecture, Design & Threat Modeling]
-    W4 --> W5[5. Test-Driven Implementation: TDD Red-Green-Refactor]
-    W5 --> W6[6. Independent QA & Multi-Tier Verification]
-    W6 --> W7[7. Independent Security & Authorized Pen-Testing]
-    W7 --> W8[8. Four-Tier Release Gates & Integration]
-    W8 --> W9[9. Documentation, Memory & Session Handoff]
+    W1[1. Understand Original Request & Context] --> W2[2. Plan Task & Acceptance Criteria]
+    W2 --> W3[3. Implement via TDD Red-Green-Refactor]
+    W3 --> W4[4. Initial Validation & Test Execution]
+    W4 --> W5[5. Inspect Every Change - Diff Sweep]
+    W5 --> W6[6. Analyse Requirement Completeness]
+    W6 --> W7[7. Relevant Independent QA & Security Review]
+    W7 --> W8[8. Identify & Classify Issues]
+    W8 --> W9[9. Remediate Issues within Scope]
+    W9 --> W10[10. Revalidate Affected Functionality]
+    W10 --> W11[11. Update Meaningful Documentation]
+    W11 --> W12[12. Report Verified Completion Status]
 ```
 
+### Core Principles
+1. **Evidence-Based Delivery**: A task must never be marked `Completed` unless its applicable acceptance criteria have been verified with empirical proof (diff inspection, test results, exit code 0).
+2. **Risk-Proportionate Rigor**: Verification depth must match change risk. Do not impose unnecessary dynamic penetration tests or full system regressions on unrelated low-risk changes (e.g. documentation typos or standalone CSS tweaks).
+3. **Honest Status Reporting**: If a defect or blocker cannot be resolved within authorized scope, report it transparently and retain an incomplete or blocked state (`In Progress` or `Blocked`). Never claim unverified success.
+4. **Dynamic Context-Aware Skill Loading**: Load all relevant domain skills required to complete a task effectively, guided by working context budgets rather than arbitrary fixed limits.
+
 ---
 
-## 2. The Nine Lifecycle Stages
+## 2. The Twelve Lifecycle Stages
 
-### Stage 1: Project Initialization & Context Intake
-- **Goal**: Align the AI agent with the verified reality of the repository before executing commands or modifying code.
+### Stage 1: Understand the Original Request & Context Intake
+- **Goal**: Align the AI agent with the verified reality of the prompt and codebase before modifying files or executing state-altering commands.
 - **Protocol**:
   1. Follow the 10-step initialization procedure in [`AGENTS.md`](./AGENTS.md).
-  2. Inspect [`RULES.md`](./RULES.md) for mandatory safety, TDD, and security boundaries.
-  3. Read [`CONTEXT.md`](./CONTEXT.md) to understand current architecture, available test runners, and active technology stacks.
-  4. Consult [`TASKS.md`](./TASKS.md) to locate pending or assigned tasks.
-- **Exit Gate**: The agent can cite verified codebase facts and active constraints without making assumptions.
+  2. Inspect [`RULES.md`](./RULES.md) for mandatory safety, coding standards, and security boundaries.
+  3. Read [`CONTEXT.md`](./CONTEXT.md) to understand current architecture, dependencies, and available tooling.
+  4. Consult [`TASKS.md`](./TASKS.md) to verify existing roadmap state.
+- **Exit Gate**: The agent can cite verified codebase reality and user acceptance criteria without unverified assumptions.
 
 ---
 
-### Stage 2: Requirement Analysis & Acceptance Scoping
-- **Goal**: Deconstruct user requests into unambiguous technical objectives, acceptance criteria, and explicit non-goals.
+### Stage 2: Plan the Task & Acceptance Criteria Breakdown
+- **Goal**: Decompose user requests into atomic, dependency-ordered technical subtasks with verifiable acceptance criteria.
 - **Protocol**:
-  1. Load domain skill: [`skills/requirements-analysis/SKILL.md`](./skills/requirements-analysis/SKILL.md).
-  2. For frontend/UI features, identify:
-     - Target audience and device contexts (mobile, desktop, hybrid).
-     - Interaction model (forms, dashboards, real-time widgets, data tables).
-     - Accessibility criteria (WCAG AA 4.5:1, screen reader flows, keyboard shortcuts).
-  3. Formulate positive, negative, boundary, and edge test scenarios.
-  4. If core requirements are ambiguous, clarify with the user before writing code.
-- **Exit Gate**: A clearly scoped problem definition with verifiable acceptance criteria.
+  1. Load relevant planning skills: [`skills/01-software-development-lifecycle/planning/SKILL.md`](./skills/01-software-development-lifecycle/planning/SKILL.md) and [`skills/04-requirements-and-business-analysis/requirements-analysis/SKILL.md`](./skills/04-requirements-and-business-analysis/requirements-analysis/SKILL.md).
+  2. Update [`TASKS.md`](./TASKS.md): Transition selected task to `In Progress`.
+  3. Formulate positive, negative, boundary, and edge-case acceptance scenarios.
+  4. For UI/UX tasks, define Swiss/Minimalist design tokens, WCAG AA contrast targets, and responsive breakpoints (`375px`, `768px`, `1024px`, `1440px`).
+  5. If core requirements are ambiguous, clarify with the user before implementing.
+- **Exit Gate**: Documented task sequence in `TASKS.md` with verifiable acceptance criteria.
 
 ---
 
-### Stage 3: Planning & Task Breakdown
-- **Goal**: Transform requirements into an atomic, dependency-ordered execution plan incorporating TDD cycles.
+### Stage 3: Implement via Test-Driven Development (TDD)
+- **Goal**: Author minimal, high-quality implementation code satisfying requirements through Red-Green-Refactor discipline.
 - **Protocol**:
-  1. Load domain skill: [`skills/planning/SKILL.md`](./skills/planning/SKILL.md).
-  2. Update [`TASKS.md`](./TASKS.md):
-     - Transition selected tasks from `Pending` to `In Progress`.
-     - Decompose large tasks into subtasks with verifiable milestones.
-     - Schedule automated test creation ahead of feature implementation.
-  3. Determine file dependencies to ensure edits are isolated and non-conflicting.
-- **Exit Gate**: Documented task sequence in `TASKS.md` with explicit TDD completion indicators.
-
----
-
-### Stage 4: Architecture, Design & Threat Modeling
-- **Goal**: Ensure changes preserve system modularity, prevent technical debt, conform to UI standards, and identify security threats early.
-- **Protocol**:
-  1. Check [`DECISIONS.md`](./DECISIONS.md) to verify alignment with settled Architectural Decision Records.
-  2. For backend/services, verify layer separation (transport, business domain, persistence).
-  3. **Threat Modeling & Security Review**:
-     - Load [`skills/threat-modeling/SKILL.md`](./skills/threat-modeling/SKILL.md).
-     - Analyze data flows, trust boundaries, authentication, authorization, and sensitive assets.
-  4. **For UI / Frontend Development (UI/UX Pro Max Integration)**:
-     - Load [`skills/ui-ux-design/SKILL.md`](./skills/ui-ux-design/SKILL.md) or [`skills/frontend-development/SKILL.md`](./skills/frontend-development/SKILL.md).
-     - Consult Markdown design catalogs: [`skills/ui-ux-pro-max/references/styles-and-palettes.md`](./skills/ui-ux-pro-max/references/styles-and-palettes.md) and [`skills/ui-ux-pro-max/references/quick-reference.md`](./skills/ui-ux-pro-max/references/quick-reference.md) (100% self-contained; zero interactive CLI or external installations required).
-     - Review design token alignments:
-       - Style: Minimalism & Swiss Style.
-       - Colors: Primary `#0F172A`, Accent `#22C55E`, Canvas `#020617`, Cards `#0E1223`, Borders `#334155`.
-       - Typography: IBM Plex Sans + JetBrains Mono.
-       - Layout: Mobile-first responsive hierarchy (`375px`, `768px`, `1024px`, `1440px`).
-- **Exit Gate**: Architecture, threat model, and UI design system validated against repository rules.
-
----
-
-### Stage 5: Test-Driven Implementation (TDD Red-Green-Refactor)
-- **Goal**: Implement features strictly following the Red-Green-Refactor discipline.
-- **Protocol**:
-  1. Load domain skills: [`skills/test-driven-development/SKILL.md`](./skills/test-driven-development/SKILL.md) plus relevant implementation skills (e.g. `skills/backend-development/`, `skills/frontend-development/`).
-  2. **RED Phase**:
-     - Write automated unit and integration tests capturing positive, negative, and edge scenarios.
-     - Execute test runner: confirm tests fail specifically because feature code is absent (not syntax or environment failure).
-  3. **GREEN Phase**:
-     - Author the minimal implementation code necessary to satisfy failing tests.
-     - Execute test runner: confirm tests pass with zero regressions.
-  4. **REFACTOR Phase**:
-     - Clean code, remove duplication, and optimize architecture while maintaining test suite green.
+  1. Load applicable implementation skills: [`skills/09-quality-assurance-and-testing/test-driven-development/SKILL.md`](./skills/09-quality-assurance-and-testing/test-driven-development/SKILL.md) plus domain skills (e.g. backend, frontend, database).
+  2. **RED Phase**: Write failing unit or integration tests covering acceptance criteria. Execute test runner and confirm tests fail for expected behavioral reasons.
+  3. **GREEN Phase**: Write minimal code necessary to make failing tests pass.
+  4. **REFACTOR Phase**: Clean code structure, eliminate redundancy, and verify maintainability while keeping tests green.
 - **Exit Gate**: Feature implemented with passing automated tests and zero compiler/linter warnings.
 
 ---
 
-### Stage 6: Independent QA Verification & Multi-Tier Testing
-- **Goal**: Rigorous, independent verification by the QA Agent across all testing levels.
+### Stage 4: Perform Initial Validation & Local Test Execution
+- **Goal**: Execute the local test suite, linter, and build pipeline to verify primary code correctness.
 - **Protocol**:
-  1. In multi-agent mode, assign **Agent B (Independent QA Agent)**; in single-agent mode, switch role to QA pass.
-  2. Load domain skills: [`skills/independent-qa-agent/SKILL.md`](./skills/independent-qa-agent/SKILL.md), [`skills/regression-testing/SKILL.md`](./skills/regression-testing/SKILL.md), [`skills/system-testing/SKILL.md`](./skills/system-testing/SKILL.md).
-  3. Verify test coverage, challenge Dev Agent assumptions, and run full test suites independently.
-  4. Perform functional, integration, system, and regression runs.
-  5. **UI & Accessibility Audit**:
-     - Validate text contrast ≥ 4.5:1.
-     - Validate interactive targets ≥ 44×44px.
-     - Check focus rings and keyboard-only navigation.
-     - Verify zero horizontal scrolling across 375px, 768px, 1024px, 1440px.
-- **Exit Gate**: Independent QA verification signed off; Functional and Regression release gates satisfied.
+  1. Run project-specific test runners (`pytest`, `npm test`, `go test`, `cargo test`).
+  2. Inspect test output directly; confirm exit code 0.
+  3. Verify that test assertions are substantive and not mocked into trivial pass-throughs.
+- **Exit Gate**: Direct execution evidence confirming passing tests on new implementation code.
 
 ---
 
-### Stage 7: Independent Security Engineering & Authorized Penetration Testing
-- **Goal**: Adversarial security evaluation, vulnerability discovery, and remediation verification.
+### Stage 5: Inspect Every Change (Diff & Inventory Sweep)
+- **Goal**: Review all working tree modifications at line-level granularity before proceeding to review.
 - **Protocol**:
-  1. In multi-agent mode, assign **Agent C (Independent Security Agent)**; in single-agent mode, switch role to Security pass.
-  2. Load domain skills: [`skills/independent-security-review-agent/SKILL.md`](./skills/independent-security-review-agent/SKILL.md), [`skills/penetration-testing/SKILL.md`](./skills/penetration-testing/SKILL.md), [`skills/vulnerability-assessment/SKILL.md`](./skills/vulnerability-assessment/SKILL.md).
-  3. Verify explicit penetration testing authorization boundaries (target scope, permitted endpoints, non-destructive tools).
-  4. Conduct OWASP-oriented security testing: Authentication, Authorization (IDOR/BOLA), Injection, SSRF, XSS, API security, and Dependency supply-chain.
-  5. Log confirmed vulnerabilities in `docs_agent/security/VULNERABILITY_REGISTER.md`.
-  6. Remediate findings and execute mandatory independent retests.
-- **Exit Gate**: Zero unresolved Critical or High vulnerabilities; Security release gate satisfied.
+  1. Load [`skills/12-code-quality-and-maintenance/post-task-verification/SKILL.md`](./skills/12-code-quality-and-maintenance/post-task-verification/SKILL.md).
+  2. Run `git status -s` to inspect all tracked, untracked, and modified paths.
+  3. Run `git diff` and audit every added, modified, renamed, or deleted line.
+  4. Ensure no unwanted temporary files, scratch scripts, or debug print statements remain.
+- **Exit Gate**: Complete inventory of touched files audited line-by-line.
 
 ---
 
-### Stage 8: Four-Tier Release Gates & Integration Verification
-- **Goal**: Final evidence-backed check against all mandatory release gates before marking release-ready.
+### Stage 6: Analyse Requirement Completeness
+- **Goal**: Map every item in the original user prompt to implemented lines of code and tests.
 - **Protocol**:
-  1. Check **Functional Gate**: All acceptance criteria validated with passing tests.
-  2. Check **Regression Gate**: Existing test suites pass with zero regressions.
-  3. Check **Security Gate**: Threat model complete, vulnerability retests passed, zero open Critical/High items.
-  4. Check **Documentation Gate**: Status, test logs, and ADRs recorded.
-- **Exit Gate**: All four release gates verified with verifiable evidence.
+  1. Cross-reference prompt requirements against inspected diffs.
+  2. Verify that edge cases, boundary conditions, and non-functional requirements are fulfilled.
+  3. Confirm that no explicit user constraint was relaxed or omitted.
+- **Exit Gate**: 100% of applicable user acceptance criteria verified as satisfied.
 
 ---
 
-### Stage 9: Documentation, Memory & Session Handoff
-- **Goal**: Persist technical discoveries, architectural lessons, updated project context, and produce an actionable handoff to guarantee multi-agent continuity.
+### Stage 7: Perform Relevant Independent QA & Security Review
+- **Goal**: Conduct risk-proportionate quality assurance and security reviews to eliminate developer confirmation bias.
 - **Protocol**:
-  1. If codebase architecture or dependencies changed, update [`CONTEXT.md`](./CONTEXT.md).
-  2. If new lessons, recurring pitfalls, or non-obvious integration patterns were discovered, append to [`MEMORY.md`](./MEMORY.md).
-  3. If an architectural decision was finalized or superseded, append a formal record to [`DECISIONS.md`](./DECISIONS.md).
-  4. Log meaningful changes in [`CHANGELOG.md`](./CHANGELOG.md).
-  5. Update [`TASKS.md`](./TASKS.md), moving finished items from `In Progress` to `Completed`.
-  6. Update [`docs_agent/SESSION_LOG.md`](./docs_agent/SESSION_LOG.md) summarizing:
-     - Requested objectives and tasks.
-     - Inspected files and verification points.
-     - Implemented changes and fixes.
-     - Files modified or created.
-     - Tests and checks executed.
-     - Remaining work or recommended next steps.
-  7. Present a clear, concise summary to the user.
-- **Exit Gate**: Project documentation, memory, tasks, and session handoffs updated with verifiable evidence.
+  1. **Mode 1 (Multi-Agent)**: Engage dedicated **Agent B (Independent QA)** and **Agent C (Independent Security)** subagents.
+  2. **Mode 2 (Single-Agent Fallback)**: Execute distinct sequential role-switching passes with fresh checklists.
+  3. **Risk-Proportionate Review Scope**:
+     - **Low Risk** (Docs, comments, isolated UI styling): Static linting, link verification, visual QA.
+     - **Medium Risk** (Business logic, state handling, migrations): Integration review, regression sweep, static security audit.
+     - **High Risk** (Auth, crypto, payments, public APIs, core framework): Threat modeling ([`threat-modeling`](./skills/02-security-engineering/threat-modeling/SKILL.md)), authorized non-destructive penetration testing ([`penetration-testing`](./skills/02-security-engineering/penetration-testing/SKILL.md)), OWASP checks.
+- **Exit Gate**: Independent QA and Security assessments completed proportionally to risk.
 
 ---
 
-## 3. Workflow Adaptation by Task Category
+### Stage 8: Identify and Classify Issues
+- **Goal**: Triage any defects, security weaknesses, regression risks, or broken links discovered during review.
+- **Protocol**:
+  1. Classify discovered issues by severity: **Critical** (blocker), **Major** (functional defect), **Minor** (edge case / style), or **Informational**.
+  2. Document root causes and affected files.
+- **Exit Gate**: Issues triaged with explicit severity ratings and actionable reproduction steps.
 
-| Task Category | Accelerated Workflow Path | Mandatory Stages |
-|---------------|---------------------------|------------------|
-| **Major Feature** | Full 9-Stage Lifecycle | Stages 1 through 9 |
-| **UI / Frontend Page** | UI Design Lifecycle Focus | Stages 1, 2, 4 (Design System), 5 (Craftsmanship), 6 (A11y/Responsive), 7, 8, 9 |
-| **Bug Fix / Patch** | Rapid Diagnostic Lifecycle | Stages 1, 2, 5 (Fix), 6 (Regression Test), 8, 9 |
-| **Refactoring** | Safe Transformation Lifecycle | Stages 1, 3, 4, 5, 6 (Test Invariance), 7, 8, 9 |
-| **Documentation Only** | Lightweight Intake | Stages 1, 5 (Doc Edit), 8, 9 |
+---
 
+### Stage 9: Remediate Issues Within Authorized Scope
+- **Goal**: Apply targeted, surgical corrections to resolve identified issues.
+- **Protocol**:
+  1. Author failing regression tests reproducing the defect.
+  2. Implement surgical code or documentation fixes.
+  3. Strictly avoid unrequested scope creep or architectural churn during remediation.
+- **Exit Gate**: Remediation implemented and ready for revalidation.
+
+---
+
+### Stage 10: Revalidate Affected Functionality & Regression Sweep
+- **Goal**: Prove that remediated code resolves the defect without introducing secondary regressions.
+- **Protocol**:
+  1. Rerun test suite for remediated components.
+  2. Execute regression suites across adjacent modules.
+  3. If security weaknesses were remediated, execute mandatory security retests ([`security-remediation-and-retesting`](./skills/02-security-engineering/security-remediation-and-retesting/SKILL.md)).
+- **Exit Gate**: Passing retest evidence with zero regressions confirmed.
+
+---
+
+### Stage 11: Update Meaningful Documentation
+- **Goal**: Synchronize all documentation with verified codebase reality using portable relative paths.
+- **Protocol**:
+  1. Update [`CONTEXT.md`](./CONTEXT.md) if system architecture, dependencies, or modules changed.
+  2. Update [`CHANGELOG.md`](./CHANGELOG.md) recording chronological release entries under standard SemVer.
+  3. Record newly discovered pitfalls, edge cases, or testing conventions in [`MEMORY.md`](./MEMORY.md).
+  4. If an architectural decision was reached or superseded, record an immutable ADR in [`DECISIONS.md`](./DECISIONS.md).
+  5. Verify that all internal links are strictly relative (POSIX `./...` or `../...`) with zero broken references.
+- **Exit Gate**: Project documentation and memory updated with zero broken links.
+
+---
+
+### Stage 12: Report Verified Completion Status
+- **Goal**: Provide transparent, evidence-based reporting and update task state machine.
+- **Protocol**:
+  1. Evaluate release criteria against verified evidence:
+     - If all acceptance criteria pass: Mark task `Completed` in [`TASKS.md`](./TASKS.md).
+     - If any unresolved defect, dependency blocker, or incomplete criterion remains: Retain `In Progress` or move to `Blocked` in [`TASKS.md`](./TASKS.md). Report the blocker honestly to the user.
+  2. Update [`docs_agent/SESSION_LOG.md`](./docs_agent/SESSION_LOG.md) summarizing objectives, inspected files, changes made, test results, and next steps.
+  3. Present a clear, concise summary citing actual executed commands and evidence.
+- **Exit Gate**: Accurate task state recorded in `TASKS.md` with transparent, verifiable reporting.
+
+---
+
+## 3. Risk-Proportionate Workflow Adaptation
+
+| Risk Tier | Typical Scope | Applicable Lifecycle Stages | Required Reviews |
+|---|---|---|---|
+| **Low Risk** | Documentation updates, typo corrections, comments, isolated CSS design token tweaks | Stages 1, 2, 3 (or direct doc edit), 4 (linter), 5, 6, 11, 12 | Developer self-audit + linter/link verification |
+| **Medium Risk** | New feature implementation, UI component logic, schema migrations, non-auth backend endpoints | Stages 1 through 6, 7 (QA Review + Static Security), 8, 9, 10, 11, 12 | Independent QA verification + regression sweep |
+| **High Risk** | Authentication, authorization, payments, cryptography, public API endpoints, core framework invariants | Full 12-Stage Lifecycle (Stages 1 through 12 mandatory) | Dedicated QA verification + adversarial penetration test + security retest |
+
+---
+
+## 4. Task Completion Invariants
+
+1. **No Evidence, No Completion**: A task must never be transitioned to `Completed` without inspectable verification evidence (test execution output, git diff verification, exit code 0).
+2. **Transparent Incompletion**: If an issue cannot be resolved within the current scope or requires user authorization, the task must remain `In Progress` or `Blocked`.
+3. **Preservation of User Isolation**: In user projects adopting UMSF, test reports and execution artifacts are stored in the user's project `/docs_agent/` directory, keeping framework templates clean.

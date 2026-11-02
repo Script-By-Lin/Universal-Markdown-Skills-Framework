@@ -72,9 +72,11 @@ To contribute a new reusable domain skill:
 ## 5. Pull Request Verification Checklist
 
 Before submitting your PR, ensure:
-- [ ] Every internal Markdown link resolves to an existing file.
+- [ ] Post-task verification executed via [`post-task-verification`](./skills/12-code-quality-and-maintenance/post-task-verification/SKILL.md) before submitting.
+- [ ] Every internal Markdown link is strictly relative (POSIX `./...`, `../...`) with zero hardcoded machine paths.
 - [ ] All new skills contain complete YAML frontmatter and all 15 sections.
 - [ ] No external dependencies or package manifests were introduced.
+- [ ] Registered in [`SKILLS.md`](./SKILLS.md) and [`skills/README.md`](./skills/README.md).
 - [ ] `CHANGELOG.md` has been updated with a description of your changes under `[Unreleased]`.
 - [ ] All UI modifications comply with the **UI/UX Pro Max** standards in `RULES.md`.
 

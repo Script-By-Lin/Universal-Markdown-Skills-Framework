@@ -122,28 +122,33 @@ flowchart TD
 
 ## 6. Skill Discovery and Loading Protocol
 
-- **Never load all skills at once**: Conserve context window capacity.
-- Consult [`SKILLS.md`](./SKILLS.md) to select the primary skill for the immediate task (e.g. `skills/test-driven-development/SKILL.md`).
-- Load at most **two complementary skills** simultaneously (e.g., `skills/test-driven-development/SKILL.md` + `skills/frontend-development/SKILL.md`).
+- **Dynamic Context-Aware Skill Loading**: Load all relevant domain skills required to solve the task effectively, guided by active context window economy rather than an arbitrary fixed limit.
+- Consult [`SKILLS.md`](./SKILLS.md) to discover primary and specialized domain skills across the 16 Canonical Engineering Domains.
+- Avoid indiscriminately loading dozens of unneeded skills to conserve context window capacity.
 - Follow the canonical 15-section UMSF schema in each loaded skill.
 
 ---
 
-## 7. Task Execution Protocol
+## 7. Mandatory 12-Stage Task Execution Protocol
 
-1. **State Transition**: Locate task in [`TASKS.md`](./TASKS.md). Move state from `Pending` to `In Progress`.
-2. **Execute with TDD & Validation (Agent A)**:
-   - For all testable features, apply the mandatory **TDD cycle**:
-     1. **RED**: Write failing tests first covering positive, negative, and edge cases. Verify expected failure.
-     2. **GREEN**: Author minimum code to pass failing tests without modifying tests.
-     3. **REFACTOR**: Clean code structure while keeping test suite green.
-   - For UI/Frontend, apply **UI/UX Pro Max** standards: Swiss/Minimalist style, semantic tokens, WCAG AA 4.5:1 contrast, 44×44px touch targets, mobile-first breakpoints (375px/768px/1024px/1440px), and `prefers-reduced-motion` compliance.
-3. **Independent Verification (Agent B — QA & Agent C — Security)**:
+All engineering activities must execute through the canonical 12-stage lifecycle:
+
+1. **Understand Original Request**: Parse raw user prompt and define explicit acceptance criteria.
+2. **Plan Task**: Decompose into atomic subtasks in [`TASKS.md`](./TASKS.md) (state: `In Progress`).
+3. **Implement via TDD**: Author failing tests first (RED), write minimal code (GREEN), and clean structure (REFACTOR). Apply UI/UX Swiss/Minimalism tokens for interfaces.
+4. **Initial Validation**: Execute local test runner and linters; verify exit code 0.
+5. **Inspect Every Change (Diff Sweep)**: Run `git status -s` and `git diff`; audit every touched line using [`skills/12-code-quality-and-maintenance/post-task-verification/SKILL.md`](./skills/12-code-quality-and-maintenance/post-task-verification/SKILL.md).
+6. **Analyse Requirement Completeness**: Map all user requirements and edge cases to verified code.
+7. **Relevant Independent QA & Security Review**:
    - In multi-agent mode, assign dedicated QA and Security agents; in single-agent mode, execute distinct role-switch passes.
-   - Run full regression suites independently; verify zero regressions.
-   - Perform threat modeling and authorized non-destructive penetration testing within explicit boundaries.
-   - Confirm all four **Release Gates** (Functional, Regression, Security, Documentation) pass.
-4. **Record Deliverables**: Update [`TASKS.md`](./TASKS.md), mark task `Completed`, and cite modified files.
+   - Apply verification **proportionally to risk**: run full penetration testing and regression sweeps for high-risk changes; use static linting and link audits for low-risk doc/styling changes.
+8. **Identify & Classify Issues**: Triage any defects by severity (Critical, Major, Minor, Informational).
+9. **Remediate Within Authorized Scope**: Author failing regression tests and apply targeted fixes without unrequested scope creep.
+10. **Revalidate Affected Functionality**: Re-run test suites and security retests to confirm resolution with zero regressions.
+11. **Update Meaningful Documentation**: Synchronize [`CONTEXT.md`](./CONTEXT.md), [`CHANGELOG.md`](./CHANGELOG.md), and [`MEMORY.md`](./MEMORY.md) using portable relative links.
+12. **Report Verified Completion Status**:
+    - **Completion Gate**: Transition task in [`TASKS.md`](./TASKS.md) to `Completed` **only** if all applicable acceptance criteria are verified with empirical evidence.
+    - **Honest Status Reporting**: If a defect or blocker cannot be resolved within authorized scope, retain `In Progress` or mark `Blocked` with descriptive rationale. Never claim false completion.
 
 ---
 

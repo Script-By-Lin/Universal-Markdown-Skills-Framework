@@ -12,11 +12,12 @@
 - **Core Mission**: A universal, provider-independent, zero-dependency, local-first Markdown architecture designed to equip diverse AI coding agents (Claude Code, Cursor, Antigravity, OpenAI Codex, Windsurf, Gemini CLI, GitHub Copilot) with persistent architectural awareness, domain-specific skills, long-term memory, and session continuity.
 - **Primary Objectives**:
   1. Eliminate context drift and information loss across multi-session AI interactions without external cloud services.
-  2. Provide an expanded, SDLC-comprehensive library of **370 skills** structured across **16 Canonical Engineering Domains** under `skills/` (with dual-path backward compatibility via root symlinks):
+  2. Provide an expanded, SDLC-comprehensive library of **371 skills** structured across **16 Canonical Engineering Domains** under `skills/` (with dual-path backward compatibility via root symlinks):
      - 15 canonical foundational lifecycle skills (authoritatively structured in 15-section UMSF schema).
-     - 7 UI/UX Pro Max design intelligence suite skills with offline BM25 search CLI.
+     - 7 UI/UX Pro Max design intelligence suite skills with pure Markdown reference catalogs.
      - 313 specialized engineering domain skills across languages, frameworks, cloud, and agentic workflows.
-     - 35 new advanced testing, security, and AI agent engineering skills (Category 02 Security, Category 09 QA/Testing, Category 16 AI Agent Engineering).
+     - 35 advanced testing, security, and AI agent engineering skills (Category 02 Security, Category 09 QA/Testing, Category 16 AI Agent Engineering).
+     - 1 post-task verification delivery gate skill (`skills/12-code-quality-and-maintenance/post-task-verification/SKILL.md`).
   3. Formalize and enforce **Test-Driven Development (TDD)** Red-Green-Refactor as the mandatory development invariant for all testable features.
   4. Codify the **Tripartite Agent Architecture** (Agent A Development, Agent B Independent QA, Agent C Independent Security) with Mode 1 (concurrent subagents) and Mode 2 (sequential single-agent role-switching passes).
   5. Codify **Authorized Penetration Testing Rules** (explicit scope, non-destructive, controlled PoCs, zero credential exfiltration, zero uncontrolled DoS).
@@ -50,18 +51,19 @@ flowchart TD
     subgraph S1["1. Universal Instruction System"]
         AG[AGENTS.md\nEntry Point & Tripartite Roles]
         RL[RULES.md\nPrecedence Level 2 & TDD/Sec Invariants]
-        WF[WORKFLOW.md\n9-Stage Lifecycle & 4-Tier Release Gates]
+        WF[WORKFLOW.md\n12-Stage Lifecycle & Post-Task Verification]
     end
 
-    subgraph S2["2. Reusable Skills System (370 Skills Across 16 Domains)"]
+    subgraph S2["2. Reusable Skills System (371 Skills Across 16 Domains)"]
         SKR[SKILLS.md\nCentral Registry & Index]
         D01["01: SDLC Lifecycle"]
         D02["02: Security Engineering (12 Skills)"]
         D03["03: Architecture & Design"]
         D07["07: Frontend & UI/UX Pro Max"]
         D09["09: QA & Testing (16 Skills)"]
+        D12["12: Code Quality & Verification"]
         D16["16: AI Agent Engineering (7 Skills)"]
-        DOTS["Domains 04-06, 08, 10-15"]
+        DOTS["Domains 04-06, 08, 10-11, 13-15"]
         MDC[Pure Markdown\nCatalogs & Guides]
     end
 
@@ -119,20 +121,20 @@ flowchart TD
 . (AgenticSkill Root)/
 ├── AGENTS.md                          # Universal entry point, tripartite roles & 10-step protocol
 ├── RULES.md                           # Mandatory constraints, TDD, security & UI/UX Pro Max invariants
-├── WORKFLOW.md                        # 9-stage engineering lifecycle with 4-tier release gates
-├── SKILLS.md                          # Central skill registry (370 skills across 16 domains)
+├── WORKFLOW.md                        # 12-stage engineering lifecycle with post-task verification
+├── SKILLS.md                          # Central skill registry (371 skills across 16 domains)
 ├── CONTEXT.md                         # This file (Current verified codebase reality)
 ├── MEMORY.md                          # Persistent knowledge base, pitfalls & TDD lessons
-├── DECISIONS.md                       # Immutable Architectural Decision Records (ADRs 001-008)
+├── DECISIONS.md                       # Immutable Architectural Decision Records (ADRs 001-011)
 ├── TASKS.md                           # Operational task management state machine
 ├── CHANGELOG.md                       # Chronological release ledger
 ├── CONTRIBUTING.md                    # Contribution guidelines and standards
 ├── README.md                          # Framework overview & quickstart
 ├── LICENSE                            # MIT License
-├── implementation.md                  # Master development specification (Preserved)
-├── Enhance.md                         # Master testing & security specification (Preserved)
+├── implementation.md                  # Master development specification (Preserved locally)
+├── Enhance.md                         # Master testing & audit specification (Preserved locally)
 │
-├── skills/                            # Reusable domain skills library (370 skills across 16 domains)
+├── skills/                            # Reusable domain skills library (371 skills across 16 domains)
 │   ├── README.md                      # Domain catalog & progressive loading rules
 │   ├── 01-software-development-lifecycle/ # SDLC methodologies, planning, requirements
 │   ├── 02-security-engineering/       # 12 security skills (pen-testing, threat modeling, auth)
@@ -145,12 +147,12 @@ flowchart TD
 │   ├── 09-quality-assurance-and-testing/ # 16 testing skills (TDD, unit, integration, regression)
 │   ├── 10-devops-and-infrastructure/  # CI/CD, containers, Kubernetes, cloud platforms
 │   ├── 11-reliability-and-operations/ # SRE, monitoring, incident response, chaos
-│   ├── 12-code-quality-and-maintenance/ # Code review, refactoring, static analysis, debt
+│   ├── 12-code-quality-and-maintenance/ # Code review, post-task-verification, static analysis
 │   ├── 13-performance-engineering/    # Profiling, latency budgets, load & stress
 │   ├── 14-project-and-team-management/ # Agile, task management, sprint planning
 │   ├── 15-documentation-and-technical-communication/ # Technical writing, docs, guides
 │   ├── 16-ai-agent-engineering/       # 7 agentic skills (independent QA/security agents, verification)
-│   └── [370 root symlinks/aliases]    # Flat dual-path compatibility links for all skills
+│   └── [371 root symlinks/aliases]    # Flat dual-path compatibility links for all skills
 │
 ├── templates/                         # Complete 18-template scaffolding suite
 │   ├── SKILL.template.md              # Canonical 15-section skill template
@@ -201,13 +203,14 @@ flowchart TD
 | **Phase 6** | Compatibility & Validation | **COMPLETED** | 2026-11-03 |
 | **Phase 7** | Release & Final Documentation | **COMPLETED** | 2026-11-03 |
 | **Skills Expansion** | UI/UX Pro Max Engine & 313 ECC Skills Integration | **COMPLETED** | 2026-11-03 |
-| **Enhancement** | Advanced Testing, TDD & AI Security Engineering (370 Skills, 16 Domains) | **COMPLETED** | 2026-11-03 |
+| **Enhancement** | Advanced Testing, TDD & AI Security Engineering (371 Skills, 16 Domains) | **COMPLETED** | 2026-11-03 |
+| **Audit & Post-Task** | Framework Audit, Contradiction Resolution & Post-Task Verification Gate | **COMPLETED** | 2026-11-03 |
 
 ---
 
 ## 6. Pre-Existing Code & Preserved Artifacts
 - [`implementation.md`](./implementation.md): The user-provided master specification governing UMSF requirements. Preserved verbatim.
-- [`Enhance.md`](./Enhance.md): The master testing, TDD, and security engineering enhancement specification. Preserved verbatim.
+- [`Enhance.md`](./Enhance.md): The master audit, testing, and post-task verification enhancement specification. Preserved verbatim.
 - [`ui-ux-pro-max-skill/`](./ui-ux-pro-max-skill/): Upstream repository for the UI/UX Pro Max design intelligence suite. Preserved intact.
 - [`ECC/`](./ECC/): Upstream repository for Everything Claude Code skills. Preserved intact.
 
@@ -215,8 +218,8 @@ flowchart TD
 
 ## 7. Known Limitations & Technical Constraints
 1. **Agent Compliance Model**: The framework relies on LLM prompt parsing and reasoning. Strict adherence to the 10-step initialization procedure in [`AGENTS.md`](./AGENTS.md) ensures context accuracy.
-2. **Context Window Protection**: Never load all 370 skills simultaneously. Agents must adhere to the single primary skill rule, loading at most two complementary skills.
+2. **Context Window Protection**: Never load all 371 skills simultaneously. Agents must adhere to dynamic context-aware skill loading, loading only the skills relevant to the active task stage.
 3. **Single-Agent Role Switching Overhead**: In single-agent environments (Mode 2), executing sequential role-switching passes (Dev -> QA -> Security) consumes additional conversational turns, which is a conscious and mandatory design trade-off for software correctness and security.
 4. **User Project Isolation Invariant**: The user's project `/docs_agent/` directory is initially empty upon framework adoption and is populated strictly as real testing and development events occur; simulated or placeholder test reports are strictly forbidden.
-5. **100% Self-Contained Markdown Skills**: All 370 skills operate purely as standard Markdown documentation. Users do not need to install external packages, CLI daemons, or interactive search tools. When UMSF is adopted, all skills function self-contained within `skills/`. Zero external network dependencies.
+5. **100% Self-Contained Markdown Skills**: All 371 skills operate purely as standard Markdown documentation. Users do not need to install external packages, CLI daemons, or interactive search tools. When UMSF is adopted, all skills function self-contained within `skills/`. Zero external network dependencies.
 

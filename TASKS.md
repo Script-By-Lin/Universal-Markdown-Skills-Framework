@@ -51,25 +51,27 @@ stateDiagram-v2
 
 ## 3. Completed Archive
 
-- [x] **TASK-011: Strict Relative Link Portability & Elimination of Machine-Specific Absolute Paths**
+- [x] **TASK-012: Comprehensive Framework Audit, Contradiction Resolution & Post-Task Verification Integration**
   - **Completed Date**: 2026-11-03
   - **Deliverables**:
-    - Eliminated all machine-specific absolute paths (`file:///home/<user>/...` and `/home/<user>/...`) across all 82 files in the repository.
-    - Converted 1,150+ internal file links across core governance files (`AGENTS.md`, `RULES.md`, `CONTEXT.md`, `WORKFLOW.md`, `SKILLS.md`, `TASKS.md`, `DECISIONS.md`, `MEMORY.md`, `README.md`, `CHANGELOG.md`), 370 skills, templates, and documentation to exact POSIX relative paths.
-    - Validated line 134 in `AGENTS.md` (`./TASKS.md`) and line 21 in `skills/ui-ux-pro-max/SKILL.md` (`./references/quick-reference.md`).
-    - Codified Invariant 6 (Repository Portability & Relative Links Invariant) and anti-pattern entry in `RULES.md`.
-    - Ratified ADR-010 in `DECISIONS.md`.
-  - **Validation Evidence**: 0 occurrences of `/home/<user>` remain in repository files; 0 broken links in core framework files; 100% relative link resolution.
+    - Complete repository audit of all 371 skills, 16 domains, root files, and templates.
+    - Resolved framework contradictions: replaced rigid two-skill limit with Dynamic Context-Aware Skill Loading; scoped release gates and testing proportionally to change risk.
+    - Defined clear authority boundary triad in `RULES.md` (Platform Safety vs. Mandatory Framework Invariants vs. User Project Decisions).
+    - Authored canonical 15-section domain skill `skills/12-code-quality-and-maintenance/post-task-verification/SKILL.md` (and dual-path root symlink `skills/post-task-verification`).
+    - Expanded `WORKFLOW.md` to the 12-Stage Canonical Engineering Lifecycle with mandatory diff sweeps, requirement completeness audits, and revalidation.
+    - Updated `AGENTS.md`, `RULES.md`, `SKILLS.md`, `CONTEXT.md`, and `README.md` to index all 371 skills with zero broken links.
+    - Ratified ADR-011 in `DECISIONS.md`.
+  - **Validation Evidence**: 371 unique physical skills verified; 393 links in `SKILLS.md` verified with 0 broken links; 100% relative paths; zero external dependencies.
 
 - [x] **TASK-011: Strict Relative Link Portability & Elimination of Machine-Specific Absolute Paths**
   - **Completed Date**: 2026-11-03
   - **Deliverables**:
-    - Eliminated all machine-specific absolute paths (`file:///home/hexx/...` and `/home/hexx/...`) across all 82 files in the repository.
-    - Converted 1,150+ internal file links across core governance files (`AGENTS.md`, `RULES.md`, `CONTEXT.md`, `WORKFLOW.md`, `SKILLS.md`, `TASKS.md`, `DECISIONS.md`, `MEMORY.md`, `README.md`, `CHANGELOG.md`), 370 skills, templates, and documentation to exact POSIX relative paths.
+    - Eliminated all machine-specific absolute paths across all 82 files in the repository.
+    - Converted 1,150+ internal file links across core governance files, 370 skills, templates, and documentation to exact POSIX relative paths.
     - Validated line 134 in `AGENTS.md` (`./TASKS.md`) and line 21 in `skills/ui-ux-pro-max/SKILL.md` (`./references/quick-reference.md`).
     - Codified Invariant 6 (Repository Portability & Relative Links Invariant) and anti-pattern entry in `RULES.md`.
     - Ratified ADR-010 in `DECISIONS.md`.
-  - **Validation Evidence**: 0 occurrences of `/home/hexx` remain in repository files; 0 broken links in core framework files; 100% relative link resolution.
+  - **Validation Evidence**: 0 occurrences of host-specific paths remain in repository files; 0 broken links in core framework files; 100% relative link resolution.
 
 - [x] **TASK-010: Pure Markdown Skills Decoupling & Elimination of Interactive Search Dependency**
   - **Completed Date**: 2026-11-03

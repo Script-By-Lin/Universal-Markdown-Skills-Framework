@@ -18,9 +18,9 @@
 - **Core Lesson**: When multiple instructions apply, coding agents can suffer from "instruction conflict paralysis" unless an unambiguous tie-breaking hierarchy exists.
 - **Convention**: The 7-tier precedence hierarchy in `AGENTS.md` and `RULES.md` is absolute. Explicit user prompts always win unless they violate mandatory safety constraints in `RULES.md` (Level 2).
 
-### 1.3 Context Economy (The Two-Skill Limit)
-- **Core Lesson**: Ingesting the entire `skills/` library into an agent's context window degrades reasoning performance, triggers hallucination, and wastes token budgets.
-- **Convention**: Agents must load at most **two skills simultaneously** (one primary, one complementary), unloading them once that stage concludes.
+### 1.3 Context Economy (Dynamic Context-Aware Skill Loading)
+- **Core Lesson**: Ingesting the entire `skills/` library into an agent's context window degrades reasoning performance, triggers hallucination, and wastes token budgets. Conversely, a rigid 2-skill limit restricts complex multi-disciplinary tasks.
+- **Convention**: Agents must load all relevant domain skills required by a task dynamically, guided by active context window economy rather than an arbitrary fixed limit, unloading them once that stage concludes.
 
 ---
 
@@ -93,5 +93,5 @@
 - **2026-11-03**: Formally codified ADR-008 and deployed the 16 Canonical Engineering Domains with 35 new advanced skills across Security Engineering, QA/TDD, and AI Agent Engineering (370 total skills). Established the Tripartite Logical Agent Architecture (Dev, QA, Security), Single-Agent Fallback, 4-Tier Release Gates, and isolated user `/docs_agent/` protocols.
 - **2026-11-03**: Transitioned all 370 skills to 100% self-contained Markdown skills. Removed all mandatory requirements for interactive search CLI (`search.py`) and external plugin environments (`${CLAUDE_PLUGIN_ROOT}`). Compiled the complete design catalog (88 styles, 192 product palettes, 74 font pairings, 25 chart guides) into pure Markdown (`references/styles-and-palettes.md`). All skills are immediately usable by any user or AI coding agent without installing external tools.
 - **2026-11-03**: Resolved machine-specific absolute path leakage (`file:///home/<user>/...`). Converted 1,150+ internal links across 82 files to strict relative POSIX links. Ratified ADR-010 and codified Invariant 6 in `RULES.md` to guarantee 100% repository portability across any user path or clone environment.
-- **2026-11-03**: Resolved machine-specific absolute path leakage (`file:///home/hexx/...`). Converted 1,150+ internal links across 82 files to strict relative POSIX links. Ratified ADR-010 and codified Invariant 6 in `RULES.md` to guarantee 100% repository portability across any user path or clone environment.
+- **2026-11-03**: Conducted comprehensive framework audit and contradiction resolution. Authored `post-task-verification` skill, expanding library to 371 skills. Codified 12-stage Canonical Lifecycle with mandatory diff sweeps and requirement completeness analysis. Superseded ADR-005 with ADR-011, establishing Dynamic Context-Aware Skill Loading and Risk-Proportionate Release Gates.
 

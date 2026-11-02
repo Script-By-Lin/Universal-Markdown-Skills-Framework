@@ -2,38 +2,40 @@
 
 > Standardized Domain Knowledge Modules for Autonomous AI Coding Agents  
 > Specification: Canonical 15-Section Universal Markdown Skills Schema  
-> Total Cataloged Skills: 370 Across 16 Canonical Engineering Domains  
+> Total Cataloged Skills: 371 Across 16 Canonical Engineering Domains & Specialized Modules  
 
 ---
 
 ## 1. Domain Organization
 
-The skills library is organized into 16 standardized engineering domains covering the entire Software Development Lifecycle (SDLC):
+The skills library is organized into 16 standardized engineering domains covering the entire Software Development Lifecycle (SDLC), plus 300 specialized engineering modules:
 
-- **Domain 01 — Software Development Lifecycle (SDLC)** (`skills/01-software-development-lifecycle/`): 1 Core Skills
-- **Domain 02 — Security Engineering & Penetration Testing** (`skills/02-security-engineering/`): 13 Core Skills
-- **Domain 03 — Software Architecture & System Design** (`skills/03-software-architecture-and-design/`): 2 Core Skills
-- **Domain 04 — Requirements & Business Analysis** (`skills/04-requirements-and-business-analysis/`): 1 Core Skills
-- **Domain 05 — Programming & Implementation** (`skills/05-programming-and-implementation/`): 2 Core Skills
-- **Domain 06 — Backend Engineering & Distributed Systems** (`skills/06-backend-engineering/`): 3 Core Skills
-- **Domain 07 — Frontend Engineering & UI/UX Pro Max** (`skills/07-frontend-engineering/`): 9 Core Skills
-- **Domain 08 — Database Engineering & Storage** (`skills/08-database-engineering/`): 2 Core Skills
-- **Domain 09 — Quality Assurance & Software Testing** (`skills/09-quality-assurance-and-testing/`): 17 Core Skills
-- **Domain 10 — DevOps, Containers & Infrastructure** (`skills/10-devops-and-infrastructure/`): 3 Core Skills
-- **Domain 11 — Reliability & Production Operations** (`skills/11-reliability-and-operations/`): 2 Core Skills
-- **Domain 12 — Code Quality, Review & Maintenance** (`skills/12-code-quality-and-maintenance/`): 1 Core Skills
-- **Domain 13 — Performance Engineering & Profiling** (`skills/13-performance-engineering/`): 2 Core Skills
-- **Domain 14 — Project & Team Delivery Management** (`skills/14-project-and-team-management/`): 1 Core Skills
-- **Domain 15 — Documentation & Technical Writing** (`skills/15-documentation-and-technical-communication/`): 2 Core Skills
-- **Domain 16 — AI Agent Engineering & Multi-Agent Systems** (`skills/16-ai-agent-engineering/`): 11 Core Skills
+- **Domain 01 — Software Development Lifecycle (SDLC)** ([`skills/01-software-development-lifecycle/`](./01-software-development-lifecycle/)): 1 Core Skill (`planning`)
+- **Domain 02 — Security Engineering & Penetration Testing** ([`skills/02-security-engineering/`](./02-security-engineering/)): 13 Core Skills (`security`, `penetration-testing`, `web-application-security`, `api-security-testing`, `vulnerability-assessment`, `security-code-review`, `threat-modeling`, `dependency-security-audit`, `authentication-security`, `authorization-security`, `vulnerability-management`, `security-remediation-and-retesting`, `security-testing`)
+- **Domain 03 — Software Architecture & System Design** ([`skills/03-software-architecture-and-design/`](./03-software-architecture-and-design/)): 2 Core Skills (`software-architecture`, `architecture-decision-records`)
+- **Domain 04 — Requirements & Business Analysis** ([`skills/04-requirements-and-business-analysis/`](./04-requirements-and-business-analysis/)): 1 Core Skill (`requirements-analysis`)
+- **Domain 05 — Programming & Implementation** ([`skills/05-programming-and-implementation/`](./05-programming-and-implementation/)): 2 Core Skills (`debugging`, `refactoring`)
+- **Domain 06 — Backend Engineering & Distributed Systems** ([`skills/06-backend-engineering/`](./06-backend-engineering/)): 3 Core Skills (`backend-development`, `api-development`, `backend-patterns`)
+- **Domain 07 — Frontend Engineering & UI/UX Pro Max** ([`skills/07-frontend-engineering/`](./07-frontend-engineering/)): 9 Core Skills (`ui-ux-pro-max`, `frontend-development`, `ui-ux-design`, `ui-styling`, `design-system`, `design`, `brand`, `banner-design`, `slides`)
+- **Domain 08 — Database Engineering & Storage** ([`skills/08-database-engineering/`](./08-database-engineering/)): 2 Core Skills (`database-design`, `database-migrations`)
+- **Domain 09 — Quality Assurance & Software Testing** ([`skills/09-quality-assurance-and-testing/`](./09-quality-assurance-and-testing/)): 17 Core Skills (`test-driven-development`, `testing`, `unit-testing`, `integration-testing`, `system-testing`, `end-to-end-testing`, `regression-testing`, `acceptance-testing`, `exploratory-testing`, `test-automation`, `test-coverage-analysis`, `mutation-testing`, `performance-testing`, `load-and-stress-testing`, `test-strategy-and-planning`, `test-data-management`, `defect-management`)
+- **Domain 10 — DevOps, Containers & Infrastructure** ([`skills/10-devops-and-infrastructure/`](./10-devops-and-infrastructure/)): 2 Core Skills (`docker-patterns`, `kubernetes-patterns`)
+- **Domain 11 — Reliability & Production Operations** ([`skills/11-reliability-and-operations/`](./11-reliability-and-operations/)): 1 Core Skill (`canary-watch`)
+- **Domain 12 — Code Quality, Review & Maintenance** ([`skills/12-code-quality-and-maintenance/`](./12-code-quality-and-maintenance/)): 2 Core Skills (`code-review`, `post-task-verification`)
+- **Domain 13 — Performance Engineering & Profiling** ([`skills/13-performance-engineering/`](./13-performance-engineering/)): 2 Core Skills (`performance`, `benchmark-optimization-loop`)
+- **Domain 14 — Project & Team Delivery Management** ([`skills/14-project-and-team-management/`](./14-project-and-team-management/)): 1 Core Skill (`counterparty-channel-discipline`)
+- **Domain 15 — Documentation & Technical Writing** ([`skills/15-documentation-and-technical-communication/`](./15-documentation-and-technical-communication/)): 2 Core Skills (`documentation`, `article-writing`)
+- **Domain 16 — AI Agent Engineering & Multi-Agent Systems** ([`skills/16-ai-agent-engineering/`](./16-ai-agent-engineering/)): 11 Core Skills (`agentic-engineering`, `independent-qa-agent`, `independent-security-review-agent`, `multi-agent-verification`, `adversarial-testing`, `agent-handoff-and-review`, `evidence-based-validation`, `agent-role-separation`, `autonomous-loops`, `prompt-optimizer`, `mcp-server-patterns`)
+- **Specialized Technology & Pattern Modules**: 300 Specialized Engineering Skills indexed in [`SKILLS.md`](../SKILLS.md) Section 3 covering languages, web frameworks, database engines, cloud infrastructure, and protocols.
 
 ---
 
-## 2. Tripartite Agent Roles
+## 2. Tripartite Agent Roles & Verification
 
 1. **Agent A — Development Agent**: Drives TDD Red-Green-Refactor, feature implementation, and developer tests. Cannot self-approve security.
 2. **Agent B — Independent QA Agent**: Independently runs regression tests, audits edge cases, and verifies acceptance criteria.
 3. **Agent C — Independent Security Agent**: Adversarial posture, threat modeling, authorized non-destructive penetration testing, and vulnerability retesting.
+4. **Mandatory Post-Task Verification**: All agents execute [`post-task-verification`](./12-code-quality-and-maintenance/post-task-verification/SKILL.md) prior to closing any task.
 
 ---
 
@@ -48,4 +50,4 @@ All design intelligence is self-contained in Markdown catalogs—zero CLI tools,
 
 ## 4. Master Central Registry
 
-Consult [`SKILLS.md`](../SKILLS.md) at the repository root for complete selection matrices, role assignments, and direct clickable links to all skills.
+Consult [`SKILLS.md`](../SKILLS.md) at the repository root for complete selection matrices, role assignments, and direct clickable links to all 371 skills.

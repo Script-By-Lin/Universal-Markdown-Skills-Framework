@@ -14,11 +14,13 @@
 | [`ADR-002`](#adr-002-adoption-of-uiux-pro-max-as-canonical-design-intelligence) | 2026-11-02 | Adoption of UI/UX Pro Max as Canonical Design Intelligence | **Accepted** | — |
 | [`ADR-003`](#adr-003-explicit-7-tier-precedence-hierarchy-and-conflict-resolution) | 2026-11-02 | Explicit 7-Tier Precedence Hierarchy and Conflict Resolution | **Accepted** | — |
 | [`ADR-004`](#adr-004-standardized-15-section-canonical-schema-for-domain-skills) | 2026-11-03 | Standardized 15-Section Canonical Schema for Domain Skills | **Accepted** | — |
-| [`ADR-005`](#adr-005-maximum-two-skill-loading-protocol-for-context-conservation) | 2026-11-03 | Maximum Two-Skill Loading Protocol for Context Conservation | **Accepted** | — |
+| [`ADR-005`](#adr-005-maximum-two-skill-loading-protocol-for-context-conservation) | 2026-11-03 | Maximum Two-Skill Loading Protocol for Context Conservation | **Superseded** | [`ADR-011`](#adr-011-post-task-verification-gate-dynamic-context-aware-skill-loading--risk-proportionate-delivery) |
 | [`ADR-006`](#adr-006-tripartite-separation-of-reality-memory-and-decisions) | 2026-11-03 | Tripartite Separation of Reality, Memory, and Decisions | **Accepted** | — |
 | [`ADR-007`](#adr-007-three-tier-hierarchical-skills-library-and-local-search-cli) | 2026-11-03 | Three-Tier Hierarchical Skills Library & Local Search CLI | **Accepted** | — |
 | [`ADR-008`](#adr-008-comprehensive-testing-test-driven-development-tdd-and-ai-security-engineering-architecture) | 2026-11-03 | Comprehensive Testing, TDD, and AI Security Engineering | **Accepted** | — |
 | [`ADR-009`](#adr-009-self-contained-markdown-skills-and-zero-search-cli-dependency) | 2026-11-03 | Self-Contained Markdown Skills & Zero Search CLI Dependency | **Accepted** | — |
+| [`ADR-010`](#adr-010-strict-relative-paths-and-repository-portability-invariant) | 2026-11-03 | Strict Relative Paths and Repository Portability Invariant | **Accepted** | — |
+| [`ADR-011`](#adr-011-post-task-verification-gate-dynamic-context-aware-skill-loading--risk-proportionate-delivery) | 2026-11-03 | Post-Task Verification Gate, Dynamic Skill Loading & Risk-Proportionate Delivery | **Accepted** | — |
 
 ---
 
@@ -323,6 +325,46 @@ During framework authoring, absolute paths containing specific host environments
   - Full adherence to zero-dependency, local-first UMSF principles.
 - **Negative Impacts / Known Trade-offs**:
   - Deeply nested skills require multiple `../` steps to reference root governance documents (e.g. `../../../RULES.md`), requiring rigorous link integrity verification during skill authoring.
+
+---
+
+## ADR-011: Post-Task Verification Gate, Dynamic Context-Aware Skill Loading & Risk-Proportionate Delivery
+
+- **Date**: 2026-11-03
+- **Status**: Accepted
+- **Deciders**: Principal Software Architect, Senior QA Engineer, AI Systems Architect
+- **Supersedes**: ADR-005 (replaces the arbitrary fixed two-skill maximum with dynamic context-aware skill loading)
+
+### 1. Context & Problem Statement
+A comprehensive framework audit identified three architectural contradictions across `AGENTS.md`, `RULES.md`, `SKILLS.md`, and `WORKFLOW.md`:
+1. **Arbitrary Two-Skill Maximum (ADR-005)**: The fixed two-skill limit restricted complex tasks that naturally span multiple domains (e.g. architecture + TDD + UI + API) even when the context window had ample headroom.
+2. **Release Gate Applicability & Risk Disproportionality**: Blanket requirements for adversarial security penetration tests and full regression sweeps created unnecessary overhead for low-risk changes (e.g. documentation typos, comments, standalone CSS tweaks).
+3. **Premature Task Closure & Confirmation Bias**: Autonomous agents frequently marked tasks `Completed` without verifying line-level git diffs, checking all original acceptance criteria, or revalidating remediated issues.
+
+### 2. Alternatives Considered
+1. **Option A: Retain Fixed Limits & Blanket Gates**: Keep rigid 2-skill limit and mandate full penetration tests for all changes. Rejected because it impairs productivity on low-risk edits while throttling complex multi-domain workflows.
+2. **Option B: Relax All Gates**: Remove release gates and rely on user manual inspection. Rejected because it destroys UMSF's core quality and security guarantees.
+3. **Option C: Unified 12-Stage Lifecycle, Post-Task Verification Skill & Risk-Proportionate Gating**:
+   - Author [`post-task-verification`](./skills/12-code-quality-and-maintenance/post-task-verification/SKILL.md) covering diff sweeps, acceptance criteria checks, quality/security audits, and revalidation loops.
+   - Upgrade `WORKFLOW.md` to the 12-stage Canonical Engineering Lifecycle.
+   - Replace the fixed 2-skill limit with dynamic context-aware loading guided by token economy.
+   - Scope release gates proportionally to risk (Low, Medium, High).
+   - Enforce the Evidence-Based Task Completion Invariant: never mark a task `Completed` without empirical evidence; report unresolved blockers honestly as `In Progress` or `Blocked`.
+
+### 3. Decision Outcome
+**Selected Option**: **Option C: Unified 12-Stage Lifecycle, Post-Task Verification Skill & Risk-Proportionate Gating**  
+- Codified into [`RULES.md`](./RULES.md), [`WORKFLOW.md`](./WORKFLOW.md), [`AGENTS.md`](./AGENTS.md), and [`SKILLS.md`](./SKILLS.md).
+- Authored canonical 15-section skill `skills/12-code-quality-and-maintenance/post-task-verification/SKILL.md` (371 skills total).
+
+### 4. Consequences & Trade-offs
+- **Positive Impacts**:
+  - Eliminates premature completion: Tasks require line-level diff reviews and verified acceptance criteria.
+  - Risk-proportionate efficiency: Low-risk documentation or styling changes are not bottlenecked by irrelevant penetration tests.
+  - Workflow flexibility: Agents load necessary domain skills dynamically without arbitrary two-skill constraints while respecting context budgets.
+  - Transparent reporting: Unresolved issues are reported honestly without false success claims.
+- **Negative Impacts / Known Trade-offs**:
+  - Requires agents to perform disciplined diff inspections and evidence gathering before closing tasks, adding conversational diligence for reliability.
+
 
 
 

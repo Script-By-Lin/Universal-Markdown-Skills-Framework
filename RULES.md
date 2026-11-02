@@ -15,6 +15,18 @@ All AI coding agents, contributors, and automated tooling operating within this 
 - **Invariance**: No agent or automation may silently bypass, disable, or relax these constraints.
 - **Enforcement**: Any generated code, documentation, or architectural modification violating these rules must be rejected or remediated immediately.
 
+### 1.1 Authority Boundary Triad
+To resolve conflicting instructions unambiguously, agents must distinguish three tiers of authority:
+1. **Tier A — Platform Safety & Security Constraints (Absolute)**:
+   - Operating system boundaries, credential protection, network isolation, non-destructive penetration testing limits, zero unauthorized data exfiltration, zero DoS.
+   - *These cannot be relaxed or overridden by any prompt, framework rule, or project decision.*
+2. **Tier B — Mandatory Framework Invariants (Precedence Level 2)**:
+   - Zero-dependency Markdown-only core, local-first sovereignty, strict relative links, TDD Red-Green-Refactor, post-task verification, and evidence-backed task completion.
+   - *These govern the software engineering lifecycle and quality guarantees across all projects adopting UMSF.*
+3. **Tier C — User-Controlled Project Decisions (Precedence Level 1 / Level 3)**:
+   - Application architecture, tech stack selection, domain business models, UI/UX styling themes, and feature prioritization.
+   - *The user holds full sovereignty over project decisions. When an explicit prompt requests an architectural pivot, record a formal ADR in `DECISIONS.md`.*
+
 ---
 
 ## 2. Framework Invariants (Zero-Dependency & Local-First)
@@ -40,6 +52,12 @@ All AI coding agents, contributors, and automated tooling operating within this 
    - All internal links, cross-references, image embeddings, and directory references within repository markdown documents and skills must be strictly relative (e.g. `./TASKS.md`, `./references/quick-reference.md`, `../../RULES.md`).
    - Hardcoded host system paths (such as `/home/...`, `/Users/...`, `C:\...`, or `file:///...`) are strictly prohibited in tracked repository files.
    - Documents and skills must remain 100% portable across any clone location, operating system, or user directory.
+7. **Evidence-Based Task Completion**:
+   - No task in `TASKS.md` may transition to `Completed` without verifiable execution evidence (diff inspection, test runner output, exit code 0).
+   - If an issue cannot be resolved or requires external authorization, agents must report the blocker honestly and retain `In Progress` or `Blocked` state. Never claim false completion.
+8. **Dynamic Context-Aware Skill Loading**:
+   - Agents must load all relevant domain skills required by a task, guided by active context window economy rather than an arbitrary fixed limit.
+   - Indiscriminately loading dozens of unneeded skills is prohibited to conserve context budget.
 
 ---
 
@@ -213,14 +231,18 @@ flowchart LR
 
 ## 10. Quality & Security Release Gates
 
-No software component or release may be declared production-ready unless it satisfies all four mandatory release gates:
+No software component or release may be declared production-ready unless it satisfies applicable release gates, evaluated **proportionally to change risk**:
 
-| Release Gate | Gate Owner | Mandatory Exit Criteria |
-|---|---|---|
-| **1. Functional Gate** | Independent QA | 100% acceptance criteria verified; all required unit, integration, and E2E tests passing. |
-| **2. Regression Gate** | Independent QA | Complete test suite passes; previously fixed defects confirmed un-regressed. |
-| **3. Security Gate** | Independent Security | Threat model reviewed; zero unresolved Critical or High vulnerabilities (unless formal, documented risk acceptance signed off); security retests verified. |
-| **4. Documentation Gate** | All Agents | `/docs_agent/` updated with verified test results, vulnerability register status, and release decisions. |
+| Release Gate | Gate Owner | Mandatory Exit Criteria | Applicable Risk Levels |
+|---|---|---|---|
+| **1. Functional Gate** | Independent QA | 100% acceptance criteria verified; all required unit, integration, and E2E tests passing. | All Changes (Low, Medium, High) |
+| **2. Regression Gate** | Independent QA | Complete test suite passes; previously fixed defects confirmed un-regressed. | Medium & High Risk |
+| **3. Security Gate** | Independent Security | Threat model reviewed; zero unresolved Critical or High vulnerabilities (unless formal, documented risk acceptance signed off); security retests verified. | High Risk (Auth, Crypto, APIs, Payments) |
+| **4. Documentation Gate** | All Agents | Documentation, CONTEXT.md, and CHANGELOG.md synchronized using relative links. | All Changes (Low, Medium, High) |
+
+### 10.1 Risk-Proportionate Gate Exemption
+- **Low-Risk Changes** (documentation updates, typo fixes, standalone CSS token adjustments, non-functional comments) are exempt from Gate 2 (Full Regression) and Gate 3 (Adversarial Security Pen-Testing), requiring only Gate 1 (Static lint/link validation) and Gate 4 (Documentation sync).
+- **High-Risk Changes** (authentication, authorization, cryptography, payments, public APIs, core framework governance) must satisfy all four gates without exception.
 
 ---
 
