@@ -1,0 +1,119 @@
+# .gitignore — Universal Markdown Skills Framework (UMSF)
+# Zero-Dependency, Local-First Repository Protection
+
+# ==============================================================================
+# 1. Local Agent Logs & Internal State (User Project Isolation)
+# ==============================================================================
+# docs_agent contains local session logs, phase histories, and internal run artifacts
+docs_agent/
+
+# ==============================================================================
+# 2. Upstream Source Checkouts & External Repositories
+# ==============================================================================
+# UMSF skills are 100% self-contained in skills/.
+# Upstream vendor checkouts (ECC, UI/UX Pro Max) are not part of UMSF releases.
+ECC/
+ui-ux-pro-max-skill/
+
+# ==============================================================================
+# 3. Agent Scratchpads & Temporary Workspaces
+# ==============================================================================
+scratch/
+.system_generated/
+*.scratch.*
+*.tmp
+*.temp
+*.bak
+
+# ==============================================================================
+# 4. Agent IDE & Tooling Metadata
+# ==============================================================================
+.gemini/
+.claude/
+.cursor/
+.windsurf/
+
+# ==============================================================================
+# 5. Environment Variables & Credentials (Security Invariant)
+# ==============================================================================
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.crt
+*.pfx
+*.p12
+
+# ==============================================================================
+# 6. Operating System Metadata
+# ==============================================================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# ==============================================================================
+# 7. IDE & Editor Artifacts
+# ==============================================================================
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+
+# ==============================================================================
+# 8. Python Runtimes & Caches
+# ==============================================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+.pytest_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+ENV/
+env/
+
+# ==============================================================================
+# 9. Node.js & Web Build Artifacts
+# ==============================================================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+.turbo/
+.next/
+out/
+
+# ==============================================================================
+# 10. General Logs & Diagnostic Outputs
+# ==============================================================================
+*.log
+*.out
+
