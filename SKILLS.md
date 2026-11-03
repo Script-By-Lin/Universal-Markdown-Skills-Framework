@@ -1,8 +1,8 @@
 # SKILLS.md — Central Skill Registry & Selection Guide
 # Universal Markdown Skills Framework (UMSF)
 
-> Version: 1.3.0  
-> Total Skills Cataloged: 371 Across 16 Canonical Engineering Domains & Specialized Disciplines  
+> Version: 1.4.0  
+> Total Skills Cataloged: 372 Across 16 Canonical Engineering Domains & Specialized Disciplines  
 > Authority: Precedence Level 6 Discovery  
 
 ---
@@ -29,7 +29,7 @@ flowchart TD
 2. **Context Window Stewardship**: Avoid indiscriminately loading dozens of unneeded skills; unload skills when moving past their lifecycle stage.
 3. **Agent Role Alignment**:
    - **Agent A (Dev)**: Operates under Domain 01, 04, 05, 06, 07, 08, 09 (`test-driven-development`), 15.
-   - **Agent B (Independent QA)**: Operates under Domain 09 (QA/Testing), Domain 12 (Code Review, Post-Task Verification), Domain 13 (Performance), Domain 16 (`independent-qa-agent`).
+   - **Agent B (Independent Verification Subagent)**: Operates under Domain 09 (QA/Testing), Domain 12 (Code Review, Post-Task Verification), Domain 13 (Performance), Domain 16 (`independent-verification-subagent`, `independent-qa-agent`).
    - **Agent C (Independent Security)**: Operates under Domain 02 (Security Engineering & Pen-Testing), Domain 16 (`independent-security-review-agent`).
 4. **100% Self-Contained Markdown Intelligence**: All 371 skills are pure Markdown. Zero interactive search CLI or external installations required. For UI/UX design intelligence, agents directly consult [`skills/ui-ux-pro-max/references/styles-and-palettes.md`](./skills/ui-ux-pro-max/references/styles-and-palettes.md) (88 visual styles, 192 product palettes, 74 font pairings) and [`skills/ui-ux-pro-max/references/quick-reference.md`](./skills/ui-ux-pro-max/references/quick-reference.md) (119 UX guidelines). Zero interactive search CLI or external installations required. For UI/UX design intelligence, agents and users directly consult the curated catalogs in [`skills/ui-ux-pro-max/references/styles-and-palettes.md`](./skills/ui-ux-pro-max/references/styles-and-palettes.md) (88 visual styles, 192 product palettes, 74 font pairings) and [`skills/ui-ux-pro-max/references/quick-reference.md`](./skills/ui-ux-pro-max/references/quick-reference.md) (119 UX guidelines).
 
@@ -209,6 +209,7 @@ flowchart TD
 | Skill Identifier | Direct Link | Primary Responsibility & Technical Focus |
 |---|---|---|
 | `agentic-engineering` | [`skills/16-ai-agent-engineering/agentic-engineering/SKILL.md`](./skills/16-ai-agent-engineering/agentic-engineering/SKILL.md) | Operate as an agentic engineer using eval-first execution, decomposition, and cost-aware model routing. Use when planning or ex... |
+| `independent-verification-subagent` | [`skills/16-ai-agent-engineering/independent-verification-subagent/SKILL.md`](./skills/16-ai-agent-engineering/independent-verification-subagent/SKILL.md) | Autonomous independent verification subagent protocol evaluating implementation against user prompts, diffs, architecture, code quality, independent testing, security coordination, and defect remediation loops. |
 | `independent-qa-agent` | [`skills/16-ai-agent-engineering/independent-qa-agent/SKILL.md`](./skills/16-ai-agent-engineering/independent-qa-agent/SKILL.md) | Operational persona and protocols for an Independent AI Quality Assurance Agent: autonomous test execution, challenging Dev ass... |
 | `independent-security-review-agent` | [`skills/16-ai-agent-engineering/independent-security-review-agent/SKILL.md`](./skills/16-ai-agent-engineering/independent-security-review-agent/SKILL.md) | Operational persona and protocols for an Independent AI Security Testing Agent: adversarial threat analysis, authorized vulnera... |
 | `multi-agent-verification` | [`skills/16-ai-agent-engineering/multi-agent-verification/SKILL.md`](./skills/16-ai-agent-engineering/multi-agent-verification/SKILL.md) | Orchestration patterns for concurrent multi-agent collaboration: Dev -> QA -> Security handoff loops, consensus protocols, and ... |

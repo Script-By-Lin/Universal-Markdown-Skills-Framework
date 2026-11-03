@@ -194,16 +194,21 @@ flowchart LR
 
 ---
 
-## 8. Independent AI Verification & Quality Assurance Invariants
+## 8. Independent AI Verification Subagent & Quality Assurance Invariants
 
-1. **Role Separation & Adversarial Integrity**:
-   - The Development Agent (Agent A) must **never declare its own work independently approved or secure**.
-   - Verification must be conducted by an Independent QA Agent (Agent B) and an Independent Security Agent (Agent C).
-2. **Execution Modes**:
-   - **Mode 1 (Multi-Agent Mode)**: When the agent harness supports multiple concurrent agents, assign distinct, dedicated subagent instances for Development, QA, and Security.
-   - **Mode 2 (Single-Agent Fallback Mode)**: In single-agent environments, the agent must perform explicit, sequential role-switching passes. After completing development, the agent must switch role to QA, execute fresh checklists and independent test commands, and then switch role to Security to perform adversarial analysis.
-3. **Evidence-Based Acceptance**:
-   - Neither QA nor Security may accept conversational claims from the Development Agent. All verdicts must be backed by verifiable execution evidence (test runner output, exit code 0, reproduction logs).
+1. **Role Separation & Subagent Architecture**:
+   - The Primary Development Agent (Agent A) must **never declare its own work independently approved or secure**.
+   - All meaningful engineering deliverables require independent verification by the **Independent Verification Subagent (Agent B)** ([`skills/16-ai-agent-engineering/independent-verification-subagent/SKILL.md`](./skills/16-ai-agent-engineering/independent-verification-subagent/SKILL.md)), coordinating with the Independent Security Agent (Agent C) for security-sensitive scopes.
+2. **Execution Modes & Honest Attribution**:
+   - **Mode 1 (Multi-Agent Subagents — Preferred)**: In harnesses supporting concurrent subagents, dispatch dedicated, isolated subagent instances for Agent A, Agent B, and Agent C to eliminate cognitive bias and memory leakage.
+   - **Mode 2 (Single-Agent Fallback Mode)**: In single-agent environments, the agent must perform explicit sequential role-switching passes (Dev -> Verification Subagent -> Security).
+   - **Mandatory Attribution Invariant**: In Mode 2, reports and session logs must explicitly state: *"Verification was conducted via sequential self-review role-switch, not independent subagent execution."* Claiming single-agent sequential passes are independent subagents is strictly forbidden.
+3. **Evidence-Based Acceptance & Compilation Inadequacy**:
+   - Neither Agent B nor Agent C may accept conversational claims from Agent A. All verdicts must cite raw terminal commands, diff snippets, and exit code 0.
+   - **Compilation Inadequacy Invariant**: Successful compilation alone is strictly insufficient for `VERIFIED` status. Automated test suite execution, assertion validation, and diff sweeps are mandatory.
+4. **Remediation Boundedness & Honest Reporting**:
+   - The remediation feedback loop between Agent A and Agent B is strictly bounded by a configurable iteration limit (`MAX_VERIFICATION_ITERATIONS = 3`) to prevent unbounded agent ping-pong loops.
+   - If Critical or High findings remain unresolved after permitted iterations, agents must halt and report the blocker honestly in `TASKS.md`, retaining `NEEDS REMEDIATION` or `BLOCKED` state. Never silently approve incomplete or defective work to force completion.
 
 ---
 
@@ -295,7 +300,10 @@ No software component or release may be declared production-ready unless it sati
 | **Testing** | Modifying tests to force incorrect code to pass | Fix the implementation to satisfy legitimate tests |
 | **Testing** | Deleting failing tests without authorization | Resolve defects or record authorized deprecation |
 | **Testing** | Claiming tests passed without executing them | Run test commands and verify exit codes and logs |
-| **QA** | Developer declaring own work independently approved | Run independent QA review or role-switch pass |
+| **QA** | Developer declaring own work independently approved | Run Agent B Independent Verification Subagent pass |
+| **QA** | Claiming subagent verification during single-agent sequential review | Explicitly document sequential role-switch fallback |
+| **QA** | Declaring work verified based solely on compilation without tests | Execute automated test suite and inspect raw exit codes |
+| **QA** | Unbounded agent remediation ping-pong loops | Enforce max 3 iterations; halt and report honestly |
 | **Security** | Active penetration testing without authorization boundary | Confirm target scope, permitted endpoints, and backups |
 | **Security** | Exfiltrating sensitive credentials or user data in reports | Redact secrets; use dummy test tokens |
 | **Security** | Destructive testing or uncontrolled DoS | Use non-destructive, controlled PoC demonstrations |

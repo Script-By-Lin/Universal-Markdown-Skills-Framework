@@ -10,7 +10,24 @@
 
 ---
 
-## [1.3.0] — 2026-11-03
+## [1.4.0] — 2026-11-03
+
+### Added
+- **Independent Verification Subagent Skill (`skills/16-ai-agent-engineering/independent-verification-subagent/SKILL.md`)**:
+  - Authored canonical 15-section domain skill operationalizing the Independent Verification Subagent (Agent B) architecture.
+  - Codified the 7-Dimensional Independent Audit: Requirements Audit, Complete Change Inspection (diff sweep), Architecture Audit, Code Quality Audit, Independent Test Execution, Security Review Coordination (with Agent C), and Documentation Audit.
+  - Standardized 11-field defect schema across 7 severity tiers (Critical, High, Medium, Low, Informational, False Positive, Not Tested).
+  - Scaffolded dual-path root compatibility symlink `skills/independent-verification-subagent`.
+  - Expanded total unique skill library count to **372 physical skills** across 16 domains.
+- **Architectural Decision Record ADR-012 ([`DECISIONS.md`](./DECISIONS.md))**:
+  - Ratified ADR-012: Independent Verification Subagent Architecture & Structured Tripartite Delegation Protocol.
+
+### Changed
+- **Subagent Role Governance & Handoff Protocols**:
+  - Updated [`AGENTS.md`](./AGENTS.md) Section 2 and Section 7: Primary Development Agent (Agent A) prepares structured handoff payload; Independent Verification Subagent (Agent B) conducts independent audit. Agent A is strictly prohibited from claiming self-verification.
+  - Updated [`RULES.md`](./RULES.md) Section 8 and Section 14: Codified Compilation Inadequacy Invariant (building without error is strictly insufficient for `VERIFIED`), Remediation Boundedness (`MAX_VERIFICATION_ITERATIONS = 3`), and Honest Attribution (single-agent fallback must explicitly declare sequential self-review).
+  - Updated [`WORKFLOW.md`](./WORKFLOW.md) Stages 7 through 12 and Section 3: Embedded subagent handoffs, finding classification, bounded remediation, and tri-state acceptance verdicts (`VERIFIED`, `NEEDS REMEDIATION`, `BLOCKED / NOT VERIFIED`).
+  - Synchronized master registry [`SKILLS.md`](./SKILLS.md), [`skills/README.md`](./skills/README.md), [`README.md`](./README.md), [`CONTEXT.md`](./CONTEXT.md), and [`CONTRIBUTING.md`](./CONTRIBUTING.md) to 372 cataloged skills.
 
 ### Added
 - **Post-Task Verification Skill (`skills/12-code-quality-and-maintenance/post-task-verification/SKILL.md`)**:

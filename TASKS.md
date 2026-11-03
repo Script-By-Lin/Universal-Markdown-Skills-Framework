@@ -2,7 +2,7 @@
 # Universal Markdown Skills Framework (UMSF)
 
 > Active Task Management, Prioritization, and State Tracking  
-> Current Status: v1.2.0 Released (370 Skills Across 16 Domains)  
+> Current Status: v1.4.0 Released (372 Skills Across 16 Domains)  
 > Authority: Operational State (Precedence Level: Operational State Machine)  
 
 ---
@@ -26,12 +26,12 @@ stateDiagram-v2
 ## 2. Active Tasks by State
 
 ### In Progress
-*(No tasks currently in progress. All roadmap phases, skills expansion, and testing/security enhancements completed.)*
+*(No tasks currently in progress. Independent Verification Subagent Architecture implemented and verified.)*
 
 ---
 
 ### Pending
-*(No pending foundation tasks. Framework is at v1.2.0 Release state.)*
+*(No pending foundation tasks. Framework is at v1.4.0 Release state.)*
 
 ---
 
@@ -45,11 +45,27 @@ stateDiagram-v2
   - **Category**: Tooling (Optional)
   - **Description**: Optional scripts for automatically generating `.cursorrules` or `.windsurfrules` pointers to `AGENTS.md` for developers requesting automated symlinking.
   - **Rationale**: Postponed to preserve strict zero-dependency core; manual pointers documented in `AGENTS.md` Section 8 and `README.md` Section 6 are sufficient.
-  - **Target Milestone**: v1.3.0
+  - **Target Milestone**: v1.4.x
 
 ---
 
 ## 3. Completed Archive
+
+- [x] **TASK-013: Independent Verification Subagent Architecture Implementation & Framework Integration**
+  - **Completed Date**: 2026-11-03
+  - **Deliverables**:
+    - Authored canonical 15-section domain skill `skills/16-ai-agent-engineering/independent-verification-subagent/SKILL.md` (and dual-path root symlink `skills/independent-verification-subagent`).
+    - Expanded physical skill library count to **372 unique skills** across 16 domains.
+    - Formalized Agent A (Primary Development Agent) vs Agent B (Independent Verification Subagent) vs Agent C (Independent Security Agent) tripartite delegation.
+    - Standardized 7-dimensional independent audit protocol: Requirements, Diff Sweep, Architecture, Code Quality, Independent Test Execution, Security Coordination, and Documentation.
+    - Standardized 11-field defect finding schema across 7 severity tiers (Critical to Informational, False Positive, Not Tested).
+    - Established bounded remediation lifecycle with `MAX_VERIFICATION_ITERATIONS = 3` to prevent infinite loops.
+    - Codified Compilation Inadequacy Invariant (compilation alone is strictly insufficient for `VERIFIED`).
+    - Formalized Mode 1 (concurrent isolated subagents) and Mode 2 (sequential single-agent role-switch) with mandatory honest attribution.
+    - Defined tri-state final acceptance decisions: `VERIFIED`, `NEEDS REMEDIATION`, `BLOCKED / NOT VERIFIED`.
+    - Ratified Architectural Decision Record `ADR-012` in `DECISIONS.md`.
+    - Synchronized `AGENTS.md`, `RULES.md`, `WORKFLOW.md`, `SKILLS.md`, `skills/README.md`, `README.md`, `CONTEXT.md`, `CONTRIBUTING.md`, `CHANGELOG.md`, `MEMORY.md`, and `docs_agent/SESSION_LOG.md`.
+    - Verified all 12 validation criteria with empirical testing proof (0 broken links, 0 machine-specific paths, 0 external dependencies).
 
 - [x] **TASK-012: Comprehensive Framework Audit, Contradiction Resolution & Post-Task Verification Integration**
   - **Completed Date**: 2026-11-03

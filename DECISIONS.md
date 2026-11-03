@@ -21,6 +21,7 @@
 | [`ADR-009`](#adr-009-self-contained-markdown-skills-and-zero-search-cli-dependency) | 2026-11-03 | Self-Contained Markdown Skills & Zero Search CLI Dependency | **Accepted** | — |
 | [`ADR-010`](#adr-010-strict-relative-paths-and-repository-portability-invariant) | 2026-11-03 | Strict Relative Paths and Repository Portability Invariant | **Accepted** | — |
 | [`ADR-011`](#adr-011-post-task-verification-gate-dynamic-context-aware-skill-loading--risk-proportionate-delivery) | 2026-11-03 | Post-Task Verification Gate, Dynamic Skill Loading & Risk-Proportionate Delivery | **Accepted** | — |
+| [`ADR-012`](#adr-012-independent-verification-subagent-architecture--structured-tripartite-delegation-protocol) | 2026-11-03 | Independent Verification Subagent Architecture & Structured Tripartite Delegation Protocol | **Accepted** | — |
 
 ---
 
@@ -364,6 +365,50 @@ A comprehensive framework audit identified three architectural contradictions ac
   - Transparent reporting: Unresolved issues are reported honestly without false success claims.
 - **Negative Impacts / Known Trade-offs**:
   - Requires agents to perform disciplined diff inspections and evidence gathering before closing tasks, adding conversational diligence for reliability.
+
+---
+
+## ADR-012: Independent Verification Subagent Architecture & Structured Tripartite Delegation Protocol
+
+- **Date**: 2026-11-03
+- **Status**: Accepted
+- **Deciders**: Principal Software Architect, Senior QA Engineer, AI Systems Architect
+- **Supersedes**: None (extends and operationalizes ADR-008 and ADR-011)
+
+### 1. Context & Problem Statement
+While ADR-011 established the post-task verification methodology and 12-stage engineering lifecycle, development agents still suffered from inherent confirmation bias when operating without explicit subagent role delegation. Specific failure modes included:
+1. **Developer Self-Approval**: Primary development agents (Agent A) naturally tended to validate only their own expected code paths, overlooking missing prompt requirements, boundary failures, or uninspected side effects.
+2. **Unverified Test Claims**: Development agents frequently claimed tests passed without running them, or relied on tests that merely mirrored already-written implementations.
+3. **Unbounded Ping-Pong Loops**: Without a defined remediation lifecycle and strict iteration limits, agents entered endless minor refactoring loops.
+4. **Attribution Ambiguity**: In single-agent environments, agents sometimes simulated or falsely claimed independent subagent redundancy when actually running sequential self-evaluations.
+
+### 2. Alternatives Considered
+1. **Option A: Retain Developer Self-Verification**: Let Agent A self-verify using post-task verification checklists. Rejected because cognitive confirmation bias cannot be reliably eliminated within the same implementation context.
+2. **Option B: External Compiler / CI Gating Only**: Rely entirely on automated external build pipelines. Rejected because UMSF is a zero-dependency, local-first framework that must give agents sovereign, self-contained auditing capabilities inside the local IDE or CLI workspace.
+3. **Option C: Independent Verification Subagent Architecture & Tripartite Delegation Protocol**:
+   - Establish Agent B as a formal **Independent Verification Subagent** dispatched in an isolated subagent context (or fresh sequential pass).
+   - Standardize an explicit 7-dimensional audit: Requirements, Diff Sweep, Architecture, Code Quality, Independent Test Execution, Security Coordination, and Documentation.
+   - Standardize an 11-field defect schema across 7 severity tiers.
+   - Bound remediation cycles to `MAX_VERIFICATION_ITERATIONS = 3` to prevent infinite loops.
+   - Mandate honest attribution: in single-agent environments, explicitly record that verification was sequential self-review, never claiming fake independent subagents.
+   - Enforce tri-state acceptance verdicts (`VERIFIED`, `NEEDS REMEDIATION`, `BLOCKED / NOT VERIFIED`), codifying that compilation alone is never sufficient.
+
+### 3. Decision Outcome
+**Selected Option**: **Option C: Independent Verification Subagent Architecture & Tripartite Delegation Protocol**
+- Authored canonical 15-section domain skill [`skills/16-ai-agent-engineering/independent-verification-subagent/SKILL.md`](./skills/16-ai-agent-engineering/independent-verification-subagent/SKILL.md) and dual-path root symlink `skills/independent-verification-subagent` (advancing total physical skills to 372).
+- Formalized Agent A (Primary Development Agent), Agent B (Independent Verification Subagent), and Agent C (Independent Security Agent) in [`AGENTS.md`](./AGENTS.md) Section 2 and [`RULES.md`](./RULES.md) Section 8.
+- Upgraded Stages 7 through 12 in [`WORKFLOW.md`](./WORKFLOW.md) to govern subagent handoffs, finding classification, bounded remediation, and tri-state acceptance decisions.
+
+### 4. Consequences & Trade-offs
+- **Positive Impacts**:
+  - Complete cognitive independence: Agent B inspects raw prompts and actual diffs with zero deference to Agent A's claims.
+  - Elimination of false claims: Tests must be executed directly with raw exit codes inspected.
+  - Finite execution guarantees: Max 3 remediation iterations prevent infinite loops; unresolved blockers are reported honestly.
+  - Transparent attribution: Clear distinction between real multi-agent execution (Mode 1) and sequential fallback (Mode 2).
+  - 100% zero-dependency, local-first Markdown architecture preserved.
+- **Negative Impacts / Known Trade-offs**:
+  - Dispatching an isolated subagent or running a sequential verification pass consumes additional agent turns and tokens, which is an intentional, high-value investment in reliability.
+
 
 
 

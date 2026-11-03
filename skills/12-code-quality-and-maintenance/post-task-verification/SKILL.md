@@ -22,6 +22,7 @@ tags: [verification, qa, audit, diff-inspection, evidence-based, acceptance-crit
   - [`code-review`](../../code-review/SKILL.md)
   - [`test-driven-development`](../../09-quality-assurance-and-testing/test-driven-development/SKILL.md)
   - [`regression-testing`](../../09-quality-assurance-and-testing/regression-testing/SKILL.md)
+  - [`independent-verification-subagent`](../../16-ai-agent-engineering/independent-verification-subagent/SKILL.md)
   - [`independent-qa-agent`](../../16-ai-agent-engineering/independent-qa-agent/SKILL.md)
   - [`independent-security-review-agent`](../../16-ai-agent-engineering/independent-security-review-agent/SKILL.md)
   - [`multi-agent-verification`](../../16-ai-agent-engineering/multi-agent-verification/SKILL.md)

@@ -2,7 +2,7 @@
 
 > Standardized Domain Knowledge Modules for Autonomous AI Coding Agents  
 > Specification: Canonical 15-Section Universal Markdown Skills Schema  
-> Total Cataloged Skills: 371 Across 16 Canonical Engineering Domains & Specialized Modules  
+> Total Cataloged Skills: 372 Across 16 Canonical Engineering Domains & Specialized Modules  
 
 ---
 
@@ -25,17 +25,17 @@ The skills library is organized into 16 standardized engineering domains coverin
 - **Domain 13 — Performance Engineering & Profiling** ([`skills/13-performance-engineering/`](./13-performance-engineering/)): 2 Core Skills (`performance`, `benchmark-optimization-loop`)
 - **Domain 14 — Project & Team Delivery Management** ([`skills/14-project-and-team-management/`](./14-project-and-team-management/)): 1 Core Skill (`counterparty-channel-discipline`)
 - **Domain 15 — Documentation & Technical Writing** ([`skills/15-documentation-and-technical-communication/`](./15-documentation-and-technical-communication/)): 2 Core Skills (`documentation`, `article-writing`)
-- **Domain 16 — AI Agent Engineering & Multi-Agent Systems** ([`skills/16-ai-agent-engineering/`](./16-ai-agent-engineering/)): 11 Core Skills (`agentic-engineering`, `independent-qa-agent`, `independent-security-review-agent`, `multi-agent-verification`, `adversarial-testing`, `agent-handoff-and-review`, `evidence-based-validation`, `agent-role-separation`, `autonomous-loops`, `prompt-optimizer`, `mcp-server-patterns`)
+- **Domain 16 — AI Agent Engineering & Multi-Agent Systems** ([`skills/16-ai-agent-engineering/`](./16-ai-agent-engineering/)): 12 Core Skills (`agentic-engineering`, `independent-verification-subagent`, `independent-qa-agent`, `independent-security-review-agent`, `multi-agent-verification`, `adversarial-testing`, `agent-handoff-and-review`, `evidence-based-validation`, `agent-role-separation`, `autonomous-loops`, `prompt-optimizer`, `mcp-server-patterns`)
 - **Specialized Technology & Pattern Modules**: 300 Specialized Engineering Skills indexed in [`SKILLS.md`](../SKILLS.md) Section 3 covering languages, web frameworks, database engines, cloud infrastructure, and protocols.
 
 ---
 
-## 2. Tripartite Agent Roles & Verification
+## 2. Tripartite Agent Roles & Subagent Verification
 
-1. **Agent A — Development Agent**: Drives TDD Red-Green-Refactor, feature implementation, and developer tests. Cannot self-approve security.
-2. **Agent B — Independent QA Agent**: Independently runs regression tests, audits edge cases, and verifies acceptance criteria.
+1. **Agent A — Primary Development Agent**: Drives TDD Red-Green-Refactor, feature implementation, and developer tests. Cannot self-approve deliverables.
+2. **Agent B — Independent Verification Subagent**: Dispatched in an isolated subagent context to independently evaluate requirements, diffs, test execution (exit code 0), architecture, code quality, security coordination, and doc sync.
 3. **Agent C — Independent Security Agent**: Adversarial posture, threat modeling, authorized non-destructive penetration testing, and vulnerability retesting.
-4. **Mandatory Post-Task Verification**: All agents execute [`post-task-verification`](./12-code-quality-and-maintenance/post-task-verification/SKILL.md) prior to closing any task.
+4. **Mandatory Post-Task Verification**: All agents execute [`post-task-verification`](./12-code-quality-and-maintenance/post-task-verification/SKILL.md) and [`independent-verification-subagent`](./16-ai-agent-engineering/independent-verification-subagent/SKILL.md) prior to closing any task.
 
 ---
 
@@ -50,4 +50,4 @@ All design intelligence is self-contained in Markdown catalogs—zero CLI tools,
 
 ## 4. Master Central Registry
 
-Consult [`SKILLS.md`](../SKILLS.md) at the repository root for complete selection matrices, role assignments, and direct clickable links to all 371 skills.
+Consult [`SKILLS.md`](../SKILLS.md) at the repository root for complete selection matrices, role assignments, and direct clickable links to all 372 skills.

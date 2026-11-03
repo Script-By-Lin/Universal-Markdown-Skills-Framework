@@ -1,7 +1,7 @@
 # WORKFLOW.md — Standard Development Lifecycle
 # Universal Markdown Skills Framework (UMSF)
 
-> Version: 1.3.0  
+> Version: 1.4.0  
 > Scope: Universal / All Agents & Contributors  
 > Authority: Operational Lifecycle Standard (Precedence Level 5)  
 
@@ -101,45 +101,62 @@ flowchart TD
 
 ---
 
-### Stage 7: Perform Relevant Independent QA & Security Review
-- **Goal**: Conduct risk-proportionate quality assurance and security reviews to eliminate developer confirmation bias.
+### Stage 7: Perform Independent Verification Subagent Audit & Security Review
+- **Goal**: Eliminate developer confirmation bias by transferring deliverables to an isolated verification context to audit requirements, diffs, tests, architecture, code quality, security, and documentation.
 - **Protocol**:
-  1. **Mode 1 (Multi-Agent)**: Engage dedicated **Agent B (Independent QA)** and **Agent C (Independent Security)** subagents.
-  2. **Mode 2 (Single-Agent Fallback)**: Execute distinct sequential role-switching passes with fresh checklists.
-  3. **Risk-Proportionate Review Scope**:
-     - **Low Risk** (Docs, comments, isolated UI styling): Static linting, link verification, visual QA.
-     - **Medium Risk** (Business logic, state handling, migrations): Integration review, regression sweep, static security audit.
-     - **High Risk** (Auth, crypto, payments, public APIs, core framework): Threat modeling ([`threat-modeling`](./skills/02-security-engineering/threat-modeling/SKILL.md)), authorized non-destructive penetration testing ([`penetration-testing`](./skills/02-security-engineering/penetration-testing/SKILL.md)), OWASP checks.
-- **Exit Gate**: Independent QA and Security assessments completed proportionally to risk.
+  1. Load [`skills/16-ai-agent-engineering/independent-verification-subagent/SKILL.md`](./skills/16-ai-agent-engineering/independent-verification-subagent/SKILL.md).
+  2. Agent A packages the **Handoff Payload**: unmodified raw user prompt, acceptance criteria, touched files, git diff summary, executed developer test commands, and open notes. Agent A is strictly prohibited from claiming self-verification.
+  3. **Mode 1 (Multi-Agent Subagent Mode — Preferred)**: Dispatch a dedicated **Agent B (Independent Verification Subagent)** instance in a separate conversation context.
+  4. **Mode 2 (Single-Agent Sequential Fallback)**: Execute an explicit cognitive reset and role-switch pass. Record in reports: *"Verification was conducted via sequential self-review role-switch, not independent subagent execution."*
+  5. Agent B executes the **7-Dimensional Independent Audit**:
+     - *A. Requirements Audit*: Map raw prompt to verified code; identify missing, incomplete, or unrequested features.
+     - *B. Complete Change Inspection*: Inspect every created, modified, deleted, and renamed file; check secret leaks and unwanted prints.
+     - *C. Architecture Audit*: Verify ADR compliance, dependency directions, error handling, and separation of concerns.
+     - *D. Code Quality Audit*: Review maintainability, DRY, edge cases, type safety, and UI/UX Pro Max invariants (Swiss style, WCAG AA, 44×44px touch targets).
+     - *E. Independent Test Execution*: Independently discover and run test commands (`pytest`, `npm test`, etc.); directly inspect raw stdout/stderr and exit codes. Never trust Agent A claims.
+     - *F. Security Review Coordination*: Audit sensitive boundaries. For high-risk scopes, coordinate with or dispatch **Agent C (Independent Security Agent)** for threat modeling and authorized non-destructive penetration testing.
+     - *G. Documentation Audit*: Check doc sync, verify strict relative links (`./` or `../`), and ensure zero broken references.
+- **Exit Gate**: 7-dimensional audit complete with inspectable raw command logs and exit codes.
 
 ---
 
 ### Stage 8: Identify and Classify Issues
-- **Goal**: Triage any defects, security weaknesses, regression risks, or broken links discovered during review.
+- **Goal**: Triage any defects, regressions, or weaknesses discovered during review using the standardized 11-field schema and 7 severity tiers.
 - **Protocol**:
-  1. Classify discovered issues by severity: **Critical** (blocker), **Major** (functional defect), **Minor** (edge case / style), or **Informational**.
-  2. Document root causes and affected files.
-- **Exit Gate**: Issues triaged with explicit severity ratings and actionable reproduction steps.
+  1. Record each finding with: Finding ID, Title, Severity, Affected Component, Description, Evidence, Reproduction Steps, Expected Behavior, Actual Behavior, Root Cause, and Recommended Remediation.
+  2. Classify by severity tier:
+     - **Critical**: System crash, data loss, security flaw, or build breakage (Immediate Blocker).
+     - **High**: Major functional defect, missing primary acceptance criterion, or regression (Blocker).
+     - **Medium**: Edge-case failure, unhandled boundary, or accessibility violation (Remediate within scope).
+     - **Low**: Code style or minor doc typo (Polish or log).
+     - **Informational**: Optimization or future refactoring observation.
+     - **False Positive**: Validated as intended behavior with documented justification.
+     - **Not Tested**: Explicitly recorded unverified areas due to missing tooling or environment constraints.
+- **Exit Gate**: Standardized finding ledger documenting all confirmed defects versus potential concerns.
 
 ---
 
 ### Stage 9: Remediate Issues Within Authorized Scope
-- **Goal**: Apply targeted, surgical corrections to resolve identified issues.
+- **Goal**: Apply targeted, surgical corrections to resolve identified issues within a bounded remediation loop.
 - **Protocol**:
-  1. Author failing regression tests reproducing the defect.
-  2. Implement surgical code or documentation fixes.
-  3. Strictly avoid unrequested scope creep or architectural churn during remediation.
-- **Exit Gate**: Remediation implemented and ready for revalidation.
+  1. Agent B returns the structured finding package to Agent A.
+  2. Agent A writes a failing regression test reproducing the defect (TDD RED phase).
+  3. Agent A implements the surgical fix and verifies tests pass locally (TDD GREEN phase).
+  4. Agent A submits a remediation report detailing modified lines and verification commands.
+  5. **Remediation Boundedness Invariant**: The remediation feedback loop is strictly bounded by `MAX_VERIFICATION_ITERATIONS = 3` to prevent unbounded agent ping-pong loops.
+  6. If Critical or High findings remain unresolved after 3 iterations, Agent B must halt and report the blocker honestly. Never silently approve failing code to exit the loop.
+- **Exit Gate**: Surgical remediation complete and ready for independent revalidation, or transparent blocker reported.
 
 ---
 
 ### Stage 10: Revalidate Affected Functionality & Regression Sweep
 - **Goal**: Prove that remediated code resolves the defect without introducing secondary regressions.
 - **Protocol**:
-  1. Rerun test suite for remediated components.
-  2. Execute regression suites across adjacent modules.
-  3. If security weaknesses were remediated, execute mandatory security retests ([`security-remediation-and-retesting`](./skills/02-security-engineering/security-remediation-and-retesting/SKILL.md)).
-- **Exit Gate**: Passing retest evidence with zero regressions confirmed.
+  1. Agent B re-inspects modified diffs independently.
+  2. Agent B executes the test suite for remediated components.
+  3. Agent B executes regression test sweeps across adjacent modules.
+  4. If security weaknesses were remediated, Agent C executes mandatory security retests ([`security-remediation-and-retesting`](./skills/02-security-engineering/security-remediation-and-retesting/SKILL.md)).
+- **Exit Gate**: Passing retest evidence with zero regressions confirmed by Agent B.
 
 ---
 
@@ -156,14 +173,20 @@ flowchart TD
 ---
 
 ### Stage 12: Report Verified Completion Status
-- **Goal**: Provide transparent, evidence-based reporting and update task state machine.
+- **Goal**: Provide transparent, evidence-based reporting and update the task state machine based on the tri-state acceptance decision.
 - **Protocol**:
-  1. Evaluate release criteria against verified evidence:
-     - If all acceptance criteria pass: Mark task `Completed` in [`TASKS.md`](./TASKS.md).
-     - If any unresolved defect, dependency blocker, or incomplete criterion remains: Retain `In Progress` or move to `Blocked` in [`TASKS.md`](./TASKS.md). Report the blocker honestly to the user.
-  2. Update [`docs_agent/SESSION_LOG.md`](./docs_agent/SESSION_LOG.md) summarizing objectives, inspected files, changes made, test results, and next steps.
-  3. Present a clear, concise summary citing actual executed commands and evidence.
-- **Exit Gate**: Accurate task state recorded in `TASKS.md` with transparent, verifiable reporting.
+  1. Agent B issues one of three definitive acceptance verdicts:
+     - **`VERIFIED`**: 100% of applicable acceptance criteria passed, all tests pass (exit code 0), zero unresolved Critical/High defects, docs synchronized, and release gates satisfied.
+     - **`NEEDS REMEDIATION`**: Valid defects or edge cases remain uncorrected within task scope.
+     - **`BLOCKED / NOT VERIFIED`**: Environment, tooling, permissions, or iteration limits prevent safe acceptance.
+  2. **Compilation Inadequacy Rule**: Successful compilation alone is strictly insufficient for `VERIFIED` status. Automated test suite execution, assertion validation, and diff sweeps are mandatory.
+  3. Update [`TASKS.md`](./TASKS.md):
+     - Transition task to `Completed` **only** if status is `VERIFIED`.
+     - Retain `In Progress` if `NEEDS REMEDIATION`.
+     - Move to `Blocked` if `BLOCKED / NOT VERIFIED`, with detailed explanation.
+  4. Update [`docs_agent/SESSION_LOG.md`](./docs_agent/SESSION_LOG.md) summarizing objectives, inspected files, changes made, test results, and next steps.
+  5. Present user summary clearly distinguishing development completion from independent verification sign-off.
+- **Exit Gate**: Accurate task state recorded in `TASKS.md` backed by empirical evidence.
 
 ---
 
@@ -172,8 +195,8 @@ flowchart TD
 | Risk Tier | Typical Scope | Applicable Lifecycle Stages | Required Reviews |
 |---|---|---|---|
 | **Low Risk** | Documentation updates, typo corrections, comments, isolated CSS design token tweaks | Stages 1, 2, 3 (or direct doc edit), 4 (linter), 5, 6, 11, 12 | Developer self-audit + linter/link verification |
-| **Medium Risk** | New feature implementation, UI component logic, schema migrations, non-auth backend endpoints | Stages 1 through 6, 7 (QA Review + Static Security), 8, 9, 10, 11, 12 | Independent QA verification + regression sweep |
-| **High Risk** | Authentication, authorization, payments, cryptography, public API endpoints, core framework invariants | Full 12-Stage Lifecycle (Stages 1 through 12 mandatory) | Dedicated QA verification + adversarial penetration test + security retest |
+| **Medium Risk** | New feature implementation, UI component logic, schema migrations, non-auth backend endpoints | Stages 1 through 6, 7 (Agent B Subagent Audit + Static Security), 8, 9, 10, 11, 12 | Independent Verification Subagent audit + regression sweep |
+| **High Risk** | Authentication, authorization, payments, cryptography, public API endpoints, core framework invariants | Full 12-Stage Lifecycle (Stages 1 through 12 mandatory) | Dedicated Agent B verification subagent + Agent C adversarial penetration test + security retest |
 
 ---
 

@@ -2,7 +2,7 @@
 
 > Current Verified System Reality & Architectural State  
 > Last Verified: 2026-11-03  
-> System Release: v1.2.0-enhanced  
+> System Release: v1.4.0 (Independent Verification Subagent Architecture)  
 > Authority: Precedence Level 4 (Current Verified Project Reality)  
 
 ---
@@ -12,14 +12,15 @@
 - **Core Mission**: A universal, provider-independent, zero-dependency, local-first Markdown architecture designed to equip diverse AI coding agents (Claude Code, Cursor, Antigravity, OpenAI Codex, Windsurf, Gemini CLI, GitHub Copilot) with persistent architectural awareness, domain-specific skills, long-term memory, and session continuity.
 - **Primary Objectives**:
   1. Eliminate context drift and information loss across multi-session AI interactions without external cloud services.
-  2. Provide an expanded, SDLC-comprehensive library of **371 skills** structured across **16 Canonical Engineering Domains** under `skills/` (with dual-path backward compatibility via root symlinks):
+  2. Provide an expanded, SDLC-comprehensive library of **372 skills** structured across **16 Canonical Engineering Domains** under `skills/` (with dual-path backward compatibility via root symlinks):
      - 15 canonical foundational lifecycle skills (authoritatively structured in 15-section UMSF schema).
      - 7 UI/UX Pro Max design intelligence suite skills with pure Markdown reference catalogs.
      - 313 specialized engineering domain skills across languages, frameworks, cloud, and agentic workflows.
-     - 35 advanced testing, security, and AI agent engineering skills (Category 02 Security, Category 09 QA/Testing, Category 16 AI Agent Engineering).
+     - 36 advanced testing, security, and AI agent engineering skills (Category 02 Security, Category 09 QA/Testing, Category 16 AI Agent Engineering).
      - 1 post-task verification delivery gate skill (`skills/12-code-quality-and-maintenance/post-task-verification/SKILL.md`).
+     - 1 independent verification subagent architecture skill (`skills/16-ai-agent-engineering/independent-verification-subagent/SKILL.md`).
   3. Formalize and enforce **Test-Driven Development (TDD)** Red-Green-Refactor as the mandatory development invariant for all testable features.
-  4. Codify the **Tripartite Agent Architecture** (Agent A Development, Agent B Independent QA, Agent C Independent Security) with Mode 1 (concurrent subagents) and Mode 2 (sequential single-agent role-switching passes).
+  4. Codify the **Independent Verification Subagent Architecture** (Agent A Primary Development Agent, Agent B Independent Verification Subagent, Agent C Independent Security Agent) with Mode 1 (concurrent isolated subagents) and Mode 2 (sequential single-agent role-switching passes with explicit honest attribution).
   5. Codify **Authorized Penetration Testing Rules** (explicit scope, non-destructive, controlled PoCs, zero credential exfiltration, zero uncontrolled DoS).
   6. Enforce **Four-Tier Release Gates** (Functional, Regression, Security, Documentation) backed by empirical execution evidence.
   7. Provide **18 standardized project templates** in `templates/` (7 core scaffolding templates + 11 testing and security templates), preserving the empty user-project `/docs_agent/` initialization invariant.
@@ -54,7 +55,7 @@ flowchart TD
         WF[WORKFLOW.md\n12-Stage Lifecycle & Post-Task Verification]
     end
 
-    subgraph S2["2. Reusable Skills System (371 Skills Across 16 Domains)"]
+    subgraph S2["2. Reusable Skills System (372 Skills Across 16 Domains)"]
         SKR[SKILLS.md\nCentral Registry & Index]
         D01["01: SDLC Lifecycle"]
         D02["02: Security Engineering (12 Skills)"]
@@ -62,7 +63,7 @@ flowchart TD
         D07["07: Frontend & UI/UX Pro Max"]
         D09["09: QA & Testing (16 Skills)"]
         D12["12: Code Quality & Verification"]
-        D16["16: AI Agent Engineering (7 Skills)"]
+        D16["16: AI Agent Engineering (12 Skills)"]
         DOTS["Domains 04-06, 08, 10-11, 13-15"]
         MDC[Pure Markdown\nCatalogs & Guides]
     end
@@ -205,12 +206,14 @@ flowchart TD
 | **Skills Expansion** | UI/UX Pro Max Engine & 313 ECC Skills Integration | **COMPLETED** | 2026-11-03 |
 | **Enhancement** | Advanced Testing, TDD & AI Security Engineering (371 Skills, 16 Domains) | **COMPLETED** | 2026-11-03 |
 | **Audit & Post-Task** | Framework Audit, Contradiction Resolution & Post-Task Verification Gate | **COMPLETED** | 2026-11-03 |
+| **Verification Subagent** | Independent Verification Subagent Architecture & 7-Dimensional Audit Loop | **COMPLETED** | 2026-11-03 |
 
 ---
 
 ## 6. Pre-Existing Code & Preserved Artifacts
 - [`implementation.md`](./implementation.md): The user-provided master specification governing UMSF requirements. Preserved verbatim.
 - [`Enhance.md`](./Enhance.md): The master audit, testing, and post-task verification enhancement specification. Preserved verbatim.
+- [`enhancement.md`](./enhancement.md): The master specification governing the Independent Verification Subagent Architecture. Preserved verbatim.
 - [`ui-ux-pro-max-skill/`](./ui-ux-pro-max-skill/): Upstream repository for the UI/UX Pro Max design intelligence suite. Preserved intact.
 - [`ECC/`](./ECC/): Upstream repository for Everything Claude Code skills. Preserved intact.
 
@@ -218,8 +221,8 @@ flowchart TD
 
 ## 7. Known Limitations & Technical Constraints
 1. **Agent Compliance Model**: The framework relies on LLM prompt parsing and reasoning. Strict adherence to the 10-step initialization procedure in [`AGENTS.md`](./AGENTS.md) ensures context accuracy.
-2. **Context Window Protection**: Never load all 371 skills simultaneously. Agents must adhere to dynamic context-aware skill loading, loading only the skills relevant to the active task stage.
+2. **Context Window Protection**: Never load all 372 skills simultaneously. Agents must adhere to dynamic context-aware skill loading, loading only the skills relevant to the active task stage.
 3. **Single-Agent Role Switching Overhead**: In single-agent environments (Mode 2), executing sequential role-switching passes (Dev -> QA -> Security) consumes additional conversational turns, which is a conscious and mandatory design trade-off for software correctness and security.
 4. **User Project Isolation Invariant**: The user's project `/docs_agent/` directory is initially empty upon framework adoption and is populated strictly as real testing and development events occur; simulated or placeholder test reports are strictly forbidden.
-5. **100% Self-Contained Markdown Skills**: All 371 skills operate purely as standard Markdown documentation. Users do not need to install external packages, CLI daemons, or interactive search tools. When UMSF is adopted, all skills function self-contained within `skills/`. Zero external network dependencies.
+5. **100% Self-Contained Markdown Skills**: All 372 skills operate purely as standard Markdown documentation. Users do not need to install external packages, CLI daemons, or interactive search tools. When UMSF is adopted, all skills function self-contained within `skills/`. Zero external network dependencies.
 

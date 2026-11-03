@@ -1,7 +1,7 @@
 # AGENTS.md — Universal Agent Entry Point
 # Universal Markdown Skills Framework (UMSF)
 
-> Version: 1.0.0-phase2  
+> Version: 1.4.0  
 > Scope: Universal / Cross-Agent  
 > Authority: Canonical Entry Point & Primary Operating Protocol (Precedence Level 1 / Default)  
 
@@ -13,37 +13,42 @@ You are operating within a repository governed by the **Universal Markdown Skill
 
 ---
 
-## 2. Independent AI Agent Roles & Execution Modes
+## 2. Independent AI Agent Roles & Subagent Architecture
 
-To eliminate confirmation bias and ensure rigorous software quality and security, all engineering activities operate under three distinct logical roles:
+To eliminate confirmation bias and ensure rigorous software quality and security, all engineering activities operate under three distinct logical roles governed by the **Independent Verification Subagent Architecture**:
 
 ```mermaid
 flowchart LR
-    Dev["Agent A: Development Agent\nTDD Red-Green-Refactor\nImplementation & Dev Tests"] --> QA["Agent B: Independent QA Agent\nCoverage Audit & Regressions\nFunctional Verification"]
-    QA --> Sec["Agent C: Independent Security Agent\nAdversarial Threat Analysis\nAuthorized Pen-Testing & Retest"]
-    Sec --> Gate["Four-Tier Release Gates\nFunctional | Regression | Security | Docs"]
+    Dev["Agent A: Primary Development Agent\nTDD Red-Green-Refactor\nImplementation & Dev Tests\nPrepares Handoff Payload"] --> SubB["Agent B: Independent Verification Subagent\nRequirements & Complete Diff Audit\nIndependent Test Execution & Exit Codes\nDefect Remediation Loop (Max 3)"]
+    SubB <--> Sec["Agent C: Independent Security Agent\nAdversarial Threat Analysis\nAuthorized Pen-Testing & Retest"]
+    SubB --> Decision["Tri-State Decision Gate\nVERIFIED | NEEDS REMEDIATION | BLOCKED"]
 ```
 
 ### 2.1 Logical Agent Roles
-1. **Agent A — Development Agent**:
-   - Analyzes requirements, architects features, and strictly applies Test-Driven Development (TDD: Red-Green-Refactor).
+1. **Agent A — Primary Development Agent**:
+   - Analyzes raw requirements, extracts acceptance criteria, architects features, and strictly applies Test-Driven Development (TDD: Red-Green-Refactor).
    - Authors minimal implementation code to pass failing tests and keeps code clean and maintainable.
-   - **Constraint**: The Development Agent must **never declare its own work independently approved or secure**.
-2. **Agent B — Independent QA Agent**:
-   - Independently inspects code and test suites without blindly trusting the Development Agent's claims.
-   - Identifies missing edge cases, validates acceptance criteria, and runs regression suites.
-   - Verifies that bug fixes do not regress existing functionality.
+   - Executes local developer validation, records modified files, and prepares a structured handoff briefing for Agent B.
+   - **Hard Invariant**: The Development Agent must **never declare its own work independently approved or secure**.
+2. **Agent B — Independent Verification Subagent**:
+   - Dispatched in an isolated subagent context (or fresh sequential pass) with zero confirmation bias to evaluate everything Agent A implemented.
+   - Conducts the 7-dimensional independent audit: Requirements Audit, Complete Change Inspection (diff sweep), Architecture Audit, Code Quality Audit, Independent Test Execution, Security Review Coordination, and Documentation Audit.
+   - Independently discovers and runs test suites, inspecting raw command outputs and exit codes (`0` vs non-zero).
+   - Triages findings across 7 severity tiers (Critical to Informational), coordinates surgical remediation loops with Agent A (maximum 3 iterations), and renders the tri-state acceptance decision (`VERIFIED`, `NEEDS REMEDIATION`, `BLOCKED / NOT VERIFIED`).
+   - Guided by [`skills/16-ai-agent-engineering/independent-verification-subagent/SKILL.md`](./skills/16-ai-agent-engineering/independent-verification-subagent/SKILL.md).
 3. **Agent C — Independent Security Agent**:
-   - Assumes an **adversarial perspective** to challenge architecture, authentication, authorization, and data flow.
-   - Conducts threat modeling and authorized non-destructive penetration testing within agreed boundaries.
+   - Assumes an **adversarial attacker perspective** to challenge architecture, authentication, authorization, cryptography, and data flow.
+   - Conducts threat modeling and authorized non-destructive penetration testing within explicit user boundaries.
    - Logs confirmed vulnerabilities, verifies remediations, and performs mandatory security retests.
+   - Guided by [`skills/16-ai-agent-engineering/independent-security-review-agent/SKILL.md`](./skills/16-ai-agent-engineering/independent-security-review-agent/SKILL.md).
 
-### 2.2 Execution Modes
-- **Mode 1 — Multi-Agent Mode**: When operating in a harness supporting concurrent subagents (e.g. Antigravity, Claude Code subagents), assign distinct, isolated subagent conversations for Agent A, Agent B, and Agent C.
-- **Mode 2 — Single-Agent Fallback Mode**: When running in a single-agent environment, the agent must execute explicit, sequential role-switching passes:
-  1. Complete development pass as **Agent A** using TDD.
-  2. Switch context to **Agent B** with a fresh QA checklist, independently executing test commands and inspecting exit codes.
-  3. Switch context to **Agent C** with an adversarial mindset, validating security invariants and scanning for vulnerabilities.
+### 2.2 Execution Modes & Honest Attribution
+- **Mode 1 — Multi-Agent Subagent Mode (Preferred)**: When operating in a harness supporting concurrent subagents (e.g. Antigravity subagent invocation, Claude Code agent teams), assign distinct, isolated subagent conversations for Agent A, Agent B, and Agent C. Structured context handoffs prevent memory pollution and cognitive confirmation bias.
+- **Mode 2 — Single-Agent Sequential Fallback Mode**: When running in a single-agent CLI environment where concurrent subagents are unavailable, the agent must execute explicit, sequential role-switching passes:
+  1. Complete full development pass as **Agent A** using TDD and formulate handoff briefing.
+  2. Announce role switch and reset cognitive context to **Agent B**, re-reading the raw prompt, auditing diffs, and independently executing test commands.
+  3. Announce role switch to **Agent C** when security-sensitive code is touched, evaluating threat surfaces.
+  4. **Mandatory Attribution Invariant**: In Mode 2, reports and logs must explicitly state: *"Verification was conducted via sequential self-review role-switch, not independent subagent execution."* Never pretend that separate passes in a single agent are independent subagents.
 
 ---
 
@@ -110,7 +115,7 @@ flowchart TD
 | [`AGENTS.md`](./AGENTS.md) | Canonical entry point & operating protocol | Start of every session | Precedence Level 7 / Entry |
 | [`RULES.md`](./RULES.md) | Mandatory constraints, security & UI/UX rules | Before making any code change | Precedence Level 2 |
 | [`CONTEXT.md`](./CONTEXT.md) | Verified project state, stack, and modules | Start of session & before architecture edits | Precedence Level 4 |
-| [`WORKFLOW.md`](./WORKFLOW.md) | 9-stage engineering lifecycle | When planning & implementing features | Precedence Level 5 |
+| [`WORKFLOW.md`](./WORKFLOW.md) | 12-stage engineering lifecycle | When planning & implementing features | Precedence Level 5 |
 | [`SKILLS.md`](./SKILLS.md) | Central skill registry and selection rules | When specific domain expertise is needed | Precedence Level 6 Discovery |
 | [`TASKS.md`](./TASKS.md) | Active task management state machine | Picking work & updating progress | Operational State |
 | [`DECISIONS.md`](./DECISIONS.md) | Immutable Architectural Decision Records | Before proposing architectural modifications | Precedence Level 3 |
@@ -139,8 +144,9 @@ All engineering activities must execute through the canonical 12-stage lifecycle
 4. **Initial Validation**: Execute local test runner and linters; verify exit code 0.
 5. **Inspect Every Change (Diff Sweep)**: Run `git status -s` and `git diff`; audit every touched line using [`skills/12-code-quality-and-maintenance/post-task-verification/SKILL.md`](./skills/12-code-quality-and-maintenance/post-task-verification/SKILL.md).
 6. **Analyse Requirement Completeness**: Map all user requirements and edge cases to verified code.
-7. **Relevant Independent QA & Security Review**:
-   - In multi-agent mode, assign dedicated QA and Security agents; in single-agent mode, execute distinct role-switch passes.
+7. **Independent Verification Subagent Audit & Security Review**:
+   - In multi-agent mode, dispatch dedicated **Agent B (Independent Verification Subagent)** using [`skills/16-ai-agent-engineering/independent-verification-subagent/SKILL.md`](./skills/16-ai-agent-engineering/independent-verification-subagent/SKILL.md), coordinating with **Agent C (Independent Security Agent)** for security-sensitive scopes.
+   - In single-agent mode, execute distinct sequential role-switch passes with explicit honest attribution in logs.
    - Apply verification **proportionally to risk**: run full penetration testing and regression sweeps for high-risk changes; use static linting and link audits for low-risk doc/styling changes.
 8. **Identify & Classify Issues**: Triage any defects by severity (Critical, Major, Minor, Informational).
 9. **Remediate Within Authorized Scope**: Author failing regression tests and apply targeted fixes without unrequested scope creep.

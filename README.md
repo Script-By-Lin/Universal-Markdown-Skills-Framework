@@ -5,7 +5,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Format: Markdown](https://img.shields.io/badge/Format-Markdown--Only-emerald.svg)](#)
 [![Zero Dependency](https://img.shields.io/badge/Dependencies-Zero-brightgreen.svg)](#)
-[![Skills Library](https://img.shields.io/badge/Skills-371%20Across%2016%20Domains-indigo.svg)](SKILLS.md)
+[![Skills Library](https://img.shields.io/badge/Skills-372%20Across%2016%20Domains-indigo.svg)](SKILLS.md)
 [![Testing: TDD](https://img.shields.io/badge/Methodology-Mandatory%20TDD-red.svg)](skills/09-quality-assurance-and-testing/test-driven-development/SKILL.md)
 [![Security: DevSecOps](https://img.shields.io/badge/Security-Tripartite%20%26%20Pen--Testing-blueviolet.svg)](skills/02-security-engineering/penetration-testing/SKILL.md)
 [![Compatibility](https://img.shields.io/badge/Compatibility-Claude%20%7C%20Cursor%20%7C%20Antigravity%20%7C%20Codex%20%7C%20Windsurf%20%7C%20Copilot-purple.svg)](docs_agent/COMPATIBILITY.md)
@@ -24,7 +24,7 @@ UMSF introduces **no executable runtimes, no background daemons, no databases, a
 | Problem in Agentic Development | Traditional Approach | UMSF Solution |
 |---|---|---|
 | **Context Drift Across Sessions** | Context lost when chat closes | Structured handoffs in `docs_agent/SESSION_LOG.md` & `TASKS.md` |
-| **Token Sizing / Context Bloat** | Ingesting all rules into prompt | 371 modular on-demand skills with dynamic context-aware loading (`SKILLS.md`) |
+| **Token Sizing / Context Bloat** | Ingesting all rules into prompt | 372 modular on-demand skills with dynamic context-aware loading (`SKILLS.md`) |
 | **Developer Self-Approval Bias** | Dev agent approves its own code | **Tripartite Agent Architecture**: Independent QA & Security review |
 | **Post-Hoc / Fake Tests** | Tests written after code to match bugs | **Mandatory TDD Red-Green-Refactor**: Failing tests written first |
 | **Superficial Security Scans** | Passive checks or zero security review | **Authorized Penetration Testing** & 10-stage vulnerability lifecycle |
@@ -46,7 +46,7 @@ flowchart TD
         WF[WORKFLOW.md\n12-Stage Lifecycle & Post-Task Verification]
     end
 
-    subgraph S2["2. Reusable Skills System (371 Skills Across 16 Domains)"]
+    subgraph S2["2. Reusable Skills System (372 Skills Across 16 Domains)"]
         SKR[SKILLS.md\nCentral Registry & Index]
         DOMS["16 Canonical Domain Directories\n(skills/01-... to skills/16-...)"]
         REF[Pure Markdown\nCatalogs & Guides]
@@ -136,7 +136,7 @@ The framework features an expanded, SDLC-comprehensive library of **371 modular 
 | **13. Performance** | [`skills/13-performance-engineering/`](./skills/13-performance-engineering/) | Profiling, latency budgets, load & stress testing |
 | **14. Project Mgmt** | [`skills/14-project-and-team-management/`](./skills/14-project-and-team-management/) | Agile ceremonies, sprint planning, task DAG breakdown |
 | **15. Documentation**| [`skills/15-documentation-and-technical-communication/`](./skills/15-documentation-and-technical-communication/) | Technical writing, architectural docs, API references |
-| **16. AI Agentic** | [`skills/16-ai-agent-engineering/`](./skills/16-ai-agent-engineering/) | **7 Agentic Skills**: Independent QA agent, Security agent, multi-agent verification |
+| **16. AI Agentic** | [`skills/16-ai-agent-engineering/`](./skills/16-ai-agent-engineering/) | **12 Agentic Skills**: Independent verification subagent, QA agent, Security agent, multi-agent verification |
 
 ### Test-Driven Development (TDD) Protocol
 Mandatory for all testable features:
@@ -144,11 +144,11 @@ Mandatory for all testable features:
 2. **GREEN**: Write minimal code necessary to pass tests.
 3. **REFACTOR**: Clean code structure while maintaining passing tests.
 
-### Tripartite Agent Roles & Release Gates
-- **Agent A (Development)**: Responsible for implementation following TDD. Cannot approve its own code.
-- **Agent B (Independent QA)**: Responsible for adversarial verification, edge cases, and Functional & Regression Release Gates.
+### Tripartite Agent Roles & Subagent Verification Architecture
+- **Agent A (Primary Development)**: Responsible for implementation following TDD. Cannot approve its own code. Prepares handoff payload.
+- **Agent B (Independent Verification Subagent)**: Dispatched in isolated subagent context to independently audit requirements, diffs, raw test exit codes, architecture, code quality, security coordination, and doc sync. Manages defect remediation loop (max 3 iterations).
 - **Agent C (Independent Security)**: Responsible for authorized pen-testing, threat modeling, and Security Release Gate.
-- **Single-Agent Fallback (Mode 2)**: Sequential role-switching passes with fresh checklists when running in a single-agent harness.
+- **Single-Agent Fallback (Mode 2)**: Sequential role-switching passes with fresh checklists and mandatory honest attribution in reports when running in a single-agent harness.
 
 ### Pure Markdown UI/UX Design Intelligence
 All design guidance is 100% self-contained in Markdown catalogs (zero CLI tools or external installations required):

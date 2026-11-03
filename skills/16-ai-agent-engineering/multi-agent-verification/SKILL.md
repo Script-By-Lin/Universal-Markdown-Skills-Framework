@@ -18,6 +18,10 @@ tags: ['agentic', 'multi-agent', 'orchestration', 'consensus', 'handoff', 'verif
 - **Category**: AI Agent Engineering (Domain 16)
 - **Authority**: UMSF Canonical Skill Library (Precedence Level 6)
 - **Maintainer**: Universal Markdown Skills Framework
+- **Integrations**:
+  - [`independent-verification-subagent`](../independent-verification-subagent/SKILL.md)
+  - [`independent-qa-agent`](../independent-qa-agent/SKILL.md)
+  - [`independent-security-review-agent`](../independent-security-review-agent/SKILL.md)
 
 ---
 

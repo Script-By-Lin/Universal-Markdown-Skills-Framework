@@ -18,6 +18,10 @@ tags: ['agentic', 'qa-agent', 'verification', 'independent-review', 'quality-gat
 - **Category**: AI Agent Engineering (Domain 16)
 - **Authority**: UMSF Canonical Skill Library (Precedence Level 6)
 - **Maintainer**: Universal Markdown Skills Framework
+- **Integrations**:
+  - [`independent-verification-subagent`](../independent-verification-subagent/SKILL.md)
+  - [`post-task-verification`](../../12-code-quality-and-maintenance/post-task-verification/SKILL.md)
+  - [`independent-security-review-agent`](../independent-security-review-agent/SKILL.md)
 
 ---
 
