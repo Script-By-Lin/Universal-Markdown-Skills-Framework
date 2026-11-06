@@ -1,15 +1,16 @@
 ---
 name: test-data-management
 description: "Deterministic test data synthesis, seeders, factory patterns, sensitive data masking, state cleanup, and test isolation."
-version: 1.0.0
+version: 1.7.0
 category: quality
 tags: ['testing', 'test-data', 'factories', 'fixtures', 'seeding', 'masking', 'isolation']
 ---
 
-# Skill: Test Data Management
+# Skill: Test Data Management & Fixture Engineering
 
-> Canonical UMSF Domain Skill Specification adhering to the standard 15-section schema.
-> Category: Domain 09 — Quality Assurance & Testing
+> Canonical UMSF Domain Skill Specification adhering to the standard schema.  
+> Category: Domain 09 — Quality Assurance & Testing  
+> Status: Level 1 MVP-First Active Specification  
 
 ---
 
@@ -18,15 +19,42 @@ tags: ['testing', 'test-data', 'factories', 'fixtures', 'seeding', 'masking', 'i
 - **Category**: Quality Assurance & Testing (Domain 09)
 - **Authority**: UMSF Canonical Skill Library (Precedence Level 6)
 - **Maintainer**: Universal Markdown Skills Framework
+- **Level 3 References**:
+  - None (self-contained Level 1 & Level 2 guidance)
 
 ---
 
-## 2. Purpose
+## 2. MVP Summary (Level 1 Execution Contract)
+
+- **Purpose**: Generate, isolate, sanitize, and manage realistic test data fixtures for deterministic automated testing.
+- **When to Use**: Creating database seeds, managing complex test fixtures, or sanitizing production data for staging environments.
+- **Essential Invariants**:
+  1. Never use unmasked production PII, passwords, or payment data in test environments.
+  2. Test data fixtures must be deterministic, reproducible, and version-controlled.
+  3. Tests must be idempotent; test data setup and teardown must prevent test crosstalk.
+- **Minimal Workflow**:
+  1. Define synthetic data generation factories using Faker/FactoryBot patterns.
+  2. Implement automated database seeding and transaction rollback fixtures.
+  3. Mask and sanitize any sanitized production dumps before staging import.
+  4. Verify tests execute idempotently with clean data isolation.
+- **Expected Deliverables**: Deterministic test fixture factories and automated data sanitization scripts.
+- **Critical Restrictions**: Strictly prohibit copying raw production customer data into test databases.
+
+> ℹ️ **Progressive Context Loading**:
+> For standard engineering tasks, this **Level 1 MVP Summary** provides the complete operational contract.
+> If deep procedures, edge case handling, or comprehensive checklists are required, proceed to **Level 2 — Core Instructions** below.
+
+---
+
+## Level 2 — Core Instructions & Deep Procedures
+
+### Purpose
+Purpose
 Provides principles and patterns for generating, maintaining, and cleaning up realistic, isolated test data without relying on fragile production database dumps.
 
 ---
 
-## 3. Scope
+### Scope
 - **In-Scope**:
   - Designing deterministic data factories and fixture builders\n  - Ensuring complete test data isolation between parallel test workers\n  - Synthesizing realistic mock datasets (addresses, emails, phone numbers)\n  - Masking and anonymizing sensitive data (PII, tokens, financial details)
 - **Out-of-Scope**:
@@ -34,24 +62,24 @@ Provides principles and patterns for generating, maintaining, and cleaning up re
 
 ---
 
-## 4. When to Use
+### When to Use
 - Creating test setups for integration, E2E, or performance test suites\n- Cleaning up brittle test fixtures that cause intermittent test failures\n- Sanitizing staging database environments
 
 ---
 
-## 5. When Not to Use
+### When Not to Use
 - For trivial unit tests that require only simple primitive values
 
 ---
 
-## 6. Prerequisites
+### Prerequisites
 - Target code components, interfaces, and architecture verified.
 - Project testing frameworks and dependencies inspected from repository.
 - Task registered and tracked in [`TASKS.md`](../../../TASKS.md).
 
 ---
 
-## 7. Required Context
+### Required Context
 Before executing this skill, verify:
 - Mandatory constraints in [`RULES.md`](../../../RULES.md) (TDD invariants & Release Gates).
 - Testing environment in [`CONTEXT.md`](../../../CONTEXT.md).
@@ -59,7 +87,7 @@ Before executing this skill, verify:
 
 ---
 
-## 8. Core Instructions
+### Core Instructions
 ### 8.1 The Factory Pattern for Test Data
 - Avoid hardcoding shared JSON fixtures with fixed IDs (e.g. `user-1.json`). Shared fixtures create hidden dependencies between tests.
 - Use **Dynamic Data Factories** that generate fresh, isolated entities with sensible defaults and unique identifiers (e.g. `user-${Date.now()}-${random()}@example.com`).
@@ -79,7 +107,7 @@ const suspended = buildUser({ isActive: false });
 
 ---
 
-## 9. Step-by-Step Workflow
+### Step-by-Step Workflow
 1. **Step 1: Identify Required Entities & Relationships**
    - Map dependencies (e.g. Order requires User and Product).
 2. **Step 2: Implement Data Factories**
@@ -93,14 +121,14 @@ const suspended = buildUser({ isActive: false });
 
 ---
 
-## 10. Quality Standards
+### Quality Standards
 - **Standard 1**: 100% adherence to the mandatory TDD Red-Green-Refactor protocol.
 - **Standard 2**: All tests must run deterministically with zero flakiness.
 - **Standard 3**: Absolute prohibition on claiming tests passed without verifying execution exit code 0.
 
 ---
 
-## 11. Validation
+### Validation
 | Check | Verification Method | Expected Outcome |
 |---|---|---|
 | Test Execution | Automated test runner execution | 100% passing tests; exit code 0 |
@@ -109,7 +137,7 @@ const suspended = buildUser({ isActive: false });
 
 ---
 
-## 12. Common Mistakes
+### Common Mistakes
 | Mistake / Anti-Pattern | Why It Fails | Correct Alternative |
 |---|---|---|
 | Writing Tests After Implementation | High susceptibility to confirmation bias | Follow TDD: write failing test first (RED phase) |
@@ -118,21 +146,26 @@ const suspended = buildUser({ isActive: false });
 
 ---
 
-## 13. Restrictions
+### Restrictions
 - Do NOT modify tests merely to force incorrect implementation code to pass.
 - Do NOT delete failing tests without documented architectural authorization.
 - Do NOT bypass Functional or Regression Release Gates.
 
 ---
 
-## 14. Expected Deliverables
+### Expected Deliverables
 - Automated test suites (unit, integration, or E2E).
 - Updated testing logs in `docs_agent/testing/TDD_LOG.md` or `TEST_RESULTS.md`.
 - Regression verification report.
 
 ---
 
-## 15. Documentation Requirements
+### Documentation Requirements
 - Record testing conventions and discovered edge cases in [`MEMORY.md`](../../../MEMORY.md).
 - Record testing architectural trade-offs in [`DECISIONS.md`](../../../DECISIONS.md).
 - Update task tracking in [`TASKS.md`](../../../TASKS.md) and session log in [`docs_agent/SESSION_LOG.md`](../../../docs_agent/SESSION_LOG.md).
+
+---
+
+## Level 3 — Optional References & Supplementary Assets
+  - None (self-contained Level 1 & Level 2 guidance)

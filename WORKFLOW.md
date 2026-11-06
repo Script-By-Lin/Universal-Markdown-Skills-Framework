@@ -1,7 +1,7 @@
 # WORKFLOW.md — Standard Development Lifecycle
 # Universal Markdown Skills Framework (UMSF)
 
-> Version: 1.4.0  
+> Version: 1.7.0  
 > Scope: Universal / All Agents & Contributors  
 > Authority: Operational Lifecycle Standard (Precedence Level 5)  
 
@@ -31,6 +31,7 @@ flowchart TD
 2. **Risk-Proportionate Rigor**: Verification depth must match change risk. Do not impose unnecessary dynamic penetration tests or full system regressions on unrelated low-risk changes (e.g. documentation typos or standalone CSS tweaks).
 3. **Honest Status Reporting**: If a defect or blocker cannot be resolved within authorized scope, report it transparently and retain an incomplete or blocked state (`In Progress` or `Blocked`). Never claim unverified success.
 4. **Dynamic Context-Aware Skill Loading**: Load all relevant domain skills required to complete a task effectively, guided by working context budgets rather than arbitrary fixed limits.
+5. **Token-Aware Progressive Execution**: Consult Level 1 MVP Summaries first (~300 tokens); load deep Level 2 instructions only for edge cases; load Level 3 references strictly on demand. Final reports must remain concise and token-aware, citing documentation paths rather than re-printing whole files.
 
 ---
 
@@ -185,7 +186,7 @@ flowchart TD
      - Retain `In Progress` if `NEEDS REMEDIATION`.
      - Move to `Blocked` if `BLOCKED / NOT VERIFIED`, with detailed explanation.
   4. Update [`docs_agent/SESSION_LOG.md`](./docs_agent/SESSION_LOG.md) summarizing objectives, inspected files, changes made, test results, and next steps.
-  5. Present user summary clearly distinguishing development completion from independent verification sign-off.
+  5. Present token-aware user summary clearly distinguishing development completion from independent verification sign-off, citing documentation paths rather than repeating full file contents.
 - **Exit Gate**: Accurate task state recorded in `TASKS.md` backed by empirical evidence.
 
 ---

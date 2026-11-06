@@ -1,15 +1,16 @@
 ---
 name: test-coverage-analysis
 description: "Measurement, analysis, and optimization of code coverage metrics (statement, branch, function, line) to identify untested critical paths."
-version: 1.0.0
+version: 1.7.0
 category: quality
 tags: ['testing', 'code-coverage', 'metrics', 'branch-coverage', 'risk-analysis']
 ---
 
-# Skill: Test Coverage Analysis
+# Skill: Test Coverage & Gap Analysis
 
-> Canonical UMSF Domain Skill Specification adhering to the standard 15-section schema.
-> Category: Domain 09 — Quality Assurance & Testing
+> Canonical UMSF Domain Skill Specification adhering to the standard schema.  
+> Category: Domain 09 — Quality Assurance & Testing  
+> Status: Level 1 MVP-First Active Specification  
 
 ---
 
@@ -18,15 +19,42 @@ tags: ['testing', 'code-coverage', 'metrics', 'branch-coverage', 'risk-analysis'
 - **Category**: Quality Assurance & Testing (Domain 09)
 - **Authority**: UMSF Canonical Skill Library (Precedence Level 6)
 - **Maintainer**: Universal Markdown Skills Framework
+- **Level 3 References**:
+  - None (self-contained Level 1 & Level 2 guidance)
 
 ---
 
-## 2. Purpose
+## 2. MVP Summary (Level 1 Execution Contract)
+
+- **Purpose**: Measure and evaluate code and requirement test coverage, identifying untested edge cases and dead code.
+- **When to Use**: Auditing test suites, establishing PR coverage thresholds, or identifying risk areas in legacy codebases.
+- **Essential Invariants**:
+  1. Focus on branch and condition coverage, not merely superficial line coverage.
+  2. Critical business logic and security modules must maintain >= 90% branch coverage.
+  3. Do not write meaningless assertions solely to inflate coverage statistics.
+- **Minimal Workflow**:
+  1. Run test suite with coverage instrumentation enabled (c8, istanbul, coverage.py, go cover).
+  2. Inspect coverage reports to identify unexercised branches, exception handlers, and edge cases.
+  3. Author targeted tests covering identified high-risk gaps.
+  4. Enforce minimum coverage thresholds in CI/CD pull request checks.
+- **Expected Deliverables**: Coverage report detailing line, branch, and function metrics with gap analysis.
+- **Critical Restrictions**: Never game coverage metrics by adding assertion-free test executions.
+
+> ℹ️ **Progressive Context Loading**:
+> For standard engineering tasks, this **Level 1 MVP Summary** provides the complete operational contract.
+> If deep procedures, edge case handling, or comprehensive checklists are required, proceed to **Level 2 — Core Instructions** below.
+
+---
+
+## Level 2 — Core Instructions & Deep Procedures
+
+### Purpose
+Purpose
 Analyzes test coverage data to discover blind spots in testing suites, ensuring that high-risk business logic and error handlers are thoroughly exercised by automated tests.
 
 ---
 
-## 3. Scope
+### Scope
 - **In-Scope**:
   - Executing coverage instrumentation tools across supported languages\n  - Analyzing statement, branch, function, and condition coverage\n  - Identifying untested error handling and boundary rejection branches\n  - Establishing meaningful coverage thresholds without rewarding vanity metrics
 - **Out-of-Scope**:
@@ -34,24 +62,24 @@ Analyzes test coverage data to discover blind spots in testing suites, ensuring 
 
 ---
 
-## 4. When to Use
+### When to Use
 - Conducting pre-merge code review on new pull requests\n- Evaluating regression safety before major architectural refactoring\n- Auditing legacy codebases to identify untested critical paths
 
 ---
 
-## 5. When Not to Use
+### When Not to Use
 - Using raw percentage coverage as a replacement for high-quality assertions
 
 ---
 
-## 6. Prerequisites
+### Prerequisites
 - Target code components, interfaces, and architecture verified.
 - Project testing frameworks and dependencies inspected from repository.
 - Task registered and tracked in [`TASKS.md`](../../../TASKS.md).
 
 ---
 
-## 7. Required Context
+### Required Context
 Before executing this skill, verify:
 - Mandatory constraints in [`RULES.md`](../../../RULES.md) (TDD invariants & Release Gates).
 - Testing environment in [`CONTEXT.md`](../../../CONTEXT.md).
@@ -59,7 +87,7 @@ Before executing this skill, verify:
 
 ---
 
-## 8. Core Instructions
+### Core Instructions
 ### 8.1 Meaningful Coverage vs Vanity Metrics
 - **Branch Coverage is Paramount**: 100% line coverage can still miss 50% of logic if conditional branches (`if/else`, switch cases, ternary operators) are unexercised. Always optimize for **branch and condition coverage**.
 - **Error Handling Coverage**: Pay special attention to `catch`, `except`, and non-happy-path error branches—these frequently harbor unhandled bugs.
@@ -70,7 +98,7 @@ Before executing this skill, verify:
 
 ---
 
-## 9. Step-by-Step Workflow
+### Step-by-Step Workflow
 1. **Step 1: Run Coverage Instrumentation**
    - Execute project test suite with coverage flag (e.g. `npm test -- --coverage`, `pytest --cov`, `go test -coverprofile`).
 2. **Step 2: Inspect Coverage Report**
@@ -84,14 +112,14 @@ Before executing this skill, verify:
 
 ---
 
-## 10. Quality Standards
+### Quality Standards
 - **Standard 1**: 100% adherence to the mandatory TDD Red-Green-Refactor protocol.
 - **Standard 2**: All tests must run deterministically with zero flakiness.
 - **Standard 3**: Absolute prohibition on claiming tests passed without verifying execution exit code 0.
 
 ---
 
-## 11. Validation
+### Validation
 | Check | Verification Method | Expected Outcome |
 |---|---|---|
 | Test Execution | Automated test runner execution | 100% passing tests; exit code 0 |
@@ -100,7 +128,7 @@ Before executing this skill, verify:
 
 ---
 
-## 12. Common Mistakes
+### Common Mistakes
 | Mistake / Anti-Pattern | Why It Fails | Correct Alternative |
 |---|---|---|
 | Writing Tests After Implementation | High susceptibility to confirmation bias | Follow TDD: write failing test first (RED phase) |
@@ -109,21 +137,26 @@ Before executing this skill, verify:
 
 ---
 
-## 13. Restrictions
+### Restrictions
 - Do NOT modify tests merely to force incorrect implementation code to pass.
 - Do NOT delete failing tests without documented architectural authorization.
 - Do NOT bypass Functional or Regression Release Gates.
 
 ---
 
-## 14. Expected Deliverables
+### Expected Deliverables
 - Automated test suites (unit, integration, or E2E).
 - Updated testing logs in `docs_agent/testing/TDD_LOG.md` or `TEST_RESULTS.md`.
 - Regression verification report.
 
 ---
 
-## 15. Documentation Requirements
+### Documentation Requirements
 - Record testing conventions and discovered edge cases in [`MEMORY.md`](../../../MEMORY.md).
 - Record testing architectural trade-offs in [`DECISIONS.md`](../../../DECISIONS.md).
 - Update task tracking in [`TASKS.md`](../../../TASKS.md) and session log in [`docs_agent/SESSION_LOG.md`](../../../docs_agent/SESSION_LOG.md).
+
+---
+
+## Level 3 — Optional References & Supplementary Assets
+  - None (self-contained Level 1 & Level 2 guidance)

@@ -1,15 +1,16 @@
 ---
 name: web-application-security
 description: "Audit, defense, and remediation of OWASP Top 10 web vulnerabilities including XSS, CSRF, SSRF, path traversal, open redirects, and security headers."
-version: 1.0.0
+version: 1.7.0
 category: security
 tags: ['security', 'web-security', 'owasp', 'xss', 'csrf', 'ssrf', 'security-headers']
 ---
 
 # Skill: Web Application Security
 
-> Canonical UMSF Domain Skill Specification adhering to the standard 15-section schema.
-> Category: Domain 02 — Security Engineering
+> Canonical UMSF Domain Skill Specification adhering to the standard schema.  
+> Category: Domain 02 — Security Engineering  
+> Status: Level 1 MVP-First Active Specification  
 
 ---
 
@@ -18,15 +19,42 @@ tags: ['security', 'web-security', 'owasp', 'xss', 'csrf', 'ssrf', 'security-hea
 - **Category**: Security Engineering (Domain 02)
 - **Authority**: UMSF Canonical Skill Library (Precedence Level 6)
 - **Maintainer**: Universal Markdown Skills Framework
+- **Level 3 References**:
+  - None (self-contained Level 1 & Level 2 guidance)
 
 ---
 
-## 2. Purpose
+## 2. MVP Summary (Level 1 Execution Contract)
+
+- **Purpose**: Harden web application frontends and backends against XSS, CSRF, SSRF, SQLi, clickjacking, and session hijacking.
+- **When to Use**: Authoring web interfaces, handling user session tokens, configuring HTTP security headers, or processing forms.
+- **Essential Invariants**:
+  1. Context-aware output encoding is mandatory for all untrusted user content.
+  2. Enforce strict Content Security Policy (CSP), CORS, and secure cookie attributes (HttpOnly, Secure, SameSite).
+  3. Parameterized queries or ORM bindings are mandatory for all database operations.
+- **Minimal Workflow**:
+  1. Audit HTML rendering templates for unsafe unescaped inputs (e.g. dangerouslySetInnerHTML).
+  2. Configure hardened HTTP headers (CSP, HSTS, X-Content-Type-Options, X-Frame-Options).
+  3. Validate CSRF token verification on state-changing endpoints.
+  4. Run automated web vulnerability scanners against staging instances.
+- **Expected Deliverables**: Hardened web application configuration and passing automated web security tests.
+- **Critical Restrictions**: Never disable browser security controls (CORS/CSP) to fix integration bugs.
+
+> ℹ️ **Progressive Context Loading**:
+> For standard engineering tasks, this **Level 1 MVP Summary** provides the complete operational contract.
+> If deep procedures, edge case handling, or comprehensive checklists are required, proceed to **Level 2 — Core Instructions** below.
+
+---
+
+## Level 2 — Core Instructions & Deep Procedures
+
+### Purpose
+Purpose
 Provides comprehensive engineering instructions for identifying, defending against, and remediating classic and modern web application vulnerabilities across client and server layers.
 
 ---
 
-## 3. Scope
+### Scope
 - **In-Scope**:
   - Stored, reflected, and DOM-based Cross-Site Scripting (XSS) defense\n  - Cross-Site Request Forgery (CSRF) protection using anti-CSRF tokens and SameSite cookies\n  - Server-Side Request Forgery (SSRF) defense via strict IP allowlists and URL parsing\n  - Path traversal and unrestricted file upload remediation\n  - HTTP security header configuration (CSP, HSTS, X-Content-Type-Options)
 - **Out-of-Scope**:
@@ -34,24 +62,24 @@ Provides comprehensive engineering instructions for identifying, defending again
 
 ---
 
-## 4. When to Use
+### When to Use
 - Developing or reviewing web frontend and server-rendered templates\n- Implementing file upload handlers, redirect logic, or external fetchers\n- Configuring production web servers or reverse proxies
 
 ---
 
-## 5. When Not to Use
+### When Not to Use
 - For pure command-line tools without web or HTTP interfaces
 
 ---
 
-## 6. Prerequisites
+### Prerequisites
 - Target application components and architecture inspected.
 - Context verified against [`CONTEXT.md`](../../../CONTEXT.md).
 - Security testing boundaries established in compliance with [`RULES.md`](../../../RULES.md).
 
 ---
 
-## 7. Required Context
+### Required Context
 Before executing this skill, verify:
 - Mandatory constraints in [`RULES.md`](../../../RULES.md) (Precedence Level 2).
 - Security posture in [`CONTEXT.md`](../../../CONTEXT.md).
@@ -59,7 +87,7 @@ Before executing this skill, verify:
 
 ---
 
-## 8. Core Instructions
+### Core Instructions
 ### 8.1 Primary Web Vulnerability Defenses
 1. **XSS Defense**:
    - Context-aware output encoding (HTML, JavaScript, CSS, URL contexts).
@@ -79,7 +107,7 @@ Before executing this skill, verify:
 
 ---
 
-## 9. Step-by-Step Workflow
+### Step-by-Step Workflow
 1. **Step 1: Input and Output Vector Audit**
    - Identify all points where user-supplied data enters the web layer and where it is rendered.
 2. **Step 2: Security Header Verification**
@@ -93,14 +121,14 @@ Before executing this skill, verify:
 
 ---
 
-## 10. Quality Standards
+### Quality Standards
 - **Standard 1**: 100% adherence to non-destructive testing boundaries defined in [`RULES.md`](../../../RULES.md).
 - **Standard 2**: All findings verified with reproducible evidence; zero speculative claims.
 - **Standard 3**: Absolute prohibition on logging or exfiltrating sensitive credentials, keys, or customer data.
 
 ---
 
-## 11. Validation
+### Validation
 | Check | Verification Method | Expected Outcome |
 |---|---|---|
 | Authorization Boundary | Pre-execution scope verification | Explicit user authorization confirmed; target in scope |
@@ -109,7 +137,7 @@ Before executing this skill, verify:
 
 ---
 
-## 12. Common Mistakes
+### Common Mistakes
 | Mistake / Anti-Pattern | Why It Fails | Correct Alternative |
 |---|---|---|
 | Testing Production Without Authorization | Violates legal and safety boundaries; risks data loss | Test strictly against local dev or authorized staging |
@@ -118,21 +146,26 @@ Before executing this skill, verify:
 
 ---
 
-## 13. Restrictions
+### Restrictions
 - Do NOT perform destructive testing or denial-of-service (DoS) attacks.
 - Do NOT exfiltrate or record actual customer data, passwords, or secrets.
 - Do NOT bypass security release gates when unresolved Critical or High vulnerabilities exist.
 
 ---
 
-## 14. Expected Deliverables
+### Expected Deliverables
 - Security assessment reports or threat models under `docs_agent/security/`.
 - Updated vulnerability records in `docs_agent/security/VULNERABILITY_REGISTER.md`.
 - Automated security regression tests.
 
 ---
 
-## 15. Documentation Requirements
+### Documentation Requirements
 - Record reusable security lessons and attack vectors in [`MEMORY.md`](../../../MEMORY.md).
 - Record architectural security decisions in [`DECISIONS.md`](../../../DECISIONS.md).
 - Update task tracking in [`TASKS.md`](../../../TASKS.md) and session log in [`docs_agent/SESSION_LOG.md`](../../../docs_agent/SESSION_LOG.md).
+
+---
+
+## Level 3 — Optional References & Supplementary Assets
+  - None (self-contained Level 1 & Level 2 guidance)

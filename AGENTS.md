@@ -1,7 +1,7 @@
 # AGENTS.md — Universal Agent Entry Point
 # Universal Markdown Skills Framework (UMSF)
 
-> Version: 1.4.0  
+> Version: 1.7.0  
 > Scope: Universal / Cross-Agent  
 > Authority: Canonical Entry Point & Primary Operating Protocol (Precedence Level 1 / Default)  
 
@@ -61,20 +61,13 @@ flowchart TD
     L1["Level 1: Explicit User Prompt (Immediate Task Instructions)"] --> L2["Level 2: RULES.md (Mandatory Safety, Security & Repository Rules)"]
     L2 --> L3["Level 3: ARCHITECTURE.md & DECISIONS.md (System Invariants & Historical ADRs)"]
     L3 --> L4["Level 4: CONTEXT.md (Current Verified Project Reality)"]
-    L4 --> L5["Level 5: WORKFLOW.md (Standard Development Lifecycle Lifecycle)"]
+    L4 --> L5["Level 5: WORKFLOW.md (Standard Development Lifecycle)"]
     L5 --> L6["Level 6: Loaded skills/*/SKILL.md (Active Domain Guidance)"]
     L6 --> L7["Level 7: AGENTS.md (General Framework Defaults)"]
 ```
 
-### Conflict Resolution Matrix
-
-| Conflict Scenario | Winning Authority | Overridden Source | Resolution Protocol |
-|-------------------|-------------------|-------------------|---------------------|
-| User asks to use a forbidden pattern (e.g. skip tests) | `RULES.md` (Level 2) | User Prompt (Level 1) | Inform the user of the hard rule constraint in `RULES.md` and propose a safe alternative. |
-| User requests an architectural pivot | User Prompt (Level 1) | `DECISIONS.md` (Level 3) | Validate with user, execute change, and record a superseding ADR in `DECISIONS.md`. |
-| Documentation conflicts with actual filesystem code | Verified Filesystem | `CONTEXT.md` (Level 4) | Codebase reality is authoritative. Execute against real files and schedule a doc update. |
-| Skill recommends pattern contrary to architecture | `ARCHITECTURE.md` (Level 3) | `SKILL.md` (Level 6) | Follow project architectural invariant; adapt skill instructions to fit. |
-| Two skills recommend competing workflows | Primary Task Skill | Secondary Skill | Defer to the primary skill matching the immediate prompt goal. |
+> 📖 **Authoritative Conflict Resolution**:  
+> For the complete conflict resolution matrix and authority boundary rules, refer directly to [`RULES.md` §1.1](./RULES.md#11-authority-boundary-triad).
 
 ---
 
@@ -125,36 +118,39 @@ flowchart TD
 
 ---
 
-## 6. Skill Discovery and Loading Protocol
+## 6. Progressive Context Loading Protocol
 
-- **Dynamic Context-Aware Skill Loading**: Load all relevant domain skills required to solve the task effectively, guided by active context window economy rather than an arbitrary fixed limit.
-- Consult [`SKILLS.md`](./SKILLS.md) to discover primary and specialized domain skills across the 16 Canonical Engineering Domains.
-- Avoid indiscriminately loading dozens of unneeded skills to conserve context window capacity.
-- Follow the canonical 15-section UMSF schema in each loaded skill.
+To minimize token consumption and eliminate instruction drift, skills operate under a **3-Tier Progressive Loading Architecture**:
+
+1. **Step 1 — Discovery via Registry**: Consult [`SKILLS.md`](./SKILLS.md) to identify the canonical skill matching the active task.
+2. **Step 2 — Read Level 1 MVP Summary**: Read only lines 1–55 of the target `SKILL.md` (Section 2: MVP Summary). This delivers the complete operational contract (Purpose, When to Use, Invariants, Workflow, Deliverables, Restrictions) in ~300 tokens.
+3. **Step 3 — Conditional Deep Instruction Loading (Level 2)**: Only load Level 2 Core Instructions if complex edge cases, detailed implementation algorithms, or specialized defect recovery are required.
+4. **Step 4 — On-Demand Reference Loading (Level 3)**: Never load Level 3 reference files (e.g. `styles-and-palettes.md`, `compose-patterns.md`) unless the immediate prompt specifically requires that specialized asset.
+5. **No Artificial Skill Limits**: Load all relevant skills required for correctness subject to available context capacity; unload or do not re-read skills past their lifecycle stage.
 
 ---
 
 ## 7. Mandatory 12-Stage Task Execution Protocol
 
-All engineering activities must execute through the canonical 12-stage lifecycle:
+All engineering activities must execute through the canonical 12-stage lifecycle. Verification depth must scale conditionally to change risk (e.g. low-risk doc/styling changes are exempt from heavy penetration tests or migration suites):
 
-1. **Understand Original Request**: Parse raw user prompt and define explicit acceptance criteria.
-2. **Plan Task**: Decompose into atomic subtasks in [`TASKS.md`](./TASKS.md) (state: `In Progress`).
-3. **Implement via TDD**: Author failing tests first (RED), write minimal code (GREEN), and clean structure (REFACTOR). Apply UI/UX Swiss/Minimalism tokens for interfaces.
-4. **Initial Validation**: Execute local test runner and linters; verify exit code 0.
-5. **Inspect Every Change (Diff Sweep)**: Run `git status -s` and `git diff`; audit every touched line using [`skills/12-code-quality-and-maintenance/post-task-verification/SKILL.md`](./skills/12-code-quality-and-maintenance/post-task-verification/SKILL.md).
-6. **Analyse Requirement Completeness**: Map all user requirements and edge cases to verified code.
-7. **Independent Verification Subagent Audit & Security Review**:
-   - In multi-agent mode, dispatch dedicated **Agent B (Independent Verification Subagent)** using [`skills/16-ai-agent-engineering/independent-verification-subagent/SKILL.md`](./skills/16-ai-agent-engineering/independent-verification-subagent/SKILL.md), coordinating with **Agent C (Independent Security Agent)** for security-sensitive scopes.
-   - In single-agent mode, execute distinct sequential role-switch passes with explicit honest attribution in logs.
-   - Apply verification **proportionally to risk**: run full penetration testing and regression sweeps for high-risk changes; use static linting and link audits for low-risk doc/styling changes.
-8. **Identify & Classify Issues**: Triage any defects by severity (Critical, Major, Minor, Informational).
-9. **Remediate Within Authorized Scope**: Author failing regression tests and apply targeted fixes without unrequested scope creep.
-10. **Revalidate Affected Functionality**: Re-run test suites and security retests to confirm resolution with zero regressions.
-11. **Update Meaningful Documentation**: Synchronize [`CONTEXT.md`](./CONTEXT.md), [`CHANGELOG.md`](./CHANGELOG.md), and [`MEMORY.md`](./MEMORY.md) using portable relative links.
-12. **Report Verified Completion Status**:
-    - **Completion Gate**: Transition task in [`TASKS.md`](./TASKS.md) to `Completed` **only** if all applicable acceptance criteria are verified with empirical evidence.
-    - **Honest Status Reporting**: If a defect or blocker cannot be resolved within authorized scope, retain `In Progress` or mark `Blocked` with descriptive rationale. Never claim false completion.
+```mermaid
+flowchart TD
+    W1[1. Understand Request & Codebase] --> W2[2. Plan Task & Acceptance Criteria]
+    W2 --> W3[3. Implement via TDD Red-Green-Refactor]
+    W3 --> W4[4. Initial Validation & Test Execution]
+    W4 --> W5[5. Inspect Every Change - Diff Sweep]
+    W5 --> W6[6. Analyse Requirement Completeness]
+    W6 --> W7[7. Independent Verification Subagent Audit]
+    W7 --> W8[8. Identify & Classify Issues]
+    W8 --> W9[9. Remediate Issues within Scope]
+    W9 --> W10[10. Revalidate Affected Functionality]
+    W10 --> W11[11. Update Meaningful Documentation]
+    W11 --> W12[12. Report Verified Completion Status]
+```
+
+> 📖 **Full Lifecycle Procedures & Conditional Execution Matrix**:  
+> For the comprehensive stage-by-stage instructions and the risk-proportionate verification matrix, refer directly to [`WORKFLOW.md` §2–§3](./WORKFLOW.md).
 
 ---
 
@@ -165,13 +161,7 @@ At the conclusion of each meaningful turn or session:
 2. If new lessons, testing conventions, or recurring traps were discovered, record them in [`MEMORY.md`](./MEMORY.md).
 3. If an architectural decision was reached, record an immutable ADR in [`DECISIONS.md`](./DECISIONS.md).
 4. **User Project Isolation**: When operating within a user project, store all test results, TDD logs, threat models, and vulnerability registers in the user's project `/docs_agent/` directory (initially empty; never populated with fake reports).
-5. Append an entry to [`docs_agent/SESSION_LOG.md`](./docs_agent/SESSION_LOG.md) summarizing:
-   - Requested objectives.
-   - Inspected files.
-   - Implemented changes.
-   - Files created or modified.
-   - Tests and checks executed.
-   - Pending items & recommended next steps.
+5. Append an entry to [`docs_agent/SESSION_LOG.md`](./docs_agent/SESSION_LOG.md) summarizing objectives, inspected files, changes, test results, and next steps.
 
 ---
 

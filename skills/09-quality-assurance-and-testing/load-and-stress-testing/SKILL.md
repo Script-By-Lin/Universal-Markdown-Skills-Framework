@@ -1,15 +1,16 @@
 ---
 name: load-and-stress-testing
 description: "Concurrency testing, load curves, stress thresholds, breaking-point determination, and graceful degradation verification."
-version: 1.0.0
+version: 1.7.0
 category: quality
 tags: ['testing', 'load-testing', 'stress-testing', 'concurrency', 'capacity', 'scalability']
 ---
 
-# Skill: Load And Stress Testing
+# Skill: Load, Stress & Scalability Testing
 
-> Canonical UMSF Domain Skill Specification adhering to the standard 15-section schema.
-> Category: Domain 09 — Quality Assurance & Testing
+> Canonical UMSF Domain Skill Specification adhering to the standard schema.  
+> Category: Domain 09 — Quality Assurance & Testing  
+> Status: Level 1 MVP-First Active Specification  
 
 ---
 
@@ -18,15 +19,42 @@ tags: ['testing', 'load-testing', 'stress-testing', 'concurrency', 'capacity', '
 - **Category**: Quality Assurance & Testing (Domain 09)
 - **Authority**: UMSF Canonical Skill Library (Precedence Level 6)
 - **Maintainer**: Universal Markdown Skills Framework
+- **Level 3 References**:
+  - None (self-contained Level 1 & Level 2 guidance)
 
 ---
 
-## 2. Purpose
+## 2. MVP Summary (Level 1 Execution Contract)
+
+- **Purpose**: Evaluate system stability, graceful degradation, and recovery under extreme traffic spikes and resource exhaustion.
+- **When to Use**: Preparing for major traffic events, tuning auto-scaling policies, or finding system breaking points (k6, Locust).
+- **Essential Invariants**:
+  1. Determine system breaking point and verify that failure is graceful (no data corruption).
+  2. Monitor resource saturation (connection pools, memory, CPU, thread starvation).
+  3. Verify system auto-recovers cleanly when load returns to normal baseline.
+- **Minimal Workflow**:
+  1. Model realistic user traffic scenarios and concurrency ramp-up curves (k6, Locust).
+  2. Execute ramp-up load test to target capacity; sustain load to check for leaks.
+  3. Stress system beyond capacity to observe degradation behavior (HTTP 503/429 vs crash).
+  4. Document saturation bottlenecks and tune system configuration.
+- **Expected Deliverables**: Stress testing report identifying maximum throughput, failure thresholds, and recovery metrics.
+- **Critical Restrictions**: Never run uncoordinated stress tests against production environments.
+
+> ℹ️ **Progressive Context Loading**:
+> For standard engineering tasks, this **Level 1 MVP Summary** provides the complete operational contract.
+> If deep procedures, edge case handling, or comprehensive checklists are required, proceed to **Level 2 — Core Instructions** below.
+
+---
+
+## Level 2 — Core Instructions & Deep Procedures
+
+### Purpose
+Purpose
 Evaluates how application systems perform under sustained high concurrent user load and determines breaking points and failure recovery behaviors.
 
 ---
 
-## 3. Scope
+### Scope
 - **In-Scope**:
   - Designing load profiles (baseline load, peak load, spike load, soak test)\n  - Measuring system throughput (requests per second) under concurrent threads\n  - Determining system breaking points and memory leak saturation\n  - Verifying graceful degradation (rate limiting, queue backpressure)
 - **Out-of-Scope**:
@@ -34,24 +62,24 @@ Evaluates how application systems perform under sustained high concurrent user l
 
 ---
 
-## 4. When to Use
+### When to Use
 - Preparing for high-traffic marketing events, product launches, or flash sales\n- Capacity planning and horizontal/vertical infrastructure scaling analysis\n- Verifying database connection pool limits under heavy concurrency
 
 ---
 
-## 5. When Not to Use
+### When Not to Use
 - On unmonitored development instances sharing production databases
 
 ---
 
-## 6. Prerequisites
+### Prerequisites
 - Target code components, interfaces, and architecture verified.
 - Project testing frameworks and dependencies inspected from repository.
 - Task registered and tracked in [`TASKS.md`](../../../TASKS.md).
 
 ---
 
-## 7. Required Context
+### Required Context
 Before executing this skill, verify:
 - Mandatory constraints in [`RULES.md`](../../../RULES.md) (TDD invariants & Release Gates).
 - Testing environment in [`CONTEXT.md`](../../../CONTEXT.md).
@@ -59,7 +87,7 @@ Before executing this skill, verify:
 
 ---
 
-## 8. Core Instructions
+### Core Instructions
 ### 8.1 Load Test Profiles
 - **Load Test**: Assess performance under expected normal and peak traffic over sustained periods.
 - **Stress Test**: Incrementally increase concurrency beyond peak capacity until the system breaks; observe failure mode.
@@ -74,7 +102,7 @@ When stressed beyond maximum capacity, the system must:
 
 ---
 
-## 9. Step-by-Step Workflow
+### Step-by-Step Workflow
 1. **Step 1: Test Plan & Authorization Boundary**
    - Verify isolated staging target; confirm zero impact on live customer traffic.
 2. **Step 2: Script Concurrent User Scenarios**
@@ -88,14 +116,14 @@ When stressed beyond maximum capacity, the system must:
 
 ---
 
-## 10. Quality Standards
+### Quality Standards
 - **Standard 1**: 100% adherence to the mandatory TDD Red-Green-Refactor protocol.
 - **Standard 2**: All tests must run deterministically with zero flakiness.
 - **Standard 3**: Absolute prohibition on claiming tests passed without verifying execution exit code 0.
 
 ---
 
-## 11. Validation
+### Validation
 | Check | Verification Method | Expected Outcome |
 |---|---|---|
 | Test Execution | Automated test runner execution | 100% passing tests; exit code 0 |
@@ -104,7 +132,7 @@ When stressed beyond maximum capacity, the system must:
 
 ---
 
-## 12. Common Mistakes
+### Common Mistakes
 | Mistake / Anti-Pattern | Why It Fails | Correct Alternative |
 |---|---|---|
 | Writing Tests After Implementation | High susceptibility to confirmation bias | Follow TDD: write failing test first (RED phase) |
@@ -113,21 +141,26 @@ When stressed beyond maximum capacity, the system must:
 
 ---
 
-## 13. Restrictions
+### Restrictions
 - Do NOT modify tests merely to force incorrect implementation code to pass.
 - Do NOT delete failing tests without documented architectural authorization.
 - Do NOT bypass Functional or Regression Release Gates.
 
 ---
 
-## 14. Expected Deliverables
+### Expected Deliverables
 - Automated test suites (unit, integration, or E2E).
 - Updated testing logs in `docs_agent/testing/TDD_LOG.md` or `TEST_RESULTS.md`.
 - Regression verification report.
 
 ---
 
-## 15. Documentation Requirements
+### Documentation Requirements
 - Record testing conventions and discovered edge cases in [`MEMORY.md`](../../../MEMORY.md).
 - Record testing architectural trade-offs in [`DECISIONS.md`](../../../DECISIONS.md).
 - Update task tracking in [`TASKS.md`](../../../TASKS.md) and session log in [`docs_agent/SESSION_LOG.md`](../../../docs_agent/SESSION_LOG.md).
+
+---
+
+## Level 3 — Optional References & Supplementary Assets
+  - None (self-contained Level 1 & Level 2 guidance)

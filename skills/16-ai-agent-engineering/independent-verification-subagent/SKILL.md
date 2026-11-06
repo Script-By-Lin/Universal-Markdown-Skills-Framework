@@ -1,42 +1,63 @@
 ---
 name: independent-verification-subagent
 description: Autonomous independent verification subagent protocol evaluating implementation against user prompts, diffs, architecture, code quality, independent testing, security coordination, and defect remediation loops.
-version: 1.0.0
+version: 1.7.0
 category: agentic
 tags: [agentic, verification-subagent, independent-audit, qa, security-coordination, defect-management, remediation-loop, release-gate]
 ---
 
-# Skill: Independent Verification Subagent
+# Skill: Independent Verification Subagent Protocol
 
-> Canonical UMSF Domain Skill Specification adhering to the standard 15-section schema.  
-> Precedence Level 6 Domain Expertise — Autonomous Review, Multi-Agent Delegation & Delivery Gate.
+> Canonical UMSF Domain Skill Specification adhering to the standard schema.  
+> Category: Domain 16 — AI Agent Engineering  
+> Status: Level 1 MVP-First Active Specification  
 
 ---
 
 ## 1. Metadata
 - **Identifier**: `independent-verification-subagent`
-- **Category**: AI Agent Engineering & Multi-Agent Systems (Domain 16)
+- **Category**: AI Agent Engineering (Domain 16)
 - **Authority**: UMSF Canonical Skill Library (Precedence Level 6)
-- **Maintainer**: Universal Markdown Skills Framework (UMSF)
-- **Integrations**:
-  - [`post-task-verification`](../../12-code-quality-and-maintenance/post-task-verification/SKILL.md)
-  - [`independent-qa-agent`](../independent-qa-agent/SKILL.md)
-  - [`independent-security-review-agent`](../independent-security-review-agent/SKILL.md)
-  - [`multi-agent-verification`](../multi-agent-verification/SKILL.md)
-  - [`agent-handoff-and-review`](../agent-handoff-and-review/SKILL.md)
-  - [`agent-role-separation`](../agent-role-separation/SKILL.md)
-  - [`evidence-based-validation`](../evidence-based-validation/SKILL.md)
+- **Maintainer**: Universal Markdown Skills Framework
+- **Level 3 References**:
+  - [`references/verification-checklists.md`](./references/verification-checklists.md)
 
 ---
 
-## 2. Purpose
+## 2. MVP Summary (Level 1 Execution Contract)
+
+- **Purpose**: Deploy an isolated subagent (Agent B) to independently audit requirements, code diffs, test exit codes, and architecture.
+- **When to Use**: Mandatory after Agent A completes any engineering task before declaring completion or marking TASKS.md done.
+- **Essential Invariants**:
+  1. Agent B must operate with zero confirmation bias and never rely on Agent A's self-attestation.
+  2. Independently execute test commands and inspect raw exit codes (0 vs non-zero).
+  3. Render one of three canonical decisions: VERIFIED, NEEDS REMEDIATION, or BLOCKED.
+- **Minimal Workflow**:
+  1. Read original user prompt and extract objective acceptance criteria.
+  2. Run git status -s and git diff to sweep every modified, created, or deleted line.
+  3. Independently discover and execute relevant test suites and linters.
+  4. Conduct 7-dimensional audit (Requirements, Diff, Architecture, Code Quality, Tests, Security, Docs).
+  5. Render structured acceptance decision (VERIFIED, NEEDS REMEDIATION, BLOCKED).
+- **Expected Deliverables**: Independent verification audit report with explicit status decision and empirical test logs.
+- **Critical Restrictions**: Never allow the implementing agent to verify its own work; never assume tests passed without raw exit code proof.
+
+> ℹ️ **Progressive Context Loading**:
+> For standard engineering tasks, this **Level 1 MVP Summary** provides the complete operational contract.
+> If deep procedures, edge case handling, or comprehensive checklists are required, proceed to **Level 2 — Core Instructions** below.
+
+---
+
+## Level 2 — Core Instructions & Deep Procedures
+
+### Purpose
+Purpose
 Autonomous AI software engineering is inherently prone to developer confirmation bias, unchecked blind spots, conversational self-assurances, and premature task completion claims. The primary development agent (Agent A) cannot impartially judge whether its own implementation is complete, secure, or free from side effects.
 
 The `independent-verification-subagent` skill establishes an **Independent Verification Subagent (Agent B)** architecture. When Agent A finishes a meaningful engineering task, a separate subagent context is dispatched to conduct an adversarial, evidence-based audit of the entire deliverable across requirements, git diffs, architecture, code quality, test execution, security implications, and documentation synchronization before any task may be certified as complete.
 
 ---
 
-## 3. Scope
+### Scope
 - **In-Scope**:
   - Independent intake and parsing of the original user prompt, acceptance criteria, and Agent A handoff artifacts.
   - Line-by-line inspection of git working tree status, diffs, created, modified, deleted, and moved files.
@@ -56,7 +77,7 @@ The `independent-verification-subagent` skill establishes an **Independent Verif
 
 ---
 
-## 4. When to Use
+### When to Use
 - **Lifecycle Transition**: Mandatory execution at Stages 7 through 10 of the Canonical 12-Stage Engineering Lifecycle ([`WORKFLOW.md`](../../../WORKFLOW.md)).
 - **Post-Implementation Handoff**: Immediately after Agent A concludes feature coding, refactoring, or bug fixing and prepares its handoff.
 - **Pull Request / Release Gate Evaluation**: Prior to merging code or declaring deliverables ready for user acceptance.
@@ -64,14 +85,14 @@ The `independent-verification-subagent` skill establishes an **Independent Verif
 
 ---
 
-## 5. When Not to Use
+### When Not to Use
 - **Greenfield Coding / Mid-TDD Cycles**: Do not invoke while Agent A is actively in the RED or GREEN phases of TDD before a cohesive deliverable is ready.
 - **Exploratory Spikes**: Do not run full multi-agent verification on throwaway experimental spikes explicitly designated as non-deliverable prototypes.
 - **Exempt Low-Risk Edits**: Low-risk changes (minor documentation typos, non-functional code comments, isolated styling token adjustments) do not require full subagent invocation; they follow risk-proportionate single-pass verification per [`RULES.md`](../../../RULES.md) Section 10.
 
 ---
 
-## 6. Prerequisites
+### Prerequisites
 Before invoking the Independent Verification Subagent, ensure the following context is accessible:
 1. Universal operating instructions in [`AGENTS.md`](../../../AGENTS.md).
 2. Mandatory platform and framework rules in [`RULES.md`](../../../RULES.md).
@@ -86,7 +107,7 @@ Before invoking the Independent Verification Subagent, ensure the following cont
 
 ---
 
-## 7. Required Context & Authority Hierarchy
+### Required Context & Authority Hierarchy
 All verification activities must adhere to the 7-tier precedence hierarchy defined in [`AGENTS.md`](../../../AGENTS.md):
 1. **Level 1**: Explicit User Prompt (Acceptance Criteria baseline).
 2. **Level 2**: [`RULES.md`](../../../RULES.md) (Platform Safety, TDD, and Verification Invariants).
@@ -98,7 +119,7 @@ All verification activities must adhere to the 7-tier precedence hierarchy defin
 
 ---
 
-## 8. Core Instructions & Architecture
+### Core Instructions & Architecture
 
 ```mermaid
 flowchart TD
@@ -325,7 +346,7 @@ Agent B concludes verification by rendering one of three definitive decisions:
 
 ---
 
-## 9. Step-by-Step Workflow
+### Step-by-Step Workflow
 1. **Step 1: Intake Handoff & Establish Baseline**
    - Read raw user prompt, acceptance criteria, and Agent A handoff report.
    - Run `git status -s` to baseline working tree changes.
@@ -344,7 +365,7 @@ Agent B concludes verification by rendering one of three definitive decisions:
 
 ---
 
-## 10. Quality Standards
+### Quality Standards
 - **Standard 1 (Cognitive Independence)**: Agent B operates with zero deference to Agent A's narrative claims, verifying only empirical evidence.
 - **Standard 2 (Evidence Integrity)**: Every verification verdict must cite exact command invocations, exit codes, diff snippets, and file paths.
 - **Standard 3 (Transparent State Reporting)**: If an issue cannot be resolved, report the blocker honestly in `TASKS.md`. Never claim false completion.
@@ -352,7 +373,7 @@ Agent B concludes verification by rendering one of three definitive decisions:
 
 ---
 
-## 11. Validation Matrix
+### Validation Matrix
 | Check | Verification Method | Expected Outcome |
 |---|---|---|
 | Role Independence | Handoff log inspection | Agent A and Agent B execute distinct, non-overlapping evaluation passes |
@@ -364,7 +385,7 @@ Agent B concludes verification by rendering one of three definitive decisions:
 
 ---
 
-## 12. Common Mistakes & Anti-Patterns
+### Common Mistakes & Anti-Patterns
 | Mistake / Anti-Pattern | Why It Fails | Correct Alternative |
 |---|---|---|
 | **Developer Self-Approval** | Blind to own assumptions and missed edge cases | Mandate separate Agent B verification pass |
@@ -376,7 +397,7 @@ Agent B concludes verification by rendering one of three definitive decisions:
 
 ---
 
-## 13. Restrictions
+### Restrictions
 - Do NOT declare deliverables approved without independent verification.
 - Do NOT fabricate command outputs, test runs, or security assessment verdicts.
 - Do NOT perform unauthorized active penetration testing or destructive attacks.
@@ -385,7 +406,7 @@ Agent B concludes verification by rendering one of three definitive decisions:
 
 ---
 
-## 14. Expected Deliverables
+### Expected Deliverables
 1. Canonical verification report logged in `docs_agent/testing/` or `docs_agent/SESSION_LOG.md`.
 2. Updated `TASKS.md` reflecting verified task state (`Completed`, `In Progress`, or `Blocked`).
 3. Formatted finding records for any identified defects.
@@ -393,8 +414,13 @@ Agent B concludes verification by rendering one of three definitive decisions:
 
 ---
 
-## 15. Documentation Requirements
+### Documentation Requirements
 - Synchronize framework reality in [`CONTEXT.md`](../../../CONTEXT.md).
 - Record architectural trade-offs in [`DECISIONS.md`](../../../DECISIONS.md).
 - Record multi-agent lessons learned in [`MEMORY.md`](../../../MEMORY.md).
 - Append session handoff entry in [`docs_agent/SESSION_LOG.md`](../../../docs_agent/SESSION_LOG.md).
+
+---
+
+## Level 3 — Optional References & Supplementary Assets
+  - [`references/verification-checklists.md`](./references/verification-checklists.md)

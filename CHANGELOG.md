@@ -10,6 +10,119 @@
 
 ---
 
+## [1.9.0] — 2026-11-07
+
+### Added
+- **Database Query Optimization & Performance Engineering Skill ([`skills/08-database-engineering/database-query-optimization/SKILL.md`](./skills/08-database-engineering/database-query-optimization/SKILL.md))**:
+  - Authored canonical domain skill in Domain 08 (Database Engineering) designed to analyze, optimize, and verify database queries, ORM operations, query execution plans, and data-access performance.
+  - Established 3-Tier Progressive Architecture: Level 1 MVP Summary (~350 tokens), Level 2 Core Instructions, and Level 3 Optional References.
+  - Authored Level 3 reference assets:
+    - [`references/n-plus-one-patterns-and-orm-recipes.md`](./skills/08-database-engineering/database-query-optimization/references/n-plus-one-patterns-and-orm-recipes.md)
+    - [`references/execution-plan-and-indexing-guide.md`](./skills/08-database-engineering/database-query-optimization/references/execution-plan-and-indexing-guide.md)
+  - Codified mandatory N+1 query detection, batch fetching (`WHERE IN`), eager loading (`selectinload`, `joinedload`), column projection pruning (avoiding `SELECT *`), keyset/cursor pagination, and database-side aggregation.
+  - Codified index design rules (equality first, range second, covering indexes, partial indexes), execution plan diagnostics (`EXPLAIN ANALYZE`), transaction concurrency optimization, and the canonical 14-category finding taxonomy.
+  - Scaffolded dual-path root compatibility symlink `skills/database-query-optimization`.
+  - Expanded UMSF skills library to **66 Core Domain Skills** across the 16 Canonical Engineering Domains (3 in Domain 08).
+- **Architectural Decision Record ADR-017 ([`DECISIONS.md`](./DECISIONS.md))**:
+  - Ratified ADR-017: Formalization of Database Query Optimization & Performance Engineering Skill.
+
+### Changed
+- **Registry & Documentation Synchronization**:
+  - Regenerated master registry [`SKILLS.md`](./SKILLS.md) to index all 66 Core Domain Skills with 0 broken links.
+  - Updated [`CONTEXT.md`](./CONTEXT.md), [`README.md`](./README.md), [`skills/README.md`](./skills/README.md), and archived `TASK-018` in [`TASKS.md`](./TASKS.md).
+
+---
+
+## [1.8.0] — 2026-11-07
+
+### Added
+- **Feature Integration & End-to-End Consistency Verification Skill ([`skills/09-quality-assurance-and-testing/feature-integration-verification/SKILL.md`](./skills/09-quality-assurance-and-testing/feature-integration-verification/SKILL.md))**:
+  - Authored canonical domain skill in Domain 09 (Quality Assurance & Testing) designed to verify cross-component, cross-tier feature consistency (Frontend ↔ Backend ↔ Database ↔ External APIs).
+  - Established 3-Tier Progressive Architecture: Level 1 MVP Summary (~350 tokens), Level 2 Core Instructions, and Level 3 Optional References.
+  - Authored Level 3 reference assets:
+    - [`references/contract-and-data-consistency-checklist.md`](./skills/09-quality-assurance-and-testing/feature-integration-verification/references/contract-and-data-consistency-checklist.md)
+    - [`references/failure-classification-and-remediation.md`](./skills/09-quality-assurance-and-testing/feature-integration-verification/references/failure-classification-and-remediation.md)
+  - Codified the 14-point connection and contract verification matrix spanning endpoint paths, serialization, nullability, auth header propagation, transaction boundaries, and state cache invalidation.
+  - Codified canonical 11-category failure taxonomy and 5-state verification status gate (`FULLY_VERIFIED`, `PARTIALLY_VERIFIED`, `NEEDS_REMEDIATION`, `BLOCKED`, `NOT_VERIFIED`).
+  - Scaffolded dual-path root compatibility symlink `skills/feature-integration-verification`.
+  - Expanded UMSF skills library to **65 Core Domain Skills** across the 16 Canonical Engineering Domains (18 in Domain 09).
+- **Architectural Decision Record ADR-016 ([`DECISIONS.md`](./DECISIONS.md))**:
+  - Ratified ADR-016: Formalization of Feature Integration & End-to-End Consistency Verification Skill.
+
+### Changed
+- **Registry & Documentation Synchronization**:
+  - Regenerated master registry [`SKILLS.md`](./SKILLS.md) to index all 65 Core Domain Skills with 0 broken links.
+  - Updated [`CONTEXT.md`](./CONTEXT.md), [`README.md`](./README.md), [`skills/README.md`](./skills/README.md), and archived `TASK-017` in [`TASKS.md`](./TASKS.md).
+
+---
+
+## [1.7.0] — 2026-11-07
+
+### Added
+- **Level 1 MVP-First Skills Architecture**:
+  - Standardized all 64 skills across the 16 Canonical Engineering Domains with an explicit `## 2. MVP Summary (Level 1 Execution Contract)` section right after Metadata.
+  - Established 3-Tier Progressive Loading Model: Level 1 (MVP Summary, ~300–600 tokens), Level 2 (Core Instructions), and Level 3 (Optional References).
+  - Authored targeted Level 3 reference assets for `regression-testing` (`regression-strategies.md`, `test-case-examples.md`, `advanced-testing.md`), `database-migrations` (`tool-migration-patterns.md`), `docker-patterns` (`compose-patterns.md`), `kubernetes-patterns` (`k8s-manifest-templates.md`), and `independent-verification-subagent` (`verification-checklists.md`).
+- **Framework Token Architecture & Analysis**:
+  - Codified framework-wide token efficiency architecture in [`docs_agent/architecture/TOKEN_EFFICIENCY_ARCHITECTURE.md`](./docs_agent/architecture/TOKEN_EFFICIENCY_ARCHITECTURE.md).
+  - Quantitative audit of all 64 skills and 9 governance files in [`docs_agent/analysis/SKILL_OPTIMIZATION_AUDIT.md`](./docs_agent/analysis/SKILL_OPTIMIZATION_AUDIT.md).
+  - Comprehensive instruction duplication matrix in [`docs_agent/analysis/DUPLICATION_ANALYSIS.md`](./docs_agent/analysis/DUPLICATION_ANALYSIS.md).
+- **Testing & Verification Evidence**:
+  - Validated all 7 representative engineering scenarios in [`docs_agent/testing/FRAMEWORK_VALIDATION.md`](./docs_agent/testing/FRAMEWORK_VALIDATION.md).
+  - Empirical before-and-after token efficiency measurements in [`docs_agent/testing/TOKEN_EFFICIENCY_RESULTS.md`](./docs_agent/testing/TOKEN_EFFICIENCY_RESULTS.md) demonstrating 67.1% to 90.4% token reductions on skill loading.
+- **Architectural Decision Record ADR-015**:
+  - Ratified ADR-015: MVP-First Skills Architecture, Progressive Context Loading, and Global Token Efficiency Architecture in [`DECISIONS.md`](./DECISIONS.md).
+
+### Changed
+- **Governance Instruction Consolidation**:
+  - Streamlined [`AGENTS.md`](./AGENTS.md) by replacing duplicate conflict resolution matrices and 12-stage narratives with authoritative pointers to [`RULES.md`](./RULES.md) and [`WORKFLOW.md`](./WORKFLOW.md).
+  - Completely regenerated [`SKILLS.md`](./SKILLS.md) into a high-density, lightweight registry with explicit activation triggers, canonical paths, and Level 3 reference links for all 64 skills.
+  - Updated [`RULES.md`](./RULES.md) to v1.7.0 with explicit progressive loading and token efficiency invariants.
+  - Updated [`WORKFLOW.md`](./WORKFLOW.md) to v1.7.0 with progressive execution principles and token-aware reporting requirements.
+  - Updated [`CONTEXT.md`](./CONTEXT.md) to v1.7.0 and archived `TASK-016` in [`TASKS.md`](./TASKS.md).
+
+---
+
+## [1.6.0] — 2026-11-07
+
+### Added
+- **ECC Integration Registry ([`docs/ECC_INTEGRATION.md`](./docs/ECC_INTEGRATION.md))**:
+  - Authored comprehensive integration registry evaluating 314 capabilities from Everything Claude Code (ECC) across Categories A–F.
+  - Documented classification into Adopt, Adapt, Merge, Reference, and Reject tiers.
+  - Preserved upstream MIT License and copyright notices (Copyright (c) 2026 Affaan Mustafa, SHA: `b38be6a7f6350964d59328b52f0624e1d1d552d1`).
+- **Research-First Development Workflow**:
+  - Codified mandatory research phase into Stage 1 of `WORKFLOW.md` and `AGENTS.md` Section 7 before authoring plans or code.
+- **Architectural Decision Record ADR-014 ([`DECISIONS.md`](./DECISIONS.md))**:
+  - Ratified ADR-014: Architectural Integration of High-Value ECC Capabilities & Streamlining to 64 Core Domain Skills.
+
+### Changed
+- **Skills Catalog Streamlining to 64 Core Domain Skills**:
+  - Relocated physical directories of all 64 skills into their canonical numbered domain directories (`skills/01-...` through `skills/16-...`).
+  - Removed 287 unneeded, flat specialized technology skills bulk-imported from ECC, eliminating severe context window bloat and maintenance fragility.
+  - Preserved `ui-ux-pro-max` as the sole canonical design intelligence suite in Domain 07 (`skills/07-frontend-engineering/ui-ux-pro-max/`) and dual-path root symlink `skills/ui-ux-pro-max`.
+  - Maintained 64 dual-path backward-compatible root symlinks in `skills/`.
+- **Master Registry & Governance Synchronization**:
+  - Completely regenerated [`SKILLS.md`](./SKILLS.md) to index all 64 Core Domain Skills across the 16 Canonical Engineering Domains with 0 broken links.
+  - Updated [`skills/README.md`](./skills/README.md), [`README.md`](./README.md), [`CONTEXT.md`](./CONTEXT.md), [`TASKS.md`](./TASKS.md), [`MEMORY.md`](./MEMORY.md), and [`docs_agent/SESSION_LOG.md`](./docs_agent/SESSION_LOG.md).
+
+---
+
+## [1.5.0] — 2026-11-07
+
+### Changed
+- **UI/UX Domain Consolidation to UI/UX Pro Max Engine**:
+  - Consolidated Domain 07 (`skills/07-frontend-engineering/`) exclusively around `ui-ux-pro-max` (`skills/07-frontend-engineering/ui-ux-pro-max/SKILL.md`) as the canonical design intelligence suite.
+  - Removed 21 redundant UI/UX, styling, brand, and presentation skills and their symlinks: `accessibility`, `banner-design`, `brand`, `brand-discovery`, `brand-voice`, `browser-qa`, `design`, `design-system`, `frontend-a11y`, `frontend-design-direction`, `frontend-development`, `frontend-patterns`, `frontend-slides`, `liquid-glass-design`, `make-interfaces-feel-better`, `motion-foundations`, `slides`, `ui-demo`, `ui-styling`, `ui-to-vue`, `ui-ux-design`.
+  - Re-routed all cross-references across remaining skills (`api-development`, `backend-development`, `i18n-sync`, `react-patterns`, `react-performance`, `react-testing`, `refactoring`, `software-architecture`) to `ui-ux-pro-max`.
+  - Re-calibrated total physical skill count to exactly **351 unique skills** across 16 domains (64 core domain skills + 287 specialized modules).
+- **Master Registry & Governance Synchronization**:
+  - Updated [`SKILLS.md`](./SKILLS.md) to reflect 351 total cataloged skills and removed deleted rows from Domain 07 and Section 3.
+  - Updated [`skills/README.md`](./skills/README.md), [`README.md`](./README.md), [`CONTEXT.md`](./CONTEXT.md), [`TASKS.md`](./TASKS.md), and [`MEMORY.md`](./MEMORY.md).
+  - Ratified Architectural Decision Record `ADR-013` in [`DECISIONS.md`](./DECISIONS.md).
+  - Verified 0 broken links and 100% pure Markdown compliance across the entire repository.
+
+---
+
 ## [1.4.0] — 2026-11-03
 
 ### Added
@@ -78,7 +191,7 @@
 - **UI/UX Pro Max Skill Modernization ([`skills/ui-ux-pro-max/SKILL.md`](./skills/ui-ux-pro-max/SKILL.md))**:
   - Completely rewritten to the canonical 15-section UMSF schema, removing all `${CLAUDE_PLUGIN_ROOT}` and mandatory CLI execution calls.
 - **Foundational & UI Skills Decoupling**:
-  - Updated [`skills/ui-ux-design/SKILL.md`](./skills/ui-ux-design/SKILL.md), [`skills/design/SKILL.md`](./skills/design/SKILL.md), and [`skills/frontend-development/SKILL.md`](./skills/frontend-development/SKILL.md) to use direct Markdown references.
+  - Updated `skills/ui-ux-design/SKILL.md`, `skills/design/SKILL.md`, and `skills/frontend-development/SKILL.md` to use direct Markdown references.
 - **ECC Skills Universalization**:
   - Decoupled `tdd-workflow`, `autonomous-loops`, `dmux-workflows`, `configure-ecc`, and `plan-canvas` from assumptions of external ECC checkouts or plugin roots.
 - **Governance Updates**:
@@ -169,8 +282,8 @@
   - Documented Three-Tier Architecture (Tier 1 Foundational, Tier 2 UI/UX Pro Max, Tier 3 Domain Specialties).
   - Documented CLI search commands and multi-skill pairing recommendations.
 - **Foundational Skill Synergy**:
-  - Enhanced [`skills/ui-ux-design/SKILL.md`](./skills/ui-ux-design/SKILL.md) to directly command `search.py` CLI and reference datasets.
-  - Enhanced [`skills/frontend-development/SKILL.md`](./skills/frontend-development/SKILL.md) to cross-reference design system tokens and audit tools.
+  - Enhanced `skills/ui-ux-design/SKILL.md` to directly command `search.py` CLI and reference datasets.
+  - Enhanced `skills/frontend-development/SKILL.md` to cross-reference design system tokens and audit tools.
 - **Architectural Decision Record ADR-007 ([`DECISIONS.md`](./DECISIONS.md))**:
   - Ratified three-tier skills architecture and local-first search CLI integration.
 
@@ -212,8 +325,8 @@
   - Created 15 complete domain skills strictly adhering to the 15-section schema:
     - Strategy: [`planning`](./skills/planning/SKILL.md), [`requirements-analysis`](./skills/requirements-analysis/SKILL.md)
     - Architecture: [`software-architecture`](./skills/software-architecture/SKILL.md)
-    - Development: [`backend-development`](./skills/backend-development/SKILL.md), [`frontend-development`](./skills/frontend-development/SKILL.md), [`database-design`](./skills/database-design/SKILL.md), [`api-development`](./skills/api-development/SKILL.md)
-    - UI/UX: [`ui-ux-design`](./skills/ui-ux-design/SKILL.md) (UI/UX Pro Max intelligence, Swiss style, contrast ≥ 4.5:1, 44px hit targets)
+    - Development: [`backend-development`](./skills/backend-development/SKILL.md), `frontend-development`, [`database-design`](./skills/database-design/SKILL.md), [`api-development`](./skills/api-development/SKILL.md)
+    - UI/UX: `ui-ux-design` (UI/UX Pro Max intelligence, Swiss style, contrast ≥ 4.5:1, 44px hit targets)
     - Quality: [`testing`](./skills/testing/SKILL.md), [`code-review`](./skills/code-review/SKILL.md), [`performance`](./skills/performance/SKILL.md)
     - Diagnostics: [`debugging`](./skills/debugging/SKILL.md)
     - Modernization: [`refactoring`](./skills/refactoring/SKILL.md)

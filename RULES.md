@@ -1,7 +1,7 @@
 # RULES.md — Mandatory Development Constraints
 # Universal Markdown Skills Framework (UMSF)
 
-> Version: 1.0.0  
+> Version: 1.7.0  
 > Scope: Universal / All Agents & Contributors  
 > Authority: Mandatory Repository Constraints (Precedence Level 2)  
 
@@ -58,6 +58,12 @@ To resolve conflicting instructions unambiguously, agents must distinguish three
 8. **Dynamic Context-Aware Skill Loading**:
    - Agents must load all relevant domain skills required by a task, guided by active context window economy rather than an arbitrary fixed limit.
    - Indiscriminately loading dozens of unneeded skills is prohibited to conserve context budget.
+9. **Progressive Skill Loading & Token Efficiency Invariants**:
+   - All skills in `skills/` must implement the 3-Tier Progressive Loading Architecture (Level 1 MVP Summary, Level 2 Core Instructions, Level 3 Optional References).
+   - Agents must prioritize reading Level 1 MVP Summaries before ingesting full skill files.
+   - Level 3 references must be loaded strictly on-demand when specialized templates or catalogs are required.
+   - Verification procedures must scale conditionally to change risk (low-risk doc/styling changes are exempt from heavy penetration tests or migration suites).
+   - Final completion reports must remain token-aware, citing documentation paths rather than duplicating full file contents.
 
 ---
 

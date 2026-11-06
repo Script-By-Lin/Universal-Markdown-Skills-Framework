@@ -1,15 +1,16 @@
 ---
 name: adversarial-testing
 description: "Adversarial testing methodologies, fuzzing inputs, race conditions, edge-case abuse, and prompt injection hardening for AI and software systems."
-version: 1.0.0
+version: 1.7.0
 category: agentic
 tags: ['agentic', 'adversarial-testing', 'fuzzing', 'race-conditions', 'prompt-injection', 'robustness']
 ---
 
-# Skill: Adversarial Testing
+# Skill: Adversarial AI Agent Testing
 
-> Canonical UMSF Domain Skill Specification adhering to the standard 15-section schema.
-> Category: Domain 16 — AI Agent Engineering
+> Canonical UMSF Domain Skill Specification adhering to the standard schema.  
+> Category: Domain 16 — AI Agent Engineering  
+> Status: Level 1 MVP-First Active Specification  
 
 ---
 
@@ -18,15 +19,42 @@ tags: ['agentic', 'adversarial-testing', 'fuzzing', 'race-conditions', 'prompt-i
 - **Category**: AI Agent Engineering (Domain 16)
 - **Authority**: UMSF Canonical Skill Library (Precedence Level 6)
 - **Maintainer**: Universal Markdown Skills Framework
+- **Level 3 References**:
+  - None (self-contained Level 1 & Level 2 guidance)
 
 ---
 
-## 2. Purpose
+## 2. MVP Summary (Level 1 Execution Contract)
+
+- **Purpose**: Subject agent implementations and system interfaces to adversarial prompts, boundary fuzzing, and malicious inputs.
+- **When to Use**: Testing AI agent input parsers, prompt injection defenses, LLM tool boundaries, or security filters.
+- **Essential Invariants**:
+  1. Test system defenses against prompt injection, jailbreaking, and unauthorized tool invocation.
+  2. Verify agent strictly respects sandbox boundaries and explicit user instructions.
+  3. Adversarial testing must remain non-destructive and isolated from production systems.
+- **Minimal Workflow**:
+  1. Construct adversarial test vectors (indirect prompt injection, delimiters, Unicode bypasses).
+  2. Submit test vectors to agent interfaces and monitor tool call payloads.
+  3. Verify agent refuses unauthorized actions and maintains security invariants.
+  4. Log results in adversarial test matrix and patch prompt or input validation guards.
+- **Expected Deliverables**: Adversarial test report with injection test vectors, agent responses, and defense verifications.
+- **Critical Restrictions**: Never deploy agentic tools without adversarial boundary testing; prohibit unconstrained shell execution.
+
+> ℹ️ **Progressive Context Loading**:
+> For standard engineering tasks, this **Level 1 MVP Summary** provides the complete operational contract.
+> If deep procedures, edge case handling, or comprehensive checklists are required, proceed to **Level 2 — Core Instructions** below.
+
+---
+
+## Level 2 — Core Instructions & Deep Procedures
+
+### Purpose
+Purpose
 Applies adversarial engineering techniques to probe software interfaces, APIs, and AI agent prompt surfaces for unexpected failures, boundary collapses, and injection risks.
 
 ---
 
-## 3. Scope
+### Scope
 - **In-Scope**:
   - Input fuzzing with malformed payloads, oversized strings, and control characters\n  - Testing concurrent race conditions (Time-of-Check to Time-of-Use / TOCTOU)\n  - Adversarial prompt injection testing for LLM-powered applications\n  - Boundary-breaking stress tests
 - **Out-of-Scope**:
@@ -34,24 +62,24 @@ Applies adversarial engineering techniques to probe software interfaces, APIs, a
 
 ---
 
-## 4. When to Use
+### When to Use
 - Hardening public-facing forms, file uploaders, and webhook consumers\n- Testing AI applications that ingest untrusted user text or third-party web content\n- Auditing financial transactions for concurrent double-spend race conditions
 
 ---
 
-## 5. When Not to Use
+### When Not to Use
 - For simple internal static documentation
 
 ---
 
-## 6. Prerequisites
+### Prerequisites
 - Framework architecture verified in [`AGENTS.md`](../../../AGENTS.md).
 - Active tasks registered in [`TASKS.md`](../../../TASKS.md).
 - Environment reality verified in [`CONTEXT.md`](../../../CONTEXT.md).
 
 ---
 
-## 7. Required Context
+### Required Context
 Before executing this skill, verify:
 - Independent agent role specifications in [`AGENTS.md`](../../../AGENTS.md) Section 2.
 - Mandatory constraints in [`RULES.md`](../../../RULES.md) (Precedence Level 2).
@@ -59,7 +87,7 @@ Before executing this skill, verify:
 
 ---
 
-## 8. Core Instructions
+### Core Instructions
 ### 8.1 Adversarial Input Vectors
 Probe target interfaces with these categories:
 1. **Malformed Syntax**: Unclosed quotes (`'"`), SQL tokens (`' OR '1'='1`), format strings (`%s%d%n`), regex denial of service patterns (`(a+)+$`).
@@ -71,7 +99,7 @@ Probe target interfaces with these categories:
 
 ---
 
-## 9. Step-by-Step Workflow
+### Step-by-Step Workflow
 1. **Step 1: Identify Attack Surface & Trust Assumptions**
    - Catalog all untrusted input vectors entering the component.
 2. **Step 2: Formulate Adversarial Fuzzing Payloads**
@@ -85,14 +113,14 @@ Probe target interfaces with these categories:
 
 ---
 
-## 10. Quality Standards
+### Quality Standards
 - **Standard 1**: Complete cognitive and evidence independence between Development and Review roles.
 - **Standard 2**: Absolute prohibition on accepting conversational completion claims without empirical command verification.
 - **Standard 3**: Seamless multi-agent continuity backed by persisted records in `docs_agent/` and `TASKS.md`.
 
 ---
 
-## 11. Validation
+### Validation
 | Check | Verification Method | Expected Outcome |
 |---|---|---|
 | Role Independence | Review checklist inspection | QA and Security passes execute separate review criteria |
@@ -101,7 +129,7 @@ Probe target interfaces with these categories:
 
 ---
 
-## 12. Common Mistakes
+### Common Mistakes
 | Mistake / Anti-Pattern | Why It Fails | Correct Alternative |
 |---|---|---|
 | Developer Self-Approval | High rate of confirmation bias and overlooked edge cases | Enforce independent QA/Security role passes |
@@ -110,21 +138,26 @@ Probe target interfaces with these categories:
 
 ---
 
-## 13. Restrictions
+### Restrictions
 - Do NOT declare features approved without independent verification.
 - Do NOT fabricate command outputs, test runs, or security assessment verdicts.
 - Do NOT bypass release gates.
 
 ---
 
-## 14. Expected Deliverables
+### Expected Deliverables
 - Role-separated assessment logs under `docs_agent/testing/` or `docs_agent/security/`.
 - Updated `TASKS.md` with validated milestone statuses.
 - Structured session handoff entries in `docs_agent/SESSION_LOG.md`.
 
 ---
 
-## 15. Documentation Requirements
+### Documentation Requirements
 - Record reusable multi-agent lessons in [`MEMORY.md`](../../../MEMORY.md).
 - Record agent orchestration trade-offs in [`DECISIONS.md`](../../../DECISIONS.md).
 - Log session handoff in [`docs_agent/SESSION_LOG.md`](../../../docs_agent/SESSION_LOG.md).
+
+---
+
+## Level 3 — Optional References & Supplementary Assets
+  - None (self-contained Level 1 & Level 2 guidance)

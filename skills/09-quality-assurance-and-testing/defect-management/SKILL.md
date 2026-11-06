@@ -1,15 +1,16 @@
 ---
 name: defect-management
 description: "Structured defect logging, reproduction workflows, severity/priority assignment, root cause analysis, and resolution verification."
-version: 1.0.0
+version: 1.7.0
 category: quality
 tags: ['testing', 'defects', 'bug-tracking', 'root-cause', 'triage', 'reproduction']
 ---
 
-# Skill: Defect Management
+# Skill: Defect Tracking & Triage Lifecycle
 
-> Canonical UMSF Domain Skill Specification adhering to the standard 15-section schema.
-> Category: Domain 09 — Quality Assurance & Testing
+> Canonical UMSF Domain Skill Specification adhering to the standard schema.  
+> Category: Domain 09 — Quality Assurance & Testing  
+> Status: Level 1 MVP-First Active Specification  
 
 ---
 
@@ -18,15 +19,42 @@ tags: ['testing', 'defects', 'bug-tracking', 'root-cause', 'triage', 'reproducti
 - **Category**: Quality Assurance & Testing (Domain 09)
 - **Authority**: UMSF Canonical Skill Library (Precedence Level 6)
 - **Maintainer**: Universal Markdown Skills Framework
+- **Level 3 References**:
+  - None (self-contained Level 1 & Level 2 guidance)
 
 ---
 
-## 2. Purpose
+## 2. MVP Summary (Level 1 Execution Contract)
+
+- **Purpose**: Triage, classify, prioritize, track, and verify resolution of software bugs across their complete lifecycle.
+- **When to Use**: Logging newly discovered bugs, conducting bug triage meetings, or managing the defect resolution lifecycle.
+- **Essential Invariants**:
+  1. Every defect report must contain minimal reproduction steps and expected vs actual behavior.
+  2. Classify defects using standard severity tiers (Critical, Major, Minor, Informational).
+  3. No defect may be marked Resolved without passing regression test verification.
+- **Minimal Workflow**:
+  1. Log defect with environment details, reproduction steps, and error logs.
+  2. Triage severity and impact, assigning to appropriate milestone and owner.
+  3. Verify that a failing regression test is authored to reproduce the bug.
+  4. Verify defect fix in target environment and close report with empirical evidence.
+- **Expected Deliverables**: Defect tracking record with verified reproduction, fix, and regression test evidence.
+- **Critical Restrictions**: Never close a bug report as 'cannot reproduce' without attempting reproduction under documented conditions.
+
+> ℹ️ **Progressive Context Loading**:
+> For standard engineering tasks, this **Level 1 MVP Summary** provides the complete operational contract.
+> If deep procedures, edge case handling, or comprehensive checklists are required, proceed to **Level 2 — Core Instructions** below.
+
+---
+
+## Level 2 — Core Instructions & Deep Procedures
+
+### Purpose
+Purpose
 Establishes a rigorous operational workflow for logging, isolating, prioritizing, reproducing, and verifying defects discovered during testing or production operation.
 
 ---
 
-## 3. Scope
+### Scope
 - **In-Scope**:
   - Capturing minimal, reproducible defect reproduction scripts\n  - Assigning standardized defect severity and business priority\n  - Conducting Root Cause Analysis (RCA) using the 5 Whys methodology\n  - Tracking defect state transitions through verification and closure
 - **Out-of-Scope**:
@@ -34,24 +62,24 @@ Establishes a rigorous operational workflow for logging, isolating, prioritizing
 
 ---
 
-## 4. When to Use
+### When to Use
 - Triage and logging of software bugs discovered during testing or QA review\n- Managing bug reproduction and regression test authoring\n- Reviewing defect trends and quality health prior to release
 
 ---
 
-## 5. When Not to Use
+### When Not to Use
 - For logging security vulnerabilities with exploit PoCs (use `vulnerability-management`)
 
 ---
 
-## 6. Prerequisites
+### Prerequisites
 - Target code components, interfaces, and architecture verified.
 - Project testing frameworks and dependencies inspected from repository.
 - Task registered and tracked in [`TASKS.md`](../../../TASKS.md).
 
 ---
 
-## 7. Required Context
+### Required Context
 Before executing this skill, verify:
 - Mandatory constraints in [`RULES.md`](../../../RULES.md) (TDD invariants & Release Gates).
 - Testing environment in [`CONTEXT.md`](../../../CONTEXT.md).
@@ -59,7 +87,7 @@ Before executing this skill, verify:
 
 ---
 
-## 8. Core Instructions
+### Core Instructions
 ### 8.1 Defect Severity vs Priority
 - **Severity (Technical Impact)**:
   - **S1 (Critical)**: Application crash, data loss, core workflow completely blocked with no workaround.
@@ -82,7 +110,7 @@ Every defect record must include:
 
 ---
 
-## 9. Step-by-Step Workflow
+### Step-by-Step Workflow
 1. **Step 1: Triage & Deduplication**
    - Check existing defect records to avoid duplicates.
 2. **Step 2: Reproduce & Isolate**
@@ -96,14 +124,14 @@ Every defect record must include:
 
 ---
 
-## 10. Quality Standards
+### Quality Standards
 - **Standard 1**: 100% adherence to the mandatory TDD Red-Green-Refactor protocol.
 - **Standard 2**: All tests must run deterministically with zero flakiness.
 - **Standard 3**: Absolute prohibition on claiming tests passed without verifying execution exit code 0.
 
 ---
 
-## 11. Validation
+### Validation
 | Check | Verification Method | Expected Outcome |
 |---|---|---|
 | Test Execution | Automated test runner execution | 100% passing tests; exit code 0 |
@@ -112,7 +140,7 @@ Every defect record must include:
 
 ---
 
-## 12. Common Mistakes
+### Common Mistakes
 | Mistake / Anti-Pattern | Why It Fails | Correct Alternative |
 |---|---|---|
 | Writing Tests After Implementation | High susceptibility to confirmation bias | Follow TDD: write failing test first (RED phase) |
@@ -121,21 +149,26 @@ Every defect record must include:
 
 ---
 
-## 13. Restrictions
+### Restrictions
 - Do NOT modify tests merely to force incorrect implementation code to pass.
 - Do NOT delete failing tests without documented architectural authorization.
 - Do NOT bypass Functional or Regression Release Gates.
 
 ---
 
-## 14. Expected Deliverables
+### Expected Deliverables
 - Automated test suites (unit, integration, or E2E).
 - Updated testing logs in `docs_agent/testing/TDD_LOG.md` or `TEST_RESULTS.md`.
 - Regression verification report.
 
 ---
 
-## 15. Documentation Requirements
+### Documentation Requirements
 - Record testing conventions and discovered edge cases in [`MEMORY.md`](../../../MEMORY.md).
 - Record testing architectural trade-offs in [`DECISIONS.md`](../../../DECISIONS.md).
 - Update task tracking in [`TASKS.md`](../../../TASKS.md) and session log in [`docs_agent/SESSION_LOG.md`](../../../docs_agent/SESSION_LOG.md).
+
+---
+
+## Level 3 — Optional References & Supplementary Assets
+  - None (self-contained Level 1 & Level 2 guidance)

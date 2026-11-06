@@ -1,15 +1,16 @@
 ---
 name: agent-handoff-and-review
 description: "Structured context handoff protocols, verification checklists, state persistence, and loss-free continuity across agent boundaries and sessions."
-version: 1.0.0
+version: 1.7.0
 category: agentic
 tags: ['agentic', 'handoff', 'continuity', 'state-persistence', 'session-log']
 ---
 
-# Skill: Agent Handoff And Review
+# Skill: Agent Handoff & Structured Review Briefing
 
-> Canonical UMSF Domain Skill Specification adhering to the standard 15-section schema.
-> Category: Domain 16 — AI Agent Engineering
+> Canonical UMSF Domain Skill Specification adhering to the standard schema.  
+> Category: Domain 16 — AI Agent Engineering  
+> Status: Level 1 MVP-First Active Specification  
 
 ---
 
@@ -18,19 +19,42 @@ tags: ['agentic', 'handoff', 'continuity', 'state-persistence', 'session-log']
 - **Category**: AI Agent Engineering (Domain 16)
 - **Authority**: UMSF Canonical Skill Library (Precedence Level 6)
 - **Maintainer**: Universal Markdown Skills Framework
-- **Integrations**:
-  - [`independent-verification-subagent`](../independent-verification-subagent/SKILL.md)
-  - [`independent-qa-agent`](../independent-qa-agent/SKILL.md)
-  - [`multi-agent-verification`](../multi-agent-verification/SKILL.md)
+- **Level 3 References**:
+  - None (self-contained Level 1 & Level 2 guidance)
 
 ---
 
-## 2. Purpose
+## 2. MVP Summary (Level 1 Execution Contract)
+
+- **Purpose**: Structure context handoffs and review briefings between sequential or concurrent AI agents to prevent context loss.
+- **When to Use**: Passing work from Agent A to Agent B, handing off tasks across sessions, or escalating blockers.
+- **Essential Invariants**:
+  1. Handoff payloads must include: original prompt, acceptance criteria, modified files list, and test commands.
+  2. Never omit known limitations, failed tests, or unresolved edge cases from handoff payloads.
+  3. Verification agents must re-read raw prompt and actual filesystem code, not merely handoff summary.
+- **Minimal Workflow**:
+  1. Compile structured handoff payload containing requirements, change inventory, and test commands.
+  2. Transmit payload to receiving subagent or record in docs_agent/handoffs/.
+  3. Receiving agent verifies payload contents against actual repository state.
+  4. Receiving agent confirms receipt and begins independent evaluation pass.
+- **Expected Deliverables**: Structured, complete handoff briefing payload with zero context loss.
+- **Critical Restrictions**: Never truncate critical requirement context or conceal failing tests during agent handoff.
+
+> ℹ️ **Progressive Context Loading**:
+> For standard engineering tasks, this **Level 1 MVP Summary** provides the complete operational contract.
+> If deep procedures, edge case handling, or comprehensive checklists are required, proceed to **Level 2 — Core Instructions** below.
+
+---
+
+## Level 2 — Core Instructions & Deep Procedures
+
+### Purpose
+Purpose
 Guarantees seamless, lossless continuity when work transitions between different AI agent instances, specialized subagents, or human developers across sessions.
 
 ---
 
-## 3. Scope
+### Scope
 - **In-Scope**:
   - Authoring structured session logs (`docs_agent/SESSION_LOG.md`)\n  - Maintaining the operational task state machine (`TASKS.md`)\n  - Persisting technical discoveries and traps in `MEMORY.md`\n  - Formatting explicit handoff briefings for receiving agents
 - **Out-of-Scope**:
@@ -38,24 +62,24 @@ Guarantees seamless, lossless continuity when work transitions between different
 
 ---
 
-## 4. When to Use
+### When to Use
 - Concluding any agent work turn or milestone\n- Handing off a feature from Development Agent to QA or Security Agent\n- Resuming an existing codebase in a new agent chat session
 
 ---
 
-## 5. When Not to Use
+### When Not to Use
 - During rapid mid-turn tool call sequences within a single invocation
 
 ---
 
-## 6. Prerequisites
+### Prerequisites
 - Framework architecture verified in [`AGENTS.md`](../../../AGENTS.md).
 - Active tasks registered in [`TASKS.md`](../../../TASKS.md).
 - Environment reality verified in [`CONTEXT.md`](../../../CONTEXT.md).
 
 ---
 
-## 7. Required Context
+### Required Context
 Before executing this skill, verify:
 - Independent agent role specifications in [`AGENTS.md`](../../../AGENTS.md) Section 2.
 - Mandatory constraints in [`RULES.md`](../../../RULES.md) (Precedence Level 2).
@@ -63,7 +87,7 @@ Before executing this skill, verify:
 
 ---
 
-## 8. Core Instructions
+### Core Instructions
 ### 8.1 Mandatory Handoff Structure
 Every session handoff must record:
 1. **Objectives Addressed**: Explicit list of user prompts resolved.
@@ -75,7 +99,7 @@ Every session handoff must record:
 
 ---
 
-## 9. Step-by-Step Workflow
+### Step-by-Step Workflow
 1. **Step 1: Verify Task State in TASKS.md**
    - Ensure completed tasks are marked `Completed` and new items are `Pending`.
 2. **Step 2: Capture Architectural Decisions**
@@ -89,14 +113,14 @@ Every session handoff must record:
 
 ---
 
-## 10. Quality Standards
+### Quality Standards
 - **Standard 1**: Complete cognitive and evidence independence between Development and Review roles.
 - **Standard 2**: Absolute prohibition on accepting conversational completion claims without empirical command verification.
 - **Standard 3**: Seamless multi-agent continuity backed by persisted records in `docs_agent/` and `TASKS.md`.
 
 ---
 
-## 11. Validation
+### Validation
 | Check | Verification Method | Expected Outcome |
 |---|---|---|
 | Role Independence | Review checklist inspection | QA and Security passes execute separate review criteria |
@@ -105,7 +129,7 @@ Every session handoff must record:
 
 ---
 
-## 12. Common Mistakes
+### Common Mistakes
 | Mistake / Anti-Pattern | Why It Fails | Correct Alternative |
 |---|---|---|
 | Developer Self-Approval | High rate of confirmation bias and overlooked edge cases | Enforce independent QA/Security role passes |
@@ -114,21 +138,26 @@ Every session handoff must record:
 
 ---
 
-## 13. Restrictions
+### Restrictions
 - Do NOT declare features approved without independent verification.
 - Do NOT fabricate command outputs, test runs, or security assessment verdicts.
 - Do NOT bypass release gates.
 
 ---
 
-## 14. Expected Deliverables
+### Expected Deliverables
 - Role-separated assessment logs under `docs_agent/testing/` or `docs_agent/security/`.
 - Updated `TASKS.md` with validated milestone statuses.
 - Structured session handoff entries in `docs_agent/SESSION_LOG.md`.
 
 ---
 
-## 15. Documentation Requirements
+### Documentation Requirements
 - Record reusable multi-agent lessons in [`MEMORY.md`](../../../MEMORY.md).
 - Record agent orchestration trade-offs in [`DECISIONS.md`](../../../DECISIONS.md).
 - Log session handoff in [`docs_agent/SESSION_LOG.md`](../../../docs_agent/SESSION_LOG.md).
+
+---
+
+## Level 3 — Optional References & Supplementary Assets
+  - None (self-contained Level 1 & Level 2 guidance)

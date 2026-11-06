@@ -1,42 +1,60 @@
 ---
 name: post-task-verification
 description: Systematic, evidence-based post-implementation audit verifying prompt requirements, diff inspection, test results, security impact, regression avoidance, and documentation consistency before task closure.
-version: 1.0.0
+version: 1.7.0
 category: quality
 tags: [verification, qa, audit, diff-inspection, evidence-based, acceptance-criteria, release-gate, regression]
 ---
 
-# Skill: Post-Task Verification
+# Skill: Post-Task Verification & Diff Sweep
 
-> Canonical UMSF Domain Skill Specification adhering to the standard 15-section schema.  
-> Precedence Level 6 Domain Expertise — Mandatory Quality & Delivery Gate.
+> Canonical UMSF Domain Skill Specification adhering to the standard schema.  
+> Category: Domain 12 — Code Quality & Maintenance  
+> Status: Level 1 MVP-First Active Specification  
 
 ---
 
 ## 1. Metadata
 - **Identifier**: `post-task-verification`
-- **Category**: Code Quality, Review & Maintenance (Domain 12)
+- **Category**: Code Quality & Maintenance (Domain 12)
 - **Authority**: UMSF Canonical Skill Library (Precedence Level 6)
-- **Maintainer**: Universal Markdown Skills Framework (UMSF)
-- **Integrations**:
-  - [`code-review`](../../code-review/SKILL.md)
-  - [`test-driven-development`](../../09-quality-assurance-and-testing/test-driven-development/SKILL.md)
-  - [`regression-testing`](../../09-quality-assurance-and-testing/regression-testing/SKILL.md)
-  - [`independent-verification-subagent`](../../16-ai-agent-engineering/independent-verification-subagent/SKILL.md)
-  - [`independent-qa-agent`](../../16-ai-agent-engineering/independent-qa-agent/SKILL.md)
-  - [`independent-security-review-agent`](../../16-ai-agent-engineering/independent-security-review-agent/SKILL.md)
-  - [`multi-agent-verification`](../../16-ai-agent-engineering/multi-agent-verification/SKILL.md)
-  - [`evidence-based-validation`](../../16-ai-agent-engineering/evidence-based-validation/SKILL.md)
-  - [`agent-handoff-and-review`](../../16-ai-agent-engineering/agent-handoff-and-review/SKILL.md)
+- **Maintainer**: Universal Markdown Skills Framework
+- **Level 3 References**:
+  - None (self-contained Level 1 & Level 2 guidance)
 
 ---
 
-## 2. Purpose
+## 2. MVP Summary (Level 1 Execution Contract)
+
+- **Purpose**: Conduct mandatory, evidence-based post-implementation audits verifying requirements, git diff, and test exit codes.
+- **When to Use**: At the conclusion of every engineering task before declaring completion or marking TASKS.md done.
+- **Essential Invariants**:
+  1. Every touched line in git diff must be audited against original user requirements.
+  2. Tests must be executed and exit code 0 verified empirically; never assume success.
+  3. Check for unintended changes, leftover debug statements, and missing documentation.
+- **Minimal Workflow**:
+  1. Run git status -s and git diff to inspect every modified, added, or deleted line.
+  2. Map every prompt requirement to verified implementation code.
+  3. Execute local test runner and linters, verifying exit code 0.
+  4. Update CONTEXT.md and TASKS.md with empirical verification evidence.
+- **Expected Deliverables**: Clean git diff sweep and verified test execution evidence supporting task completion.
+- **Critical Restrictions**: Never mark a task completed without executing a diff sweep and empirical test verification.
+
+> ℹ️ **Progressive Context Loading**:
+> For standard engineering tasks, this **Level 1 MVP Summary** provides the complete operational contract.
+> If deep procedures, edge case handling, or comprehensive checklists are required, proceed to **Level 2 — Core Instructions** below.
+
+---
+
+## Level 2 — Core Instructions & Deep Procedures
+
+### Purpose
+Purpose
 Autonomous AI engineering workflows suffer from premature completion claims, developer confirmation bias, uninspected side effects, and forgotten documentation updates. The `post-task-verification` skill establishes a rigorous, evidence-based post-implementation audit pipeline. It mandates an exhaustive diff inspection, requirement completeness analysis, risk-proportionate QA and security evaluation, defect triage, remediation within authorized boundaries, and revalidation before any task may transition to `Completed`.
 
 ---
 
-## 3. Scope
+### Scope
 - **In-Scope**:
   - Auditing changes against the original prompt and verifiable acceptance criteria.
   - Full inspection of git status, diffs, created, modified, deleted, and renamed files.
@@ -55,7 +73,7 @@ Autonomous AI engineering workflows suffer from premature completion claims, dev
 
 ---
 
-## 4. When to Use
+### When to Use
 - **Lifecycle Transition**: Mandatory execution at Stage 8 of the canonical lifecycle before any task is marked `Completed` in [`TASKS.md`](../../../TASKS.md).
 - **Post-Implementation Gate**: After implementing code, refactoring, fixing bugs, or updating documentation.
 - **Pre-PR / Pre-Delivery Audit**: Before submitting changes, opening a pull request, or declaring deliverables ready for user acceptance.
@@ -63,21 +81,21 @@ Autonomous AI engineering workflows suffer from premature completion claims, dev
 
 ---
 
-## 5. When Not to Use
+### When Not to Use
 - Do NOT use as a substitute for initial requirements gathering (use [`requirements-analysis`](../../requirements-analysis/SKILL.md)).
 - Do NOT use during initial exploration spikes before an implementation plan is formulated.
 - Do NOT run heavyweight security pen-testing routines for trivial, low-risk documentation-only or styling-only edits; apply verification proportionally to risk.
 
 ---
 
-## 6. Prerequisites
+### Prerequisites
 - Target code modifications implemented in working directory.
 - Local test runner and linter identified and operable.
 - Baseline requirements and acceptance criteria documented in prompt or [`TASKS.md`](../../../TASKS.md).
 
 ---
 
-## 7. Required Context
+### Required Context
 Before conducting post-task verification, verify the following project reality:
 - Current architecture and active tech stack in [`CONTEXT.md`](../../../CONTEXT.md).
 - Mandatory constraints and release gates in [`RULES.md`](../../../RULES.md).
@@ -86,7 +104,7 @@ Before conducting post-task verification, verify the following project reality:
 
 ---
 
-## 8. Core Instructions
+### Core Instructions
 
 ### 8.1 The 15 Dimensions of Post-Task Verification
 Every verification pass must evaluate the 15 canonical dimensions:
@@ -143,7 +161,7 @@ Every verification pass must evaluate the 15 canonical dimensions:
 
 ---
 
-## 9. Step-by-Step Workflow
+### Step-by-Step Workflow
 
 ```mermaid
 flowchart TD
@@ -194,7 +212,7 @@ flowchart TD
 
 ---
 
-## 10. Quality Standards
+### Quality Standards
 - **Zero False Completion Claims**: A task cannot be marked Completed without verifiable execution evidence.
 - **Zero Uninspected Diffs**: 100% of modified lines must be reviewed by the agent before concluding.
 - **Portability Invariant**: 100% of internal links must be relative; zero host-specific paths.
@@ -202,7 +220,7 @@ flowchart TD
 
 ---
 
-## 11. Validation Matrix
+### Validation Matrix
 | Check | Verification Method | Expected Outcome |
 |---|---|---|
 | **Inventory Audit** | `git status -s` | Clean working tree; only intentional changes tracked |
@@ -213,7 +231,7 @@ flowchart TD
 
 ---
 
-## 12. Common Mistakes & Anti-Patterns
+### Common Mistakes & Anti-Patterns
 | Mistake / Anti-Pattern | Why It Fails | Correct Alternative |
 |---|---|---|
 | **Conversational Self-Approval** | Agent declares "Everything is done!" without inspecting git diffs | Run `git status` and `git diff`; cite actual modified lines |
@@ -224,7 +242,7 @@ flowchart TD
 
 ---
 
-## 13. Restrictions
+### Restrictions
 - Do NOT mark any task `Completed` in [`TASKS.md`](../../../TASKS.md) without verified evidence.
 - Do NOT ignore failing tests, linter errors, or broken internal links.
 - Do NOT introduce external runtime dependencies or binary executables.
@@ -232,7 +250,7 @@ flowchart TD
 
 ---
 
-## 14. Expected Deliverables
+### Expected Deliverables
 - Verified, clean codebase matching user requirements.
 - Passing test suite output with documented exit codes.
 - Synchronized, relative documentation in [`CONTEXT.md`](../../../CONTEXT.md), [`CHANGELOG.md`](../../../CHANGELOG.md), and [`TASKS.md`](../../../TASKS.md).
@@ -240,9 +258,13 @@ flowchart TD
 
 ---
 
-## 15. Documentation Requirements
+### Documentation Requirements
 - Record discovered pitfalls or test conventions in [`MEMORY.md`](../../../MEMORY.md).
 - Record architectural trade-offs or decisions in [`DECISIONS.md`](../../../DECISIONS.md).
 - Update task state in [`TASKS.md`](../../../TASKS.md).
 - Log the session audit in [`docs_agent/SESSION_LOG.md`](../../../docs_agent/SESSION_LOG.md).
 
+---
+
+## Level 3 — Optional References & Supplementary Assets
+  - None (self-contained Level 1 & Level 2 guidance)

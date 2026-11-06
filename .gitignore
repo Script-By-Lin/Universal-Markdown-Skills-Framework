@@ -21,9 +21,19 @@ ui-ux-pro-max-skill/
 # Intake briefs and prompt specifications are preserved locally but not tracked
 implementation.md
 Enhance.md
+enhancement.md
+sub_agent_enhancement.md
+master_enhancement.md
+e2e_imp.md
+db_optimize.md
 
 # ==============================================================================
-# 4. Agent Scratchpads & Temporary Workspaces
+# 4. Framework Maintenance Scripts & Generators
+# ==============================================================================
+/scripts/
+
+# ==============================================================================
+# 5. Agent Scratchpads & Temporary Workspaces
 # ==============================================================================
 scratch/
 .system_generated/
@@ -33,7 +43,7 @@ scratch/
 *.bak
 
 # ==============================================================================
-# 5. Agent IDE & Tooling Metadata
+# 6. Agent IDE & Tooling Metadata
 # ==============================================================================
 .gemini/
 .claude/
@@ -41,7 +51,7 @@ scratch/
 .windsurf/
 
 # ==============================================================================
-# 6. Environment Variables & Credentials (Security Invariant)
+# 7. Environment Variables & Credentials (Security Invariant)
 # ==============================================================================
 .env
 .env.*
@@ -53,7 +63,7 @@ scratch/
 *.p12
 
 # ==============================================================================
-# 7. Operating System Metadata
+# 8. Operating System Metadata
 # ==============================================================================
 .DS_Store
 .DS_Store?
@@ -65,7 +75,7 @@ Thumbs.db
 Desktop.ini
 
 # ==============================================================================
-# 8. IDE & Editor Artifacts
+# 9. IDE & Editor Artifacts
 # ==============================================================================
 .idea/
 .vscode/
@@ -76,7 +86,7 @@ Desktop.ini
 *~
 
 # ==============================================================================
-# 9. Python Runtimes & Caches
+# 10. Python Runtimes & Caches
 # ==============================================================================
 __pycache__/
 *.py[cod]
@@ -107,7 +117,7 @@ ENV/
 env/
 
 # ==============================================================================
-# 10. Node.js & Web Build Artifacts
+# 11. Node.js & Web Build Artifacts
 # ==============================================================================
 node_modules/
 npm-debug.log*
@@ -119,7 +129,7 @@ yarn-error.log*
 out/
 
 # ==============================================================================
-# 11. General Logs & Diagnostic Outputs
+# 12. General Logs & Diagnostic Outputs
 # ==============================================================================
 *.log
 *.out

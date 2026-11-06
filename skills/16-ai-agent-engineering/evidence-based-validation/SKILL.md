@@ -1,15 +1,16 @@
 ---
 name: evidence-based-validation
 description: "Verification protocol requiring empirical proof (test execution logs, exit codes, diffs) before accepting completion claims."
-version: 1.0.0
+version: 1.7.0
 category: agentic
 tags: ['agentic', 'validation', 'empirical-evidence', 'verification', 'quality-gate']
 ---
 
-# Skill: Evidence Based Validation
+# Skill: Evidence-Based Validation Engineering
 
-> Canonical UMSF Domain Skill Specification adhering to the standard 15-section schema.
-> Category: Domain 16 — AI Agent Engineering
+> Canonical UMSF Domain Skill Specification adhering to the standard schema.  
+> Category: Domain 16 — AI Agent Engineering  
+> Status: Level 1 MVP-First Active Specification  
 
 ---
 
@@ -18,15 +19,42 @@ tags: ['agentic', 'validation', 'empirical-evidence', 'verification', 'quality-g
 - **Category**: AI Agent Engineering (Domain 16)
 - **Authority**: UMSF Canonical Skill Library (Precedence Level 6)
 - **Maintainer**: Universal Markdown Skills Framework
+- **Level 3 References**:
+  - None (self-contained Level 1 & Level 2 guidance)
 
 ---
 
-## 2. Purpose
+## 2. MVP Summary (Level 1 Execution Contract)
+
+- **Purpose**: Require empirical, reproducible proof (raw command outputs, exit codes, diffs) for all verification assertions.
+- **When to Use**: Validating task completion, evaluating test results, verifying bug fixes, or signing off release gates.
+- **Essential Invariants**:
+  1. Claims of 'all tests passing' require actual command execution output and exit code 0.
+  2. Claims of 'bug fixed' require failing reproduction test and passing post-fix test evidence.
+  3. Never accept speculative assertions, hypothetical reviews, or unverified claims as truth.
+- **Minimal Workflow**:
+  1. Execute validation command directly in terminal (e.g. npm test, pytest, cargo test).
+  2. Capture raw stdout, stderr, and integer exit code.
+  3. Inspect output to confirm expected assertions actually ran (count > 0).
+  4. Attach raw evidence to verification report and TASKS.md.
+- **Expected Deliverables**: Empirical validation evidence log containing command invocations, raw outputs, and exit codes.
+- **Critical Restrictions**: Strictly prohibit marking tasks complete based on belief, assumption, or simulated test results.
+
+> ℹ️ **Progressive Context Loading**:
+> For standard engineering tasks, this **Level 1 MVP Summary** provides the complete operational contract.
+> If deep procedures, edge case handling, or comprehensive checklists are required, proceed to **Level 2 — Core Instructions** below.
+
+---
+
+## Level 2 — Core Instructions & Deep Procedures
+
+### Purpose
+Purpose
 Enforces an uncompromising empirical verification standard across the framework: no task, test, or security claim is accepted without inspectable evidence.
 
 ---
 
-## 3. Scope
+### Scope
 - **In-Scope**:
   - Requiring command execution logs and exit code 0 for passing tests\n  - Validating filesystem changes directly using file reads and git status\n  - Rejecting speculative or conversational assertions of completion\n  - Verifying that documentation matches actual code reality
 - **Out-of-Scope**:
@@ -34,24 +62,24 @@ Enforces an uncompromising empirical verification standard across the framework:
 
 ---
 
-## 4. When to Use
+### When to Use
 - Evaluating whether a development task is ready to transition to Completed\n- Conducting QA and Security release gate reviews\n- Auditing pull requests and commits
 
 ---
 
-## 5. When Not to Use
+### When Not to Use
 - When brainstorming conceptual ideas before execution begins
 
 ---
 
-## 6. Prerequisites
+### Prerequisites
 - Framework architecture verified in [`AGENTS.md`](../../../AGENTS.md).
 - Active tasks registered in [`TASKS.md`](../../../TASKS.md).
 - Environment reality verified in [`CONTEXT.md`](../../../CONTEXT.md).
 
 ---
 
-## 7. Required Context
+### Required Context
 Before executing this skill, verify:
 - Independent agent role specifications in [`AGENTS.md`](../../../AGENTS.md) Section 2.
 - Mandatory constraints in [`RULES.md`](../../../RULES.md) (Precedence Level 2).
@@ -59,7 +87,7 @@ Before executing this skill, verify:
 
 ---
 
-## 8. Core Instructions
+### Core Instructions
 ### 8.1 The Empirical Evidence Standard
 - **The Rule of Proof**: "If you didn't execute it, you don't know if it works. If you can't show the exit code, you can't claim it passed."
 - **Required Evidence Artifacts**:
@@ -70,7 +98,7 @@ Before executing this skill, verify:
 
 ---
 
-## 9. Step-by-Step Workflow
+### Step-by-Step Workflow
 1. **Step 1: Identify Expected Evidence**
    - Determine what proof demonstrates task completion.
 2. **Step 2: Execute Verification Command**
@@ -84,14 +112,14 @@ Before executing this skill, verify:
 
 ---
 
-## 10. Quality Standards
+### Quality Standards
 - **Standard 1**: Complete cognitive and evidence independence between Development and Review roles.
 - **Standard 2**: Absolute prohibition on accepting conversational completion claims without empirical command verification.
 - **Standard 3**: Seamless multi-agent continuity backed by persisted records in `docs_agent/` and `TASKS.md`.
 
 ---
 
-## 11. Validation
+### Validation
 | Check | Verification Method | Expected Outcome |
 |---|---|---|
 | Role Independence | Review checklist inspection | QA and Security passes execute separate review criteria |
@@ -100,7 +128,7 @@ Before executing this skill, verify:
 
 ---
 
-## 12. Common Mistakes
+### Common Mistakes
 | Mistake / Anti-Pattern | Why It Fails | Correct Alternative |
 |---|---|---|
 | Developer Self-Approval | High rate of confirmation bias and overlooked edge cases | Enforce independent QA/Security role passes |
@@ -109,21 +137,26 @@ Before executing this skill, verify:
 
 ---
 
-## 13. Restrictions
+### Restrictions
 - Do NOT declare features approved without independent verification.
 - Do NOT fabricate command outputs, test runs, or security assessment verdicts.
 - Do NOT bypass release gates.
 
 ---
 
-## 14. Expected Deliverables
+### Expected Deliverables
 - Role-separated assessment logs under `docs_agent/testing/` or `docs_agent/security/`.
 - Updated `TASKS.md` with validated milestone statuses.
 - Structured session handoff entries in `docs_agent/SESSION_LOG.md`.
 
 ---
 
-## 15. Documentation Requirements
+### Documentation Requirements
 - Record reusable multi-agent lessons in [`MEMORY.md`](../../../MEMORY.md).
 - Record agent orchestration trade-offs in [`DECISIONS.md`](../../../DECISIONS.md).
 - Log session handoff in [`docs_agent/SESSION_LOG.md`](../../../docs_agent/SESSION_LOG.md).
+
+---
+
+## Level 3 — Optional References & Supplementary Assets
+  - None (self-contained Level 1 & Level 2 guidance)

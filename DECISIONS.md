@@ -409,8 +409,224 @@ While ADR-011 established the post-task verification methodology and 12-stage en
 - **Negative Impacts / Known Trade-offs**:
   - Dispatching an isolated subagent or running a sequential verification pass consumes additional agent turns and tokens, which is an intentional, high-value investment in reliability.
 
+---
+
+## ADR-013: Consolidation of UI/UX Domain into UI/UX Pro Max Engine & Removal of Redundant Design Skills
+
+> Date: 2026-11-07  
+> Status: Accepted  
+> Deciders: Framework Core Architecture  
+> Authority: Precedence Level 3 (Immutable System ADR)  
+
+### 1. Context & Problem Statement
+During initial framework scaling, 21 fragmented UI/UX, styling, brand, and design skills were incorporated across `skills/07-frontend-engineering/` and the specialized skills catalog (`accessibility`, `banner-design`, `brand`, `brand-discovery`, `brand-voice`, `browser-qa`, `design`, `design-system`, `frontend-a11y`, `frontend-design-direction`, `frontend-development`, `frontend-patterns`, `frontend-slides`, `liquid-glass-design`, `make-interfaces-feel-better`, `motion-foundations`, `slides`, `ui-demo`, `ui-styling`, `ui-to-vue`, `ui-ux-design`).
+
+However, this fragmentation introduced:
+1. **Redundant & Competing Design Guidance**: Multiple overlapping skills provided divergent rules for styling, tokens, and components (e.g. `ui-styling` vs `ui-ux-design` vs `design-system`).
+2. **Context Bloat & Agent Routing Confusion**: Agents were faced with choosing between half a dozen design-related skills for a single frontend task.
+3. **Superfluous Sub-modules**: `ui-ux-pro-max` already encompasses comprehensive, standalone Markdown catalogs (88 visual styles, 192 product palettes, 74 font pairings, 119 UX guidelines, and pre-delivery verification checklists), making separate fragmented skills obsolete.
+
+### 2. Alternatives Considered
+1. **Option A: Retain All 21 Fragmented Design Skills**: Keep all legacy design skills alongside `ui-ux-pro-max`. Rejected because of maintenance overhead, contradictory token recommendations, and cognitive confusion for AI agents.
+2. **Option B: Merge Partial Subsets into 3-4 Smaller Skills**: Consolidate into `design-system`, `brand`, and `ui-ux-pro-max`. Rejected because `ui-ux-pro-max` already contains the authoritative reference catalogs for visual identity, component tokens, styles, and guidelines.
+3. **Option C: Consolidate Domain 07 Exclusively Around UI/UX Pro Max & Remove 21 Redundant Skills**:
+   - Establish `ui-ux-pro-max` (`skills/07-frontend-engineering/ui-ux-pro-max/SKILL.md`) as the single canonical UI/UX design intelligence suite for Domain 07 and across UMSF.
+   - Delete all 21 redundant UI/UX, styling, brand, and presentation skills and their symlinks.
+   - Re-route all cross-references across remaining skills to `ui-ux-pro-max`.
+   - Update framework registries to reflect exactly 351 unique physical skills (64 core domain skills across 16 domains + 287 specialized modules).
+
+### 3. Decision Outcome
+**Selected Option**: **Option C: Consolidate Domain 07 Exclusively Around UI/UX Pro Max & Remove 21 Redundant Skills**
+- Deleted 21 physical skill directories in `skills/`: `accessibility`, `banner-design`, `brand`, `brand-discovery`, `brand-voice`, `browser-qa`, `design`, `design-system`, `frontend-a11y`, `frontend-design-direction`, `frontend-development`, `frontend-patterns`, `frontend-slides`, `liquid-glass-design`, `make-interfaces-feel-better`, `motion-foundations`, `slides`, `ui-demo`, `ui-styling`, `ui-to-vue`, `ui-ux-design`.
+- Removed 8 corresponding symlinks in `skills/07-frontend-engineering/`. Domain 07 now consists of 1 Core Skill: `ui-ux-pro-max`.
+- Updated all cross-references in remaining skills (`api-development`, `backend-development`, `i18n-sync`, `react-patterns`, `react-performance`, `react-testing`, `refactoring`, `software-architecture`) to link to `ui-ux-pro-max`.
+- Synchronized `SKILLS.md`, `skills/README.md`, `README.md`, `CONTEXT.md`, `TASKS.md`, `CHANGELOG.md`, and `MEMORY.md`.
+
+### 4. Consequences & Trade-offs
+- **Positive Impacts**:
+  - Unified Single Source of Truth: All styling, visual design, palettes, fonts, and UX guidelines are centrally governed by `ui-ux-pro-max`.
+  - Zero Context Ambiguity: Agents have a single unambiguous skill for all frontend/UI/UX design tasks.
+  - Reduced Repository Footprint: 21 redundant directories eliminated, bringing unique physical skills from 372 to 351.
+  - Zero broken links and 100% pure Markdown architecture preserved.
+- **Negative Impacts / Known Trade-offs**:
+  - Historical references in release notes and ADRs prior to v1.5.0 reference deleted skill names in historical narrative, preserved for ledger immutability.
+
+---
+
+## ADR-014: Architectural Integration of High-Value ECC Capabilities & Streamlining to 64 Core Domain Skills
+
+> Date: 2026-11-07  
+> Status: Accepted  
+> Deciders: Framework Core Architecture  
+> Authority: Precedence Level 3 (Immutable System ADR)  
+
+### 1. Context & Problem Statement
+Following the research and evaluation mandate in [`enhancement.md`](./enhancement.md) (ECC Skill Research, Analysis & Integration), the framework evaluated 314 capabilities from the Everything Claude Code (ECC) ecosystem (SHA: `b38be6a7f6350964d59328b52f0624e1d1d552d1`, MIT License).
+
+During initial adoption, 287 specialized technology skills (e.g. `angular-developer`, `django-patterns`, `fastapi-templates`, `solana-program-development`, `x-api`, `bengali-nlp`, etc.) were imported into `skills/`. However, this bulk import introduced:
+1. **Severe Context Window Bloat & Routing Noise**: Agents were exposed to hundreds of niche technology modules rather than disciplined, core engineering practices.
+2. **Maintenance Fragility**: Hundreds of external technology files with unmaintained dependencies diluted UMSF's focus.
+3. **Contradiction with UMSF Design Principles**: Section 1 and Section 6 of `enhancement.md` explicitly state: *"This is NOT a request to copy the entire ECC repository... Do not create duplicate skills just to increase the skill count."*
+4. **Physical Directory Inconsistency**: 27 skills resided outside their canonical domain folders.
+
+### 2. Alternatives Considered
+1. **Option A: Retain All 287 Specialized Technology Modules**: Keep 351 total skills. Rejected because technology-specific syntax is already proficiently handled by LLMs; the real value of UMSF lies in architectural discipline, TDD, security verification, and independent subagent audit.
+2. **Option B: Reduce to Exactly 16 Single Skills (1 per Domain)**: Collapse all skills in Domain 02 (Security, 13 skills) and Domain 09 (Testing, 17 skills) into a single generic skill. Rejected because specialized security audits (pen-testing, threat modeling, auth) and testing phases (TDD, E2E, regression, mutation) require distinct, comprehensive procedural guidance.
+3. **Option C: Architectural Capability Integration & Streamlining to 64 Core Domain Skills**:
+   - Integrate high-value architectural capabilities from ECC (Research-First Development, Fresh-Context Independent Audits, Secret Detection, Prompt Injection Defense, Token Efficiency) directly into UMSF's 16 Canonical Engineering Domains.
+   - Author [`docs/ECC_INTEGRATION.md`](./docs/ECC_INTEGRATION.md) documenting capability mapping, evaluation categories A-F, and full MIT licensing attribution.
+   - Relocate the physical directories of all 64 domain skills into their canonical numbered domain directories (`skills/01-...` through `skills/16-...`).
+   - Remove all 287 unneeded specialized technology modules from `skills/`.
+   - Preserve dual-path root symlinks in `skills/` for all 64 domain skills.
+
+### 3. Decision Outcome
+**Selected Option**: **Option C: Architectural Capability Integration & Streamlining to 64 Core Domain Skills**
+- Authored canonical integration registry [`docs/ECC_INTEGRATION.md`](./docs/ECC_INTEGRATION.md) and mirror in `docs_agent/`.
+- Embedded Research-First Development into `AGENTS.md` Section 7, `WORKFLOW.md` Stage 1, and `skills/01-software-development-lifecycle/planning/SKILL.md`.
+- Consolidated all 64 skills physically inside `skills/01-...` through `skills/16-...`.
+- Deleted 287 unneeded specialized technology skills from `skills/`.
+- Preserved `ui-ux-pro-max` intact as the sole canonical design intelligence suite in Domain 07 (`skills/07-frontend-engineering/ui-ux-pro-max/`) and dual-path root symlink `skills/ui-ux-pro-max`.
+- Synchronized `SKILLS.md`, `skills/README.md`, `README.md`, `CONTEXT.md`, `TASKS.md`, `CHANGELOG.md`, and `MEMORY.md`.
+
+### 4. Consequences & Trade-offs
+- **Positive Impacts**:
+  - High Signal-to-Noise Ratio: Agents have immediate, unbloated access to the 64 authoritative engineering skills across the 16 Canonical Domains.
+  - Architectural Purity: 100% zero-dependency, local-first Markdown architecture preserved.
+  - Complete Provenance & Attribution: Upstream MIT license and copyright attributed in `docs/ECC_INTEGRATION.md`.
+  - Zero broken links and 100% relative link resolution across all files.
+- **Negative Impacts / Known Trade-offs**:
+  - Removed specialized technology templates (e.g. `solana`, `django`), relying on LLM native technology competencies under UMSF's rigorous TDD and code review gates.
 
 
 
 
 
+
+
+
+---
+
+## ADR-015: MVP-First Skills Architecture, Progressive Context Loading, and Global Token Efficiency Architecture
+
+> Date: 2026-11-07  
+> Status: Accepted  
+> Deciders: Framework Core Architecture & Independent Verification Agents  
+> Authority: Precedence Level 3 (Immutable System ADR)  
+
+### 1. Context & Problem Statement
+Following the release of UMSF v1.6.0 (Catalog Streamlining to 64 Core Domain Skills), the framework successfully established a focused library across the 16 Canonical Engineering Domains. However, an in-depth audit of token economy and agent context consumption ([`docs_agent/analysis/SKILL_OPTIMIZATION_AUDIT.md`](./docs_agent/analysis/SKILL_OPTIMIZATION_AUDIT.md)) revealed critical efficiency bottlenecks:
+1. **Instruction Ingestion Bloat**: Agents opening any of the 64 skill files were forced to ingest the entire document (averaging 180 lines, with heavy skills exceeding 650 lines / ~9,200 tokens) merely to obtain the core execution rules.
+2. **Duplicated Operational Instructions**: Core governance files (`AGENTS.md`, `RULES.md`, `WORKFLOW.md`, `SKILLS.md`) duplicated full conflict resolution tables and lifecycle narratives, consuming ~3,500 tokens of redundant overhead on every session initialization.
+3. **Universal Heavy Process Imposition**: Lack of an explicit risk-proportionate verification matrix risked running heavy security penetration tests or database migration suites on low-risk changes (e.g. documentation typos or standalone CSS tweaks).
+
+### 2. Decision
+To resolve these bottlenecks without compromising rigorous verification, UMSF formally adopts the **Token Efficiency Architecture** codified in [`docs_agent/architecture/TOKEN_EFFICIENCY_ARCHITECTURE.md`](./docs_agent/architecture/TOKEN_EFFICIENCY_ARCHITECTURE.md):
+
+1. **Three-Tier Progressive Skill Structure**:
+   - **Level 1 — MVP Summary (Execution Contract)**: Standardized section (`## 2. MVP Summary (Level 1 Execution Contract)`) embedded in all 64 skills, providing Purpose, When to Use, Essential Invariants, Minimal Workflow, Expected Deliverables, and Critical Restrictions in ~300 tokens.
+   - **Level 2 — Core Instructions**: Deep operational procedures, detailed workflows, quality standards, validation gates, and error handling preserved under `## Level 2 — Core Instructions & Deep Procedures`.
+   - **Level 3 — Optional References**: Supplementary templates, extended catalogs, and specialized checklists segregated into `references/` subdirectories or linked reference documents, loaded strictly on-demand.
+2. **Four-Step Progressive Loading Protocol**:
+   - Agents must: (1) Consult `SKILLS.md` registry, (2) Read Level 1 MVP Summary (~300 tokens), (3) Conditionally load Level 2 Core Instructions only if edge cases or deep procedures are required, and (4) Load Level 3 references strictly when the prompt explicitly requires that specialized asset.
+3. **Conditional Risk-Based Verification**:
+   - Verification procedures scale strictly to change risk (Low, Medium, High). Low-risk changes (docs, styles) are exempt from heavy penetration tests and database migration suites.
+4. **Token-Aware Reporting**:
+   - Completion reports must summarize changes, verification evidence, test exit codes, and point to documentation paths, avoiding verbose re-printing of full files.
+5. **Consolidation of Governance Duplication**:
+   - `AGENTS.md` streamlined to authoritative pointers to `RULES.md` (for conflict resolution) and `WORKFLOW.md` (for stage details).
+
+### 3. Consequences
+- **Positive**:
+  - Achieves ~70–75% reduction in initial context consumption for skill loading.
+  - Eliminates context drift and instruction competition in autonomous coding agents.
+  - Retains 100% of technical capabilities, quality standards, and security controls across all 16 domains.
+  - Preserves strict zero external runtime dependencies and 100% Markdown portability.
+- **Negative / Neutral**:
+  - Agents must practice disciplined progressive loading and avoid indiscriminately loading full files or optional references when Level 1 suffices.
+
+
+---
+
+## ADR-016: Formalization of Feature Integration & End-to-End Consistency Verification Skill
+
+> Date: 2026-11-07  
+> Status: Accepted  
+> Deciders: Framework Core Architecture & Independent Verification Agents  
+> Authority: Precedence Level 3 (Immutable System ADR)  
+
+### 1. Context & Problem Statement
+In multi-tier application development, individual software components frequently pass isolated unit and component tests but fail when integrated across architectural tiers:
+1. **Frontend / Backend Contract Drift**: API routes return fields or envelopes that client state stores do not parse, or client forms submit payload structures rejected by backend validators (HTTP 422).
+2. **Persistence Inconsistency**: Backend operations commit to the database successfully, but client caches fail to invalidate, leaving the user interface showing stale data.
+3. **Authentication & Authorization Severance**: Tokens validate at the gateway, but user tenant scopes or roles fail to propagate to downstream services or database queries.
+4. **Third-Party Disconnects**: Webhook receipts succeed, but subsequent transaction state updates fail silently.
+
+Prior to this decision, UMSF possessed standalone `integration-testing` (focused on subsystems and database repos) and `end-to-end-testing` (focused on browser automation), but lacked a dedicated skill explicitly governing the **end-to-end consistency verification of complete features as unified multi-tier systems**.
+
+### 2. Decision
+Formalize and integrate the `feature-integration-verification` skill into **Domain 09 — Quality Assurance & Testing**:
+
+1. **Canonical Location & Backward Compatibility**:
+   - Primary specification: [`skills/09-quality-assurance-and-testing/feature-integration-verification/SKILL.md`](./skills/09-quality-assurance-and-testing/feature-integration-verification/SKILL.md).
+   - Dual-path root symlink: `skills/feature-integration-verification`.
+2. **Three-Tier Progressive Loading Architecture**:
+   - **Level 1 — MVP Summary (Execution Contract)**: Concise operational contract (~350 tokens) defining Purpose, Triggers, Invariants, Workflow, Deliverables, and Critical Restrictions.
+   - **Level 2 — Core Instructions**: Complete procedures covering component mapping, the 14-point connection and contract verification matrix, end-to-end lifecycle tracing, 11-category failure classification, and the 5-state verification gate (`FULLY_VERIFIED`, `PARTIALLY_VERIFIED`, `NEEDS_REMEDIATION`, `BLOCKED`, `NOT_VERIFIED`).
+   - **Level 3 — Optional References**: Segregated reference assets:
+     - [`references/contract-and-data-consistency-checklist.md`](./skills/09-quality-assurance-and-testing/feature-integration-verification/references/contract-and-data-consistency-checklist.md)
+     - [`references/failure-classification-and-remediation.md`](./skills/09-quality-assurance-and-testing/feature-integration-verification/references/failure-classification-and-remediation.md)
+3. **Synergy with Tripartite Roles**:
+   - Development Agent (Agent A) uses the skill to verify multi-tier connections during feature implementation.
+   - Independent Verification Subagent (Agent B) uses the checklist during the 7-dimensional audit before rendering the acceptance decision.
+
+### 3. Consequences
+- **Positive**:
+  - Expands UMSF to **65 Core Domain Skills** across 16 domains (18 in Domain 09).
+  - Directly eliminates cross-tier integration defects, serialization mismatches, and stale UI cache bugs.
+  - Preserves 100% pure Markdown architecture, zero runtime dependencies, and strict relative link integrity.
+- **Negative / Neutral**:
+  - Multi-tier features require tracing the full component chain, adding deliberate verification rigor before closing tasks.
+
+
+---
+
+## ADR-017: Formalization of Database Query Optimization & Performance Engineering Skill
+
+> Date: 2026-11-07  
+> Status: Accepted  
+> Deciders: Framework Core Architecture & Independent Verification Agents  
+> Authority: Precedence Level 3 (Immutable System ADR)  
+
+### 1. Context & Problem Statement
+In multi-tier application architectures, data-access bottlenecks represent the primary operational cause of severe latency degradation and resource exhaustion:
+1. **N+1 Query Anti-Patterns**: Applications issue one initial query to fetch $N$ parent records, followed by $N$ sequential round trips inside application loops to fetch child entities.
+2. **Over-Fetching via `SELECT *`**: Retrieving all table columns (including wide `TEXT` and `JSONB` fields) across wide result sets causes high memory overhead and network serialization lag.
+3. **Table Scans & Unindexed Predicates**: Queries filter or sort by unindexed foreign keys or status flags, causing disk-heavy Sequential Scans (`Seq Scan`).
+4. **Inefficient Offset Pagination**: High-offset queries (`OFFSET 100000`) scan and discard hundreds of thousands of rows rather than seeking directly via keyset cursors.
+5. **Lock Contention**: Transactions held open across slow external network requests lock database rows and exhaust connection pools.
+
+Prior to this decision, Domain 08 provided `database-design` (schema modeling) and `database-migrations` (safe migrations), but lacked an operational skill specifically governing **data-access optimization, ORM batch loading, and query execution plan analysis**.
+
+### 2. Decision
+Formalize and integrate the `database-query-optimization` skill into **Domain 08 — Database Engineering**:
+
+1. **Canonical Location & Backward Compatibility**:
+   - Primary specification: [`skills/08-database-engineering/database-query-optimization/SKILL.md`](./skills/08-database-engineering/database-query-optimization/SKILL.md).
+   - Dual-path root symlink: `skills/database-query-optimization`.
+2. **Three-Tier Progressive Loading Architecture**:
+   - **Level 1 — MVP Summary (Execution Contract)**: Concise operational contract (~350 tokens) defining Purpose, Triggers, Invariants, Minimal Workflow, Deliverables, and Critical Restrictions.
+   - **Level 2 — Core Instructions**: Complete procedures covering N+1 prevention, batch fetching (`WHERE IN`), join strategies, column projections, keyset/cursor pagination, database-side aggregation, index design (equality first, range second), `EXPLAIN ANALYZE` node interpretation, transaction/concurrency optimization, correctness verification, and the 14-category finding taxonomy.
+   - **Level 3 — Optional References**: Segregated reference assets:
+     - [`references/n-plus-one-patterns-and-orm-recipes.md`](./skills/08-database-engineering/database-query-optimization/references/n-plus-one-patterns-and-orm-recipes.md)
+     - [`references/execution-plan-and-indexing-guide.md`](./skills/08-database-engineering/database-query-optimization/references/execution-plan-and-indexing-guide.md)
+3. **Synergy with Tripartite Roles**:
+   - Development Agent (Agent A) uses the skill to optimize queries and avoid N+1 patterns during feature development.
+   - Independent Verification Subagent (Agent B) audits executed query counts and execution plan outputs during post-task verification.
+
+### 3. Consequences
+- **Positive**:
+  - Expands UMSF to **66 Core Domain Skills** across 16 domains (3 in Domain 08).
+  - Eliminates data-access latency bottlenecks, sequential loops, and over-fetching.
+  - Preserves 100% pure Markdown architecture, zero runtime dependencies, and strict relative link integrity.
+- **Negative / Neutral**:
+  - Requires empirical before-and-after query count and timing measurements rather than assuming query reductions.

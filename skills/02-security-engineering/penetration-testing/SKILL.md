@@ -1,15 +1,16 @@
 ---
 name: penetration-testing
 description: "Authorized, non-destructive penetration testing methodology, explicit scope verification, controlled proof-of-concept exploitation, and risk reporting."
-version: 1.0.0
+version: 1.7.0
 category: security
 tags: ['security', 'penetration-testing', 'ethical-hacking', 'poc', 'authorization-boundary', 'owasp']
 ---
 
-# Skill: Penetration Testing
+# Skill: Authorized Penetration Testing
 
-> Canonical UMSF Domain Skill Specification adhering to the standard 15-section schema.
-> Category: Domain 02 — Security Engineering
+> Canonical UMSF Domain Skill Specification adhering to the standard schema.  
+> Category: Domain 02 — Security Engineering  
+> Status: Level 1 MVP-First Active Specification  
 
 ---
 
@@ -18,15 +19,42 @@ tags: ['security', 'penetration-testing', 'ethical-hacking', 'poc', 'authorizati
 - **Category**: Security Engineering (Domain 02)
 - **Authority**: UMSF Canonical Skill Library (Precedence Level 6)
 - **Maintainer**: Universal Markdown Skills Framework
+- **Level 3 References**:
+  - None (self-contained Level 1 & Level 2 guidance)
 
 ---
 
-## 2. Purpose
+## 2. MVP Summary (Level 1 Execution Contract)
+
+- **Purpose**: Conduct authorized, non-destructive adversarial testing to identify and exploit vulnerabilities before attackers do.
+- **When to Use**: Pre-release security audits, verifying authentication/authorization hardening, or compliance assessments.
+- **Essential Invariants**:
+  1. Explicit user authorization and strict boundary definitions are mandatory prior to testing.
+  2. Testing must remain strictly non-destructive and isolated from production data.
+  3. All discovered vulnerabilities must include verifiable proof-of-concept steps.
+- **Minimal Workflow**:
+  1. Confirm testing authorization, scope boundaries, and target environment.
+  2. Map attack surface (endpoints, input vectors, authentication schemes).
+  3. Execute non-destructive exploit payloads targeting identified vectors.
+  4. Document findings in docs_agent/security/ and formulate remediation plan.
+- **Expected Deliverables**: Penetration test report detailing tested vectors, findings, and remediation guidance.
+- **Critical Restrictions**: Strictly prohibit testing outside authorized scope; never execute denial-of-service or data-wiping payloads.
+
+> ℹ️ **Progressive Context Loading**:
+> For standard engineering tasks, this **Level 1 MVP Summary** provides the complete operational contract.
+> If deep procedures, edge case handling, or comprehensive checklists are required, proceed to **Level 2 — Core Instructions** below.
+
+---
+
+## Level 2 — Core Instructions & Deep Procedures
+
+### Purpose
+Purpose
 Governs ethical, authorized penetration testing against application targets to discover reproducible vulnerabilities through controlled adversarial simulation without risking data loss or service disruption.
 
 ---
 
-## 3. Scope
+### Scope
 - **In-Scope**:
   - Validating explicit user authorization boundaries before active probing\n  - Executing non-destructive security test attacks against staging/local environments\n  - Developing minimal proof-of-concept (PoC) demonstrations\n  - Distinguishing confirmed vulnerabilities from false positives
 - **Out-of-Scope**:
@@ -34,24 +62,24 @@ Governs ethical, authorized penetration testing against application targets to d
 
 ---
 
-## 4. When to Use
+### When to Use
 - Conducting pre-release security validation on staging environments\n- Auditing critical authentication, authorization, or payment workflow surfaces\n- Verifying exploitability of vulnerabilities flagged by static scanners
 
 ---
 
-## 5. When Not to Use
+### When Not to Use
 - When user ownership or testing authorization is ambiguous (restrict to static code review)\n- On live production environments with unbacked customer data
 
 ---
 
-## 6. Prerequisites
+### Prerequisites
 - Target application components and architecture inspected.
 - Context verified against [`CONTEXT.md`](../../../CONTEXT.md).
 - Security testing boundaries established in compliance with [`RULES.md`](../../../RULES.md).
 
 ---
 
-## 7. Required Context
+### Required Context
 Before executing this skill, verify:
 - Mandatory constraints in [`RULES.md`](../../../RULES.md) (Precedence Level 2).
 - Security posture in [`CONTEXT.md`](../../../CONTEXT.md).
@@ -59,7 +87,7 @@ Before executing this skill, verify:
 
 ---
 
-## 8. Core Instructions
+### Core Instructions
 ### 8.1 Mandatory Authorization Protocol
 Before executing any active security probe:
 1. **Scope Verification**: Confirm specific target URLs, hostnames, IP ranges, and API versions.
@@ -76,7 +104,7 @@ When demonstrating exploitability:
 
 ---
 
-## 9. Step-by-Step Workflow
+### Step-by-Step Workflow
 1. **Step 1: Authorization & Boundary Confirmation**
    - Confirm target environment is local development or authorized test staging.
    - Record authorization scope in `docs_agent/security/SECURITY_TEST_PLAN.md`.
@@ -91,14 +119,14 @@ When demonstrating exploitability:
 
 ---
 
-## 10. Quality Standards
+### Quality Standards
 - **Standard 1**: 100% adherence to non-destructive testing boundaries defined in [`RULES.md`](../../../RULES.md).
 - **Standard 2**: All findings verified with reproducible evidence; zero speculative claims.
 - **Standard 3**: Absolute prohibition on logging or exfiltrating sensitive credentials, keys, or customer data.
 
 ---
 
-## 11. Validation
+### Validation
 | Check | Verification Method | Expected Outcome |
 |---|---|---|
 | Authorization Boundary | Pre-execution scope verification | Explicit user authorization confirmed; target in scope |
@@ -107,7 +135,7 @@ When demonstrating exploitability:
 
 ---
 
-## 12. Common Mistakes
+### Common Mistakes
 | Mistake / Anti-Pattern | Why It Fails | Correct Alternative |
 |---|---|---|
 | Testing Production Without Authorization | Violates legal and safety boundaries; risks data loss | Test strictly against local dev or authorized staging |
@@ -116,21 +144,26 @@ When demonstrating exploitability:
 
 ---
 
-## 13. Restrictions
+### Restrictions
 - Do NOT perform destructive testing or denial-of-service (DoS) attacks.
 - Do NOT exfiltrate or record actual customer data, passwords, or secrets.
 - Do NOT bypass security release gates when unresolved Critical or High vulnerabilities exist.
 
 ---
 
-## 14. Expected Deliverables
+### Expected Deliverables
 - Security assessment reports or threat models under `docs_agent/security/`.
 - Updated vulnerability records in `docs_agent/security/VULNERABILITY_REGISTER.md`.
 - Automated security regression tests.
 
 ---
 
-## 15. Documentation Requirements
+### Documentation Requirements
 - Record reusable security lessons and attack vectors in [`MEMORY.md`](../../../MEMORY.md).
 - Record architectural security decisions in [`DECISIONS.md`](../../../DECISIONS.md).
 - Update task tracking in [`TASKS.md`](../../../TASKS.md) and session log in [`docs_agent/SESSION_LOG.md`](../../../docs_agent/SESSION_LOG.md).
+
+---
+
+## Level 3 — Optional References & Supplementary Assets
+  - None (self-contained Level 1 & Level 2 guidance)

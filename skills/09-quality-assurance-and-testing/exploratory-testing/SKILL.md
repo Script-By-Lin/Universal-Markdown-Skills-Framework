@@ -1,15 +1,16 @@
 ---
 name: exploratory-testing
 description: "Structured, time-boxed, charter-driven exploratory testing, unscripted edge-case discovery, heuristic probing, and anomaly reporting."
-version: 1.0.0
+version: 1.7.0
 category: quality
 tags: ['testing', 'exploratory-testing', 'charter', 'heuristics', 'edge-cases']
 ---
 
-# Skill: Exploratory Testing
+# Skill: Exploratory & Edge-Case Testing
 
-> Canonical UMSF Domain Skill Specification adhering to the standard 15-section schema.
-> Category: Domain 09 — Quality Assurance & Testing
+> Canonical UMSF Domain Skill Specification adhering to the standard schema.  
+> Category: Domain 09 — Quality Assurance & Testing  
+> Status: Level 1 MVP-First Active Specification  
 
 ---
 
@@ -18,15 +19,42 @@ tags: ['testing', 'exploratory-testing', 'charter', 'heuristics', 'edge-cases']
 - **Category**: Quality Assurance & Testing (Domain 09)
 - **Authority**: UMSF Canonical Skill Library (Precedence Level 6)
 - **Maintainer**: Universal Markdown Skills Framework
+- **Level 3 References**:
+  - None (self-contained Level 1 & Level 2 guidance)
 
 ---
 
-## 2. Purpose
+## 2. MVP Summary (Level 1 Execution Contract)
+
+- **Purpose**: Simultaneously learn, design, and execute tests to discover unscripted defects, boundary failures, and usability traps.
+- **When to Use**: Testing complex new workflows, evaluating UI responsiveness, or hunting elusive edge cases.
+- **Essential Invariants**:
+  1. Exploratory testing must be time-boxed with clear mission charters.
+  2. Document all discovered defects with exact reproduction steps and environment details.
+  3. Convert high-value exploratory discoveries into permanent automated regression tests.
+- **Minimal Workflow**:
+  1. Formulate exploratory test charter (target module, risk heuristic, time box).
+  2. Exercise application with varied inputs, boundary conditions, and unexpected user behaviors.
+  3. Log anomalies, unexpected delays, visual glitches, or unhandled exceptions.
+  4. Author regression tests and bug tickets for verified defects.
+- **Expected Deliverables**: Exploratory test debrief notes and bug tickets with reproduction tests.
+- **Critical Restrictions**: Never perform unstructured, aimless clicking without a defined charter and recorded observations.
+
+> ℹ️ **Progressive Context Loading**:
+> For standard engineering tasks, this **Level 1 MVP Summary** provides the complete operational contract.
+> If deep procedures, edge case handling, or comprehensive checklists are required, proceed to **Level 2 — Core Instructions** below.
+
+---
+
+## Level 2 — Core Instructions & Deep Procedures
+
+### Purpose
+Purpose
 Discovers unexpected defects, usability gaps, and edge-case anomalies that automated and scripted test suites fail to anticipate, using disciplined human-like exploration.
 
 ---
 
-## 3. Scope
+### Scope
 - **In-Scope**:
   - Formulating time-boxed exploratory testing charters\n  - Applying testing heuristics (boundary testing, extreme inputs, interrupted flows)\n  - Probing unexpected user interaction sequences and rapid back-button usage\n  - Documenting reproducible defect logs for newly discovered edge cases
 - **Out-of-Scope**:
@@ -34,24 +62,24 @@ Discovers unexpected defects, usability gaps, and edge-case anomalies that autom
 
 ---
 
-## 4. When to Use
+### When to Use
 - Evaluating a newly developed feature before formal release signoff\n- Investigating subtle user-reported bugs that evade automated tests\n- Testing complex UI workflows and stateful multi-step wizards
 
 ---
 
-## 5. When Not to Use
+### When Not to Use
 - When deterministic automated tests already exist and simply need re-running
 
 ---
 
-## 6. Prerequisites
+### Prerequisites
 - Target code components, interfaces, and architecture verified.
 - Project testing frameworks and dependencies inspected from repository.
 - Task registered and tracked in [`TASKS.md`](../../../TASKS.md).
 
 ---
 
-## 7. Required Context
+### Required Context
 Before executing this skill, verify:
 - Mandatory constraints in [`RULES.md`](../../../RULES.md) (TDD invariants & Release Gates).
 - Testing environment in [`CONTEXT.md`](../../../CONTEXT.md).
@@ -59,7 +87,7 @@ Before executing this skill, verify:
 
 ---
 
-## 8. Core Instructions
+### Core Instructions
 ### 8.1 Charter-Driven Exploratory Sessions
 Structure sessions with an explicit charter, time box (e.g. 30-45 minutes), and target:
 - **Charter**: *Explore [target component / workflow] with [heuristics / inputs] to discover [potential risks / failures].*
@@ -71,7 +99,7 @@ Structure sessions with an explicit charter, time box (e.g. 30-45 minutes), and 
 
 ---
 
-## 9. Step-by-Step Workflow
+### Step-by-Step Workflow
 1. **Step 1: Draft Session Charter**
    - Define scope, persona, and target risks.
 2. **Step 2: Time-Boxed Exploration**
@@ -85,14 +113,14 @@ Structure sessions with an explicit charter, time box (e.g. 30-45 minutes), and 
 
 ---
 
-## 10. Quality Standards
+### Quality Standards
 - **Standard 1**: 100% adherence to the mandatory TDD Red-Green-Refactor protocol.
 - **Standard 2**: All tests must run deterministically with zero flakiness.
 - **Standard 3**: Absolute prohibition on claiming tests passed without verifying execution exit code 0.
 
 ---
 
-## 11. Validation
+### Validation
 | Check | Verification Method | Expected Outcome |
 |---|---|---|
 | Test Execution | Automated test runner execution | 100% passing tests; exit code 0 |
@@ -101,7 +129,7 @@ Structure sessions with an explicit charter, time box (e.g. 30-45 minutes), and 
 
 ---
 
-## 12. Common Mistakes
+### Common Mistakes
 | Mistake / Anti-Pattern | Why It Fails | Correct Alternative |
 |---|---|---|
 | Writing Tests After Implementation | High susceptibility to confirmation bias | Follow TDD: write failing test first (RED phase) |
@@ -110,21 +138,26 @@ Structure sessions with an explicit charter, time box (e.g. 30-45 minutes), and 
 
 ---
 
-## 13. Restrictions
+### Restrictions
 - Do NOT modify tests merely to force incorrect implementation code to pass.
 - Do NOT delete failing tests without documented architectural authorization.
 - Do NOT bypass Functional or Regression Release Gates.
 
 ---
 
-## 14. Expected Deliverables
+### Expected Deliverables
 - Automated test suites (unit, integration, or E2E).
 - Updated testing logs in `docs_agent/testing/TDD_LOG.md` or `TEST_RESULTS.md`.
 - Regression verification report.
 
 ---
 
-## 15. Documentation Requirements
+### Documentation Requirements
 - Record testing conventions and discovered edge cases in [`MEMORY.md`](../../../MEMORY.md).
 - Record testing architectural trade-offs in [`DECISIONS.md`](../../../DECISIONS.md).
 - Update task tracking in [`TASKS.md`](../../../TASKS.md) and session log in [`docs_agent/SESSION_LOG.md`](../../../docs_agent/SESSION_LOG.md).
+
+---
+
+## Level 3 — Optional References & Supplementary Assets
+  - None (self-contained Level 1 & Level 2 guidance)
