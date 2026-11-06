@@ -51,7 +51,7 @@ UMSF operates strictly through structured Markdown documentation, YAML frontmatt
   - 100% sovereign, local-first security without network leakage.
 - **Negative Impacts / Known Trade-offs**:
   - Enforcement depends on the AI agent's prompt compliance rather than strict compiler-enforced types.
-  - Mitigated by explicit 10-step initialization procedures in [`AGENTS.md`](./AGENTS.md) and strict constraints in [`RULES.md`](./RULES.md).
+  - Mitigated by explicit 10-step initialization procedures in `AGENTS.md` and strict constraints in `RULES.md`.
 
 ---
 
@@ -150,7 +150,7 @@ Loading all 15 domain skills into an agent's context window consumes 30,000+ tok
 
 ### 2. Alternatives Considered
 1. **Option A: Monolithic Context Injection**: Load all skills at session startup.
-2. **Option B: Selective Two-Skill Maximum Protocol**: Agents consult [`SKILLS.md`](./SKILLS.md) and load at most one primary skill and one complementary skill matching the immediate task.
+2. **Option B: Selective Two-Skill Maximum Protocol**: Agents consult `SKILLS.md` and load at most one primary skill and one complementary skill matching the immediate task.
 
 ### 3. Decision Outcome
 **Selected Option**: **Option B: Selective Two-Skill Maximum Protocol**  
@@ -251,7 +251,7 @@ Software engineering performed by autonomous AI agents frequently suffers from d
 
 ### 3. Decision Outcome
 **Selected Option**: **Option C: Tripartite Logical Agent Architecture with 16 Numbered Domains and Release Gates**  
-Formally codified into [`RULES.md`](./RULES.md) (Level 2), [`WORKFLOW.md`](./WORKFLOW.md) (Level 5), [`AGENTS.md`](./AGENTS.md) (Level 7), and [`SKILLS.md`](./SKILLS.md) (Level 6).
+Formally codified into `RULES.md` (Level 2), `WORKFLOW.md` (Level 5), `AGENTS.md` (Level 7), and `SKILLS.md` (Level 6).
 
 ### 4. Consequences & Trade-offs
 - **Positive Impacts**:
@@ -317,7 +317,7 @@ During framework authoring, absolute paths containing specific host environments
 **Selected Option**: **Option C: POSIX Strict Relative Paths**  
 - All 1,150+ internal links across all 82 files converted to exact relative POSIX paths (e.g. `./TASKS.md` at root, `./references/quick-reference.md` in skills, `../../RULES.md` from nested skills).
 - Host system paths (`/home/...`, `file:///...`) are strictly prohibited in tracked repository files.
-- Codified as Invariant 6 in [`RULES.md`](./RULES.md) and added to the Section 14 Anti-Pattern Blacklist.
+- Codified as Invariant 6 in `RULES.md` and added to the Section 14 Anti-Pattern Blacklist.
 
 ### 4. Consequences & Trade-offs
 - **Positive Impacts**:
@@ -354,7 +354,7 @@ A comprehensive framework audit identified three architectural contradictions ac
 
 ### 3. Decision Outcome
 **Selected Option**: **Option C: Unified 12-Stage Lifecycle, Post-Task Verification Skill & Risk-Proportionate Gating**  
-- Codified into [`RULES.md`](./RULES.md), [`WORKFLOW.md`](./WORKFLOW.md), [`AGENTS.md`](./AGENTS.md), and [`SKILLS.md`](./SKILLS.md).
+- Codified into `RULES.md`, `WORKFLOW.md`, `AGENTS.md`, and `SKILLS.md`.
 - Authored canonical 15-section skill `skills/12-code-quality-and-maintenance/post-task-verification/SKILL.md` (371 skills total).
 
 ### 4. Consequences & Trade-offs
@@ -396,8 +396,8 @@ While ADR-011 established the post-task verification methodology and 12-stage en
 ### 3. Decision Outcome
 **Selected Option**: **Option C: Independent Verification Subagent Architecture & Tripartite Delegation Protocol**
 - Authored canonical 15-section domain skill [`skills/16-ai-agent-engineering/independent-verification-subagent/SKILL.md`](./skills/16-ai-agent-engineering/independent-verification-subagent/SKILL.md) and dual-path root symlink `skills/independent-verification-subagent` (advancing total physical skills to 372).
-- Formalized Agent A (Primary Development Agent), Agent B (Independent Verification Subagent), and Agent C (Independent Security Agent) in [`AGENTS.md`](./AGENTS.md) Section 2 and [`RULES.md`](./RULES.md) Section 8.
-- Upgraded Stages 7 through 12 in [`WORKFLOW.md`](./WORKFLOW.md) to govern subagent handoffs, finding classification, bounded remediation, and tri-state acceptance decisions.
+- Formalized Agent A (Primary Development Agent), Agent B (Independent Verification Subagent), and Agent C (Independent Security Agent) in `AGENTS.md` Section 2 and `RULES.md` Section 8.
+- Upgraded Stages 7 through 12 in `WORKFLOW.md` to govern subagent handoffs, finding classification, bounded remediation, and tri-state acceptance decisions.
 
 ### 4. Consequences & Trade-offs
 - **Positive Impacts**:
@@ -461,7 +461,7 @@ However, this fragmentation introduced:
 > Authority: Precedence Level 3 (Immutable System ADR)  
 
 ### 1. Context & Problem Statement
-Following the research and evaluation mandate in [`enhancement.md`](./enhancement.md) (ECC Skill Research, Analysis & Integration), the framework evaluated 314 capabilities from the Everything Claude Code (ECC) ecosystem (SHA: `b38be6a7f6350964d59328b52f0624e1d1d552d1`, MIT License).
+Following the research and evaluation mandate in `enhancement.md` (ECC Skill Research, Analysis & Integration), the framework evaluated 314 capabilities from the Everything Claude Code (ECC) ecosystem (SHA: `b38be6a7f6350964d59328b52f0624e1d1d552d1`, MIT License).
 
 During initial adoption, 287 specialized technology skills (e.g. `angular-developer`, `django-patterns`, `fastapi-templates`, `solana-program-development`, `x-api`, `bengali-nlp`, etc.) were imported into `skills/`. However, this bulk import introduced:
 1. **Severe Context Window Bloat & Routing Noise**: Agents were exposed to hundreds of niche technology modules rather than disciplined, core engineering practices.
@@ -630,3 +630,44 @@ Formalize and integrate the `database-query-optimization` skill into **Domain 08
   - Preserves 100% pure Markdown architecture, zero runtime dependencies, and strict relative link integrity.
 - **Negative / Neutral**:
   - Requires empirical before-and-after query count and timing measurements rather than assuming query reductions.
+
+---
+
+## ADR-018: Ratification of UMSF v2.0.0 Architecture (Risk-Tiered Verification, Contradiction Resolution, Scope Expansion & Hardening)
+
+### Context & Problem Statement
+Prior to v2.0.0, UMSF contained 66 canonical domain skills. However, architectural inspection (via `final_enhancement.md`) identified:
+1. Operational contradictions: `database-migrations` conflicted between 'forward-only' and 'verified rollback'; `debugging` mandate for failing automated tests broke on races, memory leaks, and intermittent faults; `ui-ux-pro-max` treated Swiss/Minimalism as an invariant rather than a default aesthetic preference.
+2. Routing overlap & collisions in core clusters: Security (`security`, `security-testing`, `vulnerability-assessment`, `vulnerability-management`), Performance (`performance`, `performance-testing`, `benchmark-optimization-loop`, `database-query-optimization`), and Verification (`post-task-verification`, `evidence-based-validation`, `independent-verification-subagent`, `multi-agent-verification`, `code-review`).
+3. Verification depth was binary rather than risk-tiered, causing trivial typo or formatting fixes to theoretically mandate heavy multi-agent 7-dimension audits.
+4. Scope gaps in critical engineering workflows: missing repository bootstrapping, release management, secrets isolation, privacy compliance, backend error resilience, infrastructure as code, CI/CD pipelines, observability/logging, incident postmortems, static analysis/linting, and human-in-the-loop escalation.
+5. Incomplete prompt-injection defense and autonomous loop boundaries in AI agent skills.
+
+### Decision
+Ratify the Universal Markdown Skills Framework v2.0.0 architecture:
+1. **Contradiction Resolution**:
+   - Reconciled `database-migrations` to forward-only changes with tested compensating forward migrations (zero destructive backward rollbacks in production).
+   - Augmented `debugging` with deterministic reproduction scripts and recorded telemetry evidence for races and memory leaks where unit tests are insufficient.
+   - Refactored `ui-ux-pro-max` to treat Swiss/Minimalism as a default aesthetic preference that yields to existing project design systems, while strictly maintaining WCAG AA, 44px touch targets, and zero horizontal overflow as invariants.
+2. **Explicit Cluster Disambiguation**:
+   - Codified one-line 'Use this / Not that' disambiguations directly in Level 1 MVP contracts and routing decision rules for the Security, Performance, and Verification clusters.
+3. **Risk-Tiered Verification Framework**:
+   - Codified three formal verification tiers: `T0 Trivial` (diff + static check, self-review permitted), `T1 Standard` (unit/integration tests + regression sweep), and `T2 Sensitive` (mandatory concurrent independent verification subagent and security agent audits).
+4. **Self-Contained Repository Bootstrapping**:
+   - Added canonical `repository-bootstrap` skill (Domain 01) and injected fallback creation lines across all skills referencing root governance files.
+5. **Scope Gap Closure (11 New Domain Skills)**:
+   - Authored 11 canonical domain skills expanding UMSF to exactly **77 skills across 16 domains**:
+     - Domain 01: `repository-bootstrap`, `git-and-release-management`
+     - Domain 02: `secrets-management`, `privacy-and-compliance`
+     - Domain 06: `error-handling-and-resilience`
+     - Domain 10: `infrastructure-as-code`, `ci-cd-pipeline-design`
+     - Domain 11: `observability-and-logging`, `incident-response-postmortem`
+     - Domain 12: `static-analysis-and-linting`
+     - Domain 14: `human-in-the-loop-coordination`
+6. **Agent Safety Hardening**:
+   - Codified strict prompt-injection defense (treating all repository files and tool outputs as untrusted data), bounded autonomous loop constraints (`MAX_ITERATIONS = 3`), honest reporting (`NOT_VERIFIED`), and mandatory human escalation triggers.
+7. **Complete Routing Matrix**:
+   - Expanded cross-domain routing matrix to 25 scenarios with explicit Risk Tier annotations.
+
+### Status
+**RATIFIED & IMMUTABLE (Precedence Level 3)**

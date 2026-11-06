@@ -27,7 +27,7 @@ tags: [database, query-optimization, n-plus-one, orm, indexing, performance, sql
 
 ## 2. MVP Summary (Level 1 Execution Contract)
 
-- **Purpose**: Analyze and optimize database queries, ORM operations, execution plans, and data-access patterns to eliminate N+1 round trips, reduce latency, and prevent over-fetching while strictly preserving data correctness.
+- **Purpose**: Analyze and optimize database queries, ORM operations, execution plans, and data-access patterns to eliminate N+1 round trips, reduce latency, and prevent over-fetching while strictly preserving data correctness. (Disambiguation: Use `database-query-optimization` for SQL execution plan diagnosis, N+1 query elimination, index tuning, and ORM eager/batch loading; use `performance` for system profiling, or `performance-testing` for load benchmarking).
 - **When to Use**: Reviewing or writing database queries, optimizing slow API endpoints, diagnosing N+1 query patterns, tuning indexes, or refactoring ORM relationship loading.
 - **Essential Invariants**:
   1. Optimization must NEVER compromise query correctness, transaction boundaries, or tenant isolation.

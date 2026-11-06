@@ -59,8 +59,8 @@ stateDiagram-v2
     - Codified execution plan analysis (`EXPLAIN ANALYZE`), index design rules (equality first, range second, covering indexes), keyset/cursor pagination, database-side aggregation, and transaction concurrency optimization.
     - Authored Level 3 reference assets: [`references/n-plus-one-patterns-and-orm-recipes.md`](./skills/08-database-engineering/database-query-optimization/references/n-plus-one-patterns-and-orm-recipes.md) and [`references/execution-plan-and-indexing-guide.md`](./skills/08-database-engineering/database-query-optimization/references/execution-plan-and-indexing-guide.md).
     - Scaffolded backward-compatible root symlink `skills/database-query-optimization`.
-    - Regenerated master registry [`SKILLS.md`](./SKILLS.md) to index all 66 core domain skills across 16 domains with 0 broken links.
-    - Ratified ADR-017 in [`DECISIONS.md`](./DECISIONS.md); updated [`CONTEXT.md`](./CONTEXT.md), [`README.md`](./README.md), [`skills/README.md`](./skills/README.md), [`CHANGELOG.md`](./CHANGELOG.md), and [`MEMORY.md`](./MEMORY.md).
+    - Regenerated master registry `SKILLS.md` to index all 66 core domain skills across 16 domains with 0 broken links.
+    - Ratified ADR-017 in `DECISIONS.md`; updated `CONTEXT.md`, `README.md`, [`skills/README.md`](./skills/README.md), `CHANGELOG.md`, and `MEMORY.md`.
     - Verified link integrity (0 broken links across 305 markdown files) and zero host paths.
 
 - [x] **TASK-017: Feature Integration & End-to-End Consistency Verification Skill Implementation**
@@ -71,8 +71,8 @@ stateDiagram-v2
     - Codified the canonical 11-category integration failure taxonomy (`CONNECTION_FAILURE`, `API_CONTRACT_MISMATCH`, `DATA_INCONSISTENCY`, etc.) and the 5-state verification status gate (`FULLY_VERIFIED`, `PARTIALLY_VERIFIED`, `NEEDS_REMEDIATION`, `BLOCKED`, `NOT_VERIFIED`).
     - Authored Level 3 reference assets: [`references/contract-and-data-consistency-checklist.md`](./skills/09-quality-assurance-and-testing/feature-integration-verification/references/contract-and-data-consistency-checklist.md) and [`references/failure-classification-and-remediation.md`](./skills/09-quality-assurance-and-testing/feature-integration-verification/references/failure-classification-and-remediation.md).
     - Scaffolded backward-compatible root symlink `skills/feature-integration-verification`.
-    - Regenerated master registry [`SKILLS.md`](./SKILLS.md) to index all 65 core domain skills across 16 domains with 0 broken links.
-    - Ratified ADR-016 in [`DECISIONS.md`](./DECISIONS.md); updated [`CONTEXT.md`](./CONTEXT.md), [`README.md`](./README.md), [`skills/README.md`](./skills/README.md), [`CHANGELOG.md`](./CHANGELOG.md), and [`MEMORY.md`](./MEMORY.md).
+    - Regenerated master registry `SKILLS.md` to index all 65 core domain skills across 16 domains with 0 broken links.
+    - Ratified ADR-016 in `DECISIONS.md`; updated `CONTEXT.md`, `README.md`, [`skills/README.md`](./skills/README.md), `CHANGELOG.md`, and `MEMORY.md`.
     - Verified link integrity (0 broken links across 302 markdown files) and zero host paths.
 
 - [x] **TASK-016: Master Framework Enhancement for Token Efficiency, MVP-First Skills, Progressive Loading & Independent Verification**

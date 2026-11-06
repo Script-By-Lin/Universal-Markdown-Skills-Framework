@@ -80,17 +80,17 @@ Defines the adversarial persona and verification protocol for an AI Agent operat
 ---
 
 ### Prerequisites
-- Framework architecture verified in [`AGENTS.md`](../../../AGENTS.md).
-- Active tasks registered in [`TASKS.md`](../../../TASKS.md).
-- Environment reality verified in [`CONTEXT.md`](../../../CONTEXT.md).
+- Framework architecture verified in `AGENTS.md`.
+- Active tasks registered in `TASKS.md`.
+- Environment reality verified in `CONTEXT.md`.
 
 ---
 
 ### Required Context
 Before executing this skill, verify:
-- Independent agent role specifications in [`AGENTS.md`](../../../AGENTS.md) Section 2.
-- Mandatory constraints in [`RULES.md`](../../../RULES.md) (Precedence Level 2).
-- Release gate requirements in [`WORKFLOW.md`](../../../WORKFLOW.md).
+- Independent agent role specifications in `AGENTS.md` Section 2.
+- Mandatory constraints in `RULES.md` (Precedence Level 2).
+- Release gate requirements in `WORKFLOW.md`.
 
 ---
 
@@ -160,8 +160,8 @@ Before executing this skill, verify:
 ---
 
 ### Documentation Requirements
-- Record reusable multi-agent lessons in [`MEMORY.md`](../../../MEMORY.md).
-- Record agent orchestration trade-offs in [`DECISIONS.md`](../../../DECISIONS.md).
+- Record reusable multi-agent lessons in `MEMORY.md`.
+- Record agent orchestration trade-offs in `DECISIONS.md`.
 - Log session handoff in [`docs_agent/SESSION_LOG.md`](../../../docs_agent/SESSION_LOG.md).
 
 ---

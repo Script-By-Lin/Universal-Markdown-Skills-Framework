@@ -27,14 +27,14 @@ tags: [planning, task-breakdown, milestones, roadmaps, sequencing]
 ## 2. MVP Summary (Level 1 Execution Contract)
 
 - **Purpose**: Decompose complex engineering initiatives into granular, dependency-ordered, non-conflicting tasks with verifiable completion criteria.
-- **When to Use**: Initiating multi-stage features, cross-module refactoring, or clarifying vague tasks in TASKS.md.
+- **When to Use**: Initiating multi-stage features, cross-module refactoring, or clarifying vague tasks in TASKS.md (if absent, create it from the bootstrap template or record evidence inline).
 - **Essential Invariants**:
   1. All tasks must have explicit, empirically verifiable completion criteria.
   2. Tasks must be dependency-ordered with no circular blockers.
   3. Size tasks to fit within discrete agent execution steps without context exhaustion.
 - **Minimal Workflow**:
   1. Inspect requirements and identify critical path dependencies.
-  2. Decompose initiative into atomic subtasks in TASKS.md with explicit verification criteria.
+  2. Decompose initiative into atomic subtasks in TASKS.md (if absent, create it from the bootstrap template or record evidence inline) with explicit verification criteria.
   3. Order subtasks sequentially, highlighting prerequisites and blockers.
   4. Update task states (Pending -> In Progress -> Completed) as empirical evidence is gathered.
 - **Expected Deliverables**: Structured TASKS.md update with prioritized subtasks, dependencies, and exit criteria.
@@ -59,7 +59,7 @@ This skill provides rigorous methodologies for decomposing complex engineering i
   - Translating technical requirements into dependency-ordered task graphs.
   - Sizing tasks to fit within discrete agent execution steps.
   - Identifying critical path dependencies and blocking conditions.
-  - Updating [`TASKS.md`](../../../TASKS.md) with verifiable completion criteria.
+  - Updating `TASKS.md` with verifiable completion criteria.
 - **Out-of-Scope**:
   - Requirements discovery and ambiguity resolution (delegate to [`skills/requirements-analysis/SKILL.md`](../../requirements-analysis/SKILL.md)).
   - Architecture design and tech stack selection (delegate to [`skills/software-architecture/SKILL.md`](../../software-architecture/SKILL.md)).
@@ -81,13 +81,13 @@ This skill provides rigorous methodologies for decomposing complex engineering i
 
 ### Prerequisites
 - Scoped requirements or functional specifications available.
-- Repository structure inspected and verified against [`CONTEXT.md`](../../../CONTEXT.md).
+- Repository structure inspected and verified against `CONTEXT.md`.
 
 ---
 
 ### Required Context
-- Active tasks in [`TASKS.md`](../../../TASKS.md).
-- Mandatory constraints in [`RULES.md`](../../../RULES.md).
+- Active tasks in `TASKS.md`.
+- Mandatory constraints in `RULES.md`.
 - Architectural constraints in [`docs_agent/ARCHITECTURE.md`](../../../docs_agent/ARCHITECTURE.md).
 
 ---
@@ -107,8 +107,8 @@ This skill provides rigorous methodologies for decomposing complex engineering i
    - Identify which deliverables depend on others. Establish strict linear or DAG ordering.
 3. **Step 3: Define Acceptance Gates**
    - For each task, author explicit pass/fail acceptance criteria.
-4. **Step 4: Register in TASKS.md**
-   - Append or update tasks in [`TASKS.md`](../../../TASKS.md) with initial state `Pending`.
+4. **Step 4: Register in TASKS.md (if absent, create it from the bootstrap template or record evidence inline)**
+   - Append or update tasks in `TASKS.md` with initial state `Pending`.
 
 ---
 
@@ -137,18 +137,18 @@ This skill provides rigorous methodologies for decomposing complex engineering i
 
 ### Restrictions
 - Do NOT declare tasks completed without executing their verification criteria.
-- Do NOT plan changes that violate repository constraints in [`RULES.md`](../../../RULES.md).
+- Do NOT plan changes that violate repository constraints in `RULES.md`.
 
 ---
 
 ### Expected Deliverables
-- Structured, sequenced task list in [`TASKS.md`](../../../TASKS.md).
+- Structured, sequenced task list in `TASKS.md`.
 - Dependency notes for multi-agent or multi-session continuity.
 
 ---
 
 ### Documentation Requirements
-- Record planning rationale and milestone definitions in [`TASKS.md`](../../../TASKS.md).
+- Record planning rationale and milestone definitions in `TASKS.md`.
 - Log planning completion in [`docs_agent/SESSION_LOG.md`](../../../docs_agent/SESSION_LOG.md).
 
 ---

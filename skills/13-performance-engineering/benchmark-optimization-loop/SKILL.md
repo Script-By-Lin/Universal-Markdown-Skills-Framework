@@ -28,7 +28,7 @@ version: 1.7.0
 
 ## 2. MVP Summary (Level 1 Execution Contract)
 
-- **Purpose**: Execute bounded, measured optimization loops: establish baseline, generate variants, benchmark, and promote the fastest safe code.
+- **Purpose**: Execute bounded, measured optimization loops: establish baseline, generate variants, benchmark, and promote the fastest safe code. (Disambiguation: Use `benchmark-optimization-loop` for micro-benchmark-validated algorithmic and code optimization loops; use `performance` for system profiling, `performance-testing` for macro load generation, or `database-query-optimization` for database operations).
 - **When to Use**: Optimizing critical algorithmic routines, mathematical kernels, parsers, or serialization loops.
 - **Essential Invariants**:
   1. Establish reproducible baseline benchmark with statistically significant sample sizes.

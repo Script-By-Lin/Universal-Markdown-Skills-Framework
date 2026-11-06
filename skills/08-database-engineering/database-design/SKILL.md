@@ -86,8 +86,8 @@ This skill establishes robust methodologies for data modeling, schema normalizat
 ---
 
 ### Required Context
-- Existing schemas and migrations verified in [`CONTEXT.md`](../../../CONTEXT.md).
-- Mandatory constraints in [`RULES.md`](../../../RULES.md).
+- Existing schemas and migrations verified in `CONTEXT.md`.
+- Mandatory constraints in `RULES.md`.
 
 ---
 
@@ -157,8 +157,8 @@ This skill establishes robust methodologies for data modeling, schema normalizat
 ---
 
 ### Documentation Requirements
-- Record schema changes and new database invariants in [`CONTEXT.md`](../../../CONTEXT.md).
-- Record indexing lessons in [`MEMORY.md`](../../../MEMORY.md).
+- Record schema changes and new database invariants in `CONTEXT.md`.
+- Record indexing lessons in `MEMORY.md`.
 
 ---
 

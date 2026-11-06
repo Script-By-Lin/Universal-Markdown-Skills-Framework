@@ -168,7 +168,7 @@ flowchart TD
    - Decouple business domain logic from transport layers (HTTP/gRPC/CLI) and storage mechanisms (database/file storage).
    - Domain logic must remain testable without requiring running databases or live network connections.
 2. **Immutability of Settled Decisions**:
-   - Settled architectural decisions documented in [`DECISIONS.md`](./DECISIONS.md) cannot be silently reversed.
+   - Settled architectural decisions documented in `DECISIONS.md` cannot be silently reversed.
    - Any architectural pivot requires authoring a formal superseding ADR explaining the context, trade-offs, and consequences.
 3. **Circular Dependencies**:
    - Circular imports and package dependencies are strictly forbidden. Structure dependencies unidirectionally.

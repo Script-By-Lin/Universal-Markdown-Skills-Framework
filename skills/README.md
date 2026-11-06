@@ -2,7 +2,7 @@
 
 > Standardized Domain Knowledge Modules for Autonomous AI Coding Agents  
 > Specification: Canonical 15-Section Universal Markdown Skills Schema  
-> Total Cataloged Skills: 66 Core Domain Skills Across 16 Canonical Engineering Domains  
+> Total Cataloged Skills: 77 Core Domain Skills Across 16 Canonical Engineering Domains  
 
 ---
 
@@ -49,4 +49,4 @@ All design intelligence is self-contained in Markdown catalogs—zero CLI tools,
 
 ## 4. Master Central Registry
 
-Consult [`SKILLS.md`](../SKILLS.md) at the repository root for complete selection matrices, role assignments, and direct clickable links to all 64 skills.
+Consult `SKILLS.md` at the repository root for complete selection matrices, role assignments, and direct clickable links to all 64 skills.

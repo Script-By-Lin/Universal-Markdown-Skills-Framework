@@ -69,7 +69,7 @@ This skill establishes universal standards for technical documentation engineeri
 
 ### When to Use
 - When introducing a new repository, subsystem, API, or operational tool.
-- At Stage 8 of the canonical engineering lifecycle in [`WORKFLOW.md`](../../../WORKFLOW.md).
+- At Stage 8 of the canonical engineering lifecycle in `WORKFLOW.md`.
 - When documenting historical ADRs, debugging post-mortems, or session continuity handoffs.
 
 ---
@@ -87,7 +87,7 @@ This skill establishes universal standards for technical documentation engineeri
 
 ### Required Context
 - Markdown design standards in [`docs_agent/ARCHITECTURE.md`](../../../docs_agent/ARCHITECTURE.md) Section 6.
-- Mandatory constraints in [`RULES.md`](../../../RULES.md).
+- Mandatory constraints in `RULES.md`.
 
 ---
 
@@ -105,7 +105,7 @@ This skill establishes universal standards for technical documentation engineeri
 4. **Visual Diagrams via Mermaid**:
    - Use Mermaid flowcharts (`flowchart TD`) and sequence diagrams (`sequenceDiagram`) to communicate multi-step workflows and component relationships.
 5. **Clickable Relative Links**:
-   - Always use clickable Markdown links for files (`[AGENTS.md](../../../AGENTS.md)`).
+   - Always use clickable Markdown links for files (``AGENTS.md``).
 
 ---
 
@@ -160,7 +160,7 @@ This skill establishes universal standards for technical documentation engineeri
 ---
 
 ### Documentation Requirements
-- Synchronize updates across [`CONTEXT.md`](../../../CONTEXT.md) and [`README.md`](../../../README.md).
+- Synchronize updates across `CONTEXT.md` and `README.md`.
 - Record documentation updates in [`docs_agent/DEVELOPMENT_LOG.md`](../../../docs_agent/DEVELOPMENT_LOG.md).
 
 ---

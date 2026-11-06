@@ -89,13 +89,13 @@ flowchart TD
 ```
 
 1. **Read Entry Point**: Read `AGENTS.md` (this file) to verify framework mode and root rules.
-2. **Read Constraints**: Read [`RULES.md`](./RULES.md) to check forbidden patterns, security boundaries, and coding standards.
-3. **Read Context**: Read [`CONTEXT.md`](./CONTEXT.md) to understand current architecture, dependencies, and known limitations.
-4. **Read Workflow**: Read [`WORKFLOW.md`](./WORKFLOW.md) to align with the active development lifecycle phase.
-5. **Inspect Tasks**: Inspect [`TASKS.md`](./TASKS.md) to verify pending, in-progress, or blocked tasks.
-6. **Read Decisions**: Read [`DECISIONS.md`](./DECISIONS.md) to review historical ADRs and avoid revisiting settled trade-offs.
-7. **Read Memory**: Read [`MEMORY.md`](./MEMORY.md) to check accumulated pitfalls, conventions, and architectural lessons.
-8. **Discover Skills**: Consult [`SKILLS.md`](./SKILLS.md) and load **only** the skills directly required for the immediate task.
+2. **Read Constraints**: Read `RULES.md` to check forbidden patterns, security boundaries, and coding standards.
+3. **Read Context**: Read `CONTEXT.md` to understand current architecture, dependencies, and known limitations.
+4. **Read Workflow**: Read `WORKFLOW.md` to align with the active development lifecycle phase.
+5. **Inspect Tasks**: Inspect `TASKS.md` to verify pending, in-progress, or blocked tasks.
+6. **Read Decisions**: Read `DECISIONS.md` to review historical ADRs and avoid revisiting settled trade-offs.
+7. **Read Memory**: Read `MEMORY.md` to check accumulated pitfalls, conventions, and architectural lessons.
+8. **Discover Skills**: Consult `SKILLS.md` and load **only** the skills directly required for the immediate task.
 9. **Inspect Actual Code**: Verify relevant codebase directories against documentation descriptions.
 10. **Reconcile Discrepancies**: If code and documentation diverge, rely on verified code and schedule a documentation update task.
 
@@ -105,15 +105,15 @@ flowchart TD
 
 | File | Purpose | When to Read | Authority Level |
 |------|---------|--------------|-----------------|
-| [`AGENTS.md`](./AGENTS.md) | Canonical entry point & operating protocol | Start of every session | Precedence Level 7 / Entry |
-| [`RULES.md`](./RULES.md) | Mandatory constraints, security & UI/UX rules | Before making any code change | Precedence Level 2 |
-| [`CONTEXT.md`](./CONTEXT.md) | Verified project state, stack, and modules | Start of session & before architecture edits | Precedence Level 4 |
-| [`WORKFLOW.md`](./WORKFLOW.md) | 12-stage engineering lifecycle | When planning & implementing features | Precedence Level 5 |
-| [`SKILLS.md`](./SKILLS.md) | Central skill registry and selection rules | When specific domain expertise is needed | Precedence Level 6 Discovery |
-| [`TASKS.md`](./TASKS.md) | Active task management state machine | Picking work & updating progress | Operational State |
-| [`DECISIONS.md`](./DECISIONS.md) | Immutable Architectural Decision Records | Before proposing architectural modifications | Precedence Level 3 |
-| [`MEMORY.md`](./MEMORY.md) | Lessons learned, pitfalls, and conventions | Before debugging or complex integration | Knowledge Base |
-| [`CHANGELOG.md`](./CHANGELOG.md) | Chronological release and change history | At release or phase completion | Historical Ledger |
+| `AGENTS.md` | Canonical entry point & operating protocol | Start of every session | Precedence Level 7 / Entry |
+| `RULES.md` | Mandatory constraints, security & UI/UX rules | Before making any code change | Precedence Level 2 |
+| `CONTEXT.md` | Verified project state, stack, and modules | Start of session & before architecture edits | Precedence Level 4 |
+| `WORKFLOW.md` | 12-stage engineering lifecycle | When planning & implementing features | Precedence Level 5 |
+| `SKILLS.md` | Central skill registry and selection rules | When specific domain expertise is needed | Precedence Level 6 Discovery |
+| `TASKS.md` | Active task management state machine | Picking work & updating progress | Operational State |
+| `DECISIONS.md` | Immutable Architectural Decision Records | Before proposing architectural modifications | Precedence Level 3 |
+| `MEMORY.md` | Lessons learned, pitfalls, and conventions | Before debugging or complex integration | Knowledge Base |
+| `CHANGELOG.md` | Chronological release and change history | At release or phase completion | Historical Ledger |
 | [`docs_agent/`](./docs_agent/) | Internal framework self-documentation & logs | Framework audits & continuity reviews | Documentation |
 
 ---
@@ -122,7 +122,7 @@ flowchart TD
 
 To minimize token consumption and eliminate instruction drift, skills operate under a **3-Tier Progressive Loading Architecture**:
 
-1. **Step 1 — Discovery via Registry**: Consult [`SKILLS.md`](./SKILLS.md) to identify the canonical skill matching the active task.
+1. **Step 1 — Discovery via Registry**: Consult `SKILLS.md` to identify the canonical skill matching the active task.
 2. **Step 2 — Read Level 1 MVP Summary**: Read only lines 1–55 of the target `SKILL.md` (Section 2: MVP Summary). This delivers the complete operational contract (Purpose, When to Use, Invariants, Workflow, Deliverables, Restrictions) in ~300 tokens.
 3. **Step 3 — Conditional Deep Instruction Loading (Level 2)**: Only load Level 2 Core Instructions if complex edge cases, detailed implementation algorithms, or specialized defect recovery are required.
 4. **Step 4 — On-Demand Reference Loading (Level 3)**: Never load Level 3 reference files (e.g. `styles-and-palettes.md`, `compose-patterns.md`) unless the immediate prompt specifically requires that specialized asset.
@@ -157,9 +157,9 @@ flowchart TD
 ## 8. Context Preservation & Session Handoff Protocol
 
 At the conclusion of each meaningful turn or session:
-1. Update [`TASKS.md`](./TASKS.md) with accurate task status and any deferred or blocked items.
-2. If new lessons, testing conventions, or recurring traps were discovered, record them in [`MEMORY.md`](./MEMORY.md).
-3. If an architectural decision was reached, record an immutable ADR in [`DECISIONS.md`](./DECISIONS.md).
+1. Update `TASKS.md` with accurate task status and any deferred or blocked items.
+2. If new lessons, testing conventions, or recurring traps were discovered, record them in `MEMORY.md`.
+3. If an architectural decision was reached, record an immutable ADR in `DECISIONS.md`.
 4. **User Project Isolation**: When operating within a user project, store all test results, TDD logs, threat models, and vulnerability registers in the user's project `/docs_agent/` directory (initially empty; never populated with fake reports).
 5. Append an entry to [`docs_agent/SESSION_LOG.md`](./docs_agent/SESSION_LOG.md) summarizing objectives, inspected files, changes, test results, and next steps.
 
@@ -169,7 +169,7 @@ At the conclusion of each meaningful turn or session:
 
 UMSF maintains `AGENTS.md` as the canonical source of truth. When integrating with specific coding agents, use these non-intrusive pointers:
 
-- **Claude Code**: Recognizes `CLAUDE.md`. Pointer content: `See [AGENTS.md](./AGENTS.md) for universal project operating instructions and rules.`
+- **Claude Code**: Recognizes `CLAUDE.md`. Pointer content: `See `AGENTS.md` for universal project operating instructions and rules.`
 - **Cursor**: Recognizes `.cursorrules` or `.cursor/rules/`. Pointer content: `Refer to AGENTS.md and RULES.md.`
 - **Windsurf**: Recognizes `.windsurfrules`. Pointer content: `Follow AGENTS.md and RULES.md.`
 - **GitHub Copilot**: Recognizes `.github/copilot-instructions.md`. Pointer content: `Refer to AGENTS.md.`

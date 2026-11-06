@@ -75,14 +75,14 @@ Analyzes test coverage data to discover blind spots in testing suites, ensuring 
 ### Prerequisites
 - Target code components, interfaces, and architecture verified.
 - Project testing frameworks and dependencies inspected from repository.
-- Task registered and tracked in [`TASKS.md`](../../../TASKS.md).
+- Task registered and tracked in `TASKS.md`.
 
 ---
 
 ### Required Context
 Before executing this skill, verify:
-- Mandatory constraints in [`RULES.md`](../../../RULES.md) (TDD invariants & Release Gates).
-- Testing environment in [`CONTEXT.md`](../../../CONTEXT.md).
+- Mandatory constraints in `RULES.md` (TDD invariants & Release Gates).
+- Testing environment in `CONTEXT.md`.
 - Active test strategies in [`docs_agent/testing/TEST_STRATEGY.md`](../../../templates/TEST_STRATEGY.template.md) (if present).
 
 ---
@@ -152,9 +152,9 @@ Before executing this skill, verify:
 ---
 
 ### Documentation Requirements
-- Record testing conventions and discovered edge cases in [`MEMORY.md`](../../../MEMORY.md).
-- Record testing architectural trade-offs in [`DECISIONS.md`](../../../DECISIONS.md).
-- Update task tracking in [`TASKS.md`](../../../TASKS.md) and session log in [`docs_agent/SESSION_LOG.md`](../../../docs_agent/SESSION_LOG.md).
+- Record testing conventions and discovered edge cases in `MEMORY.md`.
+- Record testing architectural trade-offs in `DECISIONS.md`.
+- Update task tracking in `TASKS.md` and session log in [`docs_agent/SESSION_LOG.md`](../../../docs_agent/SESSION_LOG.md).
 
 ---
 

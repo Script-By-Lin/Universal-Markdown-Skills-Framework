@@ -26,12 +26,12 @@ version: 1.7.0
 
 ## 2. MVP Summary (Level 1 Execution Contract)
 
-- **Purpose**: Operate as an autonomous agentic engineer using eval-first execution, task decomposition, and cost-aware model routing.
+- **Purpose**: Operate as an autonomous agentic engineer using eval-first execution, task decomposition, prompt-injection defense, and cost-aware model routing.
 - **When to Use**: Orchestrating autonomous end-to-end engineering workflows, multi-step code generation, or agent loops.
 - **Essential Invariants**:
   1. Eval-first: define verifiable evaluation criteria and test harnesses before starting execution.
   2. Decompose large engineering goals into atomic, verifiable subtasks.
-  3. Apply cost-aware model routing: use lightweight models for simple lookups, frontier models for architecture.
+  3. Verification must be honest and empirical: report 'NOT_VERIFIED' (never hallucinate 'PASSED') when checks cannot run; halt and escalate to a human when encountering ambiguous specs or destructive operations.
 - **Minimal Workflow**:
   1. Establish eval harness and define pass/fail benchmark for the objective.
   2. Decompose goal into sequenced execution phases with explicit checkpoints.

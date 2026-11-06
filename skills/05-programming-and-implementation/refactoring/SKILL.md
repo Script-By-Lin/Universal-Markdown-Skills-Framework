@@ -87,7 +87,7 @@ This skill establishes strict discipline for refactoring codebases. It enables d
 ---
 
 ### Required Context
-- Mandatory constraints in [`RULES.md`](../../../RULES.md).
+- Mandatory constraints in `RULES.md`.
 - Architectural boundaries defined in [`docs_agent/ARCHITECTURE.md`](../../../docs_agent/ARCHITECTURE.md).
 
 ---
@@ -159,8 +159,8 @@ This skill establishes strict discipline for refactoring codebases. It enables d
 ---
 
 ### Documentation Requirements
-- Record refactoring patterns and architectural lessons in [`MEMORY.md`](../../../MEMORY.md).
-- Update [`TASKS.md`](../../../TASKS.md) with task completion.
+- Record refactoring patterns and architectural lessons in `MEMORY.md`.
+- Update `TASKS.md` with task completion.
 
 ---
 

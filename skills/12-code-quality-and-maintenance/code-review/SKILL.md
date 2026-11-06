@@ -26,7 +26,7 @@ tags: [code-review, clean-code, solid, dry, lint, maintainability, audit]
 
 ## 2. MVP Summary (Level 1 Execution Contract)
 
-- **Purpose**: Conduct systematic, constructive code reviews verifying correctness, maintainability, architectural invariants, and tests.
+- **Purpose**: Conduct systematic, constructive peer reviews verifying correctness, maintainability, readability, and cognitive complexity. (Disambiguation: Use `code-review` for static peer inspection of code maintainability, conventions, and cognitive complexity; use `post-task-verification` or `independent-verification-subagent` for empirical runtime and acceptance verification).
 - **When to Use**: Reviewing pull requests, evaluating peer contributions, or pre-merge code inspection.
 - **Essential Invariants**:
   1. Review for correctness and architectural conformance before style or aesthetics.
@@ -56,7 +56,7 @@ This skill establishes an objective, thorough peer-review and code-auditing prot
 
 ### Scope
 - **In-Scope**:
-  - Analyzing code diffs against mandatory repository rules in [`RULES.md`](../../../RULES.md).
+  - Analyzing code diffs against mandatory repository rules in `RULES.md`.
   - Checking SOLID design principles, clean naming, and modularity.
   - Verifying test coverage for new code paths and bug fixes.
   - Inspecting UI code against UI/UX Pro Max standards (contrast, touch targets, tokens).
@@ -69,7 +69,7 @@ This skill establishes an objective, thorough peer-review and code-auditing prot
 
 ### When to Use
 - Prior to merging any branch, completing a major phase, or marking a task `Completed`.
-- Stage 7 of the canonical lifecycle in [`WORKFLOW.md`](../../../WORKFLOW.md).
+- Stage 7 of the canonical lifecycle in `WORKFLOW.md`.
 - When conducting architectural health audits across existing modules.
 
 ---
@@ -81,12 +81,12 @@ This skill establishes an objective, thorough peer-review and code-auditing prot
 
 ### Prerequisites
 - Target code diff or pull request available.
-- Acceptance criteria and task specifications identified in [`TASKS.md`](../../../TASKS.md).
+- Acceptance criteria and task specifications identified in `TASKS.md`.
 
 ---
 
 ### Required Context
-- Mandatory constraints in [`RULES.md`](../../../RULES.md).
+- Mandatory constraints in `RULES.md`.
 - System architecture in [`docs_agent/ARCHITECTURE.md`](../../../docs_agent/ARCHITECTURE.md).
 
 ---
@@ -114,7 +114,7 @@ This skill establishes an objective, thorough peer-review and code-auditing prot
 2. **Step 2: Automated Analysis Check**
    - Confirm linters, formatters, and test suites pass with zero warnings.
 3. **Step 3: Security & Invariant Audit**
-   - Check diff against Anti-Pattern Blacklist in [`RULES.md`](../../../RULES.md).
+   - Check diff against Anti-Pattern Blacklist in `RULES.md`.
 4. **Step 4: UI/UX Pro Max Check (if UI touched)**
    - Run Pre-Delivery Checklist:
      - [ ] SVG icons only (no emojis).
@@ -163,8 +163,8 @@ This skill establishes an objective, thorough peer-review and code-auditing prot
 ---
 
 ### Documentation Requirements
-- Record recurring review findings in [`MEMORY.md`](../../../MEMORY.md).
-- Update review status in [`TASKS.md`](../../../TASKS.md).
+- Record recurring review findings in `MEMORY.md`.
+- Update review status in `TASKS.md`.
 
 ---
 

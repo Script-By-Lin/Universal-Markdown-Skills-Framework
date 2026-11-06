@@ -69,7 +69,7 @@ This skill establishes universal standards for testing software systems across t
 ### When to Use
 - Authoring tests for new features, endpoints, or data models.
 - Increasing test coverage for legacy or fragile modules.
-- Executing Stage 6 of the canonical lifecycle in [`WORKFLOW.md`](../../../WORKFLOW.md).
+- Executing Stage 6 of the canonical lifecycle in `WORKFLOW.md`.
 
 ---
 
@@ -80,13 +80,13 @@ This skill establishes universal standards for testing software systems across t
 
 ### Prerequisites
 - Target code module or interface available for testing.
-- Test runner and framework identified in [`CONTEXT.md`](../../../CONTEXT.md) (e.g. Jest, Pytest, Go test, JUnit).
+- Test runner and framework identified in `CONTEXT.md` (e.g. Jest, Pytest, Go test, JUnit).
 
 ---
 
 ### Required Context
-- Mandatory constraints in [`RULES.md`](../../../RULES.md).
-- Past testing lessons recorded in [`MEMORY.md`](../../../MEMORY.md).
+- Mandatory constraints in `RULES.md`.
+- Past testing lessons recorded in `MEMORY.md`.
 
 ---
 
@@ -161,8 +161,8 @@ This skill establishes universal standards for testing software systems across t
 ---
 
 ### Documentation Requirements
-- Record testing conventions and discovered edge cases in [`MEMORY.md`](../../../MEMORY.md).
-- Update test tasks in [`TASKS.md`](../../../TASKS.md).
+- Record testing conventions and discovered edge cases in `MEMORY.md`.
+- Update test tasks in `TASKS.md`.
 
 ---
 

@@ -15,7 +15,7 @@
 This document serves as the canonical integration registry and evaluation ledger for the selective research, analysis, and adaptation of capabilities from the **Everything Claude Code (ECC)** ecosystem into the **Universal Markdown Skills Framework (UMSF)**.
 
 ### Architectural Policy
-Per Section 1 and Section 4 of [`enhancement.md`](../enhancement.md):
+Per Section 1 and Section 4 of `enhancement.md`:
 - **Selective Adaptation, Not Wholesale Import**: Wholesale copying of 300+ fragmented skills, CLI daemons, shell scripts, and vendor plugins into UMSF was evaluated and rejected. UMSF maintains a streamlined catalog of **64 high-cohesion domain skills** across 16 Canonical Engineering Domains, plus the canonical `ui-ux-pro-max` suite.
 - **Strict Zero-Dependency, Pure Markdown Architecture**: All mandatory Node.js packages, Python execution daemons, SQLite databases, hooks, and MCP servers were excluded from runtime dependencies. Reusable engineering principles were extracted into provider-independent, CommonMark-compliant Markdown documentation.
 - **Provider Independence**: Capabilities originally designed for Claude-specific configurations (`.claude/`, `${CLAUDE_PLUGIN_ROOT}`, Claude hooks) were adapted into universal specifications compatible with any AI coding agent (Claude Code, Cursor, Antigravity, OpenAI Codex, Windsurf, Gemini CLI, Copilot).

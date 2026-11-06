@@ -2,7 +2,7 @@
 
 > Current Verified System Reality & Architectural State  
 > Last Verified: 2026-11-07  
-> System Release: v1.7.0 (MVP-First Skills Architecture, Progressive Loading & Global Token Efficiency)  
+> System Release: v2.0.0 (Risk-Tiered Verification, Contradiction Resolution, Scope Expansion & Hardening)  
 > Authority: Precedence Level 4 (Current Verified Project Reality)  
 
 ---
@@ -12,7 +12,7 @@
 - **Core Mission**: A universal, provider-independent, zero-dependency, local-first Markdown architecture designed to equip diverse AI coding agents (Claude Code, Cursor, Antigravity, OpenAI Codex, Windsurf, Gemini CLI, GitHub Copilot) with persistent architectural awareness, domain-specific skills, long-term memory, and session continuity.
 - **Primary Objectives**:
   1. Eliminate context drift and information loss across multi-session AI interactions without external cloud services.
-  2. Provide a streamlined, SDLC-comprehensive library of **66 Core Domain Skills** structured across **16 Canonical Engineering Domains** under `skills/` (with dual-path backward compatibility via root symlinks), each standardized with a **Level 1 MVP Summary**, **Level 2 Core Instructions**, and **Level 3 Optional References**:
+  2. Provide a streamlined, SDLC-comprehensive library of **77 Core Domain Skills** structured across **16 Canonical Engineering Domains** under `skills/` (with dual-path backward compatibility via root symlinks), each standardized with a **Level 1 MVP Summary**, **Level 2 Core Instructions**, and **Level 3 Optional References**:
      - 15 canonical foundational lifecycle skills (authoritatively structured in 15-section UMSF schema with Level 1 MVP contracts).
      - 1 UI/UX Pro Max canonical design intelligence suite skill (`skills/07-frontend-engineering/ui-ux-pro-max/SKILL.md`) with pure Markdown reference catalogs consolidating all styles, palettes, fonts, guidelines, and checklists.
      - 50 advanced testing, security, database optimization, DevOps, and AI agent engineering skills (Category 02 Security, Category 08 Database Query Optimization, Category 09 QA/Testing, Category 16 AI Agent Engineering, etc.).
@@ -55,7 +55,7 @@ flowchart TD
         WF[WORKFLOW.md\n12-Stage Lifecycle & Post-Task Verification]
     end
 
-    subgraph S2["2. Reusable Skills System (64 Skills Across 16 Domains)"]
+    subgraph S2["2. Reusable Skills System (77 Skills Across 16 Domains)"]
         SKR[SKILLS.md\nCentral Registry & Index]
         D01["01: SDLC Lifecycle"]
         D02["02: Security Engineering (13 Skills)"]
@@ -213,17 +213,17 @@ flowchart TD
 ---
 
 ## 6. Pre-Existing Code & Preserved Artifacts
-- [`WORKFLOW.md`](./WORKFLOW.md): The user-provided master specification governing UMSF requirements. Preserved verbatim.
-- [`master_enhancement.md`](./master_enhancement.md): The master audit, testing, and post-task verification enhancement specification. Preserved verbatim.
-- [`enhancement.md`](./enhancement.md): The master specification governing the ECC research, analysis, and architectural integration. Preserved verbatim.
-- [`sub_agent_enhancement.md`](./sub_agent_enhancement.md): The user-provided specification for the Independent Verification Subagent Architecture and phase execution. Preserved verbatim.
+- `WORKFLOW.md`: The user-provided master specification governing UMSF requirements. Preserved verbatim.
+- `master_enhancement.md`: The master audit, testing, and post-task verification enhancement specification. Preserved verbatim.
+- `enhancement.md`: The master specification governing the ECC research, analysis, and architectural integration. Preserved verbatim.
+- `sub_agent_enhancement.md`: The user-provided specification for the Independent Verification Subagent Architecture and phase execution. Preserved verbatim.
 - [`ui-ux-pro-max-skill/`](./ui-ux-pro-max-skill/): Upstream repository for the UI/UX Pro Max design intelligence suite. Preserved intact.
 - [`ECC/`](./ECC/): Upstream repository for Everything Claude Code skills. Preserved intact.
 
 ---
 
 ## 7. Known Limitations & Technical Constraints
-1. **Agent Compliance Model**: The framework relies on LLM prompt parsing and reasoning. Strict adherence to the 10-step initialization procedure in [`AGENTS.md`](./AGENTS.md) ensures context accuracy.
+1. **Agent Compliance Model**: The framework relies on LLM prompt parsing and reasoning. Strict adherence to the 10-step initialization procedure in `AGENTS.md` ensures context accuracy.
 2. **Context Window Protection**: Never load all 64 skills simultaneously. Agents must adhere to dynamic context-aware skill loading, loading only the skills relevant to the active task stage.
 3. **Single-Agent Role Switching Overhead**: In single-agent environments (Mode 2), executing sequential role-switching passes (Dev -> QA -> Security) consumes additional conversational turns, which is a conscious and mandatory design trade-off for software correctness and security.
 4. **User Project Isolation Invariant**: The user's project `/docs_agent/` directory is initially empty upon framework adoption and is populated strictly as real testing and development events occur; simulated or placeholder test reports are strictly forbidden.

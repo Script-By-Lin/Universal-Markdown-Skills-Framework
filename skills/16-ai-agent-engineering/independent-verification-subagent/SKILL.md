@@ -26,10 +26,10 @@ tags: [agentic, verification-subagent, independent-audit, qa, security-coordinat
 
 ## 2. MVP Summary (Level 1 Execution Contract)
 
-- **Purpose**: Deploy an isolated subagent (Agent B) to independently audit requirements, code diffs, test exit codes, and architecture.
+- **Purpose**: Deploy an isolated subagent (Agent B) to independently audit requirements, code diffs, test exit codes, and architecture for T1 Standard and T2 Sensitive implementations. (Disambiguation: Use `independent-verification-subagent` for isolated, fresh-context 7-dimension audits of T1/T2 implementations; use `post-task-verification` for immediate developer self-checks, `multi-agent-verification` for team consensus, or `code-review` for peer readability).
 - **When to Use**: Mandatory after Agent A completes any engineering task before declaring completion or marking TASKS.md done.
 - **Essential Invariants**:
-  1. Agent B must operate with zero confirmation bias and never rely on Agent A's self-attestation.
+  1. Verification depth scales by Risk Tier: T0 Trivial changes (typos, formatting) are exempt from subagent invocation; T1 Standard requires independent verification; T2 Sensitive (auth, crypto, schema, payments) mandates both independent verification and security review.
   2. Independently execute test commands and inspect raw exit codes (0 vs non-zero).
   3. Render one of three canonical decisions: VERIFIED, NEEDS REMEDIATION, or BLOCKED.
 - **Minimal Workflow**:
@@ -72,13 +72,13 @@ The `independent-verification-subagent` skill establishes an **Independent Verif
   - Tri-state final acceptance decisions: `VERIFIED`, `NEEDS REMEDIATION`, `BLOCKED / NOT VERIFIED`.
 - **Out-of-Scope**:
   - Primary feature code authoring (handled strictly by Agent A — Primary Development Agent).
-  - Unauthorized active penetration testing or external network exploitation (governed by [`skills/02-security-engineering/penetration-testing/SKILL.md`](../../02-security-engineering/penetration-testing/SKILL.md) and [`RULES.md`](../../../RULES.md) Section 9).
+  - Unauthorized active penetration testing or external network exploitation (governed by [`skills/02-security-engineering/penetration-testing/SKILL.md`](../../02-security-engineering/penetration-testing/SKILL.md) and `RULES.md` Section 9).
   - Unilateral task approval based solely on successful code compilation without empirical test execution.
 
 ---
 
 ### When to Use
-- **Lifecycle Transition**: Mandatory execution at Stages 7 through 10 of the Canonical 12-Stage Engineering Lifecycle ([`WORKFLOW.md`](../../../WORKFLOW.md)).
+- **Lifecycle Transition**: Mandatory execution at Stages 7 through 10 of the Canonical 12-Stage Engineering Lifecycle (`WORKFLOW.md`).
 - **Post-Implementation Handoff**: Immediately after Agent A concludes feature coding, refactoring, or bug fixing and prepares its handoff.
 - **Pull Request / Release Gate Evaluation**: Prior to merging code or declaring deliverables ready for user acceptance.
 - **Multi-Agent Orchestration**: In platforms supporting concurrent subagents (e.g. Antigravity subagent invocation, Claude Code agent teams).
@@ -88,17 +88,17 @@ The `independent-verification-subagent` skill establishes an **Independent Verif
 ### When Not to Use
 - **Greenfield Coding / Mid-TDD Cycles**: Do not invoke while Agent A is actively in the RED or GREEN phases of TDD before a cohesive deliverable is ready.
 - **Exploratory Spikes**: Do not run full multi-agent verification on throwaway experimental spikes explicitly designated as non-deliverable prototypes.
-- **Exempt Low-Risk Edits**: Low-risk changes (minor documentation typos, non-functional code comments, isolated styling token adjustments) do not require full subagent invocation; they follow risk-proportionate single-pass verification per [`RULES.md`](../../../RULES.md) Section 10.
+- **Exempt Low-Risk Edits**: Low-risk changes (minor documentation typos, non-functional code comments, isolated styling token adjustments) do not require full subagent invocation; they follow risk-proportionate single-pass verification per `RULES.md` Section 10.
 
 ---
 
 ### Prerequisites
 Before invoking the Independent Verification Subagent, ensure the following context is accessible:
-1. Universal operating instructions in [`AGENTS.md`](../../../AGENTS.md).
-2. Mandatory platform and framework rules in [`RULES.md`](../../../RULES.md).
-3. Verified codebase reality in [`CONTEXT.md`](../../../CONTEXT.md).
-4. Active task state in [`TASKS.md`](../../../TASKS.md).
-5. Immutable architectural decisions in [`DECISIONS.md`](../../../DECISIONS.md).
+1. Universal operating instructions in `AGENTS.md`.
+2. Mandatory platform and framework rules in `RULES.md`.
+3. Verified codebase reality in `CONTEXT.md`.
+4. Active task state in `TASKS.md`.
+5. Immutable architectural decisions in `DECISIONS.md`.
 6. Agent A Implementation Handoff Payload containing:
    - Original user prompt and explicit acceptance criteria.
    - List of touched files and git diff summary.
@@ -108,14 +108,14 @@ Before invoking the Independent Verification Subagent, ensure the following cont
 ---
 
 ### Required Context & Authority Hierarchy
-All verification activities must adhere to the 7-tier precedence hierarchy defined in [`AGENTS.md`](../../../AGENTS.md):
+All verification activities must adhere to the 7-tier precedence hierarchy defined in `AGENTS.md`:
 1. **Level 1**: Explicit User Prompt (Acceptance Criteria baseline).
-2. **Level 2**: [`RULES.md`](../../../RULES.md) (Platform Safety, TDD, and Verification Invariants).
-3. **Level 3**: [`DECISIONS.md`](../../../DECISIONS.md) (System Invariants & Historical ADRs; see also [`docs_agent/ARCHITECTURE.md`](../../../docs_agent/ARCHITECTURE.md)).
-4. **Level 4**: [`CONTEXT.md`](../../../CONTEXT.md) (Verified Codebase Reality).
-5. **Level 5**: [`WORKFLOW.md`](../../../WORKFLOW.md) (12-Stage Engineering Lifecycle).
+2. **Level 2**: `RULES.md` (Platform Safety, TDD, and Verification Invariants).
+3. **Level 3**: `DECISIONS.md` (System Invariants & Historical ADRs; see also [`docs_agent/ARCHITECTURE.md`](../../../docs_agent/ARCHITECTURE.md)).
+4. **Level 4**: `CONTEXT.md` (Verified Codebase Reality).
+5. **Level 5**: `WORKFLOW.md` (12-Stage Engineering Lifecycle).
 6. **Level 6**: Loaded Domain Skills (`independent-verification-subagent`, `post-task-verification`).
-7. **Level 7**: [`AGENTS.md`](../../../AGENTS.md) (Universal Entry Point).
+7. **Level 7**: `AGENTS.md` (Universal Entry Point).
 
 ---
 
@@ -200,7 +200,7 @@ Agent B must never verify in a vacuum. It must be provided with:
 - Verify that `.gitignore` patterns were respected.
 
 #### C. Architecture Audit
-- Verify alignment with documented Architectural Decision Records in [`DECISIONS.md`](../../../DECISIONS.md).
+- Verify alignment with documented Architectural Decision Records in `DECISIONS.md`.
 - Inspect dependency boundaries: verify unidirectional dependencies and zero circular imports.
 - Check separation of concerns: domain logic decoupled from transport/storage layers.
 - Check error handling: fail-fast validations, absence of silent exception swallowing (`catch {}` or `except: pass`).
@@ -231,8 +231,8 @@ Agent B must never verify in a vacuum. It must be provided with:
 - **Boundary Restriction**: Agent B must not claim penetration testing was conducted merely because static code review occurred. Active pen-testing belongs strictly to authorized Agent C procedures.
 
 #### G. Documentation Audit
-- Audit project documentation against actual filesystem reality: [`README.md`](../../../README.md), [`CONTEXT.md`](../../../CONTEXT.md), [`CONTRIBUTING.md`](../../../CONTRIBUTING.md).
-- Enforce the **Repository Portability & Relative Links Invariant** ([`RULES.md`](../../../RULES.md) Section 2): all internal links must use relative POSIX paths (`./` or `../`); zero machine-specific paths (`/home/...`, `file:///...`).
+- Audit project documentation against actual filesystem reality: `README.md`, `CONTEXT.md`, `CONTRIBUTING.md`.
+- Enforce the **Repository Portability & Relative Links Invariant** (`RULES.md` Section 2): all internal links must use relative POSIX paths (`./` or `../`); zero machine-specific paths (`/home/...`, `file:///...`).
 - Verify that `TASKS.md` milestone status reflects empirical reality.
 
 ### 8.4 Finding and Defect Management Schema
@@ -415,9 +415,9 @@ Agent B concludes verification by rendering one of three definitive decisions:
 ---
 
 ### Documentation Requirements
-- Synchronize framework reality in [`CONTEXT.md`](../../../CONTEXT.md).
-- Record architectural trade-offs in [`DECISIONS.md`](../../../DECISIONS.md).
-- Record multi-agent lessons learned in [`MEMORY.md`](../../../MEMORY.md).
+- Synchronize framework reality in `CONTEXT.md`.
+- Record architectural trade-offs in `DECISIONS.md`.
+- Record multi-agent lessons learned in `MEMORY.md`.
 - Append session handoff entry in [`docs_agent/SESSION_LOG.md`](../../../docs_agent/SESSION_LOG.md).
 
 ---

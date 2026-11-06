@@ -35,7 +35,7 @@ tags: ['testing', 'test-data', 'factories', 'fixtures', 'seeding', 'masking', 'i
 - **Minimal Workflow**:
   1. Define synthetic data generation factories using Faker/FactoryBot patterns.
   2. Implement automated database seeding and transaction rollback fixtures.
-  3. Mask and sanitize any sanitized production dumps before staging import.
+  3. Mask and sanitize any production database dumps before staging import.
   4. Verify tests execute idempotently with clean data isolation.
 - **Expected Deliverables**: Deterministic test fixture factories and automated data sanitization scripts.
 - **Critical Restrictions**: Strictly prohibit copying raw production customer data into test databases.
@@ -75,14 +75,14 @@ Provides principles and patterns for generating, maintaining, and cleaning up re
 ### Prerequisites
 - Target code components, interfaces, and architecture verified.
 - Project testing frameworks and dependencies inspected from repository.
-- Task registered and tracked in [`TASKS.md`](../../../TASKS.md).
+- Task registered and tracked in `TASKS.md`.
 
 ---
 
 ### Required Context
 Before executing this skill, verify:
-- Mandatory constraints in [`RULES.md`](../../../RULES.md) (TDD invariants & Release Gates).
-- Testing environment in [`CONTEXT.md`](../../../CONTEXT.md).
+- Mandatory constraints in `RULES.md` (TDD invariants & Release Gates).
+- Testing environment in `CONTEXT.md`.
 - Active test strategies in [`docs_agent/testing/TEST_STRATEGY.md`](../../../templates/TEST_STRATEGY.template.md) (if present).
 
 ---
@@ -161,9 +161,9 @@ const suspended = buildUser({ isActive: false });
 ---
 
 ### Documentation Requirements
-- Record testing conventions and discovered edge cases in [`MEMORY.md`](../../../MEMORY.md).
-- Record testing architectural trade-offs in [`DECISIONS.md`](../../../DECISIONS.md).
-- Update task tracking in [`TASKS.md`](../../../TASKS.md) and session log in [`docs_agent/SESSION_LOG.md`](../../../docs_agent/SESSION_LOG.md).
+- Record testing conventions and discovered edge cases in `MEMORY.md`.
+- Record testing architectural trade-offs in `DECISIONS.md`.
+- Update task tracking in `TASKS.md` and session log in [`docs_agent/SESSION_LOG.md`](../../../docs_agent/SESSION_LOG.md).
 
 ---
 

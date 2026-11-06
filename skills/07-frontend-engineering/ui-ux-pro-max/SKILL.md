@@ -31,7 +31,7 @@ tags: [ui, ux, design-system, tokens, accessibility, typography, styling, respon
 - **Purpose**: Provide comprehensive UI/UX design intelligence, design systems, accessibility (WCAG AA), responsive styling, and visual QA.
 - **When to Use**: Designing views, components, styling, typography, colors, animations, responsive layouts, or accessibility audits.
 - **Essential Invariants**:
-  1. Enforce Swiss/Minimalism visual tokens: high contrast, clean typography, strict spacing rhythms (4px/8px).
+  1. Strict spacing rhythms (4px/8px base grid) with consistent typography hierarchy (Swiss/Minimalism is the default aesthetic preference, but yields to an existing project design system if present).
   2. WCAG AA compliance is mandatory: minimum 4.5:1 text contrast and 3:1 graphical object contrast.
   3. Minimum 44x44px touch targets on mobile and zero horizontal overflow across responsive viewports.
 - **Minimal Workflow**:
@@ -84,12 +84,12 @@ Equip any AI coding agent (Claude Code, Cursor, Antigravity, OpenAI Codex, Winds
 
 ### Prerequisites
 - Target audience, platform (Web, iOS, Android, Desktop), and product domain identified.
-- Awareness of mandatory repository UI invariants in [`RULES.md`](../../../RULES.md) Section 3.
+- Awareness of mandatory repository UI invariants in `RULES.md` Section 3.
 
 ---
 
 ### Required Context
-- Mandatory constraints: [`RULES.md`](../../../RULES.md) (Swiss style, WCAG AA 4.5:1, 44px hit targets, no raw emoji icons).
+- Mandatory constraints: `RULES.md` (Swiss style, WCAG AA 4.5:1, 44px hit targets, no raw emoji icons).
 - Architecture specs: [`docs_agent/ARCHITECTURE.md`](../../../docs_agent/ARCHITECTURE.md).
 
 ---
@@ -228,7 +228,7 @@ Before delivering UI code, execute the canonical checklist in [`references/pro-r
 
 ### Documentation Requirements
 - Record design decisions and token specifications in [`docs_agent/`](../../../docs_agent/) or project design system docs.
-- Update [`TASKS.md`](../../../TASKS.md) upon completing design milestones.
+- Update `TASKS.md` upon completing design milestones.
 
 ---
 

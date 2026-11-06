@@ -59,7 +59,7 @@ This skill governs system architecture, modular decomposition, dependency manage
   - Defining structural module boundaries and dependency directions.
   - Applying Clean Architecture and Ports-and-Adapters patterns.
   - Evaluating technical trade-offs between architectural alternatives.
-  - Formulating immutable Architectural Decision Records (ADRs) in [`DECISIONS.md`](../../../DECISIONS.md).
+  - Formulating immutable Architectural Decision Records (ADRs) in `DECISIONS.md`.
 - **Out-of-Scope**:
   - Low-level component styling and UI widgets (delegate to [`skills/ui-ux-pro-max/SKILL.md`](../../ui-ux-pro-max/SKILL.md)).
   - Detailed database index tuning (delegate to [`skills/database-design/SKILL.md`](../../database-design/SKILL.md)).
@@ -80,14 +80,14 @@ This skill governs system architecture, modular decomposition, dependency manage
 ---
 
 ### Prerequisites
-- Verified understanding of existing architecture via [`CONTEXT.md`](../../../CONTEXT.md).
-- Settled decisions reviewed in [`DECISIONS.md`](../../../DECISIONS.md).
+- Verified understanding of existing architecture via `CONTEXT.md`.
+- Settled decisions reviewed in `DECISIONS.md`.
 
 ---
 
 ### Required Context
 - Architectural invariants in [`docs_agent/ARCHITECTURE.md`](../../../docs_agent/ARCHITECTURE.md).
-- Repository rules in [`RULES.md`](../../../RULES.md).
+- Repository rules in `RULES.md`.
 
 ---
 
@@ -114,8 +114,8 @@ This skill governs system architecture, modular decomposition, dependency manage
    - Compare at least two viable architectural approaches, evaluating trade-offs, complexity, and failure modes.
 4. **Step 4: Draft Architectural Decision Record (ADR)**
    - Format: Title, Context, Options Considered, Decision, Consequences, Status.
-5. **Step 5: Record in DECISIONS.md**
-   - Commit the new ADR to [`DECISIONS.md`](../../../DECISIONS.md).
+5. **Step 5: Record in DECISIONS.md (if absent, create it from the bootstrap template or record evidence inline)**
+   - Commit the new ADR to `DECISIONS.md`.
 
 ---
 
@@ -150,13 +150,13 @@ This skill governs system architecture, modular decomposition, dependency manage
 
 ### Expected Deliverables
 - Architectural specification or module diagram.
-- Recorded ADR in [`DECISIONS.md`](../../../DECISIONS.md).
+- Recorded ADR in `DECISIONS.md`.
 
 ---
 
 ### Documentation Requirements
-- Update system architecture in [`CONTEXT.md`](../../../CONTEXT.md).
-- Record architectural lessons learned in [`MEMORY.md`](../../../MEMORY.md).
+- Update system architecture in `CONTEXT.md`.
+- Record architectural lessons learned in `MEMORY.md`.
 
 ---
 

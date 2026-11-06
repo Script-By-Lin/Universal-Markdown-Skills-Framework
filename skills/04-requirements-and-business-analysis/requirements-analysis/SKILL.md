@@ -69,7 +69,7 @@ This skill establishes a systematic protocol for analyzing user prompts, resolvi
 ### When to Use
 - Whenever a user request presents broad, vague, or complex objectives (e.g. "Add user billing").
 - When a prompt contains conflicting requirements or missing boundary conditions.
-- At Stage 2 of the canonical engineering lifecycle defined in [`WORKFLOW.md`](../../../WORKFLOW.md).
+- At Stage 2 of the canonical engineering lifecycle defined in `WORKFLOW.md`.
 
 ---
 
@@ -81,13 +81,13 @@ This skill establishes a systematic protocol for analyzing user prompts, resolvi
 
 ### Prerequisites
 - Read the active user prompt and any referenced files.
-- Inspect [`CONTEXT.md`](../../../CONTEXT.md) for existing architectural context.
+- Inspect `CONTEXT.md` for existing architectural context.
 
 ---
 
 ### Required Context
-- Mandatory constraints in [`RULES.md`](../../../RULES.md).
-- Current repository state in [`CONTEXT.md`](../../../CONTEXT.md).
+- Mandatory constraints in `RULES.md`.
+- Current repository state in `CONTEXT.md`.
 
 ---
 
@@ -142,7 +142,7 @@ This skill establishes a systematic protocol for analyzing user prompts, resolvi
 
 ### Restrictions
 - Do NOT fabricate requirements that the user never requested.
-- Do NOT relax mandatory repository constraints in [`RULES.md`](../../../RULES.md).
+- Do NOT relax mandatory repository constraints in `RULES.md`.
 
 ---
 
@@ -153,8 +153,8 @@ This skill establishes a systematic protocol for analyzing user prompts, resolvi
 ---
 
 ### Documentation Requirements
-- Link requirements to tasks in [`TASKS.md`](../../../TASKS.md).
-- Record domain learnings in [`MEMORY.md`](../../../MEMORY.md).
+- Link requirements to tasks in `TASKS.md`.
+- Record domain learnings in `MEMORY.md`.
 
 ---
 

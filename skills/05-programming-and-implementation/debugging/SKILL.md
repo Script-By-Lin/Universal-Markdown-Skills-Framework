@@ -30,12 +30,12 @@ tags: [debugging, troubleshooting, root-cause, reproduction, logs, stack-trace]
 - **When to Use**: Investigating failing tests, stack traces, unhandled exceptions, memory leaks, or erratic system behavior.
 - **Essential Invariants**:
   1. Reproduce the bug deterministically before attempting any code fix.
-  2. Every bug fix must be preceded by an automated failing test (TDD Red-Green).
+  2. Every bug fix must be preceded by an automated failing test (TDD Red-Green) or a documented, deterministic reproduction script plus recorded evidence (for race conditions, memory leaks, and intermittent faults).
   3. Fix root causes; never apply superficial 'band-aid' patches that mask underlying flaws.
 - **Minimal Workflow**:
   1. Gather stack traces, reproduction inputs, and environmental context.
   2. Formulate and test hypotheses to isolate the exact defect location.
-  3. Author minimal failing unit/integration test reproducing the defect.
+  3. Author minimal failing unit/integration test reproducing the defect (or documented deterministic reproduction script with recorded evidence for races/leaks).
   4. Apply targeted code fix, verify test passes (Green), and check for regressions.
 - **Expected Deliverables**: Passing regression test reproducing the original defect and targeted surgical code fix.
 - **Critical Restrictions**: Never commit trial-and-error changes without understanding root cause; do not silence errors with bare catch blocks.
@@ -70,7 +70,7 @@ This skill provides a scientific, hypothesis-driven methodology for isolating bu
 ### When to Use
 - Whenever a test fails, an exception is thrown, or unexpected behavior is reported.
 - During incident triage, performance regression investigation, or bug remediation.
-- Stage 5 / Stage 6 bug fix lifecycles in [`WORKFLOW.md`](../../../WORKFLOW.md).
+- Stage 5 / Stage 6 bug fix lifecycles in `WORKFLOW.md`.
 
 ---
 
@@ -82,13 +82,13 @@ This skill provides a scientific, hypothesis-driven methodology for isolating bu
 
 ### Prerequisites
 - Error description, stack trace, or observed defect behavior available.
-- Relevant source code inspected and verified against [`CONTEXT.md`](../../../CONTEXT.md).
+- Relevant source code inspected and verified against `CONTEXT.md`.
 
 ---
 
 ### Required Context
-- Mandatory constraints in [`RULES.md`](../../../RULES.md).
-- Lessons learned and past bug discoveries in [`MEMORY.md`](../../../MEMORY.md).
+- Mandatory constraints in `RULES.md`.
+- Lessons learned and past bug discoveries in `MEMORY.md`.
 
 ---
 
@@ -161,8 +161,8 @@ This skill provides a scientific, hypothesis-driven methodology for isolating bu
 ---
 
 ### Documentation Requirements
-- Record recurring pitfalls and root-cause discoveries in [`MEMORY.md`](../../../MEMORY.md).
-- Update task state in [`TASKS.md`](../../../TASKS.md).
+- Record recurring pitfalls and root-cause discoveries in `MEMORY.md`.
+- Update task state in `TASKS.md`.
 
 ---
 

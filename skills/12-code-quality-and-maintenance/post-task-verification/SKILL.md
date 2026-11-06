@@ -26,10 +26,10 @@ tags: [verification, qa, audit, diff-inspection, evidence-based, acceptance-crit
 
 ## 2. MVP Summary (Level 1 Execution Contract)
 
-- **Purpose**: Conduct mandatory, evidence-based post-implementation audits verifying requirements, git diff, and test exit codes.
+- **Purpose**: Conduct mandatory, evidence-based post-implementation audits verifying requirements, git diff, and test exit codes scaled by risk tier (T0-T2). (Disambiguation: Use `post-task-verification` as the immediate post-implementation gate to inspect diffs and run automated suites based on risk tiers; use `independent-verification-subagent` for fresh-context 7-dimension audits, `evidence-based-validation` for proof standards, `multi-agent-verification` for multi-agent consensus, or `code-review` for static readability).
 - **When to Use**: At the conclusion of every engineering task before declaring completion or marking TASKS.md done.
 - **Essential Invariants**:
-  1. Every touched line in git diff must be audited against original user requirements.
+  1. Verification depth scales strictly by Risk Tier: T0 Trivial (diff + static check, self-review permitted), T1 Standard (unit/integration suite + regression gate), T2 Sensitive (mandatory independent subagent audit + security review). A typo fix never triggers a 7-dimension audit.
   2. Tests must be executed and exit code 0 verified empirically; never assume success.
   3. Check for unintended changes, leftover debug statements, and missing documentation.
 - **Minimal Workflow**:
@@ -74,7 +74,7 @@ Autonomous AI engineering workflows suffer from premature completion claims, dev
 ---
 
 ### When to Use
-- **Lifecycle Transition**: Mandatory execution at Stage 8 of the canonical lifecycle before any task is marked `Completed` in [`TASKS.md`](../../../TASKS.md).
+- **Lifecycle Transition**: Mandatory execution at Stage 8 of the canonical lifecycle before any task is marked `Completed` in `TASKS.md`.
 - **Post-Implementation Gate**: After implementing code, refactoring, fixing bugs, or updating documentation.
 - **Pre-PR / Pre-Delivery Audit**: Before submitting changes, opening a pull request, or declaring deliverables ready for user acceptance.
 - **Regression Verification**: Whenever modifications touch shared utilities, core domain models, or cross-cutting configuration.
@@ -91,16 +91,16 @@ Autonomous AI engineering workflows suffer from premature completion claims, dev
 ### Prerequisites
 - Target code modifications implemented in working directory.
 - Local test runner and linter identified and operable.
-- Baseline requirements and acceptance criteria documented in prompt or [`TASKS.md`](../../../TASKS.md).
+- Baseline requirements and acceptance criteria documented in prompt or `TASKS.md`.
 
 ---
 
 ### Required Context
 Before conducting post-task verification, verify the following project reality:
-- Current architecture and active tech stack in [`CONTEXT.md`](../../../CONTEXT.md).
-- Mandatory constraints and release gates in [`RULES.md`](../../../RULES.md).
-- Settled decisions and trade-offs in [`DECISIONS.md`](../../../DECISIONS.md).
-- Active task entry and acceptance criteria in [`TASKS.md`](../../../TASKS.md).
+- Current architecture and active tech stack in `CONTEXT.md`.
+- Mandatory constraints and release gates in `RULES.md`.
+- Settled decisions and trade-offs in `DECISIONS.md`.
+- Active task entry and acceptance criteria in `TASKS.md`.
 
 ---
 
@@ -122,7 +122,7 @@ Every verification pass must evaluate the 15 canonical dimensions:
    - Score fulfillment: Fully Satisfied, Partially Satisfied, or Unsatisfied.
    - A task cannot pass if any core acceptance criterion is unsatisfied.
 5. **Architecture & Decision Consistency**:
-   - Verify code conforms to settled ADRs in [`DECISIONS.md`](../../../DECISIONS.md).
+   - Verify code conforms to settled ADRs in `DECISIONS.md`.
    - Ensure boundary isolation between domain logic, transport, and storage.
 6. **Code Quality & Maintainability**:
    - Enforce clean code, descriptive naming, type safety, modular function length, and absence of dead code.
@@ -202,12 +202,12 @@ flowchart TD
 3. Rerun tests immediately to verify resolution.
 
 ### Step 6: Documentation & Link Synchronization
-1. Update [`CONTEXT.md`](../../../CONTEXT.md) if architecture or modules changed.
-2. Update [`CHANGELOG.md`](../../../CHANGELOG.md) with chronological release entries.
+1. Update `CONTEXT.md` if architecture or modules changed.
+2. Update `CHANGELOG.md` with chronological release entries.
 3. Ensure all links are strictly relative (POSIX `./...` or `../...`) with zero broken references.
 
 ### Step 7: Render Acceptance Verdict & Record State
-1. If all applicable release gates pass, transition task in [`TASKS.md`](../../../TASKS.md) to `Completed`.
+1. If all applicable release gates pass, transition task in `TASKS.md` to `Completed`.
 2. If issues remain unresolved or blocked by external dependencies, record task state honestly as `Blocked` or `Pending` with descriptive rationale. Never claim completion falsely.
 
 ---
@@ -243,7 +243,7 @@ flowchart TD
 ---
 
 ### Restrictions
-- Do NOT mark any task `Completed` in [`TASKS.md`](../../../TASKS.md) without verified evidence.
+- Do NOT mark any task `Completed` in `TASKS.md` without verified evidence.
 - Do NOT ignore failing tests, linter errors, or broken internal links.
 - Do NOT introduce external runtime dependencies or binary executables.
 - Do NOT expand scope beyond authorized task boundaries without user approval.
@@ -253,15 +253,15 @@ flowchart TD
 ### Expected Deliverables
 - Verified, clean codebase matching user requirements.
 - Passing test suite output with documented exit codes.
-- Synchronized, relative documentation in [`CONTEXT.md`](../../../CONTEXT.md), [`CHANGELOG.md`](../../../CHANGELOG.md), and [`TASKS.md`](../../../TASKS.md).
+- Synchronized, relative documentation in `CONTEXT.md`, `CHANGELOG.md`, and `TASKS.md`.
 - Evidence-based verification report in chat and [`docs_agent/SESSION_LOG.md`](../../../docs_agent/SESSION_LOG.md).
 
 ---
 
 ### Documentation Requirements
-- Record discovered pitfalls or test conventions in [`MEMORY.md`](../../../MEMORY.md).
-- Record architectural trade-offs or decisions in [`DECISIONS.md`](../../../DECISIONS.md).
-- Update task state in [`TASKS.md`](../../../TASKS.md).
+- Record discovered pitfalls or test conventions in `MEMORY.md`.
+- Record architectural trade-offs or decisions in `DECISIONS.md`.
+- Update task state in `TASKS.md`.
 - Log the session audit in [`docs_agent/SESSION_LOG.md`](../../../docs_agent/SESSION_LOG.md).
 
 ---

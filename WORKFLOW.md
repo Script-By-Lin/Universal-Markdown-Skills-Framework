@@ -40,10 +40,10 @@ flowchart TD
 ### Stage 1: Understand the Original Request & Context Intake
 - **Goal**: Align the AI agent with the verified reality of the prompt and codebase before modifying files or executing state-altering commands.
 - **Protocol**:
-  1. Follow the 10-step initialization procedure in [`AGENTS.md`](./AGENTS.md).
-  2. Inspect [`RULES.md`](./RULES.md) for mandatory safety, coding standards, and security boundaries.
-  3. Read [`CONTEXT.md`](./CONTEXT.md) to understand current architecture, dependencies, and available tooling.
-  4. Consult [`TASKS.md`](./TASKS.md) to verify existing roadmap state.
+  1. Follow the 10-step initialization procedure in `AGENTS.md`.
+  2. Inspect `RULES.md` for mandatory safety, coding standards, and security boundaries.
+  3. Read `CONTEXT.md` to understand current architecture, dependencies, and available tooling.
+  4. Consult `TASKS.md` to verify existing roadmap state.
 - **Exit Gate**: The agent can cite verified codebase reality and user acceptance criteria without unverified assumptions.
 
 ---
@@ -52,7 +52,7 @@ flowchart TD
 - **Goal**: Decompose user requests into atomic, dependency-ordered technical subtasks with verifiable acceptance criteria.
 - **Protocol**:
   1. Load relevant planning skills: [`skills/01-software-development-lifecycle/planning/SKILL.md`](./skills/01-software-development-lifecycle/planning/SKILL.md) and [`skills/04-requirements-and-business-analysis/requirements-analysis/SKILL.md`](./skills/04-requirements-and-business-analysis/requirements-analysis/SKILL.md).
-  2. Update [`TASKS.md`](./TASKS.md): Transition selected task to `In Progress`.
+  2. Update `TASKS.md`: Transition selected task to `In Progress`.
   3. Formulate positive, negative, boundary, and edge-case acceptance scenarios.
   4. For UI/UX tasks, define Swiss/Minimalist design tokens, WCAG AA contrast targets, and responsive breakpoints (`375px`, `768px`, `1024px`, `1440px`).
   5. If core requirements are ambiguous, clarify with the user before implementing.
@@ -164,10 +164,10 @@ flowchart TD
 ### Stage 11: Update Meaningful Documentation
 - **Goal**: Synchronize all documentation with verified codebase reality using portable relative paths.
 - **Protocol**:
-  1. Update [`CONTEXT.md`](./CONTEXT.md) if system architecture, dependencies, or modules changed.
-  2. Update [`CHANGELOG.md`](./CHANGELOG.md) recording chronological release entries under standard SemVer.
-  3. Record newly discovered pitfalls, edge cases, or testing conventions in [`MEMORY.md`](./MEMORY.md).
-  4. If an architectural decision was reached or superseded, record an immutable ADR in [`DECISIONS.md`](./DECISIONS.md).
+  1. Update `CONTEXT.md` if system architecture, dependencies, or modules changed.
+  2. Update `CHANGELOG.md` recording chronological release entries under standard SemVer.
+  3. Record newly discovered pitfalls, edge cases, or testing conventions in `MEMORY.md`.
+  4. If an architectural decision was reached or superseded, record an immutable ADR in `DECISIONS.md`.
   5. Verify that all internal links are strictly relative (POSIX `./...` or `../...`) with zero broken references.
 - **Exit Gate**: Project documentation and memory updated with zero broken links.
 
@@ -181,7 +181,7 @@ flowchart TD
      - **`NEEDS REMEDIATION`**: Valid defects or edge cases remain uncorrected within task scope.
      - **`BLOCKED / NOT VERIFIED`**: Environment, tooling, permissions, or iteration limits prevent safe acceptance.
   2. **Compilation Inadequacy Rule**: Successful compilation alone is strictly insufficient for `VERIFIED` status. Automated test suite execution, assertion validation, and diff sweeps are mandatory.
-  3. Update [`TASKS.md`](./TASKS.md):
+  3. Update `TASKS.md`:
      - Transition task to `Completed` **only** if status is `VERIFIED`.
      - Retain `In Progress` if `NEEDS REMEDIATION`.
      - Move to `Blocked` if `BLOCKED / NOT VERIFIED`, with detailed explanation.

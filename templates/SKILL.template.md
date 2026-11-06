@@ -57,9 +57,9 @@ tags: [tag1, tag2, tag3]
 
 ## 7. Required Context
 Before executing this skill, ensure the following project context has been verified:
-- Current state in [`CONTEXT.md`](../CONTEXT.md).
-- Mandatory constraints in [`RULES.md`](../RULES.md).
-- Settled decisions in [`DECISIONS.md`](../DECISIONS.md).
+- Current state in `CONTEXT.md`.
+- Mandatory constraints in `RULES.md`.
+- Settled decisions in `DECISIONS.md`.
 
 ---
 
@@ -106,7 +106,7 @@ Before executing this skill, ensure the following project context has been verif
 
 ## 13. Restrictions
 - Do NOT introduce external executable dependencies or runtime engines.
-- Do NOT bypass security checks, sandboxes, or mandatory rules in [`RULES.md`](../RULES.md).
+- Do NOT bypass security checks, sandboxes, or mandatory rules in `RULES.md`.
 - Do NOT fabricate unverified file paths or test results.
 
 ---
@@ -119,7 +119,7 @@ Before executing this skill, ensure the following project context has been verif
 ---
 
 ## 15. Documentation Requirements
-- Record technical discoveries and lessons learned in [`MEMORY.md`](../MEMORY.md).
-- Record architectural trade-offs in [`DECISIONS.md`](../DECISIONS.md).
-- Update task state in [`TASKS.md`](../TASKS.md) and log session in [`docs_agent/SESSION_LOG.md`](../docs_agent/SESSION_LOG.md).
+- Record technical discoveries and lessons learned in `MEMORY.md`.
+- Record architectural trade-offs in `DECISIONS.md`.
+- Update task state in `TASKS.md` and log session in [`docs_agent/SESSION_LOG.md`](../docs_agent/SESSION_LOG.md).
 

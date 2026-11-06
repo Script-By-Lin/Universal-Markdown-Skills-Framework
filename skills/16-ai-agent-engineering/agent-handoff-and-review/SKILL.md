@@ -73,17 +73,17 @@ Guarantees seamless, lossless continuity when work transitions between different
 ---
 
 ### Prerequisites
-- Framework architecture verified in [`AGENTS.md`](../../../AGENTS.md).
-- Active tasks registered in [`TASKS.md`](../../../TASKS.md).
-- Environment reality verified in [`CONTEXT.md`](../../../CONTEXT.md).
+- Framework architecture verified in `AGENTS.md`.
+- Active tasks registered in `TASKS.md`.
+- Environment reality verified in `CONTEXT.md`.
 
 ---
 
 ### Required Context
 Before executing this skill, verify:
-- Independent agent role specifications in [`AGENTS.md`](../../../AGENTS.md) Section 2.
-- Mandatory constraints in [`RULES.md`](../../../RULES.md) (Precedence Level 2).
-- Release gate requirements in [`WORKFLOW.md`](../../../WORKFLOW.md).
+- Independent agent role specifications in `AGENTS.md` Section 2.
+- Mandatory constraints in `RULES.md` (Precedence Level 2).
+- Release gate requirements in `WORKFLOW.md`.
 
 ---
 
@@ -100,7 +100,7 @@ Every session handoff must record:
 ---
 
 ### Step-by-Step Workflow
-1. **Step 1: Verify Task State in TASKS.md**
+1. **Step 1: Verify Task State in TASKS.md (if absent, create it from the bootstrap template or record evidence inline)**
    - Ensure completed tasks are marked `Completed` and new items are `Pending`.
 2. **Step 2: Capture Architectural Decisions**
    - If an architectural choice was made, verify ADR in `DECISIONS.md`.
@@ -153,8 +153,8 @@ Every session handoff must record:
 ---
 
 ### Documentation Requirements
-- Record reusable multi-agent lessons in [`MEMORY.md`](../../../MEMORY.md).
-- Record agent orchestration trade-offs in [`DECISIONS.md`](../../../DECISIONS.md).
+- Record reusable multi-agent lessons in `MEMORY.md`.
+- Record agent orchestration trade-offs in `DECISIONS.md`.
 - Log session handoff in [`docs_agent/SESSION_LOG.md`](../../../docs_agent/SESSION_LOG.md).
 
 ---

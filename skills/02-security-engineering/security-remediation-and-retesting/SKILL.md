@@ -74,15 +74,15 @@ Provides disciplined procedures for writing targeted security fixes that elimina
 
 ### Prerequisites
 - Target application components and architecture inspected.
-- Context verified against [`CONTEXT.md`](../../../CONTEXT.md).
-- Security testing boundaries established in compliance with [`RULES.md`](../../../RULES.md).
+- Context verified against `CONTEXT.md`.
+- Security testing boundaries established in compliance with `RULES.md`.
 
 ---
 
 ### Required Context
 Before executing this skill, verify:
-- Mandatory constraints in [`RULES.md`](../../../RULES.md) (Precedence Level 2).
-- Security posture in [`CONTEXT.md`](../../../CONTEXT.md).
+- Mandatory constraints in `RULES.md` (Precedence Level 2).
+- Security posture in `CONTEXT.md`.
 - Active vulnerability records in [`docs_agent/security/VULNERABILITY_REGISTER.md`](../../../templates/VULNERABILITY_REGISTER.md) (if present).
 
 ---
@@ -111,7 +111,7 @@ Before executing this skill, verify:
 ---
 
 ### Quality Standards
-- **Standard 1**: 100% adherence to non-destructive testing boundaries defined in [`RULES.md`](../../../RULES.md).
+- **Standard 1**: 100% adherence to non-destructive testing boundaries defined in `RULES.md`.
 - **Standard 2**: All findings verified with reproducible evidence; zero speculative claims.
 - **Standard 3**: Absolute prohibition on logging or exfiltrating sensitive credentials, keys, or customer data.
 
@@ -150,9 +150,9 @@ Before executing this skill, verify:
 ---
 
 ### Documentation Requirements
-- Record reusable security lessons and attack vectors in [`MEMORY.md`](../../../MEMORY.md).
-- Record architectural security decisions in [`DECISIONS.md`](../../../DECISIONS.md).
-- Update task tracking in [`TASKS.md`](../../../TASKS.md) and session log in [`docs_agent/SESSION_LOG.md`](../../../docs_agent/SESSION_LOG.md).
+- Record reusable security lessons and attack vectors in `MEMORY.md`.
+- Record architectural security decisions in `DECISIONS.md`.
+- Update task tracking in `TASKS.md` and session log in [`docs_agent/SESSION_LOG.md`](../../../docs_agent/SESSION_LOG.md).
 
 ---
 

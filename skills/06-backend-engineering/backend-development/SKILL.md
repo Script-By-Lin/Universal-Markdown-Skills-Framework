@@ -81,12 +81,12 @@ This skill provides comprehensive standards for authoring production-grade backe
 
 ### Prerequisites
 - Functional requirements understood and verified.
-- Target data models and storage mechanisms verified in [`CONTEXT.md`](../../../CONTEXT.md).
+- Target data models and storage mechanisms verified in `CONTEXT.md`.
 
 ---
 
 ### Required Context
-- Mandatory constraints in [`RULES.md`](../../../RULES.md).
+- Mandatory constraints in `RULES.md`.
 - Architectural boundaries defined in [`docs_agent/ARCHITECTURE.md`](../../../docs_agent/ARCHITECTURE.md).
 
 ---
@@ -155,8 +155,8 @@ This skill provides comprehensive standards for authoring production-grade backe
 ---
 
 ### Documentation Requirements
-- Record reusable backend patterns in [`MEMORY.md`](../../../MEMORY.md).
-- Update [`TASKS.md`](../../../TASKS.md) with task completion.
+- Record reusable backend patterns in `MEMORY.md`.
+- Update `TASKS.md` with task completion.
 
 ---
 

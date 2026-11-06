@@ -26,7 +26,7 @@ tags: ['testing', 'performance', 'latency', 'benchmarks', 'throughput', 'cls']
 
 ## 2. MVP Summary (Level 1 Execution Contract)
 
-- **Purpose**: Measure, benchmark, and evaluate application response times, throughput, and resource utilization under load.
+- **Purpose**: Measure, benchmark, and evaluate application response times, throughput, and resource utilization under load. (Disambiguation: Use `performance-testing` for macro load and stress benchmarking against established SLA thresholds; use `performance` for profiling architecture, `benchmark-optimization-loop` for code optimization, or `database-query-optimization` for database operations).
 - **When to Use**: Validating SLA/SLO performance targets, optimizing slow endpoints, or qualifying release builds.
 - **Essential Invariants**:
   1. Performance tests must run in isolated environments with stable, repeatable network/CPU conditions.
@@ -75,14 +75,14 @@ Measures, benchmarks, and optimizes the speed, latency, and resource efficiency 
 ### Prerequisites
 - Target code components, interfaces, and architecture verified.
 - Project testing frameworks and dependencies inspected from repository.
-- Task registered and tracked in [`TASKS.md`](../../../TASKS.md).
+- Task registered and tracked in `TASKS.md`.
 
 ---
 
 ### Required Context
 Before executing this skill, verify:
-- Mandatory constraints in [`RULES.md`](../../../RULES.md) (TDD invariants & Release Gates).
-- Testing environment in [`CONTEXT.md`](../../../CONTEXT.md).
+- Mandatory constraints in `RULES.md` (TDD invariants & Release Gates).
+- Testing environment in `CONTEXT.md`.
 - Active test strategies in [`docs_agent/testing/TEST_STRATEGY.md`](../../../templates/TEST_STRATEGY.template.md) (if present).
 
 ---
@@ -156,9 +156,9 @@ Enforce strict performance budgets across the stack:
 ---
 
 ### Documentation Requirements
-- Record testing conventions and discovered edge cases in [`MEMORY.md`](../../../MEMORY.md).
-- Record testing architectural trade-offs in [`DECISIONS.md`](../../../DECISIONS.md).
-- Update task tracking in [`TASKS.md`](../../../TASKS.md) and session log in [`docs_agent/SESSION_LOG.md`](../../../docs_agent/SESSION_LOG.md).
+- Record testing conventions and discovered edge cases in `MEMORY.md`.
+- Record testing architectural trade-offs in `DECISIONS.md`.
+- Update task tracking in `TASKS.md` and session log in [`docs_agent/SESSION_LOG.md`](../../../docs_agent/SESSION_LOG.md).
 
 ---
 

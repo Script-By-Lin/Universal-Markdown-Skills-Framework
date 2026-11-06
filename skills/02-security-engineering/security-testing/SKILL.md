@@ -26,7 +26,7 @@ tags: ['security', 'security-testing', 'sast', 'dast', 'ci-cd', 'owasp', 'vulner
 
 ## 2. MVP Summary (Level 1 Execution Contract)
 
-- **Purpose**: Plan, automate, and execute comprehensive software security test suites across SAST, DAST, and CI/CD security gates.
+- **Purpose**: Plan, automate, and execute comprehensive software security test suites across SAST, DAST, and CI/CD security gates. (Disambiguation: Use `security-testing` for active penetration tests, fuzzing, and dynamic verification; use `security` for general baseline standards, `vulnerability-assessment` for static posture scans, or `vulnerability-management` for remediation tracking).
 - **When to Use**: Integrating automated security scanners, establishing pull request security gates, or verifying release builds.
 - **Essential Invariants**:
   1. Security tests must fail the build on Critical or High severity findings.
@@ -74,15 +74,15 @@ Provides a systematic framework for planning, automating, and executing security
 
 ### Prerequisites
 - Target application components and architecture inspected.
-- Context verified against [`CONTEXT.md`](../../../CONTEXT.md).
-- Security testing boundaries established in compliance with [`RULES.md`](../../../RULES.md).
+- Context verified against `CONTEXT.md`.
+- Security testing boundaries established in compliance with `RULES.md`.
 
 ---
 
 ### Required Context
 Before executing this skill, verify:
-- Mandatory constraints in [`RULES.md`](../../../RULES.md) (Precedence Level 2).
-- Security posture in [`CONTEXT.md`](../../../CONTEXT.md).
+- Mandatory constraints in `RULES.md` (Precedence Level 2).
+- Security posture in `CONTEXT.md`.
 - Active vulnerability records in [`docs_agent/security/VULNERABILITY_REGISTER.md`](../../../templates/VULNERABILITY_REGISTER.md) (if present).
 
 ---
@@ -124,7 +124,7 @@ Every testable feature must define security test cases covering:
 ---
 
 ### Quality Standards
-- **Standard 1**: 100% adherence to non-destructive testing boundaries defined in [`RULES.md`](../../../RULES.md).
+- **Standard 1**: 100% adherence to non-destructive testing boundaries defined in `RULES.md`.
 - **Standard 2**: All findings verified with reproducible evidence; zero speculative claims.
 - **Standard 3**: Absolute prohibition on logging or exfiltrating sensitive credentials, keys, or customer data.
 
@@ -163,9 +163,9 @@ Every testable feature must define security test cases covering:
 ---
 
 ### Documentation Requirements
-- Record reusable security lessons and attack vectors in [`MEMORY.md`](../../../MEMORY.md).
-- Record architectural security decisions in [`DECISIONS.md`](../../../DECISIONS.md).
-- Update task tracking in [`TASKS.md`](../../../TASKS.md) and session log in [`docs_agent/SESSION_LOG.md`](../../../docs_agent/SESSION_LOG.md).
+- Record reusable security lessons and attack vectors in `MEMORY.md`.
+- Record architectural security decisions in `DECISIONS.md`.
+- Update task tracking in `TASKS.md` and session log in [`docs_agent/SESSION_LOG.md`](../../../docs_agent/SESSION_LOG.md).
 
 ---
 

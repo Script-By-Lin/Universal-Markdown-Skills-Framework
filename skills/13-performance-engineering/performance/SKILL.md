@@ -26,7 +26,7 @@ tags: [performance, profiling, latency, memory, optimization, bundle-size, cachi
 
 ## 2. MVP Summary (Level 1 Execution Contract)
 
-- **Purpose**: Profile, analyze, and optimize application CPU usage, memory allocation, database queries, and I/O bottlenecks.
+- **Purpose**: Profile, analyze, and optimize application CPU usage, memory allocation, database queries, and I/O bottlenecks. (Disambiguation: Use `performance` for overarching system resource profiling and latency budgets; use `performance-testing` for load/stress benchmarks, `benchmark-optimization-loop` for micro-optimization iterations, or `database-query-optimization` for SQL/ORM tuning).
 - **When to Use**: Investigating slow endpoints, reducing memory footprint, eliminating N+1 queries, or tuning event loops.
 - **Essential Invariants**:
   1. Measure before and after; never optimize based on assumptions without profiling data.
@@ -86,8 +86,8 @@ This skill establishes empirical, measurement-driven methodologies for diagnosin
 ---
 
 ### Required Context
-- Mandatory constraints in [`RULES.md`](../../../RULES.md).
-- Performance history recorded in [`MEMORY.md`](../../../MEMORY.md).
+- Mandatory constraints in `RULES.md`.
+- Performance history recorded in `MEMORY.md`.
 
 ---
 
@@ -156,8 +156,8 @@ This skill establishes empirical, measurement-driven methodologies for diagnosin
 ---
 
 ### Documentation Requirements
-- Record performance benchmarks and caching conventions in [`MEMORY.md`](../../../MEMORY.md).
-- Update [`TASKS.md`](../../../TASKS.md) with optimization results.
+- Record performance benchmarks and caching conventions in `MEMORY.md`.
+- Update `TASKS.md` with optimization results.
 
 ---
 

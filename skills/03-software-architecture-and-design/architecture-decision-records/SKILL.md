@@ -34,10 +34,10 @@ version: 1.7.0
   3. Record decisions synchronously with the architectural change, not weeks later.
 - **Minimal Workflow**:
   1. Identify architectural fork or trade-off requiring formal ratification.
-  2. Draft numbered ADR in DECISIONS.md following standard context/decision/consequences format.
+  2. Draft numbered ADR in DECISIONS.md (if absent, create it from the bootstrap template or record evidence inline) following standard context/decision/consequences format.
   3. Document negative trade-offs and impact on existing components.
   4. Update architectural invariants in ARCHITECTURE.md to align with ratified ADR.
-- **Expected Deliverables**: Ratified ADR entry in DECISIONS.md with sequential numbering and cross-references.
+- **Expected Deliverables**: Ratified ADR entry in DECISIONS.md (if absent, create it from the bootstrap template or record evidence inline) with sequential numbering and cross-references.
 - **Critical Restrictions**: Never silently rewrite historical ADRs; never adopt unvetted architectural pivots without recording an ADR.
 
 > ℹ️ **Progressive Context Loading**:

@@ -26,10 +26,10 @@ tags: ['agentic', 'multi-agent', 'orchestration', 'consensus', 'handoff', 'verif
 
 ## 2. MVP Summary (Level 1 Execution Contract)
 
-- **Purpose**: Orchestrate multi-agent collaborative verification loops between Development (A), Verification (B), and Security (C).
+- **Purpose**: Orchestrate multi-agent collaborative verification loops between Development (A), Verification (B), and Security (C). (Disambiguation: Use `multi-agent-verification` when orchestrating concurrent multi-role consensus; use `independent-verification-subagent` for single-subagent audits, or `post-task-verification` for sequential passes).
 - **When to Use**: Executing high-complexity features, architectural migrations, or enterprise releases requiring multi-role consensus.
 - **Essential Invariants**:
-  1. Enforce strict role separation: Agent A implements, Agent B verifies, Agent C audits security.
+  1. Role engagement scales conditionally by Risk Tier: T0 is exempt from subagents; T1 requires Agent A and Agent B consensus; T2 mandates concurrent Agent A, Agent B, and Agent C tri-state consensus.
   2. All agent communications and handoffs must use structured, evidence-based payloads.
   3. Maximum of 3 remediation iterations between Agent A and Agent B before escalating as Blocked.
 - **Minimal Workflow**:
@@ -73,17 +73,17 @@ Provides structured interaction protocols, handoff contracts, and dispute resolu
 ---
 
 ### Prerequisites
-- Framework architecture verified in [`AGENTS.md`](../../../AGENTS.md).
-- Active tasks registered in [`TASKS.md`](../../../TASKS.md).
-- Environment reality verified in [`CONTEXT.md`](../../../CONTEXT.md).
+- Framework architecture verified in `AGENTS.md`.
+- Active tasks registered in `TASKS.md`.
+- Environment reality verified in `CONTEXT.md`.
 
 ---
 
 ### Required Context
 Before executing this skill, verify:
-- Independent agent role specifications in [`AGENTS.md`](../../../AGENTS.md) Section 2.
-- Mandatory constraints in [`RULES.md`](../../../RULES.md) (Precedence Level 2).
-- Release gate requirements in [`WORKFLOW.md`](../../../WORKFLOW.md).
+- Independent agent role specifications in `AGENTS.md` Section 2.
+- Mandatory constraints in `RULES.md` (Precedence Level 2).
+- Release gate requirements in `WORKFLOW.md`.
 
 ---
 
@@ -161,8 +161,8 @@ If Agent A (Dev) disputes an issue raised by Agent B (QA) or Agent C (Security):
 ---
 
 ### Documentation Requirements
-- Record reusable multi-agent lessons in [`MEMORY.md`](../../../MEMORY.md).
-- Record agent orchestration trade-offs in [`DECISIONS.md`](../../../DECISIONS.md).
+- Record reusable multi-agent lessons in `MEMORY.md`.
+- Record agent orchestration trade-offs in `DECISIONS.md`.
 - Log session handoff in [`docs_agent/SESSION_LOG.md`](../../../docs_agent/SESSION_LOG.md).
 
 ---

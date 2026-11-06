@@ -26,18 +26,18 @@ version: 1.7.0
 
 ## 2. MVP Summary (Level 1 Execution Contract)
 
-- **Purpose**: Execute safe, reversible database migrations: forward-only production changes, expand-contract zero-downtime deploys.
+- **Purpose**: Execute safe, reversible database migrations: forward-only production changes with tested compensating migrations, expand-contract zero-downtime deploys.
 - **When to Use**: Altering tables, adding columns, renaming fields, creating indexes, or backfilling data in production databases.
 - **Essential Invariants**:
   1. All production schema changes must follow the Expand-Contract zero-downtime migration pattern.
   2. Indexes on large production tables must be created CONCURRENTLY without blocking read/write locks.
-  3. Every migration must have an automated forward test and verified rollback procedure.
+  3. Schema evolution must be forward-only: every change must be accompanied by an automated forward test and a tested compensating forward migration (never destructive backward rollbacks in production).
 - **Minimal Workflow**:
   1. Draft migration script separating schema changes from heavy data backfills.
   2. Use Expand-Contract: add new column (expand), dual-write, backfill in batches, drop old column (contract).
   3. Test migration forward and backward (rollback) against staging database clone.
   4. Verify application continues operating without downtime during migration execution.
-- **Expected Deliverables**: Tested, zero-downtime database migration script with verified rollback procedure.
+- **Expected Deliverables**: Tested, zero-downtime database migration script with verified compensating migration procedure.
 - **Critical Restrictions**: Never run table rewrites or lock-heavy DDL during peak hours; never drop active columns in a single step.
 
 > ℹ️ **Progressive Context Loading**:

@@ -87,8 +87,8 @@ This skill establishes strict engineering standards for designing, documenting, 
 ---
 
 ### Required Context
-- Security rules in [`RULES.md`](../../../RULES.md).
-- Existing endpoints documented in [`CONTEXT.md`](../../../CONTEXT.md).
+- Security rules in `RULES.md`.
+- Existing endpoints documented in `CONTEXT.md`.
 
 ---
 
@@ -175,8 +175,8 @@ This skill establishes strict engineering standards for designing, documenting, 
 ---
 
 ### Documentation Requirements
-- Update API endpoint listings in [`CONTEXT.md`](../../../CONTEXT.md).
-- Record API breaking decisions in [`DECISIONS.md`](../../../DECISIONS.md).
+- Update API endpoint listings in `CONTEXT.md`.
+- Record API breaking decisions in `DECISIONS.md`.
 
 ---
 

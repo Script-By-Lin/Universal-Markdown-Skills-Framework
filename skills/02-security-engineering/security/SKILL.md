@@ -26,7 +26,7 @@ tags: [security, owasp, auth, sanitization, encryption, vulnerability, xss, csrf
 
 ## 2. MVP Summary (Level 1 Execution Contract)
 
-- **Purpose**: Enforce baseline repository and application security invariants across the entire software development lifecycle.
+- **Purpose**: Enforce baseline repository and application security invariants across the entire software development lifecycle. (Disambiguation: Use `security` for foundational architectural posture; use `security-testing` for active penetration tests, `vulnerability-assessment` for scoring/cataloging flaws, or `vulnerability-management` for remediation tracking and patch SLAs).
 - **When to Use**: Conducting baseline security audits, initializing new projects, or reviewing core security boundaries.
 - **Essential Invariants**:
   1. Never commit secrets, tokens, or private keys to version control.
@@ -81,12 +81,12 @@ This skill establishes mandatory security engineering practices to protect softw
 
 ### Prerequisites
 - Target endpoint, data flow, or authentication architecture identified.
-- Security constraints in [`RULES.md`](../../../RULES.md) reviewed.
+- Security constraints in `RULES.md` reviewed.
 
 ---
 
 ### Required Context
-- Mandatory constraints in [`RULES.md`](../../../RULES.md) (Precedence Level 2).
+- Mandatory constraints in `RULES.md` (Precedence Level 2).
 - System architecture in [`docs_agent/ARCHITECTURE.md`](../../../docs_agent/ARCHITECTURE.md).
 
 ---
@@ -162,8 +162,8 @@ This skill establishes mandatory security engineering practices to protect softw
 ---
 
 ### Documentation Requirements
-- Record threat model findings and security invariants in [`MEMORY.md`](../../../MEMORY.md).
-- Update [`TASKS.md`](../../../TASKS.md) with security review status.
+- Record threat model findings and security invariants in `MEMORY.md`.
+- Update `TASKS.md` with security review status.
 
 ---
 

@@ -15,7 +15,7 @@ Before submitting a pull request, please review these guidelines to ensure consi
 
 ## 2. Framework Invariants (Non-Negotiable)
 
-Every contribution must honor the non-negotiable rules established in [`RULES.md`](./RULES.md) and [`DECISIONS.md`](./DECISIONS.md):
+Every contribution must honor the non-negotiable rules established in `RULES.md` and `DECISIONS.md`:
 
 1. **Zero External Dependencies**:
    - The framework core is implemented strictly in Markdown (`.md`).
@@ -34,7 +34,7 @@ Every contribution must honor the non-negotiable rules established in [`RULES.md
 ## 3. How to Contribute a New Skill
 
 To contribute a new reusable domain skill:
-1. **Check Existing Registry**: Consult [`SKILLS.md`](./SKILLS.md) to confirm that the domain is not already covered by an existing skill.
+1. **Check Existing Registry**: Consult `SKILLS.md` to confirm that the domain is not already covered by an existing skill.
 2. **Create Skill Directory**: Create `skills/<skill-name>/`.
 3. **Scaffold from Template**: Copy [`templates/SKILL.template.md`](./templates/SKILL.template.md) to `skills/<skill-name>/SKILL.md`.
 4. **Complete All 15 Sections**:
@@ -53,7 +53,7 @@ To contribute a new reusable domain skill:
    - 13. Restrictions
    - 14. Expected Deliverables
    - 15. Documentation Requirements
-5. **Register the Skill**: Add your new skill to [`SKILLS.md`](./SKILLS.md) and [`skills/README.md`](./skills/README.md).
+5. **Register the Skill**: Add your new skill to `SKILLS.md` and [`skills/README.md`](./skills/README.md).
 
 ---
 
@@ -76,7 +76,7 @@ Before submitting your PR, ensure:
 - [ ] Every internal Markdown link is strictly relative (POSIX `./...`, `../...`) with zero hardcoded machine paths.
 - [ ] All new skills contain complete YAML frontmatter and all 15 sections.
 - [ ] No external dependencies or package manifests were introduced.
-- [ ] Registered in [`SKILLS.md`](./SKILLS.md) and [`skills/README.md`](./skills/README.md).
+- [ ] Registered in `SKILLS.md` and [`skills/README.md`](./skills/README.md).
 - [ ] `CHANGELOG.md` has been updated with a description of your changes under `[Unreleased]`.
 - [ ] All UI modifications comply with the **UI/UX Pro Max** standards in `RULES.md`.
 

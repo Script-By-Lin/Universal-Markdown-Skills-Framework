@@ -84,11 +84,11 @@ flowchart TD
     TPL -.-> DOC
 ```
 
-1. **Universal Instruction System** ([`AGENTS.md`](./AGENTS.md), [`RULES.md`](./RULES.md), [`WORKFLOW.md`](./WORKFLOW.md)): Governs entry points, precedence ranking, safety invariants, TDD Red-Green-Refactor, Tripartite roles, and 4-tier release gates.
-2. **Reusable Skills System** ([`SKILLS.md`](./SKILLS.md), [`skills/`](./skills/)): 66 on-demand domain capability packages structured into 16 canonical numbered domain directories under `skills/` (with dual-path backward compatibility via root symlinks).
-3. **Project Context System** ([`CONTEXT.md`](./CONTEXT.md)): The verified single source of truth describing active stack, modules, and limitations.
-4. **Persistent Knowledge and Memory System** ([`MEMORY.md`](./MEMORY.md), [`DECISIONS.md`](./DECISIONS.md)): Preserves architectural lessons, pitfalls, conventions, and immutable ADRs (ADR-001 through ADR-016).
-5. **Development Continuity System** ([`TASKS.md`](./TASKS.md), [`CHANGELOG.md`](./CHANGELOG.md), [`templates/`](./templates/), [`docs_agent/`](./docs_agent/)): Operational 5-state task tracker, 18 project templates, and multi-agent session handoffs.
+1. **Universal Instruction System** (`AGENTS.md`, `RULES.md`, `WORKFLOW.md`): Governs entry points, precedence ranking, safety invariants, TDD Red-Green-Refactor, Tripartite roles, and 4-tier release gates.
+2. **Reusable Skills System** (`SKILLS.md`, [`skills/`](./skills/)): 66 on-demand domain capability packages structured into 16 canonical numbered domain directories under `skills/` (with dual-path backward compatibility via root symlinks).
+3. **Project Context System** (`CONTEXT.md`): The verified single source of truth describing active stack, modules, and limitations.
+4. **Persistent Knowledge and Memory System** (`MEMORY.md`, `DECISIONS.md`): Preserves architectural lessons, pitfalls, conventions, and immutable ADRs (ADR-001 through ADR-016).
+5. **Development Continuity System** (`TASKS.md`, `CHANGELOG.md`, [`templates/`](./templates/), [`docs_agent/`](./docs_agent/)): Operational 5-state task tracker, 18 project templates, and multi-agent session handoffs.
 
 ---
 
@@ -152,11 +152,11 @@ Mandatory for all testable features:
 
 ### Pure Markdown UI/UX Design Intelligence
 All design guidance is 100% self-contained in Markdown catalogs (zero CLI tools or external installations required):
-- [`styles-and-palettes.md`](./skills/ui-ux-pro-max/references/styles-and-palettes.md): 88 visual styles, 192 product palettes, 74 font pairings, 25 chart types.
-- [`quick-reference.md`](./skills/ui-ux-pro-max/references/quick-reference.md): All 10 priority rule categories and 119 UX guidelines with rationale.
-- [`pro-rules.md`](./skills/ui-ux-pro-max/references/pro-rules.md): Mobile polish rules and canonical Pre-Delivery Checklist.
+- `styles-and-palettes.md`: 88 visual styles, 192 product palettes, 74 font pairings, 25 chart types.
+- `quick-reference.md`: All 10 priority rule categories and 119 UX guidelines with rationale.
+- `pro-rules.md`: Mobile polish rules and canonical Pre-Delivery Checklist.
 
-> Consult [`SKILLS.md`](./SKILLS.md) for the complete central directory and selection protocols.
+> Consult `SKILLS.md` for the complete central directory and selection protocols.
 
 ---
 
@@ -169,7 +169,7 @@ UMSF requires **zero package installation**. You can adopt it in minutes:
    ```bash
    cp -r /path/to/universal-markdown-skills/* ./
    ```
-2. Open [`CONTEXT.md`](./CONTEXT.md) and update Section 1 with your project name and technology stack.
+2. Open `CONTEXT.md` and update Section 1 with your project name and technology stack.
 3. Open your project with your favorite AI coding agent and instruct:
    > *"Read AGENTS.md and follow the 10-step initialization procedure."*
 
@@ -179,11 +179,11 @@ UMSF requires **zero package installation**. You can adopt it in minutes:
    cp AGENTS.md RULES.md WORKFLOW.md SKILLS.md CONTEXT.md MEMORY.md DECISIONS.md TASKS.md CHANGELOG.md ./
    cp -r skills/ templates/ docs_agent/ ./
    ```
-2. Update [`CONTEXT.md`](./CONTEXT.md) to accurately document your existing codebase reality.
+2. Update `CONTEXT.md` to accurately document your existing codebase reality.
 3. **Preserve Existing Docs**: If you already have a `README.md` or `CLAUDE.md`, simply append a pointer:
    ```markdown
    ## Agent Operating Instructions
-   This repository is governed by UMSF. See [AGENTS.md](./AGENTS.md) for universal agent protocols.
+   This repository is governed by UMSF. See `AGENTS.md` for universal agent protocols.
    ```
 
 ---
@@ -220,7 +220,7 @@ UMSF has been constructed in seven foundational phases plus major expansion mile
 
 ## 8. Contributing
 
-Contributions are welcomed! Please read [`CONTRIBUTING.md`](./CONTRIBUTING.md) for skill authoring rules, 15-section schema requirements, and pull request guidelines.
+Contributions are welcomed! Please read `CONTRIBUTING.md` for skill authoring rules, 15-section schema requirements, and pull request guidelines.
 
 ---
 

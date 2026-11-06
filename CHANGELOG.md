@@ -23,13 +23,13 @@
   - Codified index design rules (equality first, range second, covering indexes, partial indexes), execution plan diagnostics (`EXPLAIN ANALYZE`), transaction concurrency optimization, and the canonical 14-category finding taxonomy.
   - Scaffolded dual-path root compatibility symlink `skills/database-query-optimization`.
   - Expanded UMSF skills library to **66 Core Domain Skills** across the 16 Canonical Engineering Domains (3 in Domain 08).
-- **Architectural Decision Record ADR-017 ([`DECISIONS.md`](./DECISIONS.md))**:
+- **Architectural Decision Record ADR-017 (`DECISIONS.md`)**:
   - Ratified ADR-017: Formalization of Database Query Optimization & Performance Engineering Skill.
 
 ### Changed
 - **Registry & Documentation Synchronization**:
-  - Regenerated master registry [`SKILLS.md`](./SKILLS.md) to index all 66 Core Domain Skills with 0 broken links.
-  - Updated [`CONTEXT.md`](./CONTEXT.md), [`README.md`](./README.md), [`skills/README.md`](./skills/README.md), and archived `TASK-018` in [`TASKS.md`](./TASKS.md).
+  - Regenerated master registry `SKILLS.md` to index all 66 Core Domain Skills with 0 broken links.
+  - Updated `CONTEXT.md`, `README.md`, [`skills/README.md`](./skills/README.md), and archived `TASK-018` in `TASKS.md`.
 
 ---
 
@@ -46,13 +46,13 @@
   - Codified canonical 11-category failure taxonomy and 5-state verification status gate (`FULLY_VERIFIED`, `PARTIALLY_VERIFIED`, `NEEDS_REMEDIATION`, `BLOCKED`, `NOT_VERIFIED`).
   - Scaffolded dual-path root compatibility symlink `skills/feature-integration-verification`.
   - Expanded UMSF skills library to **65 Core Domain Skills** across the 16 Canonical Engineering Domains (18 in Domain 09).
-- **Architectural Decision Record ADR-016 ([`DECISIONS.md`](./DECISIONS.md))**:
+- **Architectural Decision Record ADR-016 (`DECISIONS.md`)**:
   - Ratified ADR-016: Formalization of Feature Integration & End-to-End Consistency Verification Skill.
 
 ### Changed
 - **Registry & Documentation Synchronization**:
-  - Regenerated master registry [`SKILLS.md`](./SKILLS.md) to index all 65 Core Domain Skills with 0 broken links.
-  - Updated [`CONTEXT.md`](./CONTEXT.md), [`README.md`](./README.md), [`skills/README.md`](./skills/README.md), and archived `TASK-017` in [`TASKS.md`](./TASKS.md).
+  - Regenerated master registry `SKILLS.md` to index all 65 Core Domain Skills with 0 broken links.
+  - Updated `CONTEXT.md`, `README.md`, [`skills/README.md`](./skills/README.md), and archived `TASK-017` in `TASKS.md`.
 
 ---
 
@@ -71,15 +71,15 @@
   - Validated all 7 representative engineering scenarios in [`docs_agent/testing/FRAMEWORK_VALIDATION.md`](./docs_agent/testing/FRAMEWORK_VALIDATION.md).
   - Empirical before-and-after token efficiency measurements in [`docs_agent/testing/TOKEN_EFFICIENCY_RESULTS.md`](./docs_agent/testing/TOKEN_EFFICIENCY_RESULTS.md) demonstrating 67.1% to 90.4% token reductions on skill loading.
 - **Architectural Decision Record ADR-015**:
-  - Ratified ADR-015: MVP-First Skills Architecture, Progressive Context Loading, and Global Token Efficiency Architecture in [`DECISIONS.md`](./DECISIONS.md).
+  - Ratified ADR-015: MVP-First Skills Architecture, Progressive Context Loading, and Global Token Efficiency Architecture in `DECISIONS.md`.
 
 ### Changed
 - **Governance Instruction Consolidation**:
-  - Streamlined [`AGENTS.md`](./AGENTS.md) by replacing duplicate conflict resolution matrices and 12-stage narratives with authoritative pointers to [`RULES.md`](./RULES.md) and [`WORKFLOW.md`](./WORKFLOW.md).
-  - Completely regenerated [`SKILLS.md`](./SKILLS.md) into a high-density, lightweight registry with explicit activation triggers, canonical paths, and Level 3 reference links for all 64 skills.
-  - Updated [`RULES.md`](./RULES.md) to v1.7.0 with explicit progressive loading and token efficiency invariants.
-  - Updated [`WORKFLOW.md`](./WORKFLOW.md) to v1.7.0 with progressive execution principles and token-aware reporting requirements.
-  - Updated [`CONTEXT.md`](./CONTEXT.md) to v1.7.0 and archived `TASK-016` in [`TASKS.md`](./TASKS.md).
+  - Streamlined `AGENTS.md` by replacing duplicate conflict resolution matrices and 12-stage narratives with authoritative pointers to `RULES.md` and `WORKFLOW.md`.
+  - Completely regenerated `SKILLS.md` into a high-density, lightweight registry with explicit activation triggers, canonical paths, and Level 3 reference links for all 64 skills.
+  - Updated `RULES.md` to v1.7.0 with explicit progressive loading and token efficiency invariants.
+  - Updated `WORKFLOW.md` to v1.7.0 with progressive execution principles and token-aware reporting requirements.
+  - Updated `CONTEXT.md` to v1.7.0 and archived `TASK-016` in `TASKS.md`.
 
 ---
 
@@ -92,7 +92,7 @@
   - Preserved upstream MIT License and copyright notices (Copyright (c) 2026 Affaan Mustafa, SHA: `b38be6a7f6350964d59328b52f0624e1d1d552d1`).
 - **Research-First Development Workflow**:
   - Codified mandatory research phase into Stage 1 of `WORKFLOW.md` and `AGENTS.md` Section 7 before authoring plans or code.
-- **Architectural Decision Record ADR-014 ([`DECISIONS.md`](./DECISIONS.md))**:
+- **Architectural Decision Record ADR-014 (`DECISIONS.md`)**:
   - Ratified ADR-014: Architectural Integration of High-Value ECC Capabilities & Streamlining to 64 Core Domain Skills.
 
 ### Changed
@@ -102,8 +102,8 @@
   - Preserved `ui-ux-pro-max` as the sole canonical design intelligence suite in Domain 07 (`skills/07-frontend-engineering/ui-ux-pro-max/`) and dual-path root symlink `skills/ui-ux-pro-max`.
   - Maintained 64 dual-path backward-compatible root symlinks in `skills/`.
 - **Master Registry & Governance Synchronization**:
-  - Completely regenerated [`SKILLS.md`](./SKILLS.md) to index all 64 Core Domain Skills across the 16 Canonical Engineering Domains with 0 broken links.
-  - Updated [`skills/README.md`](./skills/README.md), [`README.md`](./README.md), [`CONTEXT.md`](./CONTEXT.md), [`TASKS.md`](./TASKS.md), [`MEMORY.md`](./MEMORY.md), and [`docs_agent/SESSION_LOG.md`](./docs_agent/SESSION_LOG.md).
+  - Completely regenerated `SKILLS.md` to index all 64 Core Domain Skills across the 16 Canonical Engineering Domains with 0 broken links.
+  - Updated [`skills/README.md`](./skills/README.md), `README.md`, `CONTEXT.md`, `TASKS.md`, `MEMORY.md`, and [`docs_agent/SESSION_LOG.md`](./docs_agent/SESSION_LOG.md).
 
 ---
 
@@ -116,9 +116,9 @@
   - Re-routed all cross-references across remaining skills (`api-development`, `backend-development`, `i18n-sync`, `react-patterns`, `react-performance`, `react-testing`, `refactoring`, `software-architecture`) to `ui-ux-pro-max`.
   - Re-calibrated total physical skill count to exactly **351 unique skills** across 16 domains (64 core domain skills + 287 specialized modules).
 - **Master Registry & Governance Synchronization**:
-  - Updated [`SKILLS.md`](./SKILLS.md) to reflect 351 total cataloged skills and removed deleted rows from Domain 07 and Section 3.
-  - Updated [`skills/README.md`](./skills/README.md), [`README.md`](./README.md), [`CONTEXT.md`](./CONTEXT.md), [`TASKS.md`](./TASKS.md), and [`MEMORY.md`](./MEMORY.md).
-  - Ratified Architectural Decision Record `ADR-013` in [`DECISIONS.md`](./DECISIONS.md).
+  - Updated `SKILLS.md` to reflect 351 total cataloged skills and removed deleted rows from Domain 07 and Section 3.
+  - Updated [`skills/README.md`](./skills/README.md), `README.md`, `CONTEXT.md`, `TASKS.md`, and `MEMORY.md`.
+  - Ratified Architectural Decision Record `ADR-013` in `DECISIONS.md`.
   - Verified 0 broken links and 100% pure Markdown compliance across the entire repository.
 
 ---
@@ -132,33 +132,33 @@
   - Standardized 11-field defect schema across 7 severity tiers (Critical, High, Medium, Low, Informational, False Positive, Not Tested).
   - Scaffolded dual-path root compatibility symlink `skills/independent-verification-subagent`.
   - Expanded total unique skill library count to **372 physical skills** across 16 domains.
-- **Architectural Decision Record ADR-012 ([`DECISIONS.md`](./DECISIONS.md))**:
+- **Architectural Decision Record ADR-012 (`DECISIONS.md`)**:
   - Ratified ADR-012: Independent Verification Subagent Architecture & Structured Tripartite Delegation Protocol.
 
 ### Changed
 - **Subagent Role Governance & Handoff Protocols**:
-  - Updated [`AGENTS.md`](./AGENTS.md) Section 2 and Section 7: Primary Development Agent (Agent A) prepares structured handoff payload; Independent Verification Subagent (Agent B) conducts independent audit. Agent A is strictly prohibited from claiming self-verification.
-  - Updated [`RULES.md`](./RULES.md) Section 8 and Section 14: Codified Compilation Inadequacy Invariant (building without error is strictly insufficient for `VERIFIED`), Remediation Boundedness (`MAX_VERIFICATION_ITERATIONS = 3`), and Honest Attribution (single-agent fallback must explicitly declare sequential self-review).
-  - Updated [`WORKFLOW.md`](./WORKFLOW.md) Stages 7 through 12 and Section 3: Embedded subagent handoffs, finding classification, bounded remediation, and tri-state acceptance verdicts (`VERIFIED`, `NEEDS REMEDIATION`, `BLOCKED / NOT VERIFIED`).
-  - Synchronized master registry [`SKILLS.md`](./SKILLS.md), [`skills/README.md`](./skills/README.md), [`README.md`](./README.md), [`CONTEXT.md`](./CONTEXT.md), and [`CONTRIBUTING.md`](./CONTRIBUTING.md) to 372 cataloged skills.
+  - Updated `AGENTS.md` Section 2 and Section 7: Primary Development Agent (Agent A) prepares structured handoff payload; Independent Verification Subagent (Agent B) conducts independent audit. Agent A is strictly prohibited from claiming self-verification.
+  - Updated `RULES.md` Section 8 and Section 14: Codified Compilation Inadequacy Invariant (building without error is strictly insufficient for `VERIFIED`), Remediation Boundedness (`MAX_VERIFICATION_ITERATIONS = 3`), and Honest Attribution (single-agent fallback must explicitly declare sequential self-review).
+  - Updated `WORKFLOW.md` Stages 7 through 12 and Section 3: Embedded subagent handoffs, finding classification, bounded remediation, and tri-state acceptance verdicts (`VERIFIED`, `NEEDS REMEDIATION`, `BLOCKED / NOT VERIFIED`).
+  - Synchronized master registry `SKILLS.md`, [`skills/README.md`](./skills/README.md), `README.md`, `CONTEXT.md`, and `CONTRIBUTING.md` to 372 cataloged skills.
 
 ### Added
 - **Post-Task Verification Skill (`skills/12-code-quality-and-maintenance/post-task-verification/SKILL.md`)**:
   - Authored canonical 15-section domain skill enforcing 15-dimensional post-implementation audits (prompt review, diff sweep, completeness, test results, security impact, regression avoidance, and revalidation loops).
   - Scaffolded dual-path root symlink `skills/post-task-verification`.
   - Expanded total skill library count to **371 unique skills**.
-- **12-Stage Canonical Engineering Lifecycle ([`WORKFLOW.md`](./WORKFLOW.md))**:
+- **12-Stage Canonical Engineering Lifecycle (`WORKFLOW.md`)**:
   - Expanded lifecycle to 12 stages with mandatory line-level diff sweeps, requirement completeness audits, defect classification, and evidence-backed completion.
-- **Architectural Decision Record ADR-011 ([`DECISIONS.md`](./DECISIONS.md))**:
+- **Architectural Decision Record ADR-011 (`DECISIONS.md`)**:
   - Ratified ADR-011 superseding ADR-005: replaced arbitrary two-skill maximums with Dynamic Context-Aware Skill Loading, scoped release gates proportionally to change risk, and codified task completion invariants.
 
 ### Changed
 - **Framework Contradiction Resolution**:
   - Removed arbitrary fixed two-skill limits across `AGENTS.md`, `RULES.md`, and `SKILLS.md`.
-  - Defined clear Authority Boundary Triad in [`RULES.md`](./RULES.md): Platform Safety Constraints vs. Mandatory Framework Invariants vs. User Project Decisions.
+  - Defined clear Authority Boundary Triad in `RULES.md`: Platform Safety Constraints vs. Mandatory Framework Invariants vs. User Project Decisions.
   - Scoped Release Gates and Security Verification proportionally to risk in `RULES.md` and `WORKFLOW.md`.
   - Enforced Evidence-Based Task Completion Invariant: tasks cannot be marked `Completed` without empirical evidence, and unresolved blockers must be reported honestly.
-- **Master Registry Synchronization ([`SKILLS.md`](./SKILLS.md))**:
+- **Master Registry Synchronization (`SKILLS.md`)**:
   - Completely synchronized `SKILLS.md` to catalog all 371 skills (71 domain core skills in Section 2 tables + 300 specialized engineering skills in Section 3 catalog).
   - Verified 393 relative internal links with 0 broken links.
 
@@ -172,8 +172,8 @@
   - Converted 1,150+ internal file links across core governance files, 370 skills, templates, and documentation to exact POSIX relative paths.
   - Resolved `AGENTS.md:L134` (`./TASKS.md`) and `skills/ui-ux-pro-max/SKILL.md:L21` (`./references/quick-reference.md`).
 - **Portability Invariant Codified**:
-  - Added Invariant 6 (Repository Portability & Relative Links Invariant) and anti-pattern entry to [`RULES.md`](./RULES.md).
-- **Architectural Decision Record ADR-010 ([`DECISIONS.md`](./DECISIONS.md))**:
+  - Added Invariant 6 (Repository Portability & Relative Links Invariant) and anti-pattern entry to `RULES.md`.
+- **Architectural Decision Record ADR-010 (`DECISIONS.md`)**:
   - Ratified ADR-010: Strict Relative Paths and Repository Portability Invariant.
 
 ---
@@ -181,10 +181,10 @@
 ## [1.2.1] — 2026-11-03
 
 ### Added
-- **Pure Markdown Design Catalog ([`styles-and-palettes.md`](./skills/ui-ux-pro-max/references/styles-and-palettes.md))**:
+- **Pure Markdown Design Catalog (`styles-and-palettes.md`)**:
   - Compiled the complete UI/UX Pro Max design intelligence into pure Markdown: 88 visual styles, 192 product color palettes, 74 font pairings, and 25 chart guides.
   - Enables any user and any AI coding agent to browse, select, and apply styles, palettes, and typography directly from Markdown without running CLI tools or interactive search.
-- **Architectural Decision Record ADR-009 ([`DECISIONS.md`](./DECISIONS.md))**:
+- **Architectural Decision Record ADR-009 (`DECISIONS.md`)**:
   - Ratified 100% self-contained Markdown skills architecture and elimination of interactive search CLI dependencies.
 
 ### Changed
@@ -195,7 +195,7 @@
 - **ECC Skills Universalization**:
   - Decoupled `tdd-workflow`, `autonomous-loops`, `dmux-workflows`, `configure-ecc`, and `plan-canvas` from assumptions of external ECC checkouts or plugin roots.
 - **Governance Updates**:
-  - Updated [`RULES.md`](./RULES.md) (Section 2.5 and Section 14), [`WORKFLOW.md`](./WORKFLOW.md) (Stage 4), [`SKILLS.md`](./SKILLS.md), [`CONTEXT.md`](./CONTEXT.md), [`README.md`](./README.md), and [`MEMORY.md`](./MEMORY.md).
+  - Updated `RULES.md` (Section 2.5 and Section 14), `WORKFLOW.md` (Stage 4), `SKILLS.md`, `CONTEXT.md`, `README.md`, and `MEMORY.md`.
 
 ---
 
@@ -228,26 +228,26 @@
   - All 35 skills authored in full 15-section UMSF schema with actionable workflows, checklists, and acceptance criteria.
   - Total catalog expanded to **370 skills**.
 - **Mandatory Test-Driven Development (TDD) Red-Green-Refactor Protocol**:
-  - Formalized in [`RULES.md`](./RULES.md) (Section 7) and [`WORKFLOW.md`](./WORKFLOW.md) (Stage 5).
+  - Formalized in `RULES.md` (Section 7) and `WORKFLOW.md` (Stage 5).
   - Absolute prohibitions against post-hoc test authoring, test relaxation, or claiming unverified passes.
 - **Tripartite Agent Architecture & Execution Modes**:
-  - Formalized Agent A (Development), Agent B (Independent QA), and Agent C (Independent Security) in [`AGENTS.md`](./AGENTS.md) (Section 2) and [`RULES.md`](./RULES.md) (Section 8).
+  - Formalized Agent A (Development), Agent B (Independent QA), and Agent C (Independent Security) in `AGENTS.md` (Section 2) and `RULES.md` (Section 8).
   - Enforced Mode 1 (concurrent subagent verification) and Mode 2 (sequential single-agent role-switching passes).
   - Absolute ban on developer self-approval.
 - **Authorized Penetration Testing & Vulnerability Lifecycle**:
-  - Codified strict authorization scope, non-destructive tools, and zero data exfiltration invariants in [`RULES.md`](./RULES.md) (Section 9) and [`WORKFLOW.md`](./WORKFLOW.md) (Stage 7).
+  - Codified strict authorization scope, non-destructive tools, and zero data exfiltration invariants in `RULES.md` (Section 9) and `WORKFLOW.md` (Stage 7).
   - Defined 10-stage Vulnerability Management Lifecycle with 5-tier risk severity classification.
   - Enforced mandatory independent security retesting before closing any vulnerability.
 - **Four-Tier Release Gates**:
-  - Codified in [`RULES.md`](./RULES.md) (Section 10) and [`WORKFLOW.md`](./WORKFLOW.md) (Stage 8): Functional, Regression, Security, and Documentation Gates.
+  - Codified in `RULES.md` (Section 10) and `WORKFLOW.md` (Stage 8): Functional, Regression, Security, and Documentation Gates.
 - **11 Project Testing & Security Scaffolding Templates**:
   - Added 11 standardized templates to [`templates/`](./templates/): `TEST_STRATEGY.template.md`, `TDD_LOG.template.md`, `TEST_RESULTS.md`, `REGRESSION_REPORT.md`, `QA_ASSESSMENT.md`, `SECURITY_TEST_PLAN.md`, `THREAT_MODEL.md`, `SECURITY_ASSESSMENT.md`, `VULNERABILITY_REGISTER.md`, `PENETRATION_TEST_REPORT.md`, `RETEST_REPORT.md`.
   - Preserved the empty user-project `/docs_agent/` initialization invariant.
 - **Architectural Decision Record ADR-008**:
-  - Ratified in [`DECISIONS.md`](./DECISIONS.md): Comprehensive Testing, Test-Driven Development (TDD), and AI Security Engineering Architecture.
+  - Ratified in `DECISIONS.md`: Comprehensive Testing, Test-Driven Development (TDD), and AI Security Engineering Architecture.
 - **Central Registries & Memory Updates**:
-  - Completely updated [`SKILLS.md`](./SKILLS.md) to index all 370 skills across 16 domains with role mappings.
-  - Updated [`MEMORY.md`](./MEMORY.md) with critical lessons on TDD confirmation bias, destructive security probing, and single-agent self-approval avoidance.
+  - Completely updated `SKILLS.md` to index all 370 skills across 16 domains with role mappings.
+  - Updated `MEMORY.md` with critical lessons on TDD confirmation bias, destructive security probing, and single-agent self-approval avoidance.
 
 ---
 
@@ -277,14 +277,14 @@
     - Database Systems, Storage & Data Pipelines (21 skills)
     - Language Patterns & Core Runtimes (11 skills)
     - Cloud, Infrastructure, Containers & DevOps (9 skills)
-- **Central Registry Expansion ([`SKILLS.md`](./SKILLS.md))**:
+- **Central Registry Expansion (`SKILLS.md`)**:
   - Upgraded registry to index all 335 active skills with direct file links and concise summaries.
   - Documented Three-Tier Architecture (Tier 1 Foundational, Tier 2 UI/UX Pro Max, Tier 3 Domain Specialties).
   - Documented CLI search commands and multi-skill pairing recommendations.
 - **Foundational Skill Synergy**:
   - Enhanced `skills/ui-ux-design/SKILL.md` to directly command `search.py` CLI and reference datasets.
   - Enhanced `skills/frontend-development/SKILL.md` to cross-reference design system tokens and audit tools.
-- **Architectural Decision Record ADR-007 ([`DECISIONS.md`](./DECISIONS.md))**:
+- **Architectural Decision Record ADR-007 (`DECISIONS.md`)**:
   - Ratified three-tier skills architecture and local-first search CLI integration.
 
 ---
@@ -292,11 +292,11 @@
 ## [1.0.0-phase4] — 2026-11-03
 
 ### Added
-- **Project Context System ([`CONTEXT.md`](./CONTEXT.md))**:
+- **Project Context System (`CONTEXT.md`)**:
   - Verified snapshot of repository reality: technology stack, directory layout, 15 canonical skills, preserved assets, and boundaries.
-- **Persistent Knowledge Base ([`MEMORY.md`](./MEMORY.md))**:
+- **Persistent Knowledge Base (`MEMORY.md`)**:
   - Long-term organizational memory preserving zero-dependency conventions, UI/UX Pro Max invariants (Swiss style, WCAG AA 4.5:1, 44px hit size, no emojis), common technical pitfalls, and reusable reproduction patterns.
-- **Architectural Decision Records ([`DECISIONS.md`](./DECISIONS.md))**:
+- **Architectural Decision Records (`DECISIONS.md`)**:
   - Immutable ADR ledger formalizing ADRs 001 through 006:
     - ADR-001: Zero-Dependency, Markdown-Only Core Architecture
     - ADR-002: Adoption of UI/UX Pro Max as Canonical Design Intelligence Standard
@@ -315,7 +315,7 @@
 ## [1.0.0-phase3] — 2026-11-03
 
 ### Added
-- **Central Skill Registry ([`SKILLS.md`](./SKILLS.md))**:
+- **Central Skill Registry (`SKILLS.md`)**:
   - Published discovery flowchart, pairing rules, and new skill authoring guidelines.
 - **Skill Scaffolding Template ([`templates/SKILL.template.md`](./templates/SKILL.template.md))**:
   - Canonical 15-section UMSF template.
@@ -338,15 +338,15 @@
 ## [1.0.0-phase2] — 2026-11-02
 
 ### Added
-- **Mandatory Constraints ([`RULES.md`](./RULES.md))**:
+- **Mandatory Constraints (`RULES.md`)**:
   - Framework invariants, clean code, security standards, anti-pattern blacklist.
   - **UI/UX Pro Max Invariants** elevated to Precedence Level 2.
-- **Engineering Lifecycle ([`WORKFLOW.md`](./WORKFLOW.md))**:
+- **Engineering Lifecycle (`WORKFLOW.md`)**:
   - 9-stage engineering lifecycle with gates and category adaptations.
 - **Phase 2 Report ([`docs_agent/phases/PHASE_02_INSTRUCTIONS.md`](./docs_agent/phases/PHASE_02_INSTRUCTIONS.md))**.
 
 ### Changed
-- **Universal Entry Point ([`AGENTS.md`](./AGENTS.md))**:
+- **Universal Entry Point (`AGENTS.md`)**:
   - Upgraded to version `1.0.0-phase2` with 7-tier Precedence Hierarchy, Conflict Resolution Matrix, and Cross-Agent Adapters.
 
 ---
@@ -355,7 +355,7 @@
 
 ### Added
 - **Repository Architecture**: Initialized canonical UMSF directory hierarchy: `skills/` (15 subdirectories), `templates/`, `docs_agent/phases/`.
-- **Framework Entry Point**: Created initial [`AGENTS.md`](./AGENTS.md).
+- **Framework Entry Point**: Created initial `AGENTS.md`.
 - **Documentation & Tracking System**:
-  - [`README.md`](./README.md), [`LICENSE`](./LICENSE), [`docs_agent/ARCHITECTURE.md`](./docs_agent/ARCHITECTURE.md), [`docs_agent/IMPLEMENTATION_STATUS.md`](./docs_agent/IMPLEMENTATION_STATUS.md), [`docs_agent/PHASE_HISTORY.md`](./docs_agent/PHASE_HISTORY.md), [`docs_agent/DEVELOPMENT_LOG.md`](./docs_agent/DEVELOPMENT_LOG.md), [`docs_agent/CHANGE_HISTORY.md`](./docs_agent/CHANGE_HISTORY.md), [`docs_agent/SESSION_LOG.md`](./docs_agent/SESSION_LOG.md), [`docs_agent/phases/PHASE_01_FOUNDATION.md`](./docs_agent/phases/PHASE_01_FOUNDATION.md).
+  - `README.md`, [`LICENSE`](./LICENSE), [`docs_agent/ARCHITECTURE.md`](./docs_agent/ARCHITECTURE.md), [`docs_agent/IMPLEMENTATION_STATUS.md`](./docs_agent/IMPLEMENTATION_STATUS.md), [`docs_agent/PHASE_HISTORY.md`](./docs_agent/PHASE_HISTORY.md), [`docs_agent/DEVELOPMENT_LOG.md`](./docs_agent/DEVELOPMENT_LOG.md), [`docs_agent/CHANGE_HISTORY.md`](./docs_agent/CHANGE_HISTORY.md), [`docs_agent/SESSION_LOG.md`](./docs_agent/SESSION_LOG.md), [`docs_agent/phases/PHASE_01_FOUNDATION.md`](./docs_agent/phases/PHASE_01_FOUNDATION.md).
 
